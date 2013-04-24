@@ -13,6 +13,7 @@
 		7F51BE7E1724731900AF3F04 /* SBJsonBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51BE761724731900AF3F04 /* SBJsonBase.m */; };
 		7F51BE7F1724731900AF3F04 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51BE781724731900AF3F04 /* SBJsonParser.m */; };
 		7F51BE801724731900AF3F04 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51BE7A1724731900AF3F04 /* SBJsonWriter.m */; };
+		7F51BE83172473C300AF3F04 /* ShufflerTumblrDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51BE82172473C300AF3F04 /* ShufflerTumblrDB.m */; };
 		A14D63A8171F2B0400D41E01 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = A14D63A7171F2B0400D41E01 /* star.png */; };
 		A1C523FF1721578C00989D1D /* glossy_button_blank_black_rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C523FE1721578C00989D1D /* glossy_button_blank_black_rectangle.png */; };
 		A1FAD702171EA7BC0095EC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD701171EA7BC0095EC7E /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 		7F51BE781724731900AF3F04 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
 		7F51BE791724731900AF3F04 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
 		7F51BE7A1724731900AF3F04 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
+		7F51BE81172473C300AF3F04 /* ShufflerTumblrDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShufflerTumblrDB.h; sourceTree = "<group>"; };
+		7F51BE82172473C300AF3F04 /* ShufflerTumblrDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShufflerTumblrDB.m; sourceTree = "<group>"; };
 		A14D63A7171F2B0400D41E01 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = ../../../../Pictures/star.png; sourceTree = "<group>"; };
 		A1C523FE1721578C00989D1D /* glossy_button_blank_black_rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glossy_button_blank_black_rectangle.png; path = ../../../glossy_button_blank_black_rectangle.png; sourceTree = "<group>"; };
 		A1FAD6FE171EA7BC0095EC7E /* ShufflerTumblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShufflerTumblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +174,8 @@
 				A1FAD71F171EA7BC0095EC7E /* DetailViewController.h */,
 				A1FAD720171EA7BC0095EC7E /* DetailViewController.m */,
 				A1FAD708171EA7BC0095EC7E /* Supporting Files */,
+				7F51BE81172473C300AF3F04 /* ShufflerTumblrDB.h */,
+				7F51BE82172473C300AF3F04 /* ShufflerTumblrDB.m */,
 			);
 			path = ShufflerTumblr;
 			sourceTree = "<group>";
@@ -333,6 +338,7 @@
 				7F51BE7E1724731900AF3F04 /* SBJsonBase.m in Sources */,
 				7F51BE7F1724731900AF3F04 /* SBJsonParser.m in Sources */,
 				7F51BE801724731900AF3F04 /* SBJsonWriter.m in Sources */,
+				7F51BE83172473C300AF3F04 /* ShufflerTumblrDB.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
