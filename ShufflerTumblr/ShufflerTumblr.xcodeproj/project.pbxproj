@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A14D63A8171F2B0400D41E01 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = A14D63A7171F2B0400D41E01 /* star.png */; };
-		A1C523FF1721578C00989D1D /* glossy_button_blank_black_rectangle.png in Resources */ = {isa = PBXBuildFile; fileRef = A1C523FE1721578C00989D1D /* glossy_button_blank_black_rectangle.png */; };
+		A12324751727F28F005270A4 /* button1.png in Resources */ = {isa = PBXBuildFile; fileRef = A12324701727F28F005270A4 /* button1.png */; };
+		A12324761727F28F005270A4 /* button2.png in Resources */ = {isa = PBXBuildFile; fileRef = A12324711727F28F005270A4 /* button2.png */; };
+		A12324771727F28F005270A4 /* button3.png in Resources */ = {isa = PBXBuildFile; fileRef = A12324721727F28F005270A4 /* button3.png */; };
+		A12324781727F28F005270A4 /* button4.png in Resources */ = {isa = PBXBuildFile; fileRef = A12324731727F28F005270A4 /* button4.png */; };
+		A12324791727F28F005270A4 /* button5.png in Resources */ = {isa = PBXBuildFile; fileRef = A12324741727F28F005270A4 /* button5.png */; };
+		A187A3571727D83900AF4F82 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A187A3561727D83900AF4F82 /* WebViewController.m */; };
 		A1FAD702171EA7BC0095EC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD701171EA7BC0095EC7E /* UIKit.framework */; };
 		A1FAD704171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
 		A1FAD706171EA7BC0095EC7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD705171EA7BC0095EC7E /* CoreGraphics.framework */; };
@@ -39,8 +43,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A14D63A7171F2B0400D41E01 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = ../../../../Pictures/star.png; sourceTree = "<group>"; };
-		A1C523FE1721578C00989D1D /* glossy_button_blank_black_rectangle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = glossy_button_blank_black_rectangle.png; path = ../../../glossy_button_blank_black_rectangle.png; sourceTree = "<group>"; };
+		A12324701727F28F005270A4 /* button1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button1.png; path = "../../../../../../../Volumes/NO NAME/buttons/button1.png"; sourceTree = "<group>"; };
+		A12324711727F28F005270A4 /* button2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button2.png; path = "../../../../../../../Volumes/NO NAME/buttons/button2.png"; sourceTree = "<group>"; };
+		A12324721727F28F005270A4 /* button3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button3.png; path = "../../../../../../../Volumes/NO NAME/buttons/button3.png"; sourceTree = "<group>"; };
+		A12324731727F28F005270A4 /* button4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button4.png; path = "../../../../../../../Volumes/NO NAME/buttons/button4.png"; sourceTree = "<group>"; };
+		A12324741727F28F005270A4 /* button5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = button5.png; path = "../../../../../../../Volumes/NO NAME/buttons/button5.png"; sourceTree = "<group>"; };
+		A187A3551727D83900AF4F82 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		A187A3561727D83900AF4F82 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		A1FAD6FE171EA7BC0095EC7E /* ShufflerTumblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShufflerTumblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FAD701171EA7BC0095EC7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A1FAD703171EA7BC0095EC7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -130,6 +139,8 @@
 				A1FAD71C171EA7BC0095EC7E /* MasterViewController.h */,
 				A1FAD71D171EA7BC0095EC7E /* MasterViewController.m */,
 				A1FAD71F171EA7BC0095EC7E /* DetailViewController.h */,
+				A187A3551727D83900AF4F82 /* WebViewController.h */,
+				A187A3561727D83900AF4F82 /* WebViewController.m */,
 				A1FAD720171EA7BC0095EC7E /* DetailViewController.m */,
 				A1FAD708171EA7BC0095EC7E /* Supporting Files */,
 			);
@@ -139,14 +150,17 @@
 		A1FAD708171EA7BC0095EC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A12324701727F28F005270A4 /* button1.png */,
+				A12324711727F28F005270A4 /* button2.png */,
+				A12324721727F28F005270A4 /* button3.png */,
+				A12324731727F28F005270A4 /* button4.png */,
+				A12324741727F28F005270A4 /* button5.png */,
 				A1FAD709171EA7BC0095EC7E /* ShufflerTumblr-Info.plist */,
 				A1FAD70A171EA7BC0095EC7E /* InfoPlist.strings */,
 				A1FAD70D171EA7BC0095EC7E /* main.m */,
 				A1FAD70F171EA7BC0095EC7E /* ShufflerTumblr-Prefix.pch */,
 				A1FAD713171EA7BC0095EC7E /* Default.png */,
-				A14D63A7171F2B0400D41E01 /* star.png */,
 				A1FAD715171EA7BC0095EC7E /* Default@2x.png */,
-				A1C523FE1721578C00989D1D /* glossy_button_blank_black_rectangle.png */,
 				A1FAD717171EA7BC0095EC7E /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
@@ -247,8 +261,11 @@
 				A1FAD716171EA7BC0095EC7E /* Default@2x.png in Resources */,
 				A1FAD718171EA7BC0095EC7E /* Default-568h@2x.png in Resources */,
 				A1FAD71B171EA7BC0095EC7E /* MainStoryboard.storyboard in Resources */,
-				A14D63A8171F2B0400D41E01 /* star.png in Resources */,
-				A1C523FF1721578C00989D1D /* glossy_button_blank_black_rectangle.png in Resources */,
+				A12324751727F28F005270A4 /* button1.png in Resources */,
+				A12324761727F28F005270A4 /* button2.png in Resources */,
+				A12324771727F28F005270A4 /* button3.png in Resources */,
+				A12324781727F28F005270A4 /* button4.png in Resources */,
+				A12324791727F28F005270A4 /* button5.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +304,7 @@
 				A1FAD712171EA7BC0095EC7E /* AppDelegate.m in Sources */,
 				A1FAD71E171EA7BC0095EC7E /* MasterViewController.m in Sources */,
 				A1FAD721171EA7BC0095EC7E /* DetailViewController.m in Sources */,
+				A187A3571727D83900AF4F82 /* WebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
