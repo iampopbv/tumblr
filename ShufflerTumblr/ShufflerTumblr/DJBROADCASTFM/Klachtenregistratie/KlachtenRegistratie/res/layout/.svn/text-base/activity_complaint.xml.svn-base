@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    tools:context=".Complaint" >
+
+
+    
+
+    <EditText
+        android:id="@+id/edit_message"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/edit_message" >
+
+        <requestFocus />
+    </EditText>
+    
+    <Button
+        android:id="@+id/stepOneB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="47dp"
+        android:layout_marginLeft="30dp"
+        android:onClick="stepOne"
+        android:text="Stap 1" />
+
+    <Button
+        android:id="@+id/stepTwoB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/StepThreeB"
+        android:layout_alignBottom="@+id/StepThreeB"
+        android:layout_centerHorizontal="true"
+        android:onClick="stepTwo"
+        android:text="Stap 2" />
+
+    <Button
+        android:id="@+id/StepThreeB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/stepOneB"
+        android:layout_alignBottom="@+id/stepOneB"
+        android:layout_marginLeft="15dp"
+        android:layout_toRightOf="@+id/stepTwoB"
+        android:onClick="stepThree"
+        android:text="Stap 3" />
+
+    <EditText
+        android:id="@+id/username"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="56dp"
+        android:ems="10"
+        android:hint="@string/edit_message" />
+
+</RelativeLayout>

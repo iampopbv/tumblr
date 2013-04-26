@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/menu"
+    android:gravity="center"
+    android:orientation="vertical" >
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="100dp" >
+
+</View>
+
+    <Button
+        android:id="@+id/start"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/but1"
+        android:onClick="onStartClick"
+        android:textSize="60sp" />
+
+    <Button
+        android:id="@+id/instructions"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/but2"
+        android:onClick="onInstructionClick"
+        android:textSize="60sp" />
+
+    <Button
+        android:id="@+id/delen"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/but4"
+        android:onClick="onDelenClick" />
+
+    <Button
+        android:id="@+id/colofon"
+        android:layout_width="fill_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/but3"
+        android:onClick="onColofonClick"
+        android:textSize="60sp" />
+
+</LinearLayout>

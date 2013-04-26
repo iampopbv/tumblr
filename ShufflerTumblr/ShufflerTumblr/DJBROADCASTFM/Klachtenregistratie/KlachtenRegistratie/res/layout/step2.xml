@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="65dp"
+        android:layout_weight="97"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/tvHeadTextCamera"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Een foto zegt meer dan duizend woorden. Maak een foto ter verduideling van uw klacht."
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="18dp" />
+
+        <ImageView
+            android:id="@+id/ivReturnedPic"
+            android:layout_width="fill_parent"
+            android:layout_height="150dp"
+            android:layout_weight="0.80"
+            android:src="@drawable/ic_camera" />
+
+        <ImageButton
+            android:id="@+id/ibTakePic"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_camera" />
+    </LinearLayout>
+
+    <!-- This is for the buttons that are visable in every step -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:id="@+id/ivUnderline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/underline" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/bPage1"
+                android:layout_width="46dp"
+                android:layout_height="44dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_step1" />
+
+            <Button
+                android:id="@+id/bPage2"
+                android:layout_width="42dp"
+                android:layout_height="41dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_step2selected" />
+
+            <Button
+                android:id="@+id/bPage3"
+                android:layout_width="42dp"
+                android:layout_height="41dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/ic_step3" />
+
+            <Button
+                android:id="@+id/bForward"
+                android:layout_width="122dp"
+                android:layout_height="32dp"
+                android:onClick="stepThree"
+                android:background="@drawable/ic_volgende" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

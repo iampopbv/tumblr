@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/firstuse_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    android:padding="10dp" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="65dp" >
+
+        <TextView
+            android:id="@+id/tvFirstUse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Zo te zien is dit de eerste keer dat u deze app start"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="360dp"
+            android:background="@drawable/bg"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+             android:weightSum="100" >
+
+            <ImageButton
+                android:id="@+id/ibRegistreren"
+                android:layout_width="122dp"
+                android:layout_height="32dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignTop="@+id/ibInloggen"
+                android:layout_centerInParent="false"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/ic_registreren"
+                android:layout_marginTop="90dp"
+                android:layout_weight="50" />
+
+            <ImageButton
+                android:id="@+id/ibInloggen"
+                android:layout_width="122dp"
+                android:layout_height="32dp"
+                android:layout_centerInParent="false"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="90dp"
+                android:layout_toRightOf="@+id/ibRegistreren"
+                android:background="@drawable/ic_inloggen"
+                android:layout_weight="50" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvVerderNGR"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Verder gaan zonder te registreren?"
+            android:textColor="#0000FF"
+            android:textSize="10dp" />
+    </LinearLayout>
+
+</RelativeLayout>
