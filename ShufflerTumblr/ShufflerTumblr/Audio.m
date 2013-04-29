@@ -13,7 +13,9 @@
 -(id) initWithData:(NSDictionary *) data {
     self = [super init];
     if (self) {
-        
+        self.response = [data objectForKey:@"response"];
+        self.posts = [self.response objectForKey:@"post"];
+        self.blog = [self.response objectForKey:@"blog"];
     }
     return self;
 }

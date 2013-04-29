@@ -16,6 +16,10 @@ typedef enum {
     AUDIO,
     VIDEO
 } postType;
+@property NSDictionary* response;
+@property NSDictionary* blog;
+@property NSDictionary* posts;
+
 
 -(id)initWithData: (NSDictionary*) data;
 

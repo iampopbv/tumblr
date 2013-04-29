@@ -10,16 +10,22 @@
 #import "Post.h"
 #import "Video.h"
 #import "Audio.h"
+#import "Info.h"
+#import "BlogInfo.h"
 
 @interface ShufflerTumblrDB : NSObject
 
-typedef void (^ShufflerTumblrSingleQueryCompletionBlock)(id<Post> post, NSError *error);
-typedef void (^ShufflerTumblrMultipleQueryCompletionBlock)(NSArray *posts, NSError *error);
+typedef void (^ShufflerTumblrPostQueryCompletionBlock)(id<Post> post, NSError *error);
+typedef void (^ShufflerTumblrMultiplePostQueryCompletionBlock)(NSArray *posts, NSError *error);
+typedef void (^ShufflerTumblrInfoQueryCompletionBlock)(id<Info> info, NSError *error);
 
 extern const NSString * apiURL;
 extern const NSString * apiKey;
 @property NSString * apiType;
 
 -(void) getPosts: (NSString*) type;
--(id<Post>) parseJSONtoPost: (NSString*) jsonString;
+-(void) getInfo;
+-(id<Post>) parseJSONtoAudio: (NSString*) jsonString;
+-(id<Post>) parseJSONtoVideo: (NSString*) jsonString;
+-(id<Info>) parseJSONtoInfo: (NSString*) jsonString;
 @end
