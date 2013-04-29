@@ -1,1 +1,7 @@
 ShufflerTumblr/.DS_Store
+
+*.pbxproj
+
+*.xcuserstate
+
+*.xcbkptlist
