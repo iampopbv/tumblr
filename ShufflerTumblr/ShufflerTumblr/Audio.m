@@ -10,10 +10,14 @@
 
 @implementation Audio
 
--(id) initWithData:(NSDictionary *) data {
+@synthesize blog;
+@synthesize response;
+@synthesize posts;
+
+-(id) initWithDictionairy:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
-        self.response = [data objectForKey:@"response"];
+        self.response = [dictionary objectForKey:@"response"];
         self.posts = [self.response objectForKey:@"post"];
         self.blog = [self.response objectForKey:@"blog"];
     }
