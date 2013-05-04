@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "JSON.h"
+
 
 @protocol Post
 
@@ -21,6 +21,6 @@ typedef enum {
 @property NSDictionary* posts;
 
 
--(id)initWithData: (NSDictionary*) data;
+-(id)initWithDictionairy: (NSDictionary*) dictionary;
 
 @end

@@ -24,7 +24,8 @@ NSString * apiGET = @"";
     return shufflerDB;
 }
 
--(void) getPosts: (NSString*) type completionBlock: (ShufflerTumblrPostQueryCompletionBlock) block {
+
+-(void) getPosts: (NSString*) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
     NSString* apiType = type;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
@@ -32,59 +33,50 @@ NSString * apiGET = @"";
         NSURL *urlRequest = [NSURL URLWithString:url];
 		NSError *err = nil;
 		
-		NSString *response = [NSString stringWithContentsOfURL:urlRequest encoding:NSUTF8StringEncoding error:&err];
+		NSData *response = [NSData dataWithContentsOfURL: urlRequest];
+        NSArray *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
+        NSMutableArray<Post> * posts = (NSMutableArray<Post> *)[[NSMutableArray alloc] init];
         
-        switch([apiType characterAtIndex:0]) {
-            case 'a':
-                [self parseJSONtoAudio: response];
-            break;
-            case 'v':
-                [self parseJSONtoVideo: response];
-            break;
+        for(NSDictionary *item in objectDict) {
+            id<Post> post;
+            switch([apiType characterAtIndex:0]) {
+                case 'a':
+                    post = [Audio alloc];
+                    post = [post initWithDictionairy: item];
+                    break;
+                case 'v':
+                    post = [Video alloc];
+                    post = [post initWithDictionairy: item];
+                    break;
+            }
+            if(post != nil)
+                [posts addObject: post];
         }
+        ;
+        NSArray<Post> * returnPosts = (NSArray<Post> *)[[NSArray alloc] initWithArray: posts];
+        
+        
+        block(returnPosts, err);
     });
 }
 
--(void) getInfo: completionBlock: (ShufflerTumblrInfoQueryCompletionBlock) block {
+-(void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@", apiURL, @"info", apiKey];
         NSURL *urlRequest = [NSURL URLWithString:url];
 		NSError *err = nil;
 		
-		NSString *response = [NSString stringWithContentsOfURL:urlRequest encoding:NSUTF8StringEncoding error:&err];
+//		NSString *response = [NSString stringWithContentsOfURL:urlRequest encoding:NSUTF8StringEncoding error:&err];
+        NSData *response = [NSData dataWithContentsOfURL: urlRequest];
+        NSArray *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
         
-        [self parseJSONtoInfo:response];
+        id<Info> blogInfo = [BlogInfo alloc];
+        blogInfo = [blogInfo initWithDictionary: [objectDict objectAtIndex: 0]];
+        
+        block(blogInfo, err);
     });
 }
 
--(id<Info>) parseJSONtoInfo: (NSString *) jsonString {
-    SBJSON *parser = [[SBJSON alloc] init];
-    
-    NSDictionary *results = [parser objectWithString:jsonString error:nil];
-    id<Info> r = [BlogInfo alloc];
-    
-    return [r initWithData: results];
-}
-
--(id<Post>) parseJSONtoAudio:(NSString *) jsonString {
-    SBJSON *parser = [[SBJSON alloc] init];
-	// TODO: add code for parsing
-	
-	NSDictionary *results = [parser objectWithString:jsonString error:nil];
-    id<Post> r = [Audio alloc];
-
-    return [r initWithData: results];
-}
-
--(id<Post>) parseJSONtoVideo:(NSString *) jsonString {
-    SBJSON *parser = [[SBJSON alloc] init];
-	// TODO: add code for parsing
-	
-	NSDictionary *results = [parser objectWithString:jsonString error:nil];
-    id<Post> r = [Video alloc];
-    
-    return [r initWithData: results];
-}
 
 @end

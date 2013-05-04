@@ -10,7 +10,10 @@
 
 @implementation BlogInfo
 
--(id) initWithData:(NSDictionary *) data {
+
+@synthesize blog;
+
+-(id) initWithDictionary:(NSDictionary *) data {
     self = [super init];
     if (self) {
         self.blog = [data objectForKey: @"blog"];

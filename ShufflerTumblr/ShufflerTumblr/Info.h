@@ -13,6 +13,6 @@
 
 @property NSDictionary* blog;
 
--(id) initWithData: (NSDictionary*) data;
+-(id) initWithDictionary: (NSDictionary*) data;
 
 @end

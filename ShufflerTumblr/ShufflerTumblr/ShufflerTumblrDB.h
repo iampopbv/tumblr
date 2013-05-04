@@ -16,16 +16,13 @@
 @interface ShufflerTumblrDB : NSObject
 
 typedef void (^ShufflerTumblrPostQueryCompletionBlock)(id<Post> post, NSError *error);
-typedef void (^ShufflerTumblrMultiplePostQueryCompletionBlock)(NSArray *posts, NSError *error);
+typedef void (^ShufflerTumblrMultiplePostQueryCompletionBlock)(NSArray<Post> *posts, NSError *error);
 typedef void (^ShufflerTumblrInfoQueryCompletionBlock)(id<Info> info, NSError *error);
 
 extern const NSString * apiURL;
 extern const NSString * apiKey;
 @property NSString * apiType;
 
--(void) getPosts: (NSString*) type;
--(void) getInfo;
--(id<Post>) parseJSONtoAudio: (NSString*) jsonString;
--(id<Post>) parseJSONtoVideo: (NSString*) jsonString;
--(id<Info>) parseJSONtoInfo: (NSString*) jsonString;
+-(void) getPosts: (NSString*) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
+-(void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block;
 @end

@@ -10,10 +10,14 @@
 
 @implementation Video
 
--(id) initWithData:(NSDictionary *) data {
+@synthesize posts;
+@synthesize response;
+@synthesize blog;
+
+-(id) initWithDictionairy:(NSDictionary *) dictionary {
     self = [super init];
     if (self) {
-        self.response = [data objectForKey:@"response"];
+        self.response = [dictionary objectForKey:@"response"];
         self.posts = [self.response objectForKey:@"post"];
         self.blog = [self.response objectForKey:@"blog"];
     }
