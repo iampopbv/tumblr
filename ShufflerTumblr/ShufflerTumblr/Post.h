@@ -21,6 +21,6 @@ typedef enum {
 @property NSDictionary* posts;
 
 
--(id)initWithDictionairy: (NSDictionary*) dictionary;
+-(id)initWithDictionary: (NSDictionary*) dictionary;
 
 @end

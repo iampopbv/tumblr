@@ -14,7 +14,7 @@
 @synthesize response;
 @synthesize posts;
 
--(id) initWithDictionairy:(NSDictionary *)dictionary {
+-(id) initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
         self.response = [dictionary objectForKey:@"response"];
