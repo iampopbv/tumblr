@@ -42,11 +42,11 @@ NSString * apiGET = @"";
             switch([apiType characterAtIndex:0]) {
                 case 'a':
                     post = [Audio alloc];
-                    post = [post initWithDictionairy: item];
+                    post = [post initWithDictionary: item];
                     break;
                 case 'v':
                     post = [Video alloc];
-                    post = [post initWithDictionairy: item];
+                    post = [post initWithDictionary: item];
                     break;
             }
             if(post != nil)
