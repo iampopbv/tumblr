@@ -11,4 +11,8 @@
 
 @interface Video : NSObject <Post>
 
+@property NSString* thumbnailURL;
+@property NSString* thumbnailWidth;
+@property NSString* thumbnailHeight;
+
 @end

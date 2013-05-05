@@ -11,4 +11,9 @@
 
 @interface Audio : NSObject <Post>
 
+@property NSString* trackName;
+@property NSString* artist;
+@property NSString* album;
+@property NSString* albumArt;
+
 @end

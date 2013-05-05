@@ -19,7 +19,17 @@
     if (self) {
         self.response = [dictionary objectForKey:@"response"];
         self.posts = [self.response objectForKey:@"post"];
+        //[self.response objectForKey:@"post"];
         self.blog = [self.response objectForKey:@"blog"];
+        self.playURL = [self.posts objectForKey:@"audio_url"];
+        self.playerEmbed = [self.posts objectForKey:@"player"];
+        self.ID = [self.posts objectForKey:@"id"];
+        self.date = [self.posts objectForKey:@"date"];
+        self.caption = [self.posts objectForKey:@"caption"];
+        self.trackName = [self.posts objectForKey:@"track_name"];
+        self.artist = [self.posts objectForKey:@"artist"];
+        self.album = [self.posts objectForKey:@"album"];
+        self.albumArt = [self.posts objectForKey:@"album_art"];
     }
     return self;
 }
