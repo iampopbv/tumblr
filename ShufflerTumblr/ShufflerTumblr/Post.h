@@ -24,11 +24,6 @@ typedef enum {
 @property NSNumber* ID;
 @property NSString* date;
 @property NSString* caption;
-@property NSString* trackName;
-@property NSString* artist;
-@property NSString* album;
-@property NSString* albumArt;
-
 
 -(id)initWithDictionary: (NSDictionary*) dictionary;
 
