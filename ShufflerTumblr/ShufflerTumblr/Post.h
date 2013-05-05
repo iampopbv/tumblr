@@ -30,6 +30,6 @@ typedef enum {
 @property NSString* albumArt;
 
 
--(id)initWithDictionairy: (NSDictionary*) dictionary;
+-(id)initWithDictionary: (NSDictionary*) dictionary;
 
 @end
