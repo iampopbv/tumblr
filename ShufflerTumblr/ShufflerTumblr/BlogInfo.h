@@ -11,4 +11,15 @@
 
 @interface BlogInfo : NSObject <Info>
 
+@property NSString* title;
+@property NSString* name;
+@property NSString* posts;
+@property NSString* blogURL;
+@property NSString* updated;
+@property NSString* description;
+@property NSString* ask;
+@property NSString* askAnon;
+@property NSString* nsfw;
+@property NSString* shareLikes;
+
 @end
