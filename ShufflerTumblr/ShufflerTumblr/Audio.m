@@ -14,12 +14,11 @@
 @synthesize response;
 @synthesize posts;
 
--(id) initWithDictionairy:(NSDictionary *)dictionary {
+-(id) initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
     if (self) {
         self.response = [dictionary objectForKey:@"response"];
-        NSData* data = [self.response objectForKey:@"post"];
-        self.posts = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+        self.posts = [self.response objectForKey:@"post"];
         //[self.response objectForKey:@"post"];
         self.blog = [self.response objectForKey:@"blog"];
         self.playURL = [self.posts objectForKey:@"audio_url"];
