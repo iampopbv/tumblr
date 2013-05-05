@@ -310,16 +310,27 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itZ-2d-3ly">
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7nW-JP-Rgp">
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="itZ-2d-3ly">
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="itZ-2d-3ly" firstAttribute="top" secondItem="7nW-JP-Rgp" secondAttribute="top" type="default" id="0li-eB-buC"/>
+                                    <constraint firstItem="itZ-2d-3ly" firstAttribute="leading" secondItem="7nW-JP-Rgp" secondAttribute="leading" type="default" id="djY-QO-q1u"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="itZ-2d-3ly" firstAttribute="leading" secondItem="bCN-bt-aYK" secondAttribute="leading" type="default" id="E63-od-ZbH"/>
-                            <constraint firstItem="itZ-2d-3ly" firstAttribute="top" secondItem="bCN-bt-aYK" secondAttribute="top" type="default" id="Ykf-0R-XPQ"/>
+                            <constraint firstItem="7nW-JP-Rgp" firstAttribute="leading" secondItem="bCN-bt-aYK" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="E5h-fr-XHh"/>
+                            <constraint firstItem="7nW-JP-Rgp" firstAttribute="top" secondItem="bCN-bt-aYK" secondAttribute="top" constant="276" id="Lh2-07-x6R"/>
+                            <constraint firstAttribute="trailing" secondItem="7nW-JP-Rgp" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Ulw-d1-wvU"/>
+                            <constraint firstAttribute="bottom" secondItem="7nW-JP-Rgp" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="x6z-GR-QOK"/>
                         </constraints>
                     </view>
                     <connections>
