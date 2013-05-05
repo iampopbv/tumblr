@@ -19,8 +19,17 @@ typedef enum {
 @property NSDictionary* response;
 @property NSDictionary* blog;
 @property NSDictionary* posts;
+@property NSString* playURL;
+@property NSString* playerEmbed;
+@property NSNumber* ID;
+@property NSString* date;
+@property NSString* caption;
+@property NSString* trackName;
+@property NSString* artist;
+@property NSString* album;
+@property NSString* albumArt;
 
 
--(id)initWithDictionary: (NSDictionary*) dictionary;
+-(id)initWithDictionairy: (NSDictionary*) dictionary;
 
 @end
