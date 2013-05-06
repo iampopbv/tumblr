@@ -20,7 +20,6 @@
 {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-<<<<<<< HEAD
     if([self.dataObject class] == [Audio class]){
         [_videoView setHidden:YES];
         
@@ -31,16 +30,14 @@
         _textView.frame = newFrame;
     } else if([self.dataObject class] == [Video class]){
         CGRect frame = _videoView.frame;
-        [_player setHidden: YES];
+        [_playerContainer setHidden: YES];
     }
-=======
 	// Dummy data
 	self.post = [[Audio alloc] initWithDictionary:@{ @"audio_url" : @"http://sogreatandpowerful.com/SoGreatandPowerful%20-%20Untitled.mp3"}];
     
 	self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
 	[self.player play];
 	NSLog(@"playing %@", self.post.playURL);
->>>>>>> b34886bf880ed7ee87e2061668573b34ef75d87a
 }
 
 - (void)didReceiveMemoryWarning
