@@ -13,6 +13,15 @@
 @synthesize blog;
 @synthesize response;
 @synthesize posts;
+@synthesize playURL;
+@synthesize playerEmbed;
+@synthesize ID;
+@synthesize date;
+@synthesize caption;
+@synthesize trackName;
+@synthesize artist;
+@synthesize album;
+@synthesize albumArt;
 
 -(id) initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -21,7 +30,7 @@
         self.posts = [self.response objectForKey:@"post"];
         //[self.response objectForKey:@"post"];
         self.blog = [self.response objectForKey:@"blog"];
-        self.playURL = [self.posts objectForKey:@"audio_url"];
+        self.playURL = [dictionary objectForKey:@"audio_url"];
         self.playerEmbed = [self.posts objectForKey:@"player"];
         self.ID = [self.posts objectForKey:@"id"];
         self.date = [self.posts objectForKey:@"date"];
@@ -30,6 +39,7 @@
         self.artist = [self.posts objectForKey:@"artist"];
         self.album = [self.posts objectForKey:@"album"];
         self.albumArt = [self.posts objectForKey:@"album_art"];
+        NSLog(@"made %@ from %@ ( not %@ ) with %@",self.playURL, [dictionary objectForKey:@"audio_url"], [self.response objectForKey:@"audio_url"], dictionary);
     }
     return self;
 }

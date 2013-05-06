@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import "Post.h"
+#import "Audio.h"
+
 
 @interface DataViewController : UIViewController
 
+@property AVPlayer*player;
 
+@property id<Post> post;
 
 @property (weak, nonatomic) IBOutlet UILabel *dataLabel;
 @property (strong, nonatomic) id dataObject;
