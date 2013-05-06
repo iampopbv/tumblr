@@ -16,8 +16,14 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
+	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	// Dummy data
+	self.post = [[Audio alloc] initWithDictionary:@{ @"audio_url" : @"http://sogreatandpowerful.com/SoGreatandPowerful%20-%20Untitled.mp3"}];
+    
+	self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
+	[self.player play];
+	NSLog(@"playing %@", self.post.playURL);
 }
 
 - (void)didReceiveMemoryWarning

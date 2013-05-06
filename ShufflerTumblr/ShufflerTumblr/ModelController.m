@@ -30,7 +30,7 @@
     self = [super init];
     if (self) {
         // Create the data model.
-        // _pageData = ..;
+        _pageData = @[@1,@2,@5];
         
     }
     return self;
