@@ -13,6 +13,14 @@
 @synthesize posts;
 @synthesize response;
 @synthesize blog;
+@synthesize caption;
+@synthesize date;
+@synthesize ID;
+@synthesize  playerEmbed;
+@synthesize playURL;
+@synthesize thumbnailHeight;
+@synthesize thumbnailURL;
+@synthesize thumbnailWidth;
 
 -(id) initWithDictionary:(NSDictionary *) dictionary {
     self = [super init];

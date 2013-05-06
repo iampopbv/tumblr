@@ -7,6 +7,8 @@
 //
 
 #import "DataViewController.h"
+#import "Audio.h"
+#import "Video.h"
 
 @interface DataViewController ()
 
@@ -18,6 +20,18 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    if([self.dataObject class] == [Audio class]){
+        [_videoView setHidden:YES];
+        
+        
+        CGRect newFrame = _textView.frame;
+        newFrame.origin.x = 13;
+        newFrame.origin.y = 0;
+        _textView.frame = newFrame;
+    } else if([self.dataObject class] == [Video class]){
+        CGRect frame = _videoView.frame;
+        [_player setHidden: YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -29,7 +43,10 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    self.dataLabel.text = [self.dataObject description];
+    
+    
+    
+    
+    //    self.dataLabel.text = [self.dataObject description];
 }
-
 @end
