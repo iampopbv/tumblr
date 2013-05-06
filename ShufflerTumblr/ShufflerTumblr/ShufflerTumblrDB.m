@@ -10,7 +10,7 @@
 
 @implementation ShufflerTumblrDB
 
-const NSString * apiURL = @"api.tumblr.com/v2/blog/mute-sic.tumblr.com/";
+const NSString * apiURL = @"http://api.tumblr.com/v2/blog/mute-sic.tumblr.com/";
 const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLNsUPoWLV";
 static ShufflerTumblrDB * shufflerDB = nil;
 NSString * apiGET = @"";
@@ -33,26 +33,48 @@ NSString * apiGET = @"";
         NSURL *urlRequest = [NSURL URLWithString:url];
 		NSError *err = nil;
 		
-		NSData *response = [NSData dataWithContentsOfURL: urlRequest];
+		NSData *response = [NSData dataWithContentsOfURL:urlRequest];
         NSArray *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
-        NSMutableArray<Post> * posts = (NSMutableArray<Post> *)[[NSMutableArray alloc] init];
         
+        NSMutableArray<Post> * posts = (NSMutableArray<Post> *)[[NSMutableArray alloc] init];
+        NSDictionary *responseDict = nil;
+        NSArray *postsDict = nil;
+        NSLog(@"Object Dict: %@" , objectDict);
         for(NSDictionary *item in objectDict) {
-            id<Post> post;
-            switch([apiType characterAtIndex:0]) {
-                case 'a':
-                    post = [Audio alloc];
-                    post = [post initWithDictionary: item];
-                    break;
-                case 'v':
-                    post = [Video alloc];
-                    post = [post initWithDictionary: item];
-                    break;
-            }
-            if(post != nil)
-                [posts addObject: post];
+                if ([item respondsToSelector: @selector( objectForKey: )]) {
+                    NSLog(@"Item name: %@" , item);
+                    responseDict = item;
+                }
         }
-        ;
+        
+        if(responseDict != nil) {
+            
+            if([responseDict objectForKey:@"posts"]) {
+                NSLog(@"lol");
+                postsDict = [responseDict objectForKey:@"posts"];
+            }
+            
+            if(postsDict != nil) {
+                for(NSDictionary *item in postsDict) {
+                    id<Post> post;
+                    switch([apiType characterAtIndex:0]) {
+                        case 'a':
+                            post = [Audio alloc];
+                            post = [post initWithDictionary: item];
+                        break;
+                        case 'v':
+                            post = [Video alloc];
+                            post = [post initWithDictionary: item];
+                        break;
+                    }
+                    if(post != nil)
+                        [posts addObject: post];
+                }
+            }
+        }
+        
+        
+        
         NSArray<Post> * returnPosts = (NSArray<Post> *)[[NSArray alloc] initWithArray: posts];
         
         
