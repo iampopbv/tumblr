@@ -22,6 +22,6 @@
 @property (strong, nonatomic) id dataObject;
 @property (weak, nonatomic) IBOutlet UIView *videoView;
 @property (weak, nonatomic) IBOutlet UIView *textView;
-@property (weak, nonatomic) IBOutlet UIView *player;
+@property (weak, nonatomic) IBOutlet UIView *playerContainer;
 
 @end
