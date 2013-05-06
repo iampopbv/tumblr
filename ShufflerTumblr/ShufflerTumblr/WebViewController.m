@@ -28,7 +28,7 @@
 {
     [super viewDidLoad];
 	
-    NSURL *TumblrURL = [NSURL URLWithString:@"http://www.tumblr.com/oauth/authorize"];
+    NSURL *TumblrURL = [NSURL URLWithString:@"https://www.tumblr.com/login?from_splash=1"];
     
     NSURLRequest *TumblrRequest = [NSURLRequest requestWithURL:TumblrURL];
     
