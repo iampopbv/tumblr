@@ -20,34 +20,34 @@
 {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    if([self.dataObject class] == [Audio class]){
-        [_videoView setHidden:YES];
-	    
-    } else if([self.dataObject class] == [Video class]){
-        CGRect frame = _videoView.frame;
-        [_playerContainer setHidden: YES];
-    }
+	if([self.dataObject class] == [Audio class]){
+		
+	} else if([self.dataObject class] == [Video class]){
+		[_playerContainer setHidden: YES];
+		
+		[_videoView setFrame:CGRectMake(23, 50, _videoView.frame.size.width, _videoView.frame.size.height)];
+	}
 	// Dummy data
-//	self.post = [[Audio alloc] initWithDictionary:@{ @"audio_url" : @"http://sogreatandpowerful.com/SoGreatandPowerful%20-%20Untitled.mp3"}];
-//    
-//	self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
-//	[self.player play];
-//	NSLog(@"playing %@", self.post.playURL);
+	//	self.post = [[Audio alloc] initWithDictionary:@{ @"audio_url" : @"http://sogreatandpowerful.com/SoGreatandPowerful%20-%20Untitled.mp3"}];
+	//
+	//	self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
+	//	[self.player play];
+	//	NSLog(@"playing %@", self.post.playURL);
 }
 
 - (void)didReceiveMemoryWarning
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+	[super didReceiveMemoryWarning];
+	// Dispose of any resources that can be recreated.
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    [super viewWillAppear:animated];
-    
-    
-    
-    
-    //    self.dataLabel.text = [self.dataObject description];
+	[super viewWillAppear:animated];
+	
+	
+	
+	
+	//    self.dataLabel.text = [self.dataObject description];
 }
 @end

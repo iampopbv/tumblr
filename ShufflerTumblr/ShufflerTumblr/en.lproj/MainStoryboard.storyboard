@@ -84,7 +84,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
-                                    <color key="titleColor" patternImage="E366A544-ADE7-475E-BEF5-8E880F6E2AA5" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="DB565DB9-BF6F-4E6B-A13C-BD64AB4F37F2" colorSpace="pattern"/>
                                 </state>
                                 <connections>
                                     <segue destination="J1t-Nh-KTa" kind="push" id="BKk-jH-Kmy"/>
@@ -361,7 +361,7 @@
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Description" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="265" translatesAutoresizingMaskIntoConstraints="NO" id="Ks6-sN-UK2">
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="63" id="BYf-Wr-KKO"/>
+                                                    <constraint firstAttribute="height" constant="24" id="M8o-Tm-fgR"/>
                                                     <constraint firstAttribute="width" constant="265" id="X9K-Ut-Eew"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -373,8 +373,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="213" id="RGw-M0-RBL"/>
                                             <constraint firstItem="itZ-2d-3ly" firstAttribute="top" secondItem="R75-iM-T1o" secondAttribute="top" constant="-1" id="ZhD-eZ-rXs"/>
-                                            <constraint firstItem="Ks6-sN-UK2" firstAttribute="top" secondItem="itZ-2d-3ly" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pI6-E1-4By"/>
                                             <constraint firstAttribute="trailing" secondItem="Ks6-sN-UK2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="q1E-D8-1DL"/>
+                                            <constraint firstItem="Ks6-sN-UK2" firstAttribute="top" secondItem="itZ-2d-3ly" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="uBf-4U-sLc"/>
                                             <constraint firstItem="Ks6-sN-UK2" firstAttribute="leading" secondItem="itZ-2d-3ly" secondAttribute="leading" type="default" id="wMb-5Z-ftO"/>
                                         </constraints>
                                     </view>
@@ -529,8 +529,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="DashboardFeed.png" width="237" height="71"/>
-        <image name="E366A544-ADE7-475E-BEF5-8E880F6E2AA5" width="256" height="256">
+        <image name="DB565DB9-BF6F-4E6B-A13C-BD64AB4F37F2" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -4919,6 +4918,7 @@ BAILAAQCEwAEAhYABAIbAAQCKgAEAi4ABAI1AAQCPQAEAkoABAJPAAQCUQAEAlMABAJYAAQCYAAEAmMA
 BAJoAAQCcAAEAnMABAKFAAQCiAAEAo0AAAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQCjw
 </mutableData>
         </image>
+        <image name="DashboardFeed.png" width="237" height="71"/>
         <image name="Followed.png" width="237" height="71"/>
         <image name="Image_9.png" width="25" height="32"/>
         <image name="Login.png" width="237" height="71"/>
