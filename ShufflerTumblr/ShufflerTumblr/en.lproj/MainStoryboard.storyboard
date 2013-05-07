@@ -84,7 +84,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
-                                    <color key="titleColor" patternImage="AF1C8476-2175-4E9F-B61C-047AFE7B2F60" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="E366A544-ADE7-475E-BEF5-8E880F6E2AA5" colorSpace="pattern"/>
                                 </state>
                                 <connections>
                                     <segue destination="J1t-Nh-KTa" kind="push" id="BKk-jH-Kmy"/>
@@ -371,10 +371,10 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="itZ-2d-3ly" firstAttribute="top" secondItem="R75-iM-T1o" secondAttribute="top" type="default" id="GkM-ha-zbN"/>
+                                            <constraint firstAttribute="height" constant="213" id="RGw-M0-RBL"/>
+                                            <constraint firstItem="itZ-2d-3ly" firstAttribute="top" secondItem="R75-iM-T1o" secondAttribute="top" constant="-1" id="ZhD-eZ-rXs"/>
                                             <constraint firstItem="Ks6-sN-UK2" firstAttribute="top" secondItem="itZ-2d-3ly" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pI6-E1-4By"/>
                                             <constraint firstAttribute="trailing" secondItem="Ks6-sN-UK2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="q1E-D8-1DL"/>
-                                            <constraint firstAttribute="height" constant="195" id="vta-BJ-RVL"/>
                                             <constraint firstItem="Ks6-sN-UK2" firstAttribute="leading" secondItem="itZ-2d-3ly" secondAttribute="leading" type="default" id="wMb-5Z-ftO"/>
                                         </constraints>
                                     </view>
@@ -385,8 +385,8 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="CKa-BS-iV5" firstAttribute="trailing" secondItem="QbI-3v-oqa" secondAttribute="trailing" type="default" id="0Pz-cV-uEU"/>
+                                            <constraint firstAttribute="height" constant="207" id="0ob-0b-QA9"/>
                                             <constraint firstItem="CKa-BS-iV5" firstAttribute="top" secondItem="QbI-3v-oqa" secondAttribute="top" type="default" id="2QL-Mo-xf0"/>
-                                            <constraint firstAttribute="height" constant="230" id="EVw-9H-Nk7"/>
                                             <constraint firstAttribute="width" constant="295" id="RpD-Jx-g8J"/>
                                             <constraint firstItem="CKa-BS-iV5" firstAttribute="bottom" secondItem="QbI-3v-oqa" secondAttribute="bottom" type="default" id="v67-6h-6lW"/>
                                             <constraint firstItem="CKa-BS-iV5" firstAttribute="leading" secondItem="QbI-3v-oqa" secondAttribute="leading" type="default" id="x5E-4m-WF8"/>
@@ -394,16 +394,16 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="QbI-3v-oqa" firstAttribute="top" secondItem="3dT-sd-rSU" secondAttribute="top" type="default" id="0Pi-RS-NmW"/>
+                                    <constraint firstItem="QbI-3v-oqa" firstAttribute="centerX" secondItem="3dT-sd-rSU" secondAttribute="centerX" type="default" id="5Uh-ab-l6f"/>
                                     <constraint firstItem="QbI-3v-oqa" firstAttribute="trailing" secondItem="R75-iM-T1o" secondAttribute="trailing" type="default" id="DIq-Jl-xpQ"/>
-                                    <constraint firstItem="Nif-wP-8dy" firstAttribute="centerX" secondItem="3dT-sd-rSU" secondAttribute="centerX" type="default" id="IiU-y2-bwL"/>
+                                    <constraint firstItem="QbI-3v-oqa" firstAttribute="centerX" secondItem="Nif-wP-8dy" secondAttribute="centerX" type="default" id="FYP-t0-gs2"/>
                                     <constraint firstItem="Nif-wP-8dy" firstAttribute="trailing" secondItem="3dT-sd-rSU" secondAttribute="trailing" type="default" id="KDZ-CO-r5I"/>
-                                    <constraint firstItem="Nif-wP-8dy" firstAttribute="top" secondItem="3dT-sd-rSU" secondAttribute="top" type="default" id="Rdj-kZ-Cg2"/>
-                                    <constraint firstItem="R75-iM-T1o" firstAttribute="top" secondItem="QbI-3v-oqa" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="cKV-bm-lB1"/>
-                                    <constraint firstItem="Nif-wP-8dy" firstAttribute="centerX" secondItem="QbI-3v-oqa" secondAttribute="centerX" type="default" id="f6e-zb-mtd"/>
+                                    <constraint firstItem="Nif-wP-8dy" firstAttribute="top" secondItem="QbI-3v-oqa" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="KLs-yA-bpI"/>
+                                    <constraint firstItem="R75-iM-T1o" firstAttribute="top" secondItem="Nif-wP-8dy" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Ts6-6N-AKF"/>
                                     <constraint firstItem="Nif-wP-8dy" firstAttribute="leading" secondItem="3dT-sd-rSU" secondAttribute="leading" type="default" id="fOj-5d-4sJ"/>
                                     <constraint firstItem="QbI-3v-oqa" firstAttribute="leading" secondItem="R75-iM-T1o" secondAttribute="leading" type="default" id="gg5-nn-Rc6"/>
-                                    <constraint firstItem="R75-iM-T1o" firstAttribute="bottom" secondItem="3dT-sd-rSU" secondAttribute="bottom" type="default" id="ja2-we-6Vr"/>
-                                    <constraint firstItem="QbI-3v-oqa" firstAttribute="top" secondItem="3dT-sd-rSU" secondAttribute="top" constant="27" id="uGJ-LP-Qi1"/>
+                                    <constraint firstItem="R75-iM-T1o" firstAttribute="bottom" secondItem="3dT-sd-rSU" secondAttribute="bottom" type="default" id="zIP-xH-pFA"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -529,7 +529,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="AF1C8476-2175-4E9F-B61C-047AFE7B2F60" width="256" height="256">
+        <image name="DashboardFeed.png" width="237" height="71"/>
+        <image name="E366A544-ADE7-475E-BEF5-8E880F6E2AA5" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -4918,7 +4919,6 @@ BAILAAQCEwAEAhYABAIbAAQCKgAEAi4ABAI1AAQCPQAEAkoABAJPAAQCUQAEAlMABAJYAAQCYAAEAmMA
 BAJoAAQCcAAEAnMABAKFAAQCiAAEAo0AAAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQCjw
 </mutableData>
         </image>
-        <image name="DashboardFeed.png" width="237" height="71"/>
         <image name="Followed.png" width="237" height="71"/>
         <image name="Image_9.png" width="25" height="32"/>
         <image name="Login.png" width="237" height="71"/>
