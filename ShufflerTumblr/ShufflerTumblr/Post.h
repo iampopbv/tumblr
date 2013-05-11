@@ -15,7 +15,7 @@
 typedef enum {
     AUDIO,
     VIDEO
-} postType;
+} PostType;
 @property NSDictionary* response;
 @property NSDictionary* blog;
 @property NSDictionary* posts;
@@ -24,6 +24,7 @@ typedef enum {
 @property NSNumber* ID;
 @property NSString* date;
 @property NSString* caption;
+@property PostType type;
 
 -(id)initWithDictionary: (NSDictionary*) dictionary;
 

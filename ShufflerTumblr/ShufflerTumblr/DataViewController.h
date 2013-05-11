@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
+#import "MediaPlayer/MediaPlayer.h"
 #import "Post.h"
 #import "Audio.h"
 
@@ -16,12 +17,18 @@
 
 @property AVPlayer*player;
 
-@property id<Post> post;
 
 @property (weak, nonatomic) IBOutlet UILabel *dataLabel;
-@property (strong, nonatomic) id dataObject;
+@property (strong, nonatomic) id<Post> post;
 @property (weak, nonatomic) IBOutlet UIView *videoView;
 @property (weak, nonatomic) IBOutlet UIView *textView;
 @property (weak, nonatomic) IBOutlet UIView *playerContainer;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
+
 
 @end

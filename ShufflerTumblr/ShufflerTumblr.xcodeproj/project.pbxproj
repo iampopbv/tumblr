@@ -30,6 +30,10 @@
 		A1FAD72B171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
 		A1FAD733171EA7BC0095EC7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD731171EA7BC0095EC7E /* InfoPlist.strings */; };
 		A1FAD736171EA7BC0095EC7E /* ShufflerTumblrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAD735171EA7BC0095EC7E /* ShufflerTumblrTests.m */; };
+		AF44E108173E642E0088908D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44E107173E642E0088908D /* MediaPlayer.framework */; };
+		AF44E10B173E9B820088908D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44E10A173E9B820088908D /* MenuViewController.m */; };
+		AF44E10E173E9C830088908D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44E10D173E9C830088908D /* Reachability.m */; };
+		AF44E110173EB4080088908D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44E10F173EB4080088908D /* SystemConfiguration.framework */; };
 		AFD49A151737A29D008F2E87 /* DashboardFeed.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD49A0A1737A29D008F2E87 /* DashboardFeed.png */; };
 		AFD49A161737A29D008F2E87 /* exitbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD49A0B1737A29D008F2E87 /* exitbutton.png */; };
 		AFD49A171737A29D008F2E87 /* favouritebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD49A0C1737A29D008F2E87 /* favouritebutton.png */; };
@@ -94,6 +98,12 @@
 		A1FAD732171EA7BC0095EC7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1FAD734171EA7BC0095EC7E /* ShufflerTumblrTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShufflerTumblrTests.h; sourceTree = "<group>"; };
 		A1FAD735171EA7BC0095EC7E /* ShufflerTumblrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShufflerTumblrTests.m; sourceTree = "<group>"; };
+		AF44E107173E642E0088908D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		AF44E109173E9B820088908D /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		AF44E10A173E9B820088908D /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		AF44E10C173E9C830088908D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		AF44E10D173E9C830088908D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		AF44E10F173EB4080088908D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AFD49A0A1737A29D008F2E87 /* DashboardFeed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = DashboardFeed.png; path = ../Buttons/DashboardFeed.png; sourceTree = "<group>"; };
 		AFD49A0B1737A29D008F2E87 /* exitbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = exitbutton.png; path = ../Buttons/exitbutton.png; sourceTree = "<group>"; };
 		AFD49A0C1737A29D008F2E87 /* favouritebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = favouritebutton.png; path = ../Buttons/favouritebutton.png; sourceTree = "<group>"; };
@@ -118,6 +128,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF44E110173EB4080088908D /* SystemConfiguration.framework in Frameworks */,
+				AF44E108173E642E0088908D /* MediaPlayer.framework in Frameworks */,
 				8BC2E3931737B12700521124 /* AVFoundation.framework in Frameworks */,
 				A1FAD702171EA7BC0095EC7E /* UIKit.framework in Frameworks */,
 				A1FAD704171EA7BC0095EC7E /* Foundation.framework in Frameworks */,
@@ -160,6 +172,8 @@
 		A1FAD700171EA7BC0095EC7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF44E10F173EB4080088908D /* SystemConfiguration.framework */,
+				AF44E107173E642E0088908D /* MediaPlayer.framework */,
 				8BC2E3921737B12700521124 /* AVFoundation.framework */,
 				A1FAD701171EA7BC0095EC7E /* UIKit.framework */,
 				A1FAD703171EA7BC0095EC7E /* Foundation.framework */,
@@ -222,12 +236,14 @@
 		AF1F827617354E8A0001C15E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF44E109173E9B820088908D /* MenuViewController.h */,
+				AF44E10A173E9B820088908D /* MenuViewController.m */,
 				A1FAD71C171EA7BC0095EC7E /* MasterViewController.h */,
 				A1FAD71D171EA7BC0095EC7E /* MasterViewController.m */,
 				A1FAD71F171EA7BC0095EC7E /* DetailViewController.h */,
+				A1FAD720171EA7BC0095EC7E /* DetailViewController.m */,
 				A187A3551727D83900AF4F82 /* WebViewController.h */,
 				A187A3561727D83900AF4F82 /* WebViewController.m */,
-				A1FAD720171EA7BC0095EC7E /* DetailViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -235,6 +251,8 @@
 		AF1F827717354EC40001C15E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AF44E10C173E9C830088908D /* Reachability.h */,
+				AF44E10D173E9C830088908D /* Reachability.m */,
 				7F9BA4C71727D1D600F26F2C /* Post.h */,
 				7F9BA4CA1727E66600F26F2C /* Video.h */,
 				7F9BA4CB1727E66600F26F2C /* Video.m */,
@@ -411,6 +429,8 @@
 				AFFD3B7C17366D1500FC7E82 /* DataViewController.m in Sources */,
 				AFFD3B7D17366D1500FC7E82 /* ModelController.m in Sources */,
 				AFFD3B7E17366D1500FC7E82 /* RootViewController.m in Sources */,
+				AF44E10B173E9B820088908D /* MenuViewController.m in Sources */,
+				AF44E10E173E9C830088908D /* Reachability.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +542,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShufflerTumblr/ShufflerTumblr-Prefix.pch";
 				INFOPLIST_FILE = "ShufflerTumblr/ShufflerTumblr-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -535,7 +555,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShufflerTumblr/ShufflerTumblr-Prefix.pch";
 				INFOPLIST_FILE = "ShufflerTumblr/ShufflerTumblr-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

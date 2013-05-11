@@ -21,7 +21,8 @@
 @synthesize trackName;
 @synthesize artist;
 @synthesize album;
-@synthesize albumArt;
+@synthesize albumArtURL;
+@synthesize type;
 
 -(id) initWithDictionary:(NSDictionary *)dictionary {
     self = [super init];
@@ -38,7 +39,13 @@
         self.trackName = [self.posts objectForKey:@"track_name"];
         self.artist = [self.posts objectForKey:@"artist"];
         self.album = [self.posts objectForKey:@"album"];
-        self.albumArt = [self.posts objectForKey:@"album_art"];
+        self.albumArtURL = [[NSURL alloc] initWithString: [self.posts objectForKey:@"album_art"]];
+        
+        NSData *imageData = [[NSData alloc] initWithContentsOfURL: albumArtURL];
+        self.albumArt = [[UIImage alloc] initWithData: imageData];
+        
+        
+        self.type = AUDIO;
         NSLog(@"made %@ from %@ ( not %@ ) with %@",self.playURL, [dictionary objectForKey:@"audio_url"], [self.response objectForKey:@"audio_url"], dictionary);
     }
     return self;

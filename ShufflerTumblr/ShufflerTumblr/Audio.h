@@ -14,6 +14,7 @@
 @property NSString* trackName;
 @property NSString* artist;
 @property NSString* album;
-@property NSString* albumArt;
+@property NSURL* albumArtURL;
+@property UIImage* albumArt;
 
 @end

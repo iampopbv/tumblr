@@ -21,6 +21,7 @@
 @synthesize thumbnailHeight;
 @synthesize thumbnailURL;
 @synthesize thumbnailWidth;
+@synthesize type;
 
 -(id) initWithDictionary:(NSDictionary *) dictionary {
     self = [super init];
@@ -36,6 +37,7 @@
         self.thumbnailURL = [self.posts objectForKey:@"thumbnail_url"];
         self.thumbnailWidth = [self.posts objectForKey:@"thumbnail_width"];
         self.thumbnailHeight =  [self.posts objectForKey:@"thumbnail_height"];
+        self.type = VIDEO;
     }
     return self;
 }

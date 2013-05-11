@@ -31,8 +31,8 @@
     self = [super init];
     if (self) {
         // Create the data model.
-//        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-//        _pageData = [[dateFormatter monthSymbols] copy];
+        //        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        //        _pageData = [[dateFormatter monthSymbols] copy];
         
         NSMutableArray * dummyData = [[NSMutableArray alloc] init];
         Video * vid1 = [[Video alloc] init];
@@ -43,11 +43,11 @@
          value=\"transparent\"></param><param name=\"\
          allowFullScreen\" value=\"true\"></param><embed\
          src=\"http://www.youtube.com/v/\
-         4Q1aI7xPo0Y&rel=0&egm=0&showinfo=\
-         0&fs=1\" type=\"application/x-shockwave-flash\"\
+         4Q1aI7xPo0Y\" type=\"application/x-shockwave-flash\"\
          width=\"248\" height=\"169\" allowFullScreen=\"true\"\
          wmode=\"transparent\"></embed></object>"];
-        
+        vid1.date = @"now";
+        vid1.type = VIDEO;
         
         Video * vid2 = [[Video alloc] init];
         [vid2 setPlayerEmbed: @"<object width=\"248\" height=\"169\"><param\
@@ -57,12 +57,20 @@
          value=\"transparent\"></param><param name=\"\
          allowFullScreen\" value=\"true\"></param><embed\
          src=\"http://www.youtube.com/v/\
-         4Q1aI7xPo0Y&rel=0&egm=0&showinfo=\
-         0&fs=1\" type=\"application/x-shockwave-flash\"\
+         4Q1aI7xPo0Y\" type=\"application/x-shockwave-flash\"\
          width=\"248\" height=\"169\" allowFullScreen=\"true\"\
          wmode=\"transparent\"></embed></object>"];
+        vid2.date = @"now";
+        vid2.type = VIDEO;
         
         Audio * aud1 = [[Audio alloc] init];
+        aud1.date = @"now";
+        aud1.type = AUDIO;
+        NSURL *albumArtURL = [[NSURL alloc] initWithString: @"http://assets.shuffler.fm/assets/static/images/shuffler_logo_200.png"];
+        
+        NSData *imageData = [[NSData alloc] initWithContentsOfURL: albumArtURL];
+        aud1.albumArt = [[UIImage alloc] initWithData: imageData];
+        
         
         [dummyData addObject: vid1];
         [dummyData addObject: vid2];
@@ -73,7 +81,7 @@
 }
 
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard
-{   
+{
     // Return the data view controller for the given index.
     if (([self.pageData count] == 0) || (index >= [self.pageData count])) {
         return nil;
@@ -81,15 +89,15 @@
     
     // Create a new view controller and pass suitable data.
     DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
-    dataViewController.dataObject = self.pageData[index];
+    dataViewController.post = self.pageData[index];
     return dataViewController;
 }
 
 - (NSUInteger)indexOfViewController:(DataViewController *)viewController
-{   
-     // Return the index of the given data view controller.
-     // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
-    return [self.pageData indexOfObject:viewController.dataObject];
+{
+    // Return the index of the given data view controller.
+    // For simplicity, this implementation uses a static array of model objects and the view controller stores the model object; you can therefore use the model object to identify the index.
+    return [self.pageData indexOfObject:viewController.post];
 }
 
 #pragma mark - Page View Controller Data Source

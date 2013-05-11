@@ -28,7 +28,7 @@
     self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll  navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageViewController.delegate = self;
 
-	NSLog( @"%@", self.modelController );
+//	NSLog( @"%@", self.modelController );
 	
     DataViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
     NSArray *viewControllers = @[startingViewController];
