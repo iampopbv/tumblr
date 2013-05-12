@@ -19,10 +19,11 @@ typedef void (^ShufflerTumblrPostQueryCompletionBlock)(id<Post> post, NSError *e
 typedef void (^ShufflerTumblrMultiplePostQueryCompletionBlock)(NSArray<Post> *posts, NSError *error);
 typedef void (^ShufflerTumblrInfoQueryCompletionBlock)(id<Info> info, NSError *error);
 
-extern const NSString * apiURL;
 extern const NSString * apiKey;
 @property NSString * apiType;
+@property NSURL * blogURL;
+extern NSString *apiURL;
 
--(void) getPosts: (NSString*) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
+-(void) getPosts: (PostType) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
 -(void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block;
 @end

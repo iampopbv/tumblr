@@ -14,12 +14,12 @@
 @property NSString* title;
 @property NSString* name;
 @property NSString* posts;
-@property NSString* blogURL;
+@property NSURL* blogURL;
 @property NSString* updated;
 @property NSString* description;
 @property NSString* ask;
 @property NSString* askAnon;
-@property NSString* nsfw;
-@property NSString* shareLikes;
+@property NSNumber* likes;
+@property UIImage *image;
 
 @end

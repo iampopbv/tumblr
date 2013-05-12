@@ -20,13 +20,19 @@
         self.title = [self.blog objectForKey: @"title"];
         self.name = [self.blog objectForKey:@"name"];
         self.posts = [self.blog objectForKey:@"posts"];
-        self.blogURL = [self.blog objectForKey:@"url"];
+        self.blogURL = [[NSURL alloc] initWithString:[self.blog objectForKey:@"url"]];
         self.updated = [self.blog objectForKey:@"updated"];
         self.description = [self.blog objectForKey:@"description"];
         self.ask = [self.blog objectForKey:@"ask"];
         self.askAnon = [self.blog objectForKey:@"ask_anon"];
-        self.nsfw = [self.blog objectForKey:@"is_nsfw"];
-        self.shareLikes = [self.blog objectForKey:@"share_likes"];
+        self.likes = [self.blog objectForKey:@"share_likes"];
+        
+        // Download the blog image
+        NSString *imageURLString = [[NSString alloc] initWithFormat: @"http://api.tumblr.com/v2/blog/%@/avatar/512",
+                                    [self.blogURL path]];
+        NSURL * imageURL = [[NSURL alloc] initWithString: imageURLString];
+        NSData *imageData = [[NSData alloc] initWithContentsOfURL: imageURL];
+        self.image = [[UIImage alloc] initWithData: imageData];
     }
     return self;
 }

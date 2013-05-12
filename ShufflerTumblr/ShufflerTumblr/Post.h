@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    AUDIO = 0,
+    VIDEO
+} PostType;
 
 @protocol Post
 
 @required
-typedef enum {
-    AUDIO,
-    VIDEO
-} PostType;
 @property NSDictionary* response;
 @property NSDictionary* blog;
 @property NSDictionary* posts;
