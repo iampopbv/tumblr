@@ -23,7 +23,6 @@ typedef void (^ShufflerTumblrInfoQueryCompletionBlock)(id<Info> info, NSError *e
 @property NSURL * blogURL;
 @property BlogInfo *blogInfo;
 
-extern NSString *apiURL;
 extern const NSString * apiKey;
 
 - (id)initWithURL: (NSString*) blogURL;

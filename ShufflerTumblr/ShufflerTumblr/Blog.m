@@ -10,17 +10,30 @@
 
 @implementation Blog
 
-const NSString * apiURL = @"http://api.tumblr.com/v2/blog/mute-sic.tumblr.com/";
 const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLNsUPoWLV";
-static ShufflerTumblrDB * shufflerDB = nil;
 
--(id) init {
-    if (shufflerDB == nil) {
-        if ((shufflerDB = [super init])) {
-            return shufflerDB;
-        }
+- (id)init
+{
+    [NSException raise:@"NoURLException" format:@"No url passed. Use initWithURL instead"];
+    return nil;
+}
+
+
+- (id)initWithURL: (NSString*) blogURL {
+    self = [super init];
+    if (self) {
+        if([blogURL hasSuffix: @"http://"])
+            blogURL = [blogURL substringFromIndex: 7];
+        else
+            if ([blogURL hasSuffix: @"https://"])
+                blogURL = [blogURL substringFromIndex: 8];
+            
+            
+        if(![blogURL hasPrefix: @"/"])
+            blogURL = [[NSString alloc] initWithFormat:@"%@/", blogURL];
+        _blogURL = [[NSURL alloc] initWithString: [[NSString alloc] initWithFormat:@"http://api.tumblr.com/v2/blog/%@", blogURL]];
     }
-    return shufflerDB;
+    return self;
 }
 
 
@@ -28,7 +41,7 @@ static ShufflerTumblrDB * shufflerDB = nil;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     NSString *apiType = (type == VIDEO ? @"video" : @"audio");
     dispatch_async(queue, ^{
-        NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@%@", apiURL, @"posts/", apiType, apiKey];
+        NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@%@", _blogURL, @"posts/", apiType, apiKey];
         NSURL *urlRequest = [NSURL URLWithString:url];
 		NSError *err = nil;
         
@@ -77,7 +90,7 @@ static ShufflerTumblrDB * shufflerDB = nil;
 -(void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
-        NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@", apiURL, @"info", apiKey];
+        NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@", _blogURL, @"info", apiKey];
         NSURL *urlRequest = [NSURL URLWithString:url];
 		NSError *err = nil;
         
