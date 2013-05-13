@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7F51BE83172473C300AF3F04 /* ShufflerTumblrDB.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51BE82172473C300AF3F04 /* ShufflerTumblrDB.m */; };
+		7F51BE83172473C300AF3F04 /* Blog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51BE82172473C300AF3F04 /* Blog.m */; };
 		7F9BA4CC1727E66600F26F2C /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CB1727E66600F26F2C /* Video.m */; };
 		7F9BA4CF1727E6E500F26F2C /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CE1727E6E500F26F2C /* Audio.m */; };
 		7FA53F8A172E98E700F0AFA5 /* BlogInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA53F89172E98E700F0AFA5 /* BlogInfo.m */; };
@@ -61,8 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7F51BE81172473C300AF3F04 /* ShufflerTumblrDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShufflerTumblrDB.h; sourceTree = "<group>"; };
-		7F51BE82172473C300AF3F04 /* ShufflerTumblrDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShufflerTumblrDB.m; sourceTree = "<group>"; };
+		7F51BE81172473C300AF3F04 /* Blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blog.h; sourceTree = "<group>"; };
+		7F51BE82172473C300AF3F04 /* Blog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blog.m; sourceTree = "<group>"; };
 		7F9BA4C71727D1D600F26F2C /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		7F9BA4CA1727E66600F26F2C /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		7F9BA4CB1727E66600F26F2C /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
@@ -193,8 +193,8 @@
 				AFFD3B7817366D1500FC7E82 /* ModelController.h */,
 				AFFD3B7917366D1500FC7E82 /* ModelController.m */,
 				AF1F827617354E8A0001C15E /* ViewControllers */,
-				7F51BE81172473C300AF3F04 /* ShufflerTumblrDB.h */,
-				7F51BE82172473C300AF3F04 /* ShufflerTumblrDB.m */,
+				7F51BE81172473C300AF3F04 /* Blog.h */,
+				7F51BE82172473C300AF3F04 /* Blog.m */,
 				AF1F827917354F250001C15E /* Interface & Delegates */,
 				AF1F827717354EC40001C15E /* Model */,
 				A1FAD708171EA7BC0095EC7E /* Supporting Files */,
@@ -422,7 +422,7 @@
 				A1FAD71E171EA7BC0095EC7E /* MasterViewController.m in Sources */,
 				A1FAD721171EA7BC0095EC7E /* DetailViewController.m in Sources */,
 				A187A3571727D83900AF4F82 /* WebViewController.m in Sources */,
-				7F51BE83172473C300AF3F04 /* ShufflerTumblrDB.m in Sources */,
+				7F51BE83172473C300AF3F04 /* Blog.m in Sources */,
 				7F9BA4CC1727E66600F26F2C /* Video.m in Sources */,
 				7F9BA4CF1727E6E500F26F2C /* Audio.m in Sources */,
 				7FA53F8A172E98E700F0AFA5 /* BlogInfo.m in Sources */,

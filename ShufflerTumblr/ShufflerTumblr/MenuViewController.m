@@ -7,6 +7,7 @@
 //
 
 #import "MenuViewController.h"
+#import "Blog.h"
 
 @interface MenuViewController ()
 
@@ -29,7 +30,38 @@
 	// Do any additional setup after loading the view.
     [self testInternetConnection];
     
+    // load the 4 featured blogs
+    Blog *blog1 = [[Blog alloc] initWithURL: @"http://tuneage.tumblr.com/"];
+    [blog1 getInfo:^(id<Info> info, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            BlogInfo * blogInfo = info;
+            [_imageBlog1 setImage: [blogInfo image]];
+        });
+    }];
     
+    Blog *blog2 = [[Blog alloc] initWithURL: @"http://tracks.ffffine.com/"];
+    [blog2 getInfo:^(id<Info> info, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            BlogInfo * blogInfo = info;
+            [_imageBlog2 setImage: [blogInfo image]];
+        });
+    }];
+    
+    Blog *blog3 = [[Blog alloc] initWithURL: @"http://songsyouusedtolove.tumblr.com/"];
+    [blog3 getInfo:^(id<Info> info, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            BlogInfo * blogInfo = info;
+            [_imageBlog3 setImage: [blogInfo image]];
+        });
+    }];
+    
+    Blog *blog4 = [[Blog alloc] initWithURL: @"http://myuuzikk.tumblr.com/"];
+    [blog4 getInfo:^(id<Info> info, NSError *error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            BlogInfo * blogInfo = info;
+            [_imageBlog4 setImage: [blogInfo image]];
+        });
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,4 +111,11 @@
     
 }
 
+- (void)viewDidUnload {
+    [self setImageBlog1:nil];
+    [self setImageBlog2:nil];
+    [self setImageBlog3:nil];
+    [self setImageBlog4:nil];
+    [super viewDidUnload];
+}
 @end
