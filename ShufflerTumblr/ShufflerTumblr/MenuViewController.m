@@ -7,6 +7,7 @@
 //
 
 #import "MenuViewController.h"
+#import "Blog.h"
 
 @interface MenuViewController ()
 

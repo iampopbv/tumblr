@@ -17,4 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *blog2;
 @property Reachability *internetReachableChecker;
 @property BOOL hasInternet;
+@property (weak, nonatomic) IBOutlet UIImageView *imageBlog1;
+@property (weak, nonatomic) IBOutlet UIImageView *imageBlog2;
+@property (weak, nonatomic) IBOutlet UIImageView *imageBlog3;
+@property (weak, nonatomic) IBOutlet UIImageView *imageBlog4;
 @end

@@ -440,6 +440,7 @@
         <!--View Controller-->
         <scene sceneID="e0I-Uq-cza">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KJe-uG-5Ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="IUK-3M-EQy" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="mMz-EB-Yx5">
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
@@ -448,7 +449,6 @@
                     </view>
                     <toolbarItems/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KJe-uG-5Ep" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1736" y="805"/>
         </scene>

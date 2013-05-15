@@ -13,16 +13,20 @@
 #import "Info.h"
 #import "BlogInfo.h"
 
-@interface ShufflerTumblrDB : NSObject
+@interface Blog : NSObject
 
 typedef void (^ShufflerTumblrPostQueryCompletionBlock)(id<Post> post, NSError *error);
 typedef void (^ShufflerTumblrMultiplePostQueryCompletionBlock)(NSArray<Post> *posts, NSError *error);
 typedef void (^ShufflerTumblrInfoQueryCompletionBlock)(id<Info> info, NSError *error);
 
-extern const NSString * apiURL;
-extern const NSString * apiKey;
 @property NSString * apiType;
+@property NSURL * blogURL;
+@property BlogInfo *blogInfo;
 
--(void) getPosts: (NSString*) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
+extern const NSString * apiKey;
+
+- (id)initWithURL: (NSString*) blogURL;
+-(void) getPosts: (PostType) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
 -(void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block;
+
 @end
