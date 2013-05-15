@@ -22,14 +22,14 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
 - (id)initWithURL: (NSString*) blogURL {
     self = [super init];
     if (self) {
-        if([blogURL hasSuffix: @"http://"])
+        if([blogURL hasPrefix: @"http://"])
             blogURL = [blogURL substringFromIndex: 7];
         else
-            if ([blogURL hasSuffix: @"https://"])
+            if ([blogURL hasPrefix: @"https://"])
                 blogURL = [blogURL substringFromIndex: 8];
             
             
-        if(![blogURL hasPrefix: @"/"])
+        if(![blogURL hasSuffix: @"/"])
             blogURL = [[NSString alloc] initWithFormat:@"%@/", blogURL];
         _blogURL = [[NSURL alloc] initWithString: [[NSString alloc] initWithFormat:@"http://api.tumblr.com/v2/blog/%@", blogURL]];
     }
@@ -92,14 +92,18 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
     dispatch_async(queue, ^{
         NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@", _blogURL, @"info", apiKey];
         NSURL *urlRequest = [NSURL URLWithString:url];
+        NSLog(@"%@",urlRequest);
 		NSError *err = nil;
         
         //		NSString *response = [NSString stringWithContentsOfURL:urlRequest encoding:NSUTF8StringEncoding error:&err];
         NSData *response = [NSData dataWithContentsOfURL: urlRequest];
-        NSArray *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
+        if( !response ) return;
+        NSDictionary *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
+        
+        NSLog(@"%@",objectDict);
         
         id<Info> blogInfo = [BlogInfo alloc];
-        blogInfo = [blogInfo initWithDictionary: [objectDict objectAtIndex: 0]];
+        blogInfo = [blogInfo initWithDictionary: [objectDict objectForKey:@"response"]];
         _blogInfo = blogInfo;
         block(blogInfo, err);
     });

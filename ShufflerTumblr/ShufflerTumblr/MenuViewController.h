@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 #import "BlogInfo.h"
-#import "ShufflerTumblrDB.h"
+#import "Blog.h"
 
 @interface MenuViewController : UIViewController
 

@@ -84,7 +84,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
-                                    <color key="titleColor" patternImage="013C040B-E0E2-4250-B1EA-C988C6BE26F2" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="27C35793-AFAF-4A1E-BA4D-77D643C7D45D" colorSpace="pattern"/>
                                 </state>
                                 <connections>
                                     <segue destination="J1t-Nh-KTa" kind="push" id="BKk-jH-Kmy"/>
@@ -163,8 +163,10 @@
                     </view>
                     <navigationItem key="navigationItem" title="SHUMBLR" id="HJo-ii-8hm"/>
                     <connections>
-                        <outlet property="blog1" destination="01Z-XW-4Kk" id="nNe-RA-1g9"/>
-                        <outlet property="blog2" destination="5AU-ye-Ksb" id="r76-Tp-UBI"/>
+                        <outlet property="imageBlog1" destination="01Z-XW-4Kk" id="sU1-we-Knv"/>
+                        <outlet property="imageBlog2" destination="5AU-ye-Ksb" id="6ws-1N-NIw"/>
+                        <outlet property="imageBlog3" destination="fbI-5I-PLy" id="QwS-DW-c9V"/>
+                        <outlet property="imageBlog4" destination="69Q-FI-DXQ" id="0bc-9p-Uua"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jK-nc-e29" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -539,7 +541,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="013C040B-E0E2-4250-B1EA-C988C6BE26F2" width="256" height="256">
+        <image name="27C35793-AFAF-4A1E-BA4D-77D643C7D45D" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -4936,6 +4938,43 @@ BAJoAAQCcAAEAnMABAKFAAQCiAAEAo0AAAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQCjw
         <image name="Starred.png" width="237" height="71"/>
         <image name="shuffler logo.png" width="1024" height="1024"/>
     </resources>
+    <classes>
+        <class className="DataViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="descriptionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="textView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="webView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageBlog1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageBlog2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageBlog3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageBlog4" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
+        </class>
+        <class className="WebViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/WebViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="TumblrLogin" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
