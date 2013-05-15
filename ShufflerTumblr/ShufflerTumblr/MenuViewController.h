@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
+#import "BlogInfo.h"
+#import "ShufflerTumblrDB.h"
 
 @interface MenuViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *blog1;
+@property (weak, nonatomic) IBOutlet UIImageView *blog2;
 @property Reachability *internetReachableChecker;
 @property BOOL hasInternet;
 @end

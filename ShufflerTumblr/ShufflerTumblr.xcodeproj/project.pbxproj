@@ -62,7 +62,7 @@
 
 /* Begin PBXFileReference section */
 		7F51BE81172473C300AF3F04 /* ShufflerTumblrDB.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShufflerTumblrDB.h; sourceTree = "<group>"; };
-		7F51BE82172473C300AF3F04 /* ShufflerTumblrDB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShufflerTumblrDB.m; sourceTree = "<group>"; };
+		7F51BE82172473C300AF3F04 /* ShufflerTumblrDB.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; path = ShufflerTumblrDB.m; sourceTree = "<group>"; tabWidth = 5; usesTabs = 1; };
 		7F9BA4C71727D1D600F26F2C /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
 		7F9BA4CA1727E66600F26F2C /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
 		7F9BA4CB1727E66600F26F2C /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };

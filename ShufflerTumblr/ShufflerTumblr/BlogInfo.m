@@ -30,7 +30,7 @@
         // Download the blog image
         NSString *imageURLString = [[NSString alloc] initWithFormat: @"http://api.tumblr.com/v2/blog/%@/avatar/512",
                                     [self.blogURL path]];
-        NSURL * imageURL = [[NSURL alloc] initWithString: imageURLString];
+        NSURL * imageURL = [NSURL URLWithString: imageURLString];
         NSData *imageData = [[NSData alloc] initWithContentsOfURL: imageURL];
         self.image = [[UIImage alloc] initWithData: imageData];
     }

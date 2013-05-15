@@ -28,8 +28,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self testInternetConnection];
-    
-    
+}
+
+-(void)loadFeatured:(NSArray*)featured
+{
+    [self.blog1 setImage: ((BlogInfo*)featured[0]).image];
+    [self.blog2 setImage: ((BlogInfo*)featured[1]).image];
 }
 
 - (void)didReceiveMemoryWarning
@@ -79,4 +83,9 @@
     
 }
 
+- (void)viewDidUnload {
+    [self setBlog1:nil];
+    [self setBlog2:nil];
+    [super viewDidUnload];
+}
 @end
