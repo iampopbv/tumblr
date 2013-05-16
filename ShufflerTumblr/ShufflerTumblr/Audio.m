@@ -25,30 +25,45 @@
 @synthesize type;
 
 -(id) initWithDictionary:(NSDictionary *)dictionary {
-    self = [super init];
-    if (self) {
-        self.response = [dictionary objectForKey:@"response"];
-        self.posts = [self.response objectForKey:@"post"];
-        //[self.response objectForKey:@"post"];
-        self.blog = [self.response objectForKey:@"blog"];
-        self.playURL = [dictionary objectForKey:@"audio_url"];
-        self.playerEmbed = [self.posts objectForKey:@"player"];
-        self.ID = [self.posts objectForKey:@"id"];
-        self.date = [self.posts objectForKey:@"date"];
-        self.caption = [self.posts objectForKey:@"caption"];
-        self.trackName = [self.posts objectForKey:@"track_name"];
-        self.artist = [self.posts objectForKey:@"artist"];
-        self.album = [self.posts objectForKey:@"album"];
-        self.albumArtURL = [NSURL URLWithString: [self.posts objectForKey:@"album_art"]];
-        
-        NSData *imageData = [[NSData alloc] initWithContentsOfURL: albumArtURL];
-        self.albumArt = [[UIImage alloc] initWithData: imageData];
-        
-        
-        self.type = AUDIO;
-        NSLog(@"made %@ from %@ ( not %@ ) with %@",self.playURL, [dictionary objectForKey:@"audio_url"], [self.response objectForKey:@"audio_url"], dictionary);
-    }
-    return self;
+	self = [super init];
+	if (self) {
+		self.posts = [dictionary objectForKey:@"post"];
+		//[self.response objectForKey:@"post"];
+		self.blog = [dictionary objectForKey:@"blog"];
+		self.playURL = [dictionary objectForKey:@"audio_url"];
+		self.playerEmbed = [dictionary objectForKey:@"player"];
+		self.ID = [dictionary objectForKey:@"id"];
+		self.date = [dictionary objectForKey:@"date"];
+		self.caption = [dictionary objectForKey:@"caption"];
+		{
+			NSString*namehtml = [dictionary objectForKey:@"track_name"];
+			if(namehtml)
+			{
+				self.trackName = [[NSAttributedString alloc] initWithString:namehtml];
+			}
+		}
+		self.artist = [dictionary objectForKey:@"artist"];
+		self.album = [dictionary objectForKey:@"album"];
+		self.albumArtURL = [NSURL URLWithString: [dictionary objectForKey:@"album_art"]];
+		
+		NSData *imageData = [[NSData alloc] initWithContentsOfURL: albumArtURL];
+		self.albumArt = [[UIImage alloc] initWithData: imageData];
+		
+		
+		self.type = AUDIO;
+		NSLog(@"made %@ from %@ ( not %@ ) with %@",self.playURL, [dictionary objectForKey:@"audio_url"], [self.response objectForKey:@"audio_url"], dictionary);
+	}
+	return self;
+}
+
+-(void)parseResponse:(NSDictionary*)dict
+{
+	
+}
+
+-(NSString *)description
+{
+    return [NSString stringWithFormat:@"%@ - %@ [ %@ ] %@", self.artist, self.trackName, self.playURL, self.caption];
 }
 
 @end

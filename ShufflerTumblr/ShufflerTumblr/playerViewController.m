@@ -18,17 +18,25 @@
 
 -(void)getPost:(id<Post>)post
 {
-    NSLog(@"mail");
     self.post = post;
-    
+
     self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
-    [self.player play];
     NSLog(@"playing %@, from %@", self.post.playURL, self.post.playURL);
+    [self.player play];
 }
 
-static id<postgetter> shareddelegate;
--(id<postgetter>)delegate{return shareddelegate;}
--(void)setDelegate:(id<postgetter>)delegate{shareddelegate=delegate;}
+-(void)showPost
+{
+    [self continue];
+}
+
+-(void)hidePost
+{
+    if(self.player && self.player.rate)
+    {
+        [self pause];
+    }
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -55,14 +63,27 @@ static id<postgetter> shareddelegate;
 
 
 - (void)viewDidUnload {
+    [self.player pause];
+    self.player = nil;
     [self setSeekbar:nil];
     [self setPlaypause:nil];
     [super viewDidUnload];
 }
 - (IBAction)playpause:(id)sender {
     if(self.player.rate)
-       [self.player pause];
+       [self pause];
     else
-        [self.player play];
+        [self continue];
 }
+
+-(void)continue
+{
+    [self.player play];
+}
+
+-(void)pause
+{
+    [self.player pause];
+}
+
 @end

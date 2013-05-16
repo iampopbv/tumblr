@@ -12,6 +12,8 @@
 @protocol postgetter <NSObject>
 
 -(void)getPost:(id<Post>)post;
+-(void)hidePost;
+-(void)showPost;
 
 @property id<Post> post;
 

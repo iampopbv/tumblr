@@ -9,12 +9,15 @@
 #import "DataViewController.h"
 #import "Audio.h"
 #import "Video.h"
+#import "Post.h"
 
 @interface DataViewController ()
 
 @end
 
 @implementation DataViewController
+
+id<postgetter> delegate;
 
 // do this once on init
 - (id)initWithCoder:(NSCoder *)coder
@@ -46,20 +49,42 @@
 		[_webView setHidden: YES];
 		
 		Audio *audioObject = (Audio*)self.post;
-		[_imageView setImage: [audioObject albumArt]];
-
-
+		if(!audioObject.albumArt)
+		{
+			[_imageView setHidden:YES];
+		}
+		   else
+		   {
+			   [_imageView setImage: [audioObject albumArt]];
+		   }
+		[delegate showPost];
 		
-		[[[[playerViewController alloc] init] delegate] getPost:self.post];
+		self.titleLabel.attributedText = [audioObject trackName];
+		[self.captionView loadHTMLString:[audioObject caption] baseURL:[NSURL URLWithString:@"tumblr.com" ]];
 	} else if(self.post.type == VIDEO){
 		[_playerContainer setHidden: YES];
 		[_imageView setHidden: YES];
 		[self embedYouTube: @"http://www.youtube.com/embed/l3Iwh5hqbyE"];
 	}
-	
-	self.titleLabel.text = nil;
-	self.descriptionLabel.text = nil;
 }
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+	if(self.post.type == AUDIO && delegate)
+	{
+		[delegate hidePost];
+	}
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	NSString *segueName = [segue identifier];
+	if([segueName isEqualToString: @"embedplayer"]){
+		delegate = segue.destinationViewController;
+		[segue.destinationViewController getPost:self.post];
+	}
+}
+
 - (void)embedYouTube:(NSString *)urlString {
 	NSString *embedHTML = @"\
 	<html><head>\
@@ -82,6 +107,7 @@
 
 - (void)viewDidUnload {
 	[self setScrollView:nil];
+	[self setCaptionView:nil];
 	[super viewDidUnload];
 }
 @end
