@@ -84,7 +84,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
-                                    <color key="titleColor" patternImage="014C0003-8C07-412C-9044-199127BE5780" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="649F55D3-7550-40FD-9790-E7BB121FD9EA" colorSpace="pattern"/>
                                 </state>
                                 <connections>
                                     <segue destination="J1t-Nh-KTa" kind="push" id="BKk-jH-Kmy"/>
@@ -549,7 +549,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="014C0003-8C07-412C-9044-199127BE5780" width="256" height="256">
+        <image name="649F55D3-7550-40FD-9790-E7BB121FD9EA" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
