@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "bloggetter.h"s
 
-@interface RootViewController : UIViewController <UIPageViewControllerDelegate>
+@interface RootViewController : UIViewController <UIPageViewControllerDelegate,bloggetter>
 
 @property (strong, nonatomic) UIPageViewController *pageViewController;
+
+@property Blog*blog;
 
 @end

@@ -21,7 +21,7 @@
  */
 
 @interface ModelController()
-@property (readonly, strong, nonatomic) NSArray *pageData;
+@property (readonly, strong, nonatomic) NSMutableArray *pageData;
 @end
 
 @implementation ModelController
@@ -81,12 +81,35 @@
     return self;
 }
 
+-(id)initWithBlog:(id)blog
+{
+    self = [super init];
+    if(self)
+    {
+        self.blog = blog;
+        [self.blog getPosts:AUDIO completionBlock:^(NSArray<Post> *posts, NSError *error) {
+            _pageData = [posts copy];
+        }];
+    }
+    return self;
+}
+
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard
 {
+    dispatch_semaphore_t sema = dispatch_semaphore_create(0);
     // Return the data view controller for the given index.
-    if (([self.pageData count] == 0) || (index >= [self.pageData count])) {
-        return nil;
+    if (([self.pageData count] == 0)) {
+        [self.blog getPosts:AUDIO completionBlock:^(NSArray<Post> *posts, NSError *error) {
+            _pageData = [posts copy];
+            dispatch_semaphore_signal(sema);
+        }];
+        
+        dispatch_semaphore_wait(sema, DISPATCH_TIME_FOREVER);
+        dispatch_release(sema);
     }
+    
+    if (index >= [self.pageData count])
+        return nil;
     
     // Create a new view controller and pass suitable data.
     DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];

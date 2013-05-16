@@ -10,6 +10,7 @@
 #import "Reachability.h"
 #import "BlogInfo.h"
 #import "Blog.h"
+#import "bloggetter.h"
 
 @interface MenuViewController : UIViewController
 

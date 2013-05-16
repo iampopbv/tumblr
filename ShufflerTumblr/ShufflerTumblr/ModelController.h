@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Blog.h"
 
 @class DataViewController;
 
 @interface ModelController : NSObject <UIPageViewControllerDataSource>
 
+@property Blog*blog;
+
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
 - (NSUInteger)indexOfViewController:(DataViewController *)viewController;
+
+-(id)initWithBlog:(Blog*)blog;
 
 @end

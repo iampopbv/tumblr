@@ -121,9 +121,13 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *segueName = [segue identifier];
     if([segueName isEqualToString: @"segue_blog1"]){
+        [(id<bloggetter>)segue.destinationViewController getBlog:_blog1];
     } else if([segueName isEqualToString: @"segue_blog2"]) {
+        [(id<bloggetter>)segue.destinationViewController getBlog:_blog2];
     } else if([segueName isEqualToString: @"segue_blog3"]){
+        [(id<bloggetter>)segue.destinationViewController getBlog:_blog3];
     } else if([segueName isEqualToString: @"segue_blog4"]) {
+        [(id<bloggetter>)segue.destinationViewController getBlog:_blog4];
     }
     
 }
