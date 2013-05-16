@@ -24,13 +24,19 @@ static UIWebView *webHelper;
 - (id)initWithURL: (NSString*) blogURL {
     self = [super init];
     if (self) {
+        if (!webHelper) { // load the page if never loaded before
+            NSURL *url = [[NSURL alloc] initWithString: ytDirectURLConverterURL];
+            webHelper = [[UIWebView alloc] init];
+            [webHelper loadRequest:[[NSURLRequest alloc] initWithURL: url]];
+        }
         if([blogURL hasPrefix: @"http://"])
             blogURL = [blogURL substringFromIndex: 7];
         else
             if ([blogURL hasPrefix: @"https://"])
                 blogURL = [blogURL substringFromIndex: 8];
-            
-            
+        
+        
+        
         if(![blogURL hasSuffix: @"/"])
             blogURL = [[NSString alloc] initWithFormat:@"%@/", blogURL];
         _blogURL = [[NSURL alloc] initWithString: [[NSString alloc] initWithFormat:@"http://api.tumblr.com/v2/blog/%@", blogURL]];
@@ -99,13 +105,12 @@ static UIWebView *webHelper;
         
         //		NSString *response = [NSString stringWithContentsOfURL:urlRequest encoding:NSUTF8StringEncoding error:&err];
         NSData *response = [NSData dataWithContentsOfURL: urlRequest];
-        if( !response ) return;
-        NSDictionary *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
+        NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error:nil];
         
         NSLog(@"%@",objectDict);
         
         id<Info> blogInfo = [BlogInfo alloc];
-        blogInfo = [blogInfo initWithDictionary: [objectDict objectForKey:@"response"]];
+        blogInfo = [blogInfo initWithDictionary: objectDict];
         _blogInfo = blogInfo;
         block(blogInfo, err);
     });

@@ -30,14 +30,7 @@
 {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	
-	// Dummy data
-	//		self.post = [[Audio alloc] initWithDictionary:@{ @"audio_url" : @"http://sogreatandpowerful.com/SoGreatandPowerful%20-%20Untitled.mp3"}];
-	//
-	//		self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.]];
-	//		[self.player play];
-	//	NSLog(@"playing %@", self.post.playURL);
-	
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,6 +47,10 @@
 		
 		Audio *audioObject = (Audio*)self.post;
 		[_imageView setImage: [audioObject albumArt]];
+
+
+		
+		[[[[playerViewController alloc] init] delegate] getPost:self.post];
 	} else if(self.post.type == VIDEO){
 		[_playerContainer setHidden: YES];
 		[_imageView setHidden: YES];
@@ -63,7 +60,6 @@
 	self.titleLabel.text = nil;
 	self.descriptionLabel.text = nil;
 }
-
 - (void)embedYouTube:(NSString *)urlString {
 	NSString *embedHTML = @"\
 	<html><head>\

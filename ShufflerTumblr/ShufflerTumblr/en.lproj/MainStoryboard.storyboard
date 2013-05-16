@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
-                                    <color key="titleColor" patternImage="045CBCE8-2786-41D6-B344-D3D34E18EE4E" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="BB2E68D2-4AAD-4761-9631-97192C944F79" colorSpace="pattern"/>
                                 </state>
                                 <connections>
                                     <segue destination="J1t-Nh-KTa" kind="push" id="BKk-jH-Kmy"/>
@@ -587,12 +587,12 @@
             </objects>
             <point key="canvasLocation" x="1736" y="805"/>
         </scene>
-        <!--View Controller-->
+        <!--Player View Controller-->
         <scene sceneID="FXo-Gs-D6V">
             <objects>
-                <viewController id="iMl-fW-RDD" sceneMemberID="viewController">
+                <viewController id="iMl-fW-RDD" customClass="playerViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uQi-FZ-MY9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
+                        <rect key="frame" x="0.0" y="0.0" width="321" height="24"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUc-vL-tGJ">
@@ -629,6 +629,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="playpause:" destination="iMl-fW-RDD" eventType="touchUpInside" id="sGl-1c-pK5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Kr-hi-cxD">
                                 <constraints>
@@ -667,6 +670,10 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <connections>
+                        <outlet property="playpause" destination="Hnc-ew-HA9" id="U4X-Se-Pi3"/>
+                        <outlet property="seekbar" destination="i25-3B-Uqc" id="4sz-Jf-J6l"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oca-LQ-YPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -674,7 +681,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="045CBCE8-2786-41D6-B344-D3D34E18EE4E" width="256" height="256">
+        <image name="BB2E68D2-4AAD-4761-9631-97192C944F79" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5110,6 +5117,13 @@ BAJoAAQCcAAEAnMABAKFAAQCiAAEAo0AAAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQCjw
         </class>
         <class className="RootViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
+        </class>
+        <class className="playerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/playerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playpause:"/>
+                <relationship kind="outlet" name="seekbar" candidateClass="UIProgressView"/>
+            </relationships>
         </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

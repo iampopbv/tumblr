@@ -13,8 +13,6 @@
 
 @interface MenuViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIImageView *blog1;
-@property (weak, nonatomic) IBOutlet UIImageView *blog2;
 @property Reachability *internetReachableChecker;
 @property BOOL hasInternet;
 

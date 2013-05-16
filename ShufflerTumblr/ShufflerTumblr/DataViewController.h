@@ -11,12 +11,10 @@
 #import "MediaPlayer/MediaPlayer.h"
 #import "Post.h"
 #import "Audio.h"
-
+#import "postgetter.h"
+#import "playerViewController.h"
 
 @interface DataViewController : UIViewController
-
-@property AVPlayer*player;
-
 
 @property (weak, nonatomic) IBOutlet UILabel *dataLabel;
 @property (strong, nonatomic) id<Post> post;
@@ -31,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property AVQueuePlayer * queuePlayer;
+
+@property AVPlayer*player;
 
 
 @end

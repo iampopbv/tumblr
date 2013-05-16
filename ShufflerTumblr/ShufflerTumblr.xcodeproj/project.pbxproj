@@ -11,6 +11,7 @@
 		7F9BA4CC1727E66600F26F2C /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CB1727E66600F26F2C /* Video.m */; };
 		7F9BA4CF1727E6E500F26F2C /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CE1727E6E500F26F2C /* Audio.m */; };
 		7FA53F8A172E98E700F0AFA5 /* BlogInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA53F89172E98E700F0AFA5 /* BlogInfo.m */; };
+		8B9BDFFC17452B85008B3500 /* playerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BDFFA17452B85008B3500 /* playerViewController.m */; };
 		8BC2E3931737B12700521124 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC2E3921737B12700521124 /* AVFoundation.framework */; };
 		A187A3571727D83900AF4F82 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A187A3561727D83900AF4F82 /* LoginViewController.m */; };
 		A1FAD702171EA7BC0095EC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD701171EA7BC0095EC7E /* UIKit.framework */; };
@@ -71,6 +72,9 @@
 		7FA53F85172E97DE00F0AFA5 /* Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Info.h; sourceTree = "<group>"; };
 		7FA53F88172E98E700F0AFA5 /* BlogInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogInfo.h; sourceTree = "<group>"; };
 		7FA53F89172E98E700F0AFA5 /* BlogInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogInfo.m; sourceTree = "<group>"; };
+		8B9BDFF917452B85008B3500 /* playerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playerViewController.h; sourceTree = "<group>"; };
+		8B9BDFFA17452B85008B3500 /* playerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playerViewController.m; sourceTree = "<group>"; };
+		8B9BDFFE17452E5D008B3500 /* postgetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postgetter.h; sourceTree = "<group>"; };
 		8BC2E3921737B12700521124 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		A187A3551727D83900AF4F82 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A187A3561727D83900AF4F82 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
@@ -236,6 +240,9 @@
 				AFFD3B7717366D1500FC7E82 /* DataViewController.m */,
 				AFFD3B7817366D1500FC7E82 /* ModelController.h */,
 				AFFD3B7917366D1500FC7E82 /* ModelController.m */,
+				8B9BDFF917452B85008B3500 /* playerViewController.h */,
+				8B9BDFFA17452B85008B3500 /* playerViewController.m */,
+				8B9BDFFE17452E5D008B3500 /* postgetter.h */,
 			);
 			name = PostControllers;
 			sourceTree = "<group>";
@@ -439,6 +446,7 @@
 				AFFD3B7E17366D1500FC7E82 /* RootViewController.m in Sources */,
 				AF44E10B173E9B820088908D /* MenuViewController.m in Sources */,
 				AF44E10E173E9C830088908D /* Reachability.m in Sources */,
+				8B9BDFFC17452B85008B3500 /* playerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -64,6 +64,7 @@
         vid2.type = VIDEO;
         
         Audio * aud1 = [[Audio alloc] init];
+        aud1.playURL = @"http://backup.upwhere.me/music/track02.cdda.wav";
         aud1.date = @"now";
         aud1.type = AUDIO;
         NSURL *albumArtURL = [[NSURL alloc] initWithString: @"http://assets.shuffler.fm/assets/static/images/shuffler_logo_200.png"];

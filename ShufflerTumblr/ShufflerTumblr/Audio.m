@@ -39,7 +39,7 @@
         self.trackName = [self.posts objectForKey:@"track_name"];
         self.artist = [self.posts objectForKey:@"artist"];
         self.album = [self.posts objectForKey:@"album"];
-        self.albumArtURL = [[NSURL alloc] initWithString: [self.posts objectForKey:@"album_art"]];
+        self.albumArtURL = [NSURL URLWithString: [self.posts objectForKey:@"album_art"]];
         
         NSData *imageData = [[NSData alloc] initWithContentsOfURL: albumArtURL];
         self.albumArt = [[UIImage alloc] initWithData: imageData];
