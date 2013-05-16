@@ -29,15 +29,15 @@ static UIWebView *webHelper;
             webHelper = [[UIWebView alloc] init];
             [webHelper loadRequest:[[NSURLRequest alloc] initWithURL: url]];
         }
-        
-        if([blogURL hasSuffix: @"http://"])
+        if([blogURL hasPrefix: @"http://"])
             blogURL = [blogURL substringFromIndex: 7];
         else
-            if ([blogURL hasSuffix: @"https://"])
+            if ([blogURL hasPrefix: @"https://"])
                 blogURL = [blogURL substringFromIndex: 8];
         
         
-        if(![blogURL hasPrefix: @"/"])
+        
+        if(![blogURL hasSuffix: @"/"])
             blogURL = [[NSString alloc] initWithFormat:@"%@/", blogURL];
         _blogURL = [[NSURL alloc] initWithString: [[NSString alloc] initWithFormat:@"http://api.tumblr.com/v2/blog/%@", blogURL]];
     }
@@ -104,10 +104,10 @@ static UIWebView *webHelper;
         
         //		NSString *response = [NSString stringWithContentsOfURL:urlRequest encoding:NSUTF8StringEncoding error:&err];
         NSData *response = [NSData dataWithContentsOfURL: urlRequest];
-        NSArray *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
+        NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error:nil];
         
         id<Info> blogInfo = [BlogInfo alloc];
-        blogInfo = [blogInfo initWithDictionary: [objectDict objectAtIndex: 0]];
+        blogInfo = [blogInfo initWithDictionary: objectDict];
         _blogInfo = blogInfo;
         block(blogInfo, err);
     });

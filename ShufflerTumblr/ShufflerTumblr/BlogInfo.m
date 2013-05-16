@@ -16,7 +16,8 @@
 -(id) initWithDictionary:(NSDictionary *) data {
     self = [super init];
     if (self) {
-        self.blog = [data objectForKey: @"blog"];
+        NSDictionary * dict = [data objectForKey: @"response"];
+        self.blog = [dict objectForKey: @"blog"];
         self.title = [self.blog objectForKey: @"title"];
         self.name = [self.blog objectForKey:@"name"];
         self.posts = [self.blog objectForKey:@"posts"];
@@ -28,8 +29,10 @@
         self.likes = [self.blog objectForKey:@"share_likes"];
         
         // Download the blog image
-        NSString *imageURLString = [[NSString alloc] initWithFormat: @"http://api.tumblr.com/v2/blog/%@/avatar/512",
-                                    [self.blogURL path]];
+        NSString *skinnyBlogURL = [[self.blogURL description] hasPrefix:@"http"] ? [[self.blogURL description] substringFromIndex:7]: [[self.blogURL description] substringFromIndex:8];
+        NSString *imageURLString = [[NSString alloc] initWithFormat: @"http://api.tumblr.com/v2/blog/%@avatar/512",
+                                    skinnyBlogURL];
+        NSLog(@"image location: %@", imageURLString);
         NSURL * imageURL = [[NSURL alloc] initWithString: imageURLString];
         NSData *imageData = [[NSData alloc] initWithContentsOfURL: imageURL];
         self.image = [[UIImage alloc] initWithData: imageData];
