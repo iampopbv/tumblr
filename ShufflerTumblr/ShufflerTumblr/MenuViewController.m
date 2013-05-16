@@ -31,37 +31,37 @@
     [self testInternetConnection];
     
     // load the 4 featured blogs
-    Blog *blog1 = [[Blog alloc] initWithURL: @"http://tuneage.tumblr.com/"];
-    [blog1 getInfo:^(id<Info> info, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            BlogInfo * blogInfo = info;
-            [_imageBlog1 setImage: [blogInfo image]];
-        });
-    }];
-    
-    Blog *blog2 = [[Blog alloc] initWithURL: @"http://tracks.ffffine.com/"];
-    [blog2 getInfo:^(id<Info> info, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            BlogInfo * blogInfo = info;
-            [_imageBlog2 setImage: [blogInfo image]];
-        });
-    }];
-    
-    Blog *blog3 = [[Blog alloc] initWithURL: @"http://songsyouusedtolove.tumblr.com/"];
-    [blog3 getInfo:^(id<Info> info, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            BlogInfo * blogInfo = info;
-            [_imageBlog3 setImage: [blogInfo image]];
-        });
-    }];
-    
-    Blog *blog4 = [[Blog alloc] initWithURL: @"http://myuuzikk.tumblr.com/"];
-    [blog4 getInfo:^(id<Info> info, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            BlogInfo * blogInfo = info;
-            [_imageBlog4 setImage: [blogInfo image]];
-        });
-    }];
+    //    Blog *blog1 = [[Blog alloc] initWithURL: @"http://tuneage.tumblr.com/"];
+    //    [blog1 getInfo:^(id<Info> info, NSError *error) {
+    //        dispatch_async(dispatch_get_main_queue(), ^{
+    //            BlogInfo * blogInfo = info;
+    //            [_imageBlog1 setImage: [blogInfo image]];
+    //        });
+    //    }];
+    //
+    //    Blog *blog2 = [[Blog alloc] initWithURL: @"http://tracks.ffffine.com/"];
+    //    [blog2 getInfo:^(id<Info> info, NSError *error) {
+    //        dispatch_async(dispatch_get_main_queue(), ^{
+    //            BlogInfo * blogInfo = info;
+    //            [_imageBlog2 setImage: [blogInfo image]];
+    //        });
+    //    }];
+    //
+    //    Blog *blog3 = [[Blog alloc] initWithURL: @"http://songsyouusedtolove.tumblr.com/"];
+    //    [blog3 getInfo:^(id<Info> info, NSError *error) {
+    //        dispatch_async(dispatch_get_main_queue(), ^{
+    //            BlogInfo * blogInfo = info;
+    //            [_imageBlog3 setImage: [blogInfo image]];
+    //        });
+    //    }];
+    //
+    //    Blog *blog4 = [[Blog alloc] initWithURL: @"http://myuuzikk.tumblr.com/"];
+    //    [blog4 getInfo:^(id<Info> info, NSError *error) {
+    //        dispatch_async(dispatch_get_main_queue(), ^{
+    //            BlogInfo * blogInfo = info;
+    //            [_imageBlog4 setImage: [blogInfo image]];
+    //        });
+    //    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -108,6 +108,11 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *segueName = [segue identifier];
+    if([segueName isEqualToString: @"segue_blog1"]){
+    } else if([segueName isEqualToString: @"segue_blog2"]) {
+    } else if([segueName isEqualToString: @"segue_blog3"]){
+    } else if([segueName isEqualToString: @"segue_blog4"]) {
+    }
     
 }
 

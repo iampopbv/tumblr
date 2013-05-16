@@ -186,12 +186,6 @@
 		A1FAD707171EA7BC0095EC7E /* ShufflerTumblr */ = {
 			isa = PBXGroup;
 			children = (
-				AFFD3B7A17366D1500FC7E82 /* RootViewController.h */,
-				AFFD3B7B17366D1500FC7E82 /* RootViewController.m */,
-				AFFD3B7617366D1500FC7E82 /* DataViewController.h */,
-				AFFD3B7717366D1500FC7E82 /* DataViewController.m */,
-				AFFD3B7817366D1500FC7E82 /* ModelController.h */,
-				AFFD3B7917366D1500FC7E82 /* ModelController.m */,
 				AF1F827617354E8A0001C15E /* ViewControllers */,
 				7F51BE81172473C300AF3F04 /* Blog.h */,
 				7F51BE82172473C300AF3F04 /* Blog.m */,
@@ -233,9 +227,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AF1B80BD17427C5F001588BE /* PostControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFFD3B7A17366D1500FC7E82 /* RootViewController.h */,
+				AFFD3B7B17366D1500FC7E82 /* RootViewController.m */,
+				AFFD3B7617366D1500FC7E82 /* DataViewController.h */,
+				AFFD3B7717366D1500FC7E82 /* DataViewController.m */,
+				AFFD3B7817366D1500FC7E82 /* ModelController.h */,
+				AFFD3B7917366D1500FC7E82 /* ModelController.m */,
+			);
+			name = PostControllers;
+			sourceTree = "<group>";
+		};
 		AF1F827617354E8A0001C15E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF1B80BD17427C5F001588BE /* PostControllers */,
 				AF44E109173E9B820088908D /* MenuViewController.h */,
 				AF44E10A173E9B820088908D /* MenuViewController.m */,
 				A1FAD71C171EA7BC0095EC7E /* MasterViewController.h */,
