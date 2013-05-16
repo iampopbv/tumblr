@@ -16,17 +16,20 @@
 
 @implementation DataViewController
 
+// do this once on init
+- (id)initWithCoder:(NSCoder *)coder
+{
+    self = [super initWithCoder:coder];
+    if (self) {
+	    _queuePlayer = [[AVQueuePlayer alloc] init];
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	
-	
-	
-	
-	
-	
-	
 	
 	// Dummy data
 	//		self.post = [[Audio alloc] initWithDictionary:@{ @"audio_url" : @"http://sogreatandpowerful.com/SoGreatandPowerful%20-%20Untitled.mp3"}];

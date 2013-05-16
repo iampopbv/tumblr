@@ -18,11 +18,11 @@
 typedef void (^ShufflerTumblrPostQueryCompletionBlock)(id<Post> post, NSError *error);
 typedef void (^ShufflerTumblrMultiplePostQueryCompletionBlock)(NSArray<Post> *posts, NSError *error);
 typedef void (^ShufflerTumblrInfoQueryCompletionBlock)(id<Info> info, NSError *error);
+typedef void (^PageLoadingCompletionBlock)(NSString* youtubeDirectURL);
 
 @property NSString * apiType;
 @property NSURL * blogURL;
 @property BlogInfo *blogInfo;
-
 extern const NSString * apiKey;
 
 - (id)initWithURL: (NSString*) blogURL;

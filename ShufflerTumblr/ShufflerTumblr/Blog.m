@@ -11,6 +11,8 @@
 @implementation Blog
 
 const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLNsUPoWLV";
+NSString * ytDirectURLConverterURL = @"http://shuffler.fm/youtube/magic?key=Q29yaXRpYmEgbWVsaG9yIHRpbWUgZG8gYnJhc2ls";
+static UIWebView *webHelper;
 
 - (id)init
 {
@@ -22,13 +24,19 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
 - (id)initWithURL: (NSString*) blogURL {
     self = [super init];
     if (self) {
+        if (!webHelper) { // load the page if never loaded before
+            NSURL *url = [[NSURL alloc] initWithString: ytDirectURLConverterURL];
+            webHelper = [[UIWebView alloc] init];
+            [webHelper loadRequest:[[NSURLRequest alloc] initWithURL: url]];
+        }
+        
         if([blogURL hasSuffix: @"http://"])
             blogURL = [blogURL substringFromIndex: 7];
         else
             if ([blogURL hasSuffix: @"https://"])
                 blogURL = [blogURL substringFromIndex: 8];
-            
-            
+        
+        
         if(![blogURL hasPrefix: @"/"])
             blogURL = [[NSString alloc] initWithFormat:@"%@/", blogURL];
         _blogURL = [[NSURL alloc] initWithString: [[NSString alloc] initWithFormat:@"http://api.tumblr.com/v2/blog/%@", blogURL]];
@@ -104,6 +112,38 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
         block(blogInfo, err);
     });
 }
+
+- (void) getYoutubeLinkWithId: (NSString*) youtubeId withBlock: (PageLoadingCompletionBlock) block {
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        int countErrors = 0;
+        
+        NSString *function = [NSString stringWithFormat:@"getYTVideoInfo('%@');", youtubeId];
+        __block NSString *result;
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            result = [webHelper stringByEvaluatingJavaScriptFromString: function];
+        });
+        
+        NSError* error;
+        NSString *infoString;
+        while (countErrors < 5 && (infoString == nil || error)) //in case of fail do it 5 times
+        {
+            countErrors++;
+            error = nil;
+            infoString = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString: result] encoding:NSUTF8StringEncoding error: nil];
+        }
+        
+        
+        function = [NSString stringWithFormat:@"getYTDirectLinkFromData('%@','medium');", infoString];
+        __block NSString *youtubeURL;
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            youtubeURL = [webHelper stringByEvaluatingJavaScriptFromString: function];
+        });
+        block(youtubeURL);
+    });
+}
+
 
 
 @end
