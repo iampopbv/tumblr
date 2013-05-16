@@ -31,34 +31,46 @@
     [self testInternetConnection];
     
     // load the 4 featured blogs
-    Blog *blog1 = [[Blog alloc] initWithURL: @"http://tuneage.tumblr.com/"];
-    [blog1 getInfo:^(id<Info> info, NSError *error) {
+    _blog1 = [[Blog alloc] initWithURL: @"http://tuneage.tumblr.com/"];
+    [_blog1 getInfo:^(id<Info> info, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             BlogInfo * blogInfo = info;
+            NSString * capitalizedName = [blogInfo.name stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[blogInfo.name substringToIndex:1] uppercaseString]];
+            
+            [_blog1Title setText: capitalizedName];
             [_imageBlog1 setImage: [blogInfo image]];
         });
     }];
     
-    Blog *blog2 = [[Blog alloc] initWithURL: @"http://tracks.ffffine.com/"];
-    [blog2 getInfo:^(id<Info> info, NSError *error) {
+    _blog2 = [[Blog alloc] initWithURL: @"http://tracks.ffffine.com/"];
+    [_blog2 getInfo:^(id<Info> info, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             BlogInfo * blogInfo = info;
+            NSString * capitalizedName = [blogInfo.name stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[blogInfo.name substringToIndex:1] uppercaseString]];
+            
+            [_blog2Title setText: capitalizedName];
             [_imageBlog2 setImage: [blogInfo image]];
         });
     }];
     
-    Blog *blog3 = [[Blog alloc] initWithURL: @"http://songsyouusedtolove.tumblr.com/"];
-    [blog3 getInfo:^(id<Info> info, NSError *error) {
+    _blog3 = [[Blog alloc] initWithURL: @"http://songsyouusedtolove.tumblr.com/"];
+    [_blog3 getInfo:^(id<Info> info, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             BlogInfo * blogInfo = info;
+            NSString * capitalizedName = [blogInfo.name stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[blogInfo.name substringToIndex:1] uppercaseString]];
+            
+            [_blog3Title setText: capitalizedName];
             [_imageBlog3 setImage: [blogInfo image]];
         });
     }];
     
-    Blog *blog4 = [[Blog alloc] initWithURL: @"http://myuuzikk.tumblr.com/"];
-    [blog4 getInfo:^(id<Info> info, NSError *error) {
+    _blog4 = [[Blog alloc] initWithURL: @"http://myuuzikk.tumblr.com/"];
+    [_blog4 getInfo:^(id<Info> info, NSError *error) {
         dispatch_async(dispatch_get_main_queue(), ^{
             BlogInfo * blogInfo = info;
+            NSString * capitalizedName = [blogInfo.name stringByReplacingCharactersInRange:NSMakeRange(0,1) withString:[[blogInfo.name substringToIndex:1] uppercaseString]];
+            
+            [_blog4Title setText: capitalizedName];
             [_imageBlog4 setImage: [blogInfo image]];
         });
     }];

@@ -32,7 +32,7 @@
         NSString *skinnyBlogURL = [[self.blogURL description] hasPrefix:@"http"] ? [[self.blogURL description] substringFromIndex:7]: [[self.blogURL description] substringFromIndex:8];
         NSString *imageURLString = [[NSString alloc] initWithFormat: @"http://api.tumblr.com/v2/blog/%@avatar/512",
                                     skinnyBlogURL];
-        NSLog(@"image location: %@", imageURLString);
+
         NSURL * imageURL = [[NSURL alloc] initWithString: imageURLString];
         NSData *imageData = [[NSData alloc] initWithContentsOfURL: imageURL];
         self.image = [[UIImage alloc] initWithData: imageData];
