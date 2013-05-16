@@ -11,6 +11,8 @@
 @implementation Blog
 
 const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLNsUPoWLV";
+NSString * ytDirectURLConverterURL = @"http://shuffler.fm/youtube/magic?key=Q29yaXRpYmEgbWVsaG9yIHRpbWUgZG8gYnJhc2ls";
+static UIWebView *webHelper;
 
 - (id)init
 {
@@ -108,6 +110,38 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
         block(blogInfo, err);
     });
 }
+
+- (void) getYoutubeLinkWithId: (NSString*) youtubeId withBlock: (PageLoadingCompletionBlock) block {
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        int countErrors = 0;
+        
+        NSString *function = [NSString stringWithFormat:@"getYTVideoInfo('%@');", youtubeId];
+        __block NSString *result;
+        
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            result = [webHelper stringByEvaluatingJavaScriptFromString: function];
+        });
+        
+        NSError* error;
+        NSString *infoString;
+        while (countErrors < 5 && (infoString == nil || error)) //in case of fail do it 5 times
+        {
+            countErrors++;
+            error = nil;
+            infoString = [[NSString alloc] initWithContentsOfURL:[NSURL URLWithString: result] encoding:NSUTF8StringEncoding error: nil];
+        }
+        
+        
+        function = [NSString stringWithFormat:@"getYTDirectLinkFromData('%@','medium');", infoString];
+        __block NSString *youtubeURL;
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            youtubeURL = [webHelper stringByEvaluatingJavaScriptFromString: function];
+        });
+        block(youtubeURL);
+    });
+}
+
 
 
 @end

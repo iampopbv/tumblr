@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WebViewController : UIViewController
+@interface LoginViewController : UIViewController
 
     @property (weak,nonatomic) IBOutlet UIWebView *TumblrLogin;
 

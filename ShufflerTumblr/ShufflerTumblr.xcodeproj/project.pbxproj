@@ -12,7 +12,7 @@
 		7F9BA4CF1727E6E500F26F2C /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CE1727E6E500F26F2C /* Audio.m */; };
 		7FA53F8A172E98E700F0AFA5 /* BlogInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA53F89172E98E700F0AFA5 /* BlogInfo.m */; };
 		8BC2E3931737B12700521124 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC2E3921737B12700521124 /* AVFoundation.framework */; };
-		A187A3571727D83900AF4F82 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A187A3561727D83900AF4F82 /* WebViewController.m */; };
+		A187A3571727D83900AF4F82 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A187A3561727D83900AF4F82 /* LoginViewController.m */; };
 		A1FAD702171EA7BC0095EC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD701171EA7BC0095EC7E /* UIKit.framework */; };
 		A1FAD704171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
 		A1FAD706171EA7BC0095EC7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD705171EA7BC0095EC7E /* CoreGraphics.framework */; };
@@ -72,8 +72,8 @@
 		7FA53F88172E98E700F0AFA5 /* BlogInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogInfo.h; sourceTree = "<group>"; };
 		7FA53F89172E98E700F0AFA5 /* BlogInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogInfo.m; sourceTree = "<group>"; };
 		8BC2E3921737B12700521124 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		A187A3551727D83900AF4F82 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		A187A3561727D83900AF4F82 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		A187A3551727D83900AF4F82 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		A187A3561727D83900AF4F82 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A1FAD6FE171EA7BC0095EC7E /* ShufflerTumblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShufflerTumblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FAD701171EA7BC0095EC7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A1FAD703171EA7BC0095EC7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -186,12 +186,6 @@
 		A1FAD707171EA7BC0095EC7E /* ShufflerTumblr */ = {
 			isa = PBXGroup;
 			children = (
-				AFFD3B7A17366D1500FC7E82 /* RootViewController.h */,
-				AFFD3B7B17366D1500FC7E82 /* RootViewController.m */,
-				AFFD3B7617366D1500FC7E82 /* DataViewController.h */,
-				AFFD3B7717366D1500FC7E82 /* DataViewController.m */,
-				AFFD3B7817366D1500FC7E82 /* ModelController.h */,
-				AFFD3B7917366D1500FC7E82 /* ModelController.m */,
 				AF1F827617354E8A0001C15E /* ViewControllers */,
 				7F51BE81172473C300AF3F04 /* Blog.h */,
 				7F51BE82172473C300AF3F04 /* Blog.m */,
@@ -233,17 +227,31 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AF1B80BD17427C5F001588BE /* PostControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AFFD3B7A17366D1500FC7E82 /* RootViewController.h */,
+				AFFD3B7B17366D1500FC7E82 /* RootViewController.m */,
+				AFFD3B7617366D1500FC7E82 /* DataViewController.h */,
+				AFFD3B7717366D1500FC7E82 /* DataViewController.m */,
+				AFFD3B7817366D1500FC7E82 /* ModelController.h */,
+				AFFD3B7917366D1500FC7E82 /* ModelController.m */,
+			);
+			name = PostControllers;
+			sourceTree = "<group>";
+		};
 		AF1F827617354E8A0001C15E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF1B80BD17427C5F001588BE /* PostControllers */,
 				AF44E109173E9B820088908D /* MenuViewController.h */,
 				AF44E10A173E9B820088908D /* MenuViewController.m */,
 				A1FAD71C171EA7BC0095EC7E /* MasterViewController.h */,
 				A1FAD71D171EA7BC0095EC7E /* MasterViewController.m */,
 				A1FAD71F171EA7BC0095EC7E /* DetailViewController.h */,
 				A1FAD720171EA7BC0095EC7E /* DetailViewController.m */,
-				A187A3551727D83900AF4F82 /* WebViewController.h */,
-				A187A3561727D83900AF4F82 /* WebViewController.m */,
+				A187A3551727D83900AF4F82 /* LoginViewController.h */,
+				A187A3561727D83900AF4F82 /* LoginViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -421,7 +429,7 @@
 				A1FAD712171EA7BC0095EC7E /* AppDelegate.m in Sources */,
 				A1FAD71E171EA7BC0095EC7E /* MasterViewController.m in Sources */,
 				A1FAD721171EA7BC0095EC7E /* DetailViewController.m in Sources */,
-				A187A3571727D83900AF4F82 /* WebViewController.m in Sources */,
+				A187A3571727D83900AF4F82 /* LoginViewController.m in Sources */,
 				7F51BE83172473C300AF3F04 /* Blog.m in Sources */,
 				7F9BA4CC1727E66600F26F2C /* Video.m in Sources */,
 				7F9BA4CF1727E6E500F26F2C /* Audio.m in Sources */,

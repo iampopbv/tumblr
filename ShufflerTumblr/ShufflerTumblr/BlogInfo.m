@@ -16,7 +16,8 @@
 -(id) initWithDictionary:(NSDictionary *) data {
     self = [super init];
     if (self) {
-        self.blog = [data objectForKey: @"blog"];
+        NSDictionary * dict = [data objectForKey: @"response"];
+        self.blog = [dict objectForKey: @"blog"];
         self.title = [self.blog objectForKey: @"title"];
         self.name = [self.blog objectForKey:@"name"];
         self.posts = [self.blog objectForKey:@"posts"];

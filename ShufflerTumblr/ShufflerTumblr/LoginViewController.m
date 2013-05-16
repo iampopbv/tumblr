@@ -6,14 +6,14 @@
 //  Copyright (c) 2013 stud. All rights reserved.
 //
 
-#import "WebViewController.h"
+#import "LoginViewController.h"
 
-@interface WebViewController ()
+@interface LoginViewController ()
 
 @end
 
 
-@implementation WebViewController
+@implementation LoginViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
