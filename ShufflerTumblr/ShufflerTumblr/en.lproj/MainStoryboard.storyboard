@@ -23,7 +23,7 @@
                                     <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
-                                    <color key="titleColor" patternImage="BB2E68D2-4AAD-4761-9631-97192C944F79" colorSpace="pattern"/>
+                                    <color key="titleColor" patternImage="D1266DFB-49F7-4BFB-8670-91EABAE5F5FA" colorSpace="pattern"/>
                                 </state>
                                 <connections>
                                     <segue destination="J1t-Nh-KTa" kind="push" id="BKk-jH-Kmy"/>
@@ -671,7 +671,7 @@
                     </view>
                     <toolbarItems/>
                     <connections>
-                        <outlet property="playpause" destination="Hnc-ew-HA9" id="U4X-Se-Pi3"/>
+                        <outlet property="playpause" destination="Hnc-ew-HA9" id="BWK-W4-lon"/>
                         <outlet property="seekbar" destination="i25-3B-Uqc" id="4sz-Jf-J6l"/>
                     </connections>
                 </viewController>
@@ -681,7 +681,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="BB2E68D2-4AAD-4761-9631-97192C944F79" width="256" height="256">
+        <image name="D1266DFB-49F7-4BFB-8670-91EABAE5F5FA" width="256" height="256">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGPj9YJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK4HCBMU
 GR4fIyQsLzI4O1UkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdzVk5TUmVw
@@ -5122,6 +5122,7 @@ BAJoAAQCcAAEAnMABAKFAAQCiAAEAo0AAAAAAAAEAQAAAAAAAABCAAAAAAAAAAAAAAAAAAQCjw
             <source key="sourceIdentifier" type="project" relativePath="./Classes/playerViewController.h"/>
             <relationships>
                 <relationship kind="action" name="playpause:"/>
+                <relationship kind="outlet" name="playpause" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="seekbar" candidateClass="UIProgressView"/>
             </relationships>
         </class>

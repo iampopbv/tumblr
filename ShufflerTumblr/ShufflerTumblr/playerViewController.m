@@ -55,8 +55,8 @@ static id<postgetter> shareddelegate;
 
 
 - (void)viewDidUnload {
-    [self setPlaypause:nil];
     [self setSeekbar:nil];
+    [self setPlaypause:nil];
     [super viewDidUnload];
 }
 - (IBAction)playpause:(id)sender {

@@ -15,6 +15,7 @@
 @property (weak)id<postgetter> delegate;
 @property AVPlayer*player;
 
+@property (weak, nonatomic) IBOutlet UIButton *playpause;
 @property (weak, nonatomic) IBOutlet UIProgressView *seekbar;
 - (IBAction)playpause:(id)sender;
 @end
