@@ -16,5 +16,6 @@
 @property NSString* album;
 @property NSURL* albumArtURL;
 @property UIImage* albumArt;
+@property NSString*embed;
 
 @end

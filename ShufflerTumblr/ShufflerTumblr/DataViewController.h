@@ -31,7 +31,9 @@
 @property (weak, nonatomic) IBOutlet UIWebView *captionView;
 @property AVQueuePlayer * queuePlayer;
 
+@property (weak, nonatomic) IBOutlet UIWebView *tempembedplayerview;
 @property AVPlayer*player;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageheight;
 
 @end

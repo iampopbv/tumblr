@@ -19,6 +19,15 @@
 
 id<postgetter> delegate;
 
+static inline NSString*timestring(float const seconds)
+{
+	return [NSString stringWithFormat:@"%@%02d:%02d",
+		   seconds < 3600 ? @"":
+		   [NSString stringWithFormat:@"%02d:",((int)seconds)/3600],
+		   (((int)seconds)%3600)/60,
+		   (((int)seconds)%3600)%60];
+}
+
 // do this once on init
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -49,18 +58,37 @@ id<postgetter> delegate;
 		[_webView setHidden: YES];
 		
 		Audio *audioObject = (Audio*)self.post;
-		if(!audioObject.albumArt)
+		
+		if([audioObject.playerEmbed rangeOfString:@"shockwave"].length ||
+		  NO )
 		{
+			[_playerContainer setHidden:YES];
 			[_imageView setHidden:YES];
+			NSString*html = [NSString stringWithFormat:@"%@%@%@%@%@",
+			 @"<!DOCTYPE html><html><head><title>",audioObject.trackName,@"</title><meta content-encoding='utf-8' /></head><body>",audioObject.embed,@"</body></html>" ];
+
+			[self.tempembedplayerview loadHTMLString:html
+									   baseURL:[NSURL URLWithString:@"tumblr.com"]];
 		}
-		   else
-		   {
-			   [_imageView setImage: [audioObject albumArt]];
-		   }
+		else if(!audioObject.albumArt)
+		{
+			NSLog(@"noalbumart");
+			[_imageView setHidden:YES];
+			[_videoView setHidden:YES];
+			[_webView setHidden:YES];
+			[self.tempembedplayerview setHidden:YES];
+			[_imageheight setConstant:0];
+		}
+		else
+		{
+			NSLog(@"album");
+			[self.tempembedplayerview setHidden:YES];
+			[_imageView setImage: [audioObject albumArt]];
+		}
 		[delegate showPost];
 		
 		self.titleLabel.attributedText = [audioObject trackName];
-		[self.captionView loadHTMLString:[audioObject caption] baseURL:[NSURL URLWithString:@"tumblr.com" ]];
+		[self.captionView loadHTMLString:[audioObject caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
 	} else if(self.post.type == VIDEO){
 		[_playerContainer setHidden: YES];
 		[_imageView setHidden: YES];
@@ -108,6 +136,8 @@ id<postgetter> delegate;
 - (void)viewDidUnload {
 	[self setScrollView:nil];
 	[self setCaptionView:nil];
+	[self setImageheight:nil];
+	[self setTempembedplayerview:nil];
 	[super viewDidUnload];
 }
 @end
