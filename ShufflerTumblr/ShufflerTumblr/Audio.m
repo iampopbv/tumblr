@@ -32,6 +32,7 @@
 		self.blog = [dictionary objectForKey:@"blog"];
 		self.playURL = [dictionary objectForKey:@"audio_url"];
 		self.playerEmbed = [dictionary objectForKey:@"player"];
+		self.embed=[dictionary objectForKey: @"embed"];
 		self.ID = [dictionary objectForKey:@"id"];
 		self.date = [dictionary objectForKey:@"date"];
 		self.caption = [dictionary objectForKey:@"caption"];
