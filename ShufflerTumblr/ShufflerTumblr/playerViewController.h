@@ -9,12 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "postgetter.h"
 #import <AVFoundation/AVFoundation.h>
+#import "Post.h"
+#import <CoreMedia/CMTime.h>
 
 @interface playerViewController : UIViewController <postgetter>
 
+@property id<Post> post;
 @property (weak)id<postgetter> delegate;
 @property AVPlayer*player;
 
+@property (weak, nonatomic) IBOutlet UILabel *playTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playpause;
 @property (weak, nonatomic) IBOutlet UIProgressView *seekbar;
 - (IBAction)playpause:(id)sender;
