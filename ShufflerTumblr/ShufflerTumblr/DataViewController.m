@@ -133,7 +133,6 @@ id<postgetter> delegate;
 	[self setScrollView:nil];
 	[self setCaptionView:nil];
 	[self setImageheight:nil];
-	[self setTempembedplayerview:nil];
 	[self setPlayerHeight:nil];
 	[self setTitleHeight:nil];
 	[super viewDidUnload];
