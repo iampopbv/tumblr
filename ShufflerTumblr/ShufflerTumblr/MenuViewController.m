@@ -8,6 +8,7 @@
 
 #import "MenuViewController.h"
 #import "Blog.h"
+#import "YoutubeURLGetter.h"
 
 @interface MenuViewController ()
 
@@ -29,6 +30,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     [self testInternetConnection];
+    
+    // init the url getter so youtube urls can be converted anytime later on in a split second!
+    [[YoutubeURLGetter alloc] init];
     
     // load the 4 featured blogs
     _blog1 = [[Blog alloc] initWithURL: @"http://tuneage.tumblr.com/"];

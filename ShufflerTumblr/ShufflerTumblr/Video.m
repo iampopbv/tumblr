@@ -16,7 +16,7 @@
 @synthesize caption;
 @synthesize date;
 @synthesize ID;
-@synthesize  playerEmbed;
+@synthesize playerEmbed;
 @synthesize playURL;
 @synthesize thumbnailHeight;
 @synthesize thumbnailURL;
@@ -29,8 +29,8 @@
         self.response = [dictionary objectForKey:@"response"];
         self.posts = [self.response objectForKey:@"post"];
         self.blog = [self.response objectForKey:@"blog"];
-        self.playURL = [self.posts objectForKey:@"permalink_url"];
-        self.playerEmbed = [self.posts objectForKey:@"player"];
+        self.playURL = [dictionary objectForKey:@"permalink_url"];
+        self.playerEmbed = [dictionary objectForKey:@"player"];
         self.ID = [self.posts objectForKey:@"id"];
         self.date = [self.posts objectForKey:@"date"];
         self.caption = [self.posts objectForKey:@"caption"];

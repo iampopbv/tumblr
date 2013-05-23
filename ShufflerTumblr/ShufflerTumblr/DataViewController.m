@@ -10,6 +10,7 @@
 #import "Audio.h"
 #import "Video.h"
 #import "Post.h"
+#import "YoutubeURLGetter.h"
 
 @interface DataViewController ()
 
@@ -34,6 +35,7 @@ static inline NSString*timestring(float const seconds)
     self = [super initWithCoder:coder];
     if (self) {
 	    _queuePlayer = [[AVQueuePlayer alloc] init];
+	    [[_videoView scrollView] setScrollEnabled: NO];
     }
     return self;
 }
@@ -55,8 +57,6 @@ static inline NSString*timestring(float const seconds)
 {
 	[super viewWillAppear:animated];
 	if(self.post.type  == AUDIO){
-		[_webView setHidden: YES];
-		
 		Audio *audioObject = (Audio*)self.post;
 		
 		if([audioObject.playerEmbed rangeOfString:@"shockwave"].length ||
@@ -67,7 +67,7 @@ static inline NSString*timestring(float const seconds)
 			NSString*html = [NSString stringWithFormat:@"%@%@%@%@%@",
 			 @"<!DOCTYPE html><html><head><title>",audioObject.trackName,@"</title><meta content-encoding='utf-8' /></head><body>",audioObject.embed,@"</body></html>" ];
 
-			[self.tempembedplayerview loadHTMLString:html
+			[self.videoView loadHTMLString:html
 									   baseURL:[NSURL URLWithString:@"tumblr.com"]];
 		}
 		else if(!audioObject.albumArt)
@@ -75,14 +75,13 @@ static inline NSString*timestring(float const seconds)
 			NSLog(@"noalbumart");
 			[_imageView setHidden:YES];
 			[_videoView setHidden:YES];
-			[_webView setHidden:YES];
-			[self.tempembedplayerview setHidden:YES];
+			[self.videoView setHidden:YES];
 			[_imageheight setConstant:0];
 		}
 		else
 		{
 			NSLog(@"album");
-			[self.tempembedplayerview setHidden:YES];
+			[self.videoView setHidden:YES];
 			[_imageView setImage: [audioObject albumArt]];
 		}
 		[delegate showPost];
@@ -90,10 +89,25 @@ static inline NSString*timestring(float const seconds)
 		self.titleLabel.attributedText = [audioObject trackName];
 		[self.captionView loadHTMLString:[audioObject caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
 	} else if(self.post.type == VIDEO){
+		Video * video = (Video*)_post;
 		[_playerContainer setHidden: YES];
 		[_imageView setHidden: YES];
-		[self embedYouTube: @"http://www.youtube.com/embed/l3Iwh5hqbyE"];
+		
+		if([[video playURL] hasPrefix:@"http://www.youtube.com"] || [[video playURL] hasPrefix:@"https://www.youtube.com"]){
+			[[[YoutubeURLGetter alloc] init] getYoutubeLinkWithURL: [video playURL] withBlock:^(NSString *youtubeDirectURL) {
+				[video setPlayURL: youtubeDirectURL];
+				[self embedVideo: [video playURL]];
+			}];
+		} else {
+			[self embedVideo: [video playURL]];
+		}
+		
 	}
+}
+
+- (void) embedVideo: (NSString*) url {
+	NSString *html = [[NSString alloc] initWithFormat:@"%@%@%@%@", @"<video controls autoplay webkit-playsinline width=\"320\" height=\"225\">", @"<source src=\"", url, @"\" ></video>"];
+	[_videoView loadHTMLString: html baseURL:nil];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -113,31 +127,12 @@ static inline NSString*timestring(float const seconds)
 	}
 }
 
-- (void)embedYouTube:(NSString *)urlString {
-	NSString *embedHTML = @"\
-	<html><head>\
-	<style type=\"text/css\">\
-	body {\
-	background-color: transparent;\
-	color: white;\
-	}\
-	</style>\
-	</head><body style=\"margin:0\">\
-	<embed id=\"yt\" src=\"%@\" type=\"application/x-shockwave-flash\" \
-	width=\"%0.0f\" height=\"%0.0f\"></embed>\
-	</body></html>";
-	NSString *html = [NSString stringWithFormat:embedHTML, urlString, _webView.frame.size.width, _webView.frame.size.height];
-	UIWebView *videoView = [[UIWebView alloc] initWithFrame: _webView.frame];
-	[videoView loadHTMLString:html baseURL:nil];
-	[_webView setAllowsInlineMediaPlayback: YES];
-	[_webView loadHTMLString:html baseURL:nil];
-}
+
 
 - (void)viewDidUnload {
 	[self setScrollView:nil];
 	[self setCaptionView:nil];
 	[self setImageheight:nil];
-	[self setTempembedplayerview:nil];
 	[super viewDidUnload];
 }
 @end
