@@ -90,24 +90,30 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
 }
 
 -(void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    dispatch_async(queue, ^{
-        NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@", _blogURL, @"info", apiKey];
-        NSURL *urlRequest = [NSURL URLWithString:url];
-        NSLog(@"%@",urlRequest);
-		NSError *err = nil;
+	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+	dispatch_async(queue, ^{
+		NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@", _blogURL, @"info", apiKey];
+		NSURL *urlRequest = [NSURL URLWithString:url];
+		NSLog(@"%@",urlRequest);
+			
+	    NSError *err = nil;
         
-        //		NSString *response = [NSString stringWithContentsOfURL:urlRequest encoding:NSUTF8StringEncoding error:&err];
-        NSData *response = [NSData dataWithContentsOfURL: urlRequest];
-        NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error:nil];
+		//		NSString *response = [NSString stringWithContentsOfURL:urlRequest encoding:NSUTF8StringEncoding error:&err];
+		NSData *response = [NSData dataWithContentsOfURL: urlRequest];
+		if(!response)
+		{
+			block(nil,[NSError errorWithDomain:@"No connection" code:1 userInfo:nil]);
+			return;
+		}
+		NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error:nil];
         
-        NSLog(@"%@",objectDict);
+		NSLog(@"%@",objectDict);
         
-        id<Info> blogInfo = [BlogInfo alloc];
-        blogInfo = [blogInfo initWithDictionary: objectDict];
-        _blogInfo = blogInfo;
-        block(blogInfo, err);
-    });
+		id<Info> blogInfo = [BlogInfo alloc];
+		blogInfo = [blogInfo initWithDictionary: objectDict];
+		_blogInfo = blogInfo;
+		block(blogInfo, err);
+	});
 }
 
 @end

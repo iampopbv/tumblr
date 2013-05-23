@@ -20,15 +20,6 @@
 
 id<postgetter> delegate;
 
-static inline NSString*timestring(float const seconds)
-{
-	return [NSString stringWithFormat:@"%@%02d:%02d",
-		   seconds < 3600 ? @"":
-		   [NSString stringWithFormat:@"%02d:",((int)seconds)/3600],
-		   (((int)seconds)%3600)/60,
-		   (((int)seconds)%3600)%60];
-}
-
 // do this once on init
 - (id)initWithCoder:(NSCoder *)coder
 {
@@ -63,6 +54,7 @@ static inline NSString*timestring(float const seconds)
 		  NO )
 		{
 			[_playerContainer setHidden:YES];
+			self.playerHeight.constant = 0;
 			[_imageView setHidden:YES];
 			NSString*html = [NSString stringWithFormat:@"%@%@%@%@%@",
 			 @"<!DOCTYPE html><html><head><title>",audioObject.trackName,@"</title><meta content-encoding='utf-8' /></head><body>",audioObject.embed,@"</body></html>" ];
@@ -77,16 +69,23 @@ static inline NSString*timestring(float const seconds)
 			[_videoView setHidden:YES];
 			[self.videoView setHidden:YES];
 			[_imageheight setConstant:0];
+			[delegate showPost];
 		}
 		else
 		{
 			NSLog(@"album");
 			[self.videoView setHidden:YES];
 			[_imageView setImage: [audioObject albumArt]];
+			[delegate showPost];
 		}
-		[delegate showPost];
+		
 		
 		self.titleLabel.attributedText = [audioObject trackName];
+		if(!audioObject.trackName)
+		{
+			[self.textView setHidden:YES];
+			self.titleHeight.constant = 0;
+		}
 		[self.captionView loadHTMLString:[audioObject caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
 	} else if(self.post.type == VIDEO){
 		Video * video = (Video*)_post;
@@ -130,9 +129,13 @@ static inline NSString*timestring(float const seconds)
 
 
 - (void)viewDidUnload {
+	[delegate hidePost];
 	[self setScrollView:nil];
 	[self setCaptionView:nil];
 	[self setImageheight:nil];
+	[self setTempembedplayerview:nil];
+	[self setPlayerHeight:nil];
+	[self setTitleHeight:nil];
 	[super viewDidUnload];
 }
 @end

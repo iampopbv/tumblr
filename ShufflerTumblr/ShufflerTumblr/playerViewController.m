@@ -14,28 +14,38 @@
 
 @implementation playerViewController
 
-@synthesize post;
+static inline NSString*timestring(float const seconds)
+{
+	return [NSString stringWithFormat:@"%@%d:%02d",
+            seconds < 3600 ? @"":
+            [NSString stringWithFormat:@"%d:",((int)seconds)/3600],
+            (((int)seconds)%3600)/60,
+            (((int)seconds)%3600)%60];
+}
+
+id sharedplayer;
+-(AVPlayer *)player{return sharedplayer;}
+-(void)setPlayer:(AVPlayer *)player{sharedplayer = player;}
 
 -(void)getPost:(id<Post>)post
 {
     self.post = post;
 
     self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
-    NSLog(@"playing %@, from %@", self.post.playURL, self.post.playURL);
-    [self.player play];
+    NSLog(@"playing %@, from %@", self.post.playURL, self.post);
+    
 }
 
 -(void)showPost
 {
-    [self continue];
+	if(self.post && self.player)
+    [self.player play];
 }
 
 -(void)hidePost
 {
-    if(self.player && self.player.rate)
-    {
-        [self pause];
-    }
+	if(self.player && self.player.rate)
+	[self.player pause];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -67,6 +77,7 @@
     self.player = nil;
     [self setSeekbar:nil];
     [self setPlaypause:nil];
+    [self setPlayTimeLabel:nil];
     [super viewDidUnload];
 }
 - (IBAction)playpause:(id)sender {

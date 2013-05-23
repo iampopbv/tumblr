@@ -33,5 +33,7 @@
 @property AVPlayer*player;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageheight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *playerHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHeight;
 
 @end

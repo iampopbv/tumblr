@@ -803,8 +803,10 @@
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="imageheight" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerHeight" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="textView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleHeight" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
             </relationships>
@@ -838,6 +840,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/playerViewController.h"/>
             <relationships>
                 <relationship kind="action" name="playpause:"/>
+                <relationship kind="outlet" name="playTimeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="playpause" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="seekbar" candidateClass="UIProgressView"/>
             </relationships>
