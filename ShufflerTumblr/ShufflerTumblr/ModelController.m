@@ -30,53 +30,7 @@
 {
     self = [super init];
     if (self) {
-        // Create the data model.
-        //        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        //        _pageData = [[dateFormatter monthSymbols] copy];
-        
-        NSMutableArray * dummyData = [[NSMutableArray alloc] init];
-        Video * vid1 = [[Video alloc] init];
-        [vid1 setPlayerEmbed: @"<object width=\"248\" height=\"169\"><param\
-         name=\"movie\" value=\"http://www.youtube.com/\
-         v/4Q1aI7xPo0Y&rel=0&egm=0&\
-         showinfo=0&fs=1\"></param><param name=\"wmode\"\
-         value=\"transparent\"></param><param name=\"\
-         allowFullScreen\" value=\"true\"></param><embed\
-         src=\"http://www.youtube.com/v/\
-         4Q1aI7xPo0Y\" type=\"application/x-shockwave-flash\"\
-         width=\"248\" height=\"169\" allowFullScreen=\"true\"\
-         wmode=\"transparent\"></embed></object>"];
-        vid1.date = @"now";
-        vid1.type = VIDEO;
-        
-        Video * vid2 = [[Video alloc] init];
-        [vid2 setPlayerEmbed: @"<object width=\"248\" height=\"169\"><param\
-         name=\"movie\" value=\"http://www.youtube.com/\
-         v/4Q1aI7xPo0Y&rel=0&egm=0&\
-         showinfo=0&fs=1\"></param><param name=\"wmode\"\
-         value=\"transparent\"></param><param name=\"\
-         allowFullScreen\" value=\"true\"></param><embed\
-         src=\"http://www.youtube.com/v/\
-         4Q1aI7xPo0Y\" type=\"application/x-shockwave-flash\"\
-         width=\"248\" height=\"169\" allowFullScreen=\"true\"\
-         wmode=\"transparent\"></embed></object>"];
-        vid2.date = @"now";
-        vid2.type = VIDEO;
-        
-        Audio * aud1 = [[Audio alloc] init];
-        aud1.playURL = @"http://backup.upwhere.me/music/track02.cdda.wav";
-        aud1.date = @"now";
-        aud1.type = AUDIO;
-        NSURL *albumArtURL = [[NSURL alloc] initWithString: @"http://assets.shuffler.fm/assets/static/images/shuffler_logo_200.png"];
-        
-        NSData *imageData = [[NSData alloc] initWithContentsOfURL: albumArtURL];
-        aud1.albumArt = [[UIImage alloc] initWithData: imageData];
-        
-        
-        [dummyData addObject: vid1];
-        [dummyData addObject: vid2];
-        [dummyData addObject: aud1];
-        _pageData = [dummyData copy];
+        _pageData = nil;
     }
     return self;
 }
@@ -87,7 +41,7 @@
     if(self)
     {
         self.blog = blog;
-        [self.blog getPosts:VIDEO completionBlock:^(NSArray<Post> *posts, NSError *error) {
+        [self.blog getPosts: AUDIO completionBlock:^(NSArray<Post> *posts, NSError *error) {
             _pageData = [posts copy];
         }];
     }
@@ -99,7 +53,7 @@
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
     // Return the data view controller for the given index.
     if (([self.pageData count] == 0)) {
-        [self.blog getPosts:VIDEO completionBlock:^(NSArray<Post> *posts, NSError *error) {
+        [self.blog getPosts: AUDIO completionBlock:^(NSArray<Post> *posts, NSError *error) {
             _pageData = [posts copy];
             dispatch_semaphore_signal(sema);
         }];

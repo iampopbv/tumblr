@@ -23,7 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIView *playerContainer;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-@property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIWebView *videoView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;

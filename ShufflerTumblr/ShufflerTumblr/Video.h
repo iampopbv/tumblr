@@ -14,5 +14,6 @@
 @property NSString* thumbnailURL;
 @property NSString* thumbnailWidth;
 @property NSString* thumbnailHeight;
+@property NSString* sourceTitle;
 
 @end

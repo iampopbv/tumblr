@@ -27,13 +27,15 @@
     self = [super init];
     if (self) {
         self.response = [dictionary objectForKey:@"response"];
-        self.posts = [self.response objectForKey:@"post"];
+        self.posts = [dictionary objectForKey:@"post"];
         self.blog = [self.response objectForKey:@"blog"];
         self.playURL = [dictionary objectForKey:@"permalink_url"];
         self.playerEmbed = [dictionary objectForKey:@"player"];
         self.ID = [self.posts objectForKey:@"id"];
         self.date = [self.posts objectForKey:@"date"];
-        self.caption = [self.posts objectForKey:@"caption"];
+        self.sourceTitle = [dictionary objectForKey: @"source_title"];
+        self.caption = [dictionary objectForKey:@"caption"];
+        self.caption = [[NSString alloc] initWithFormat: @"%@%@%@", @"<html><body style='font-family:Lucida Sans Unicode;'>",self.caption , @"</body></html>"];
         self.thumbnailURL = [self.posts objectForKey:@"thumbnail_url"];
         self.thumbnailWidth = [self.posts objectForKey:@"thumbnail_width"];
         self.thumbnailHeight =  [self.posts objectForKey:@"thumbnail_height"];

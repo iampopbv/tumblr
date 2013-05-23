@@ -7,6 +7,7 @@
 //
 
 #import "playerViewController.h"
+#import "YoutubeURLGetter.h"
 
 @interface playerViewController ()
 
@@ -30,22 +31,33 @@ id sharedplayer;
 -(void)getPost:(id<Post>)post
 {
     self.post = post;
-
-    self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
-    NSLog(@"playing %@, from %@", self.post.playURL, self.post);
+    
+    if([post type] == VIDEO) {
+        if([[post playURL] hasPrefix:@"http://www.youtube.com"] || [[post playURL] hasPrefix:@"https://www.youtube.com"]){
+			[[[YoutubeURLGetter alloc] init] getYoutubeLinkWithURL: [post playURL] withBlock:^(NSString *youtubeDirectURL) {
+				[post setPlayURL: youtubeDirectURL];
+                self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
+                NSLog(@"playing %@, from %@", self.post.playURL, self.post);
+			}];
+		}
+    } else {
+        
+        self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
+        NSLog(@"playing %@, from %@", self.post.playURL, self.post);
+    }
     
 }
 
 -(void)showPost
 {
 	if(self.post && self.player)
-    [self.player play];
+        [self.player play];
 }
 
 -(void)hidePost
 {
 	if(self.player && self.player.rate)
-	[self.player pause];
+        [self.player pause];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -82,7 +94,7 @@ id sharedplayer;
 }
 - (IBAction)playpause:(id)sender {
     if(self.player.rate)
-       [self pause];
+        [self pause];
     else
         [self continue];
 }

@@ -26,7 +26,6 @@ id<postgetter> delegate;
     self = [super initWithCoder:coder];
     if (self) {
 	    _queuePlayer = [[AVQueuePlayer alloc] init];
-	    [[_videoView scrollView] setScrollEnabled: NO];
     }
     return self;
 }
@@ -35,7 +34,7 @@ id<postgetter> delegate;
 {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-
+	[self fillUI];
 }
 
 - (void)didReceiveMemoryWarning
@@ -47,20 +46,37 @@ id<postgetter> delegate;
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
+	
+}
+
+- (void) embedVideo: (NSString*) url {
+	NSString *html = [[NSString alloc] initWithFormat:@"%@%@%@%@", @"<video controls autoplay webkit-playsinline width=\"320\" height=\"225\">", @"<source src=\"", url, @"\" ></video>"];
+	[_videoView loadHTMLString: html baseURL:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+	if(self.post.type == AUDIO && delegate)
+	{
+		[delegate hidePost];
+	}
+}
+
+- (void) fillUI {
 	if(self.post.type  == AUDIO){
 		Audio *audioObject = (Audio*)self.post;
 		
 		if([audioObject.playerEmbed rangeOfString:@"shockwave"].length ||
-		  NO )
+		   NO )
 		{
 			[_playerContainer setHidden:YES];
 			self.playerHeight.constant = 0;
 			[_imageView setHidden:YES];
 			NSString*html = [NSString stringWithFormat:@"%@%@%@%@%@",
-			 @"<!DOCTYPE html><html><head><title>",audioObject.trackName,@"</title><meta content-encoding='utf-8' /></head><body>",audioObject.embed,@"</body></html>" ];
-
+						  @"<!DOCTYPE html><html><head><title>",audioObject.trackName,@"</title><meta content-encoding='utf-8' /></head><body>",audioObject.embed,@"</body></html>" ];
+			
 			[self.videoView loadHTMLString:html
-									   baseURL:[NSURL URLWithString:@"tumblr.com"]];
+							   baseURL:[NSURL URLWithString:@"tumblr.com"]];
 		}
 		else if(!audioObject.albumArt)
 		{
@@ -86,11 +102,11 @@ id<postgetter> delegate;
 			[self.textView setHidden:YES];
 			self.titleHeight.constant = 0;
 		}
-		[self.captionView loadHTMLString:[audioObject caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
 	} else if(self.post.type == VIDEO){
 		Video * video = (Video*)_post;
 		[_playerContainer setHidden: YES];
 		[_imageView setHidden: YES];
+		[_titleLabel setText: [video sourceTitle]];
 		
 		if([[video playURL] hasPrefix:@"http://www.youtube.com"] || [[video playURL] hasPrefix:@"https://www.youtube.com"]){
 			[[[YoutubeURLGetter alloc] init] getYoutubeLinkWithURL: [video playURL] withBlock:^(NSString *youtubeDirectURL) {
@@ -100,21 +116,9 @@ id<postgetter> delegate;
 		} else {
 			[self embedVideo: [video playURL]];
 		}
-		
+		[[_videoView scrollView] setScrollEnabled: NO];
 	}
-}
-
-- (void) embedVideo: (NSString*) url {
-	NSString *html = [[NSString alloc] initWithFormat:@"%@%@%@%@", @"<video controls autoplay webkit-playsinline width=\"320\" height=\"225\">", @"<source src=\"", url, @"\" ></video>"];
-	[_videoView loadHTMLString: html baseURL:nil];
-}
-
--(void)viewWillDisappear:(BOOL)animated
-{
-	if(self.post.type == AUDIO && delegate)
-	{
-		[delegate hidePost];
-	}
+	[self.captionView loadHTMLString:[_post caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
