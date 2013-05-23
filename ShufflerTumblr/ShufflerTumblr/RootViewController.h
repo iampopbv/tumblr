@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "bloggetter.h"s
+#import "bloggetter.h"
 
 @interface RootViewController : UIViewController <UIPageViewControllerDelegate,bloggetter>
 
