@@ -29,11 +29,11 @@ UIWebView *webHelper;
     return youtubeURLGetter;
 }
 
-- (NSString*) getYTID: (NSString*) youtubeURL {
++ (NSString*) getYTID: (NSString*) youtubeURL {
     return (NSString*)[[youtubeURL componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="] ]objectAtIndex:1];
 }
 
-- (void) getYoutubeLinkWithURL: (NSString*) youtubeURL withBlock: (PageLoadingCompletionBlock) block {
++ (void) getYoutubeLinkWithURL: (NSString*) youtubeURL withBlock: (PageLoadingCompletionBlock) block {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         int countErrors = 0;

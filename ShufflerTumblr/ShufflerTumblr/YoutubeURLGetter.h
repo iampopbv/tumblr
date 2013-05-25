@@ -15,6 +15,6 @@ typedef void (^PageLoadingCompletionBlock)(NSString* youtubeDirectURL);
 extern UIWebView *webHelper;
 extern NSString *ytDirectURLConverterURL;
 
-- (void) getYoutubeLinkWithURL: (NSString*) youtubeURL withBlock: (PageLoadingCompletionBlock) block;
++ (void) getYoutubeLinkWithURL: (NSString*) youtubeURL withBlock: (PageLoadingCompletionBlock) block;
 
 @end

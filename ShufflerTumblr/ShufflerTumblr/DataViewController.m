@@ -109,7 +109,7 @@ id<postgetter> delegate;
 		[_titleLabel setText: [video sourceTitle]];
 		
 		if([[video playURL] hasPrefix:@"http://www.youtube.com"] || [[video playURL] hasPrefix:@"https://www.youtube.com"]){
-			[[[YoutubeURLGetter alloc] init] getYoutubeLinkWithURL: [video playURL] withBlock:^(NSString *youtubeDirectURL) {
+			[YoutubeURLGetter getYoutubeLinkWithURL: [video playURL] withBlock:^(NSString *youtubeDirectURL) {
 				[video setPlayURL: youtubeDirectURL];
 				[self embedVideo: [video playURL]];
 			}];

@@ -34,7 +34,7 @@ id sharedplayer;
     
     if([post type] == VIDEO) {
         if([[post playURL] hasPrefix:@"http://www.youtube.com"] || [[post playURL] hasPrefix:@"https://www.youtube.com"]){
-			[[[YoutubeURLGetter alloc] init] getYoutubeLinkWithURL: [post playURL] withBlock:^(NSString *youtubeDirectURL) {
+			[YoutubeURLGetter getYoutubeLinkWithURL: [post playURL] withBlock:^(NSString *youtubeDirectURL) {
 				[post setPlayURL: youtubeDirectURL];
                 self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
                 NSLog(@"playing %@, from %@", self.post.playURL, self.post);

@@ -41,7 +41,7 @@
     if(self)
     {
         self.blog = blog;
-        [self.blog getPosts: AUDIO completionBlock:^(NSArray<Post> *posts, NSError *error) {
+        [self.blog getPosts: VIDEO completionBlock:^(NSArray<Post> *posts, NSError *error) {
             _pageData = [posts copy];
         }];
     }
@@ -53,7 +53,7 @@
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
     // Return the data view controller for the given index.
     if (([self.pageData count] == 0)) {
-        [self.blog getPosts: AUDIO completionBlock:^(NSArray<Post> *posts, NSError *error) {
+        [self.blog getPosts: VIDEO completionBlock:^(NSArray<Post> *posts, NSError *error) {
             _pageData = [posts copy];
             dispatch_semaphore_signal(sema);
         }];
