@@ -34,6 +34,7 @@
     // init the url getter so youtube urls can be converted anytime later on in a split second!
     [[YoutubeURLGetter alloc] init];
     
+    
     // load the 4 featured blogs
     _blog1 = [[Blog alloc] initWithURL: @"http://tuneage.tumblr.com/"];
     [_blog1 getInfo:^(id<Info> info, NSError *error) {
@@ -89,6 +90,7 @@
 
 - (void)testInternetConnection
 {
+    __weak typeof(self) weakSelf = self;
     _internetReachableChecker = [Reachability reachabilityWithHostname:@"www.google.com"];
     
     // Internet is reachable
@@ -96,7 +98,7 @@
     {
         // Update the UI on the main thread
         dispatch_async(dispatch_get_main_queue(), ^{
-            _hasInternet = YES;
+            weakSelf.hasInternet = YES;
         });
     };
     
@@ -105,7 +107,7 @@
     {
         // Update the UI on the main thread
         dispatch_async(dispatch_get_main_queue(), ^{
-            _hasInternet = NO;
+            weakSelf.hasInternet = YES;
         });
     };
     
