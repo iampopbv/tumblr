@@ -78,7 +78,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		29B74CC7B561456697FD04A6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		518B18FA632D46188C7B1C87 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		7F51BE81172473C300AF3F04 /* Blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blog.h; sourceTree = "<group>"; };
 		7F51BE82172473C300AF3F04 /* Blog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blog.m; sourceTree = "<group>"; };
@@ -201,7 +200,6 @@
 				A1FAD72E171EA7BC0095EC7E /* ShufflerTumblrTests */,
 				A1FAD700171EA7BC0095EC7E /* Frameworks */,
 				A1FAD6FF171EA7BC0095EC7E /* Products */,
-				518B18FA632D46188C7B1C87 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -224,7 +222,6 @@
 				A1FAD703171EA7BC0095EC7E /* Foundation.framework */,
 				A1FAD705171EA7BC0095EC7E /* CoreGraphics.framework */,
 				A1FAD728171EA7BC0095EC7E /* SenTestingKit.framework */,
-				29B74CC7B561456697FD04A6 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -251,6 +248,7 @@
 				A1FAD709171EA7BC0095EC7E /* ShufflerTumblr-Info.plist */,
 				A1FAD70A171EA7BC0095EC7E /* InfoPlist.strings */,
 				A1FAD70D171EA7BC0095EC7E /* main.m */,
+				518B18FA632D46188C7B1C87 /* Pods.xcconfig */,
 				A1FAD70F171EA7BC0095EC7E /* ShufflerTumblr-Prefix.pch */,
 			);
 			name = "Supporting Files";
