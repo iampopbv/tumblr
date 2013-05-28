@@ -10,13 +10,17 @@
 
 @implementation User
 
+const int maxFollowBlogs = 5;
+int followingPageOffset = 0;
+static User *user;
+
 - (id) initWithUsername: (NSString*) username
 {
-    self = [super init];
-    if (self) {
-        self.username = username;
+    if(!user){
+        user = [super init];
+        user.username = username;
     }
-    return self;
+    return user;
 }
 
 - (BOOL) loginWithPassword: (NSString*) password {
@@ -39,7 +43,12 @@
         [NSException raise:@"Authentication Error" format: @"not logged in."];
 }
 
-- (void) retrieveUserFollowingWithLimit: (int) limit andOffeset: (int) offset onCompletion: (infoFollowingCompletionBlock) block {
+- (void) retrieveNextFollowingPage: (infoFollowingCompletionBlock) block {
+    [self retrieveUserFollowingWithLimit: maxFollowBlogs andOffset:followingPageOffset onCompletion: block];
+    followingPageOffset += maxFollowBlogs; // increase the offset for the next time.
+}
+
+- (void) retrieveUserFollowingWithLimit: (int) limit andOffset: (int) offset onCompletion: (infoFollowingCompletionBlock) block {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
     NSString *post = [[NSString alloc] initWithFormat: @"limit=%i&offset=%i", limit, offset];
@@ -105,6 +114,7 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+
     
 }
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {

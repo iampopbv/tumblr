@@ -22,7 +22,7 @@ typedef void (^infoFollowingCompletionBlock)(NSArray<Info> *blogs);
 
 - (void) retrieveUserDashboard;
 - (void) retrieveUserInfo;
-- (void) retrieveUserFollowingWithLimit: (int) limit andOffeset: (int) offset onCompletion: (infoFollowingCompletionBlock) block;
+- (void) retrieveNextFollowingPage: (infoFollowingCompletionBlock) block;
 
 - (id) initWithUsername: (NSString*) username;
 - (void) followBlog: (NSString*) blogURL;
