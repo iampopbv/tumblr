@@ -60,6 +60,7 @@
 		AF75463E1752005100DEDA96 /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF75463D1752005100DEDA96 /* FavoriteViewController.m */; };
 		AF7546411752005F00DEDA96 /* MyBlogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7546401752005F00DEDA96 /* MyBlogsViewController.m */; };
 		AFBFABAB174E3ED70043EA3F /* YoutubeURLGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBFABAA174E3ED60043EA3F /* YoutubeURLGetter.m */; };
+		AFCFE9511754D1A500F71EC1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCFE9501754D1A500F71EC1 /* User.m */; };
 		AFFD3B7C17366D1500FC7E82 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3B7717366D1500FC7E82 /* DataViewController.m */; };
 		AFFD3B7D17366D1500FC7E82 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3B7917366D1500FC7E82 /* ModelController.m */; };
 		AFFD3B7E17366D1500FC7E82 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3B7B17366D1500FC7E82 /* RootViewController.m */; };
@@ -152,6 +153,8 @@
 		AF7546401752005F00DEDA96 /* MyBlogsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBlogsViewController.m; sourceTree = "<group>"; };
 		AFBFABA9174E3ED60043EA3F /* YoutubeURLGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeURLGetter.h; sourceTree = "<group>"; };
 		AFBFABAA174E3ED60043EA3F /* YoutubeURLGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeURLGetter.m; sourceTree = "<group>"; };
+		AFCFE94F1754D1A500F71EC1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		AFCFE9501754D1A500F71EC1 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		AFFD3B7617366D1500FC7E82 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
 		AFFD3B7717366D1500FC7E82 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; tabWidth = 5; usesTabs = 1; };
 		AFFD3B7817366D1500FC7E82 /* ModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
@@ -300,6 +303,8 @@
 		AF1F827717354EC40001C15E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AFCFE94F1754D1A500F71EC1 /* User.h */,
+				AFCFE9501754D1A500F71EC1 /* User.m */,
 				AF44E10C173E9C830088908D /* Reachability.h */,
 				AF44E10D173E9C830088908D /* Reachability.m */,
 				7F9BA4C71727D1D600F26F2C /* Post.h */,
@@ -551,6 +556,7 @@
 				AF75463B1752003600DEDA96 /* FollowedViewController.m in Sources */,
 				AF75463E1752005100DEDA96 /* FavoriteViewController.m in Sources */,
 				AF7546411752005F00DEDA96 /* MyBlogsViewController.m in Sources */,
+				AFCFE9511754D1A500F71EC1 /* User.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
