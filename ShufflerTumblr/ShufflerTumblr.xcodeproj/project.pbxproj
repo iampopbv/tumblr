@@ -24,8 +24,6 @@
 		A1FAD716171EA7BC0095EC7E /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD715171EA7BC0095EC7E /* Default@2x.png */; };
 		A1FAD718171EA7BC0095EC7E /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD717171EA7BC0095EC7E /* Default-568h@2x.png */; };
 		A1FAD71B171EA7BC0095EC7E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD719171EA7BC0095EC7E /* MainStoryboard.storyboard */; };
-		A1FAD71E171EA7BC0095EC7E /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAD71D171EA7BC0095EC7E /* MasterViewController.m */; };
-		A1FAD721171EA7BC0095EC7E /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAD720171EA7BC0095EC7E /* DetailViewController.m */; };
 		A1FAD729171EA7BC0095EC7E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD728171EA7BC0095EC7E /* SenTestingKit.framework */; };
 		A1FAD72A171EA7BC0095EC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD701171EA7BC0095EC7E /* UIKit.framework */; };
 		A1FAD72B171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
@@ -110,10 +108,6 @@
 		A1FAD715171EA7BC0095EC7E /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		A1FAD717171EA7BC0095EC7E /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A1FAD71A171EA7BC0095EC7E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		A1FAD71C171EA7BC0095EC7E /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		A1FAD71D171EA7BC0095EC7E /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		A1FAD71F171EA7BC0095EC7E /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		A1FAD720171EA7BC0095EC7E /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		A1FAD727171EA7BC0095EC7E /* ShufflerTumblrTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShufflerTumblrTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FAD728171EA7BC0095EC7E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		A1FAD730171EA7BC0095EC7E /* ShufflerTumblrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShufflerTumblrTests-Info.plist"; sourceTree = "<group>"; };
@@ -297,10 +291,6 @@
 				AF1B80BD17427C5F001588BE /* PostControllers */,
 				AF44E109173E9B820088908D /* MenuViewController.h */,
 				AF44E10A173E9B820088908D /* MenuViewController.m */,
-				A1FAD71C171EA7BC0095EC7E /* MasterViewController.h */,
-				A1FAD71D171EA7BC0095EC7E /* MasterViewController.m */,
-				A1FAD71F171EA7BC0095EC7E /* DetailViewController.h */,
-				A1FAD720171EA7BC0095EC7E /* DetailViewController.m */,
 				A187A3551727D83900AF4F82 /* LoginViewController.h */,
 				A187A3561727D83900AF4F82 /* LoginViewController.m */,
 			);
@@ -545,8 +535,6 @@
 			files = (
 				A1FAD70E171EA7BC0095EC7E /* main.m in Sources */,
 				A1FAD712171EA7BC0095EC7E /* AppDelegate.m in Sources */,
-				A1FAD71E171EA7BC0095EC7E /* MasterViewController.m in Sources */,
-				A1FAD721171EA7BC0095EC7E /* DetailViewController.m in Sources */,
 				A187A3571727D83900AF4F82 /* LoginViewController.m in Sources */,
 				7F51BE83172473C300AF3F04 /* Blog.m in Sources */,
 				7F9BA4CC1727E66600F26F2C /* Video.m in Sources */,

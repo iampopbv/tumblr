@@ -296,7 +296,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jK-nc-e29" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="b4h-5d-tPS"/>
             </objects>
-            <point key="canvasLocation" x="82" y="-134"/>
+            <point key="canvasLocation" x="-270" y="-54"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="Rt2-4u-xQi">
@@ -312,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNR-0g-9n8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="620" y="-134"/>
+            <point key="canvasLocation" x="268" y="-54"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="nPG-i0-6OX">
@@ -362,22 +362,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Rb-Kf-A6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="qX5-xg-RxY"/>
             </objects>
-            <point key="canvasLocation" x="620" y="610"/>
+            <point key="canvasLocation" x="-1260" y="1122"/>
         </scene>
-        <!--Followed View Controller - Followed-->
+        <!--Followed View Controller -   -->
         <scene sceneID="Mdq-6u-oIh">
             <objects>
-                <viewController id="z81-eb-DFS" customClass="FollowedViewController" sceneMemberID="viewController">
+                <viewController title="  " id="z81-eb-DFS" customClass="FollowedViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KW9-5c-pea">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="THc-cI-GpW">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="GO">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="kTZ-rW-4PK" kind="push" identifier="segue_follow" id="2ay-dp-tjI"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="THc-cI-GpW" firstAttribute="centerY" secondItem="KW9-5c-pea" secondAttribute="centerY" type="default" id="4Sg-ur-SLC"/>
+                            <constraint firstItem="THc-cI-GpW" firstAttribute="centerX" secondItem="KW9-5c-pea" secondAttribute="centerX" type="default" id="iXK-MV-MNU"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Followed" id="puC-YX-5ga"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdQ-Jm-Wim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="894"/>
+            <point key="canvasLocation" x="220" y="1406"/>
         </scene>
         <!--Dash Board View Controller - Dashboard-->
         <scene sceneID="tXW-eG-MbA">
@@ -393,37 +413,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOJ-WZ-fan" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2100" y="325"/>
+            <point key="canvasLocation" x="220" y="837"/>
         </scene>
-        <!--My Blogs View Controller - My Blogs-->
+        <!--My Blogs View Controller -   -->
         <scene sceneID="1pk-bb-ipp">
             <objects>
-                <viewController id="rSs-Qr-MYx" customClass="MyBlogsViewController" sceneMemberID="viewController">
+                <viewController title="  " id="rSs-Qr-MYx" customClass="MyBlogsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yPw-7v-2TG">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="My Blogs" id="Hhq-T9-E2O"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1c-1Q-smz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3138" y="325"/>
+            <point key="canvasLocation" x="1258" y="837"/>
         </scene>
-        <!--Favorite View Controller - Favorites-->
+        <!--Favorite View Controller -   -->
         <scene sceneID="iCo-qQ-BqP">
             <objects>
-                <viewController id="KYu-KY-ukQ" customClass="FavoriteViewController" sceneMemberID="viewController">
+                <viewController title="  " id="KYu-KY-ukQ" customClass="FavoriteViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="phz-sw-YCI">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Favorites" id="gpp-QU-MTp"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zcl-dj-hK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3138" y="894"/>
+            <point key="canvasLocation" x="1258" y="1406"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qFR-7g-04R">
@@ -447,7 +469,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UV-LD-z6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1007" y="610"/>
+            <point key="canvasLocation" x="-873" y="1122"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dRe-4i-yIs">
@@ -466,7 +488,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvt-cH-SJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-392" y="-134"/>
+            <point key="canvasLocation" x="-744" y="-54"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="cmB-hV-mTH">
@@ -638,7 +660,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Opk-ou-yiI" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1007" y="-134"/>
+            <point key="canvasLocation" x="655" y="-54"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="FXo-Gs-D6V">
@@ -730,7 +752,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oca-LQ-YPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1456" y="94"/>
+            <point key="canvasLocation" x="1104" y="174"/>
         </scene>
         <!--Navigation Controller - Dashboard-->
         <scene sceneID="97Q-Ct-AW4">
@@ -750,14 +772,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O3d-99-VZM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="325"/>
+            <point key="canvasLocation" x="-306" y="837"/>
         </scene>
-        <!--Navigation Controller - My Blogs-->
+        <!--Navigation Controller -   -->
         <scene sceneID="vaJ-CG-myF">
             <objects>
-                <navigationController id="dir-ro-kls" sceneMemberID="viewController">
+                <navigationController title="  " id="dir-ro-kls" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="My Blogs" image="my_blogs_ico.png" id="CV5-n0-cbX"/>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="YsO-6I-xgZ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -769,14 +792,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7jg-QN-UUH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2612" y="325"/>
+            <point key="canvasLocation" x="732" y="837"/>
         </scene>
-        <!--Navigation Controller - Followed-->
+        <!--Navigation Controller -   -->
         <scene sceneID="aNf-lm-mlA">
             <objects>
-                <navigationController id="xk3-vk-HKp" sceneMemberID="viewController">
+                <navigationController title="  " id="xk3-vk-HKp" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Followed" image="followed_ico.png" id="g4i-54-YZm"/>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="hLg-fN-1Ni">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -788,14 +812,15 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cLe-b5-Wss" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="894"/>
+            <point key="canvasLocation" x="-306" y="1406"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller -   -->
         <scene sceneID="kGF-o7-RLt">
             <objects>
-                <navigationController id="QsH-J4-UwY" sceneMemberID="viewController">
+                <navigationController title="  " id="QsH-J4-UwY" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="AZg-0H-Hpy"/>
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="3zs-Ea-Jm6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -807,7 +832,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E8y-Gr-Bfp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2612" y="894"/>
+            <point key="canvasLocation" x="732" y="1406"/>
         </scene>
     </scenes>
     <resources>
@@ -822,76 +847,12 @@
         <image name="sendbutton.png" width="52" height="40"/>
         <image name="shuffler logo.png" width="1024" height="1024"/>
     </resources>
-    <classes>
-        <class className="DashBoardViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DashBoardViewController.h"/>
-        </class>
-        <class className="DataViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="imageheight" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerHeight" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="textView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="titleHeight" candidateClass="NSLayoutConstraint"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="FavoriteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteViewController.h"/>
-        </class>
-        <class className="FollowedViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FollowedViewController.h"/>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="TumblrLogin" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="blog1Title" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="blog2Title" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="blog3Title" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="blog4Title" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="imageBlog1" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="imageBlog2" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="imageBlog3" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="imageBlog4" candidateClass="UIImageView"/>
-            </relationships>
-        </class>
-        <class className="MyBlogsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyBlogsViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
-        </class>
-        <class className="playerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/playerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playpause:"/>
-                <relationship kind="outlet" name="playTimeLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="playpause" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="seekbar" candidateClass="UIProgressView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="f8u-wZ-e5V"/>
+        <segue reference="Nwm-u3-ZCz"/>
     </inferredMetricsTieBreakers>
 </document>
