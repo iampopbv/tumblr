@@ -57,6 +57,43 @@
 	return self;
 }
 
+-(id)initWithCoder:(NSCoder*) coder {
+	self = [super init];
+	if(self) {
+		self.type = AUDIO;
+		self.posts = [coder decodeObjectForKey:@"post"];
+		self.blog = [coder decodeObjectForKey:@"blog"];
+		self.playURL = [coder decodeObjectForKey:@"playurl"];
+		self.playerEmbed = [coder decodeObjectForKey:@"playerembed"];
+		self.embed = [coder decodeObjectForKey:@"embed"];
+		self.ID = [coder decodeObjectForKey:@"id"];
+		self.date = [coder decodeObjectForKey:@"date"];
+		self.caption = [coder decodeObjectForKey:@"caption"];
+		self.trackName = [coder decodeObjectForKey:@"trackname"];
+		self.artist = [coder decodeObjectForKey:@"artist"];
+		self.album = [coder decodeObjectForKey:@"album"];
+		self.albumArtURL = [coder decodeObjectForKey:@"albumarturl"];
+		self.albumArt = [coder decodeObjectForKey:@"albumart"];
+	}
+	return self;
+}
+
+-(void)encodeWithCoder:(NSCoder*) coder {
+	[coder encodeObject:self.posts forKey:@"post"];
+	[coder encodeObject:self.blog forKey:@"blog"];
+	[coder encodeObject:self.playURL forKey:@"playurl"];
+	[coder encodeObject:self.playerEmbed forKey:@"playerembed"];
+	[coder encodeObject:self.embed forKey:@"embed"];
+	[coder encodeObject:self.ID forKey:@"id"];
+	[coder encodeObject:self.date forKey:@"date"];
+	[coder encodeObject:self.caption forKey:@"caption"];
+	[coder encodeObject:self.trackName forKey:@"trackname"];
+	[coder encodeObject:self.artist forKey:@"artist"];
+	[coder encodeObject:self.album forKey:@"album"];
+	[coder encodeObject:self.albumArtURL forKey:@"albumarturl"];
+	[coder encodeObject:self.albumArt forKey:@"albumart"];
+}
+
 -(void)parseResponse:(NSDictionary*)dict
 {
 	
