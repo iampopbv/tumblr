@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Blog.h"
 
 @interface FollowedViewController : UIViewController
+
+@property Blog *testBlog;
 
 @end

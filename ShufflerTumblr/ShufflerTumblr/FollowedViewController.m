@@ -7,6 +7,7 @@
 //
 
 #import "FollowedViewController.h"
+#import "bloggetter.h"
 
 @interface FollowedViewController ()
 
@@ -27,12 +28,23 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    _testBlog = [[Blog alloc] initWithURL:@"http://tuneage.tumblr.com/"];
+    [_testBlog getInfo:^(id<Info> info, NSError *error) {
+    }];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSString *segueName = [segue identifier];
+    
+    if([segueName isEqualToString:@"segue_follow"]){
+         [(id<bloggetter>)segue.destinationViewController getBlog: _testBlog];
+    }
 }
 
 @end
