@@ -11,6 +11,7 @@
 		7F9BA4CC1727E66600F26F2C /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CB1727E66600F26F2C /* Video.m */; };
 		7F9BA4CF1727E6E500F26F2C /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CE1727E6E500F26F2C /* Audio.m */; };
 		7FA53F8A172E98E700F0AFA5 /* BlogInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA53F89172E98E700F0AFA5 /* BlogInfo.m */; };
+		7FDC456B1757AC640065FA9F /* Favourites.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDC456A1757AC640065FA9F /* Favourites.m */; };
 		8B9BDFFC17452B85008B3500 /* playerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BDFFA17452B85008B3500 /* playerViewController.m */; };
 		8BC2E3931737B12700521124 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC2E3921737B12700521124 /* AVFoundation.framework */; };
 		A187A3571727D83900AF4F82 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A187A3561727D83900AF4F82 /* LoginViewController.m */; };
@@ -88,6 +89,8 @@
 		7FA53F85172E97DE00F0AFA5 /* Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Info.h; sourceTree = "<group>"; };
 		7FA53F88172E98E700F0AFA5 /* BlogInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogInfo.h; sourceTree = "<group>"; };
 		7FA53F89172E98E700F0AFA5 /* BlogInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogInfo.m; sourceTree = "<group>"; };
+		7FDC45691757AC640065FA9F /* Favourites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favourites.h; sourceTree = "<group>"; };
+		7FDC456A1757AC640065FA9F /* Favourites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favourites.m; sourceTree = "<group>"; };
 		8B9BDFF917452B85008B3500 /* playerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playerViewController.h; sourceTree = "<group>"; };
 		8B9BDFFA17452B85008B3500 /* playerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playerViewController.m; sourceTree = "<group>"; };
 		8B9BDFFE17452E5D008B3500 /* postgetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postgetter.h; sourceTree = "<group>"; };
@@ -317,6 +320,8 @@
 				7FA53F85172E97DE00F0AFA5 /* Info.h */,
 				7FA53F88172E98E700F0AFA5 /* BlogInfo.h */,
 				7FA53F89172E98E700F0AFA5 /* BlogInfo.m */,
+				7FDC45691757AC640065FA9F /* Favourites.h */,
+				7FDC456A1757AC640065FA9F /* Favourites.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -557,6 +562,7 @@
 				AF75463E1752005100DEDA96 /* FavoriteViewController.m in Sources */,
 				AF7546411752005F00DEDA96 /* MyBlogsViewController.m in Sources */,
 				AFCFE9511754D1A500F71EC1 /* User.m in Sources */,
+				7FDC456B1757AC640065FA9F /* Favourites.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

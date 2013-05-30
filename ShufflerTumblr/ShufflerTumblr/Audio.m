@@ -57,6 +57,16 @@
 	return self;
 }
 
+-(NSString *)getName {
+	NSString *name = [NSString stringWithFormat:@"Audio - %@", self.caption];
+	
+	return name;
+}
+
+-(id)getPostId {
+	return self.ID;
+}
+
 -(id)initWithCoder:(NSCoder*) coder {
 	self = [super init];
 	if(self) {

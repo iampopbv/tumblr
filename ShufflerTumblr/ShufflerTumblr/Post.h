@@ -27,5 +27,7 @@ typedef enum {
 @property PostType type;
 
 -(id)initWithDictionary: (NSDictionary*) dictionary;
+-(NSString*)getName;
+-(id)getPostId;
 
 @end
