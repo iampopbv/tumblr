@@ -582,6 +582,9 @@
                                                 <state key="highlighted">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="favouriteButtonTouchUpInside:" destination="5xV-DI-Wgr" eventType="touchUpInside" id="QG5-dm-DQB"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zet-pf-FLQ">
                                                 <constraints>
@@ -674,6 +677,7 @@
                     <connections>
                         <outlet property="captionView" destination="wPy-zo-872" id="vug-ym-z1z"/>
                         <outlet property="dataLabel" destination="itZ-2d-3ly" id="fCv-jN-H6S"/>
+                        <outlet property="favouriteButton" destination="7Ax-aA-ngu" id="iuW-OP-2Mu"/>
                         <outlet property="imageView" destination="CKa-BS-iV5" id="zY3-Bd-2rK"/>
                         <outlet property="imageheight" destination="0ob-0b-QA9" id="7gQ-rq-rsv"/>
                         <outlet property="player" destination="Nif-wP-8dy" id="kiA-9A-gub"/>
