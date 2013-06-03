@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BlogInfo.h"
+#import "Info.h"
 
 @interface User : NSObject
 
@@ -18,11 +18,11 @@
 @property NSArray<Info> *blogs;
 @property BOOL loggedIn;
 
-typedef void (^infoFollowingCompletionBlock)(NSArray<Info> *blogs);
+typedef void (^BlogInfoRetrievalBlock)(NSArray<Info>* blogs);
 
 - (void) retrieveUserDashboard;
 - (void) retrieveUserInfo;
-- (void) retrieveNextFollowingPage: (infoFollowingCompletionBlock) block;
+- (void) retrieveNextFollowingPage: (BlogInfoRetrievalBlock) block;
 
 - (id) initWithUsername: (NSString*) username;
 - (void) followBlog: (NSString*) blogURL;

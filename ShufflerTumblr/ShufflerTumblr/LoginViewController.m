@@ -36,6 +36,7 @@
     NSURLRequest *TumblrRequest = [NSURLRequest requestWithURL:TumblrURL];
     
     [_TumblrLogin loadRequest:TumblrRequest];*/
+    [super viewDidLoad];    
 }
 
 - (void)didReceiveMemoryWarning

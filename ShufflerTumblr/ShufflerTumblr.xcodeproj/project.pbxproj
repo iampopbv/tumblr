@@ -54,6 +54,7 @@
 		AF44E10B173E9B820088908D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44E10A173E9B820088908D /* MenuViewController.m */; };
 		AF44E10E173E9C830088908D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44E10D173E9C830088908D /* Reachability.m */; };
 		AF44E110173EB4080088908D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44E10F173EB4080088908D /* SystemConfiguration.framework */; };
+		AF72CB621757AEE30035CE53 /* DataPostHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AF72CB611757AEE30035CE53 /* DataPostHandler.m */; };
 		AF75462A1751F95800DEDA96 /* home_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7546291751F95800DEDA96 /* home_ico.png */; };
 		AF7546321751FDC000DEDA96 /* followed_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7546311751FDC000DEDA96 /* followed_ico.png */; };
 		AF7546341751FF0B00DEDA96 /* my_blogs_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7546331751FF0B00DEDA96 /* my_blogs_ico.png */; };
@@ -228,6 +229,8 @@
 		AF44E10C173E9C830088908D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AF44E10D173E9C830088908D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AF44E10F173EB4080088908D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AF72CB601757AEE30035CE53 /* DataPostHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPostHandler.h; sourceTree = "<group>"; };
+		AF72CB611757AEE30035CE53 /* DataPostHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPostHandler.m; sourceTree = "<group>"; };
 		AF7546291751F95800DEDA96 /* home_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_ico.png; sourceTree = "<group>"; };
 		AF7546311751FDC000DEDA96 /* followed_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = followed_ico.png; sourceTree = "<group>"; };
 		AF7546331751FF0B00DEDA96 /* my_blogs_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_blogs_ico.png; sourceTree = "<group>"; };
@@ -396,6 +399,7 @@
 		A1FAD707171EA7BC0095EC7E /* ShufflerTumblr */ = {
 			isa = PBXGroup;
 			children = (
+				AF72CB5F1757AEBF0035CE53 /* Handler */,
 				AF1F827617354E8A0001C15E /* ViewControllers */,
 				7F51BE81172473C300AF3F04 /* Blog.h */,
 				7F51BE82172473C300AF3F04 /* Blog.m */,
@@ -417,7 +421,6 @@
 				A1FAD709171EA7BC0095EC7E /* ShufflerTumblr-Info.plist */,
 				A1FAD70A171EA7BC0095EC7E /* InfoPlist.strings */,
 				A1FAD70D171EA7BC0095EC7E /* main.m */,
-				518B18FA632D46188C7B1C87 /* Pods.xcconfig */,
 				A1FAD70F171EA7BC0095EC7E /* ShufflerTumblr-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -535,6 +538,15 @@
 			name = Interface;
 			sourceTree = "<group>";
 		};
+		AF72CB5F1757AEBF0035CE53 /* Handler */ = {
+			isa = PBXGroup;
+			children = (
+				AF72CB601757AEE30035CE53 /* DataPostHandler.h */,
+				AF72CB611757AEE30035CE53 /* DataPostHandler.m */,
+			);
+			name = Handler;
+			sourceTree = "<group>";
+		};
 		AF7546381751FFF300DEDA96 /* TabBarViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -557,11 +569,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A1FAD739171EA7BC0095EC7E /* Build configuration list for PBXNativeTarget "ShufflerTumblr" */;
 			buildPhases = (
-				65018479F73D4D9B969AD00B /* Check Pods Manifest.lock */,
 				A1FAD6FA171EA7BC0095EC7E /* Sources */,
 				A1FAD6FB171EA7BC0095EC7E /* Frameworks */,
 				A1FAD6FC171EA7BC0095EC7E /* Resources */,
-				904A70010E404844AA4C49FC /* Copy Pods Resources */,
 				3F7D7BE1175C939D002E552B /* CopyFiles */,
 			);
 			buildRules = (
@@ -689,34 +699,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		65018479F73D4D9B969AD00B /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		};
-		904A70010E404844AA4C49FC /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-		};
 		A1FAD725171EA7BC0095EC7E /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -758,6 +740,7 @@
 				AFCFE9511754D1A500F71EC1 /* User.m in Sources */,
 				7FDC456B1757AC640065FA9F /* Favourites.m in Sources */,
 				6D01E87A1758BDF3000884FB /* FavouriteBlog.m in Sources */,
+				AF72CB621757AEE30035CE53 /* DataPostHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -873,12 +856,11 @@
 		};
 		A1FAD73A171EA7BC0095EC7E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 518B18FA632D46188C7B1C87 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShufflerTumblr/ShufflerTumblr-Prefix.pch";
 				INFOPLIST_FILE = "ShufflerTumblr/ShufflerTumblr-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -887,12 +869,11 @@
 		};
 		A1FAD73B171EA7BC0095EC7E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 518B18FA632D46188C7B1C87 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShufflerTumblr/ShufflerTumblr-Prefix.pch";
 				INFOPLIST_FILE = "ShufflerTumblr/ShufflerTumblr-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;

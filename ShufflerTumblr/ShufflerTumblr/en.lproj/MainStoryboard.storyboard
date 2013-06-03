@@ -904,6 +904,70 @@
         <image name="sendbutton.png" width="52" height="40"/>
         <image name="shuffler logo.png" width="1024" height="1024"/>
     </resources>
+    <classes>
+        <class className="DashBoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DashBoardViewController.h"/>
+        </class>
+        <class className="DataViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageheight" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerHeight" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="textView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleHeight" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="FavoriteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteViewController.h"/>
+        </class>
+        <class className="FollowedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FollowedViewController.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="TumblrLogin" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="blog1Title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="blog2Title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="blog3Title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="blog4Title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageBlog1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageBlog2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageBlog3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageBlog4" candidateClass="UIImageView"/>
+            </relationships>
+        </class>
+        <class className="MyBlogsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyBlogsViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
+        </class>
+        <class className="playerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/playerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playpause:"/>
+                <relationship kind="outlet" name="playTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playpause" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="seekbar" candidateClass="UIProgressView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

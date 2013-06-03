@@ -7,6 +7,7 @@
 //
 
 #import "User.h"
+#import "DataPostHandler.h"
 
 @implementation User
 
@@ -39,23 +40,29 @@ static User *user;
 }
 
 - (void) retrieveUserDashboard {
-    if (_loggedIn)
+    if (!_loggedIn)
         [NSException raise:@"Authentication Error" format: @"not logged in."];
 }
 
-- (void) retrieveNextFollowingPage: (infoFollowingCompletionBlock) block {
+- (void) retrieveNextFollowingPage: (BlogInfoRetrievalBlock) block {
     [self retrieveUserFollowingWithLimit: maxFollowBlogs andOffset:followingPageOffset onCompletion: block];
     followingPageOffset += maxFollowBlogs; // increase the offset for the next time.
 }
 
-- (void) retrieveUserFollowingWithLimit: (int) limit andOffset: (int) offset onCompletion: (infoFollowingCompletionBlock) block {
+- (void) retrieveUserFollowingWithLimit: (int) limit andOffset: (int) offset onCompletion: (BlogInfoRetrievalBlock) block {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
     NSString *post = [[NSString alloc] initWithFormat: @"limit=%i&offset=%i", limit, offset];
     dispatch_async(queue, ^{
-        NSArray<Info> *blogs;
+        __block NSArray<Info> *blogs;
         
-        [self postDataToURL:@"api.tumblr.com/v2/user/following" post: post];
+        
+        DataPostHandler *handler = [[DataPostHandler alloc] init];
+        [handler postDataToURL:@"api.tumblr.com/v2/user/following" post: post onCompletion:^(NSData *response) {
+			
+            NSError *err = nil;
+            NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error: &err];
+        }];
         
         block(blogs);
     });
@@ -66,15 +73,25 @@ static User *user;
     NSString *url = @"api.tumblr.com/v2/user/follow";
     NSString *post = [[NSString alloc] initWithFormat: @"url=%@", blogURL];
     
+    DataPostHandler *handler = [[DataPostHandler alloc] init];
     // Post the request.
-    [self postDataToURL: url post: post];
+    [handler postDataToURL: url post: post onCompletion:^(NSData *response) {
+        NSError *err = nil;
+        NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error: &err];
+        
+    }];
 }
 - (void) unfollowBlog: (NSString*) blogURL {
     NSString *url = @"api.tumblr.com/v2/user/unfollow";
     NSString *post = [[NSString alloc] initWithFormat: @"url=%@", blogURL];
     
+    DataPostHandler *handler = [[DataPostHandler alloc] init];
     // Post the request.
-    [self postDataToURL: url post: post];
+    [handler postDataToURL: url post: post onCompletion:^(NSData *response) {
+        NSError *err = nil;
+        NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error: &err];
+        
+    }];
 }
 
 
@@ -82,43 +99,29 @@ static User *user;
     NSString *url = @"api.tumblr.com/v2/user/like";
     NSString *post = [[NSString alloc] initWithFormat: @"id=%i&reblog_key=%@", postId, reblogKey];
     
+    
+    DataPostHandler *handler = [[DataPostHandler alloc] init];
     // Post the request.
-    [self postDataToURL: url post: post];
+    [handler postDataToURL: url post: post onCompletion:^(NSData *response) {
+        NSError *err = nil;
+        NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error: &err];
+        
+    }];
 }
+
 - (void) unlikePost: (int) postId withReblogKey: (NSString*) reblogKey {
     NSString *url = @"api.tumblr.com/v2/user/unlike";
     NSString *post = [[NSString alloc] initWithFormat: @"id=%i&reblog_key=%@", postId, reblogKey];
     
     // Post the request.
-    [self postDataToURL: url post: post];
+    DataPostHandler *handler = [[DataPostHandler alloc] init];
+    [handler postDataToURL: url post: post onCompletion:^(NSData *response) {
+        NSError *err = nil;
+        NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error: &err];
+        
+    }];
 }
 
-- (void) postDataToURL: (NSString*) apiString post: (NSString*) post {
-    
-    NSURL *url = [[NSURL alloc] initWithString: apiString];
-    NSData *postData = [post dataUsingEncoding:NSASCIIStringEncoding allowLossyConversion:YES];
-    NSString *postLength = [NSString stringWithFormat:@"%d", [postData length]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init] ;
-    
-    [request setURL: url];
-    [request setHTTPMethod: @"POST"];
-    [request setValue: postLength forHTTPHeaderField:@"Content-Length"];
-    [request setValue: @"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
-    [request setHTTPBody: postData];
-    
-    
-    NSURLConnection *theConnection=[[NSURLConnection alloc] initWithRequest:request delegate:self];
-    if (!theConnection) {
-        // Inform the user that the connection failed.
-    }
-}
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-
-    
-}
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    // it is now safe to use the data.
-}
 
 @end
