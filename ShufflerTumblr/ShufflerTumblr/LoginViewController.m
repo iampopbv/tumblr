@@ -27,13 +27,7 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-	
-    NSURL *TumblrURL = [NSURL URLWithString:@"https://www.tumblr.com/login?from_splash=1"];
-    
-    NSURLRequest *TumblrRequest = [NSURLRequest requestWithURL:TumblrURL];
-    
-    [_TumblrLogin loadRequest:TumblrRequest];
+    [super viewDidLoad];    
 }
 
 - (void)didReceiveMemoryWarning
