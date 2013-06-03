@@ -13,6 +13,7 @@
 #import "Audio.h"
 #import "postgetter.h"
 #import "playerViewController.h"
+#import "Favourites.h"
 
 @interface DataViewController : UIViewController
 
@@ -29,8 +30,11 @@
 @property (weak, nonatomic) IBOutlet UIWebView *captionView;
 @property AVQueuePlayer * queuePlayer;
 
+@property Favourites *favourites;
+
 @property AVPlayer*player;
 
+@property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageheight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *playerHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHeight;
