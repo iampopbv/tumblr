@@ -44,4 +44,47 @@
     return self;
 }
 
+-(NSString *)getName {
+    NSString *name = [NSString stringWithFormat:@"Video - %@", self.caption];
+
+    return name;
+}
+
+-(id)getPostId {
+    return self.ID;
+}
+
+-(id)initWithCoder:(NSCoder*) coder {
+	self = [super init];
+	if(self) {
+		self.type = VIDEO;
+		self.posts = [coder decodeObjectForKey:@"post"];
+		self.blog = [coder decodeObjectForKey:@"blog"];
+		self.playURL = [coder decodeObjectForKey:@"playurl"];
+		self.playerEmbed = [coder decodeObjectForKey:@"playerembed"];
+		self.ID = [coder decodeObjectForKey:@"id"];
+		self.date = [coder decodeObjectForKey:@"date"];
+        self.sourceTitle = [coder decodeObjectForKey:@"sourcetitle"];
+		self.caption = [coder decodeObjectForKey:@"caption"];
+        self.thumbnailURL = [coder decodeObjectForKey:@"thumbnailurl"];
+        self.thumbnailWidth = [coder decodeObjectForKey:@"thumbnailwidth"];
+        self.thumbnailHeight = [coder decodeObjectForKey:@"thumbnailheight"];
+	}
+	return self;
+}
+
+-(void)encodeWithCoder:(NSCoder*) coder {
+	[coder encodeObject:self.posts forKey:@"post"];
+	[coder encodeObject:self.blog forKey:@"blog"];
+	[coder encodeObject:self.playURL forKey:@"playurl"];
+	[coder encodeObject:self.playerEmbed forKey:@"playerembed"];
+	[coder encodeObject:self.ID forKey:@"id"];
+	[coder encodeObject:self.date forKey:@"date"];
+    [coder encodeObject:self.sourceTitle forKey:@"sourcetitle"];
+	[coder encodeObject:self.caption forKey:@"caption"];
+    [coder encodeObject:self.thumbnailURL forKey:@"thumbnailurl"];
+    [coder encodeObject:self.thumbnailWidth forKey:@"thumbnailwidth"];
+    [coder encodeObject:self.thumbnailHeight forKey:@"thumbnailheight"];
+}
+
 @end

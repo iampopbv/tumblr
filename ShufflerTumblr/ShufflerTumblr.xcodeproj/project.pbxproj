@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D01E87A1758BDF3000884FB /* FavouriteBlog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D01E8791758BDF3000884FB /* FavouriteBlog.m */; };
 		7F51BE83172473C300AF3F04 /* Blog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51BE82172473C300AF3F04 /* Blog.m */; };
 		7F9BA4CC1727E66600F26F2C /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CB1727E66600F26F2C /* Video.m */; };
 		7F9BA4CF1727E6E500F26F2C /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CE1727E6E500F26F2C /* Audio.m */; };
 		7FA53F8A172E98E700F0AFA5 /* BlogInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA53F89172E98E700F0AFA5 /* BlogInfo.m */; };
+		7FDC456B1757AC640065FA9F /* Favourites.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDC456A1757AC640065FA9F /* Favourites.m */; };
 		8B9BDFFC17452B85008B3500 /* playerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9BDFFA17452B85008B3500 /* playerViewController.m */; };
 		8BC2E3931737B12700521124 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC2E3921737B12700521124 /* AVFoundation.framework */; };
 		A187A3571727D83900AF4F82 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A187A3561727D83900AF4F82 /* LoginViewController.m */; };
@@ -78,6 +80,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		518B18FA632D46188C7B1C87 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		6D01E8781758BDF3000884FB /* FavouriteBlog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteBlog.h; sourceTree = "<group>"; };
+		6D01E8791758BDF3000884FB /* FavouriteBlog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteBlog.m; sourceTree = "<group>"; };
 		7F51BE81172473C300AF3F04 /* Blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blog.h; sourceTree = "<group>"; };
 		7F51BE82172473C300AF3F04 /* Blog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blog.m; sourceTree = "<group>"; };
 		7F9BA4C71727D1D600F26F2C /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
@@ -88,6 +93,8 @@
 		7FA53F85172E97DE00F0AFA5 /* Info.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Info.h; sourceTree = "<group>"; };
 		7FA53F88172E98E700F0AFA5 /* BlogInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlogInfo.h; sourceTree = "<group>"; };
 		7FA53F89172E98E700F0AFA5 /* BlogInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlogInfo.m; sourceTree = "<group>"; };
+		7FDC45691757AC640065FA9F /* Favourites.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favourites.h; sourceTree = "<group>"; };
+		7FDC456A1757AC640065FA9F /* Favourites.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favourites.m; sourceTree = "<group>"; };
 		8B9BDFF917452B85008B3500 /* playerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = playerViewController.h; sourceTree = "<group>"; };
 		8B9BDFFA17452B85008B3500 /* playerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = playerViewController.m; sourceTree = "<group>"; };
 		8B9BDFFE17452E5D008B3500 /* postgetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postgetter.h; sourceTree = "<group>"; };
@@ -232,6 +239,8 @@
 				AF1F827617354E8A0001C15E /* ViewControllers */,
 				7F51BE81172473C300AF3F04 /* Blog.h */,
 				7F51BE82172473C300AF3F04 /* Blog.m */,
+				6D01E8781758BDF3000884FB /* FavouriteBlog.h */,
+				6D01E8791758BDF3000884FB /* FavouriteBlog.m */,
 				AF1F827917354F250001C15E /* Interface */,
 				AF1F827717354EC40001C15E /* Model */,
 				A1FAD708171EA7BC0095EC7E /* Supporting Files */,
@@ -319,6 +328,8 @@
 				7FA53F85172E97DE00F0AFA5 /* Info.h */,
 				7FA53F88172E98E700F0AFA5 /* BlogInfo.h */,
 				7FA53F89172E98E700F0AFA5 /* BlogInfo.m */,
+				7FDC45691757AC640065FA9F /* Favourites.h */,
+				7FDC456A1757AC640065FA9F /* Favourites.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -538,6 +549,8 @@
 				AF75463E1752005100DEDA96 /* FavoriteViewController.m in Sources */,
 				AF7546411752005F00DEDA96 /* MyBlogsViewController.m in Sources */,
 				AFCFE9511754D1A500F71EC1 /* User.m in Sources */,
+				7FDC456B1757AC640065FA9F /* Favourites.m in Sources */,
+				6D01E87A1758BDF3000884FB /* FavouriteBlog.m in Sources */,
 				AF72CB621757AEE30035CE53 /* DataPostHandler.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

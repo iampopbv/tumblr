@@ -30,11 +30,16 @@ id<postgetter> delegate;
     return self;
 }
 
+- (IBAction)favouriteButtonTouchUpInside:(id)sender {
+	[_favourites addFavourite: _post];
+}
+
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self fillUI];
+	_favourites = [[Favourites alloc] initLoad];
 }
 
 - (void)didReceiveMemoryWarning
@@ -139,6 +144,7 @@ id<postgetter> delegate;
 	[self setImageheight:nil];
 	[self setPlayerHeight:nil];
 	[self setTitleHeight:nil];
+    [self setFavouriteButton:nil];
 	[super viewDidUnload];
 }
 @end
