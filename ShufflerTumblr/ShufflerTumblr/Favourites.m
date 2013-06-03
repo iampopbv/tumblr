@@ -10,18 +10,17 @@
 
 @implementation Favourites
 
-static Favourites * favourites = nil;
-
--(id)init {
-    if (favourites == nil) {
-        if((favourites = [super init])) {
-            return favourites;
-        }
-    }
-    return favourites;
++(Favourites *) sharedManager {
+    static Favourites * _favourites = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _favourites = [[Favourites alloc] init];
+    });
+    
+    return _favourites;
 }
 
--(id)initLoad {
+-(id)init {
     self = [super init];
     if (self) {
         _favouriteObjects = [[NSMutableArray alloc] init];
