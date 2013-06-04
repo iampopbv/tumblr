@@ -281,6 +281,7 @@
                         </connections>
                     </view>
                     <navigationItem key="navigationItem" title="SHUMBLR" id="HJo-ii-8hm"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="blog1Title" destination="Gbw-CF-8KD" id="REb-Eg-X7p"/>
                         <outlet property="blog2Title" destination="g2U-qJ-mm1" id="nYh-3S-oQw"/>
@@ -307,6 +308,7 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="zZj-q9-kE3"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNR-0g-9n8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -352,6 +354,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="QCZ-5b-Xwe"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="TumblrLogin" destination="wrT-Rb-1Ho" id="1Tu-Oj-rFW"/>
                     </connections>
@@ -377,14 +380,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="j87-RT-Y4A">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="JTa-0F-wYx" firstAttribute="centerX" secondItem="KW9-5c-pea" secondAttribute="centerX" type="default" id="ocj-L8-NQc"/>
+                            <constraint firstItem="j87-RT-Y4A" firstAttribute="leading" secondItem="KW9-5c-pea" secondAttribute="leading" type="default" id="4YB-pr-Vx4"/>
+                            <constraint firstItem="j87-RT-Y4A" firstAttribute="bottom" secondItem="KW9-5c-pea" secondAttribute="bottom" type="default" id="6wR-YP-Fmo"/>
+                            <constraint firstItem="j87-RT-Y4A" firstAttribute="top" secondItem="JTa-0F-wYx" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="LS2-Fr-kcD"/>
+                            <constraint firstItem="j87-RT-Y4A" firstAttribute="trailing" secondItem="KW9-5c-pea" secondAttribute="trailing" type="default" id="Rn7-Ry-Mtm"/>
+                            <constraint firstItem="JTa-0F-wYx" firstAttribute="centerX" secondItem="j87-RT-Y4A" secondAttribute="centerX" type="default" id="SyY-y6-9ZD"/>
                             <constraint firstItem="JTa-0F-wYx" firstAttribute="top" secondItem="KW9-5c-pea" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ro2-gJ-7iM"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Followed" image="followed_ico.png" id="g4i-54-YZm"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdQ-Jm-Wim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -400,20 +411,28 @@
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Dashboard" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CqD-4L-eTO">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="21g-Cu-vCR"/>
+                                    <constraint firstAttribute="height" constant="22" id="MUV-XN-Xtw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lrh-Bn-Hvc">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="CqD-4L-eTO" firstAttribute="top" secondItem="cwE-2W-1ms" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Coh-Hm-aqj"/>
-                            <constraint firstItem="CqD-4L-eTO" firstAttribute="centerX" secondItem="cwE-2W-1ms" secondAttribute="centerX" type="default" id="naX-j8-rbL"/>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="top" secondItem="CqD-4L-eTO" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="I9w-4F-UOM"/>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="leading" secondItem="cwE-2W-1ms" secondAttribute="leading" type="default" id="Mza-Qh-1Jj"/>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="bottom" secondItem="cwE-2W-1ms" secondAttribute="bottom" type="default" id="cZh-MW-p4J"/>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="trailing" secondItem="cwE-2W-1ms" secondAttribute="trailing" type="default" id="qVQ-oA-xUF"/>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="centerX" secondItem="CqD-4L-eTO" secondAttribute="centerX" type="default" id="yq0-VU-D8n"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="home_ico.png" id="eUt-bc-JHE"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOJ-WZ-fan" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -435,14 +454,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="n6r-Lg-9tp">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="n6r-Lg-9tp" firstAttribute="centerX" secondItem="cwp-bD-4ey" secondAttribute="centerX" type="default" id="1Xh-5X-0YC"/>
+                            <constraint firstItem="n6r-Lg-9tp" firstAttribute="bottom" secondItem="yPw-7v-2TG" secondAttribute="bottom" type="default" id="8lD-vL-zOH"/>
                             <constraint firstItem="cwp-bD-4ey" firstAttribute="top" secondItem="yPw-7v-2TG" secondAttribute="top" constant="20" symbolic="YES" type="default" id="ZTZ-ya-tKF"/>
-                            <constraint firstItem="cwp-bD-4ey" firstAttribute="centerX" secondItem="yPw-7v-2TG" secondAttribute="centerX" type="default" id="z7f-hw-uRj"/>
+                            <constraint firstItem="n6r-Lg-9tp" firstAttribute="top" secondItem="cwp-bD-4ey" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="jIB-7B-SGq"/>
+                            <constraint firstItem="n6r-Lg-9tp" firstAttribute="trailing" secondItem="yPw-7v-2TG" secondAttribute="trailing" type="default" id="lPX-CR-4tL"/>
+                            <constraint firstItem="n6r-Lg-9tp" firstAttribute="leading" secondItem="yPw-7v-2TG" secondAttribute="leading" type="default" id="xgv-4i-aPj"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="My Blogs" image="my_blogs_ico.png" id="CV5-n0-cbX"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1c-1Q-smz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -464,14 +491,22 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Wfd-Tl-uIq">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3ty-Ue-Xhf" firstAttribute="centerX" secondItem="phz-sw-YCI" secondAttribute="centerX" type="default" id="9rO-x9-9Y8"/>
+                            <constraint firstItem="Wfd-Tl-uIq" firstAttribute="bottom" secondItem="phz-sw-YCI" secondAttribute="bottom" type="default" id="2Of-yh-mcQ"/>
                             <constraint firstItem="3ty-Ue-Xhf" firstAttribute="top" secondItem="phz-sw-YCI" secondAttribute="top" constant="20" symbolic="YES" type="default" id="Des-kB-reL"/>
+                            <constraint firstItem="Wfd-Tl-uIq" firstAttribute="trailing" secondItem="phz-sw-YCI" secondAttribute="trailing" type="default" id="TQ1-I7-GgQ"/>
+                            <constraint firstItem="3ty-Ue-Xhf" firstAttribute="centerX" secondItem="Wfd-Tl-uIq" secondAttribute="centerX" type="default" id="VJW-X2-KM3"/>
+                            <constraint firstItem="Wfd-Tl-uIq" firstAttribute="leading" secondItem="phz-sw-YCI" secondAttribute="leading" type="default" id="kJp-CE-bLi"/>
+                            <constraint firstItem="Wfd-Tl-uIq" firstAttribute="top" secondItem="3ty-Ue-Xhf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="p9p-WC-Xjt"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="AZg-0H-Hpy"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zcl-dj-hK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -481,6 +516,7 @@
         <scene sceneID="qFR-7g-04R">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="wu3-6g-l5U" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="saf-Sp-s2C">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
@@ -503,6 +539,7 @@
             <objects>
                 <navigationController id="idz-EE-YMN" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b2r-ik-m5V">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -911,6 +948,7 @@
         <class className="DataViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
             <relationships>
+                <relationship kind="action" name="favouriteButtonTouchUpInside:"/>
                 <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>

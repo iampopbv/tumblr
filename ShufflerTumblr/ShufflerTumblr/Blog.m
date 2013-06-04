@@ -145,11 +145,10 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
             }
         }
 
-//        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending: NO];
-//        NSArray *arr;
-//        NSArray<Post> *sortedArr = [postsMA sortedArrayUsingSortDescriptors: [NSArray arrayWithObject:sortDescriptor]];
+        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending: NO];
+        NSArray<Post> *sortedArr = (NSArray<Post>*)[postsMA sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortDescriptor]];
 
-        block(postsMA, err);
+        block(sortedArr, err);
     });
 }
 

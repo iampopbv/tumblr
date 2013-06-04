@@ -13,7 +13,7 @@
 -(id) init {
     self = [super init];
     if (self) {
-        _favourites = [[Favourites alloc] initLoad];
+//        _favourites = [[Favourites alloc] initLoad];
     }
     return self;
 }

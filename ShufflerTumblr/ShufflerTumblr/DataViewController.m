@@ -39,7 +39,7 @@ id<postgetter> delegate;
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self fillUI];
-	_favourites = [[Favourites alloc] initLoad];
+//	_favourites = [[Favourites alloc] initLoad];
 }
 
 - (void)didReceiveMemoryWarning
