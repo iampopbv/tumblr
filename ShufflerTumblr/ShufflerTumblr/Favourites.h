@@ -14,7 +14,7 @@
 @property NSMutableArray *favouriteObjects;
 @property NSString *root;
 
--(id)initLoad;
++(Favourites *)sharedManager;
 -(void)addFavourite: (id<Post>) post;
 -(void)removeFavourite: (id<Post>) post;
 -(BOOL)checkFavourite: (id) ID;
