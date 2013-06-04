@@ -33,6 +33,16 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
         if(![blogURL hasSuffix: @"/"])
             blogURL = [[NSString alloc] initWithFormat:@"%@/", blogURL];
         _blogURL = [[NSURL alloc] initWithString: [[NSString alloc] initWithFormat:@"http://api.tumblr.com/v2/blog/%@", blogURL]];
+        
+        [self queryLastPostNrOfType: AUDIO onCompletion:^(int latestPostNr, NSError *error) {
+            _offsetRecentPostsAudio = latestPostNr;
+            NSLog(@"AUDIO: %i", _offsetRecentPostsAudio);
+        }];
+        [self queryLastPostNrOfType: VIDEO onCompletion:^(int latestPostNr, NSError *error) {
+            _offsetRecentPostsVideo = latestPostNr;
+            NSLog(@"VIDEO: %i", _offsetRecentPostsVideo);
+        }];
+        
     }
     return self;
 }
@@ -73,6 +83,7 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
                             post = [Video alloc];
                             post = [post initWithDictionary: item];
                             break;
+                            
                     }
                     if(post != nil)
                         [posts addObject: post];
@@ -89,13 +100,65 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
     });
 }
 
+- (void) getNextPageLatest: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
+    _offsetRecentPostsAudio -= 10;
+    _offsetRecentPostsVideo -= 10;
+    
+    [self getLatestPosts: block];
+}
+
+-(void) getLatestPosts: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
+    
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+	dispatch_async(queue, ^{
+        NSError *err;
+        NSMutableArray<Post> *postsMA;
+        NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@%@%i%@%i", _blogURL, @"posts/audio", apiKey, @"&offset=", _offsetRecentPostsAudio, @"&limit=", 10];
+        
+        // Issue the audio request
+        NSURL *urlRequest = [NSURL URLWithString: url];
+		NSData *response = [NSData dataWithContentsOfURL:urlRequest];
+        NSDictionary *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
+        NSDictionary *responseDict = [objectDict objectForKey:@"response"];
+        
+        postsMA = (NSMutableArray<Post> *)[[NSMutableArray alloc] init];
+        responseDict = [responseDict objectForKey:@"posts"];
+        if(responseDict != nil) {
+            for(NSDictionary *item in responseDict) {
+                    [postsMA addObject: [[Audio alloc] initWithDictionary: item]];
+                }
+            }
+        
+        
+        // Issue the video request
+        url = [[NSString alloc] initWithFormat: @"%@%@%@%@%i%@%i", _blogURL, @"posts/video", apiKey, @"&offset=", _offsetRecentPostsVideo, @"&limit=", 10];
+        urlRequest = [NSURL URLWithString: url];
+		response = [NSData dataWithContentsOfURL:urlRequest];
+        objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
+        
+        responseDict = [objectDict objectForKey:@"response"];
+        responseDict = [responseDict objectForKey:@"posts"];
+        if(responseDict != nil) {
+            for(NSDictionary *item in responseDict) {
+                [postsMA addObject: [[Video alloc] initWithDictionary: item]];
+            }
+        }
+
+//        NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending: NO];
+//        NSArray *arr;
+//        NSArray<Post> *sortedArr = [postsMA sortedArrayUsingSortDescriptors: [NSArray arrayWithObject:sortDescriptor]];
+
+        block(postsMA, err);
+    });
+}
+
 -(void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block {
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	dispatch_async(queue, ^{
 		NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@", _blogURL, @"info", apiKey];
 		NSURL *urlRequest = [NSURL URLWithString:url];
-		NSLog(@"%@",urlRequest);
-			
+        
 	    NSError *err = nil;
         
 		//		NSString *response = [NSString stringWithContentsOfURL:urlRequest encoding:NSUTF8StringEncoding error:&err];
@@ -107,13 +170,36 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
 		}
 		NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error:nil];
         
-		NSLog(@"%@",objectDict);
         
 		id<Info> blogInfo = [BlogInfo alloc];
 		blogInfo = [blogInfo initWithDictionary: objectDict];
 		_blogInfo = blogInfo;
 		block(blogInfo, err);
 	});
+}
+
+
+- (void) queryLastPostNrOfType: (PostType) type onCompletion: (ShufflerTumblrTotalPostQueryCompletionBlock) block {
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+	dispatch_async(queue, ^{
+        NSError *err;
+        NSString *apiType = ((type == VIDEO) ? @"video" : (type == AUDIO) ? @"audio" : @"");
+        int lastPostNr;
+        
+        NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@%@%@", _blogURL, @"posts/", apiType, apiKey, @"&limit=1"]; // we only want one post of this type.
+		NSURL *urlRequest = [NSURL URLWithString:url];
+        
+		NSData *response = [NSData dataWithContentsOfURL: urlRequest];
+		if(!response)
+		{
+			block(-1, [NSError errorWithDomain:@"No connection" code:1 userInfo:nil]);
+			return;
+		}
+		NSMutableDictionary *objectDict = [NSJSONSerialization JSONObjectWithData: response options: NSJSONReadingMutableContainers error:nil];
+        lastPostNr = [[[objectDict objectForKey: @"response"] objectForKey:@"total_posts"] intValue];
+        
+        block(lastPostNr, err);
+    });
 }
 
 @end

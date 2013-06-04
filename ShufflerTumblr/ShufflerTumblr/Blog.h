@@ -15,6 +15,7 @@
 
 @interface Blog : NSObject
 
+typedef void (^ShufflerTumblrTotalPostQueryCompletionBlock)(int latestPostNr, NSError *error);
 typedef void (^ShufflerTumblrPostQueryCompletionBlock)(id<Post> post, NSError *error);
 typedef void (^ShufflerTumblrMultiplePostQueryCompletionBlock)(NSArray<Post> *posts, NSError *error);
 typedef void (^ShufflerTumblrInfoQueryCompletionBlock)(id<Info> info, NSError *error);
@@ -22,7 +23,10 @@ typedef void (^ShufflerTumblrInfoQueryCompletionBlock)(id<Info> info, NSError *e
 @property NSString * apiType;
 @property NSURL * blogURL;
 @property BlogInfo *blogInfo;
+@property __block int offsetRecentPostsAudio;
+@property __block int offsetRecentPostsVideo;
 extern const NSString * apiKey;
+
 
 - (id)initWithURL: (NSString*) blogURL;
 -(void) getPosts: (PostType) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;

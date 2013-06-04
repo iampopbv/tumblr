@@ -10,7 +10,8 @@
 
 typedef enum {
     AUDIO = 0,
-    VIDEO
+    VIDEO,
+    NONE
 } PostType;
 
 @protocol Post
@@ -25,6 +26,9 @@ typedef enum {
 @property NSString* date;
 @property NSString* caption;
 @property PostType type;
+@property int latestPostNr;
+@property NSNumber *timestamp;
+
 
 -(id)initWithDictionary: (NSDictionary*) dictionary;
 -(NSString*)getName;

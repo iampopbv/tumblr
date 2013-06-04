@@ -337,7 +337,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wu3-6g-l5U" kind="modal" id="CMq-f3-aKa"/>
+                                    <segue destination="wu3-6g-l5U" kind="modal" modalTransitionStyle="crossDissolve" id="CMq-f3-aKa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -913,6 +913,7 @@
             <relationships>
                 <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="imageheight" candidateClass="NSLayoutConstraint"/>
                 <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>

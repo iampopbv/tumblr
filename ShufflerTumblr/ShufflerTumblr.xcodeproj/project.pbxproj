@@ -162,7 +162,6 @@
 		3F7D7C7A175C945C002E552B /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
 		3F7D7C7D175C945D002E552B /* OAuthConsumer_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer_Prefix.pch; sourceTree = "<group>"; };
 		3F7D7C7E175C945D002E552B /* OAuthConsumerTestSuite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OAuthConsumerTestSuite-Info.plist"; sourceTree = "<group>"; };
-		518B18FA632D46188C7B1C87 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		6D01E8781758BDF3000884FB /* FavouriteBlog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteBlog.h; sourceTree = "<group>"; };
 		6D01E8791758BDF3000884FB /* FavouriteBlog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteBlog.m; sourceTree = "<group>"; };
 		7F51BE81172473C300AF3F04 /* Blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blog.h; sourceTree = "<group>"; };
