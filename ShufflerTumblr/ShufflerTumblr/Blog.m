@@ -11,6 +11,9 @@
 @implementation Blog
 
 const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLNsUPoWLV";
+const int maxNewPosts = 5;
+int videoPosts;
+int audioPosts;
 
 - (id)init
 {
@@ -36,13 +39,19 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
         
         [self queryLastPostNrOfType: AUDIO onCompletion:^(int latestPostNr, NSError *error) {
             _offsetRecentPostsAudio = latestPostNr;
-            NSLog(@"AUDIO: %i", _offsetRecentPostsAudio);
+            audioPosts = latestPostNr;
+            //            NSLog(@"AUDIO: %i", _offsetRecentPostsAudio);
         }];
         [self queryLastPostNrOfType: VIDEO onCompletion:^(int latestPostNr, NSError *error) {
             _offsetRecentPostsVideo = latestPostNr;
-            NSLog(@"VIDEO: %i", _offsetRecentPostsVideo);
+            videoPosts = latestPostNr;
+            //            NSLog(@"VIDEO: %i", _offsetRecentPostsVideo);
         }];
         
+        _retrievedAllRecentAudioPosts = NO;
+        _retrievedAllRecentVideoPosts = NO;
+        _reachedTopAudioPosts = YES;
+        _reachedTopVideoPosts = YES;
     }
     return self;
 }
@@ -101,54 +110,116 @@ const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLN
 }
 
 - (void) getNextPageLatest: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
-    _offsetRecentPostsAudio -= 10;
-    _offsetRecentPostsVideo -= 10;
+    int audioLimit = maxNewPosts;
+    int videoLimit = maxNewPosts;
     
-    [self getLatestPosts: block];
+    // Do some checks
+    if(_offsetRecentPostsAudio > maxNewPosts) {
+        _offsetRecentPostsAudio -= maxNewPosts;
+    } else {
+        audioLimit = _offsetRecentPostsAudio;
+        _offsetRecentPostsAudio = 0;
+    }
+    if(_offsetRecentPostsVideo > maxNewPosts) {
+        _offsetRecentPostsVideo -= maxNewPosts;
+    } else {
+        videoLimit = _offsetRecentPostsVideo;
+        _offsetRecentPostsAudio = 0;
+    }
+    
+
+    [self getLatestPosts: block withAudioOffset:_offsetRecentPostsAudio AndVideoOffset:_offsetRecentPostsVideo AndAudioLimit:
+     audioLimit AndVideoLimit: videoLimit];
 }
 
--(void) getLatestPosts: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
+
+- (void) getPreviousPageLatest: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
+
+    
+    int audioLimit = maxNewPosts;
+    int videoLimit = maxNewPosts;
+    
+    if((audioPosts - _offsetRecentPostsAudio) < maxNewPosts){
+        _offsetRecentPostsAudio += audioPosts - _offsetRecentPostsAudio;
+        audioLimit = (audioPosts - _offsetRecentPostsAudio);
+    } else
+        _offsetRecentPostsAudio += maxNewPosts;
+    if((videoPosts - _offsetRecentPostsVideo) < maxNewPosts) {
+        _offsetRecentPostsVideo += videoPosts - _offsetRecentPostsVideo;
+        videoLimit = (videoPosts - _offsetRecentPostsVideo);
+    } else
+        _offsetRecentPostsVideo += maxNewPosts;
+    
+    
+    [self getLatestPosts: block withAudioOffset:_offsetRecentPostsAudio AndVideoOffset:_offsetRecentPostsVideo AndAudioLimit:
+     audioLimit AndVideoLimit: videoLimit];
+    
+}
+
+-(void) getLatestPosts: (ShufflerTumblrMultiplePostQueryCompletionBlock) block withAudioOffset: (int) audioOffset AndVideoOffset: (int) videoOffset AndAudioLimit: (int) audioLimit AndVideoLimit: (int) videoLimit {
     
     
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	dispatch_async(queue, ^{
         NSError *err;
         NSMutableArray<Post> *postsMA;
-        NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@%@%i%@%i", _blogURL, @"posts/audio", apiKey, @"&offset=", _offsetRecentPostsAudio, @"&limit=", 10];
+        
         
         // Issue the audio request
-        NSURL *urlRequest = [NSURL URLWithString: url];
-		NSData *response = [NSData dataWithContentsOfURL:urlRequest];
-        NSDictionary *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
-        NSDictionary *responseDict = [objectDict objectForKey:@"response"];
-        
-        postsMA = (NSMutableArray<Post> *)[[NSMutableArray alloc] init];
-        responseDict = [responseDict objectForKey:@"posts"];
-        if(responseDict != nil) {
-            for(NSDictionary *item in responseDict) {
+            NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@%@%i%@%i", _blogURL, @"posts/audio", apiKey, @"&offset=", audioOffset, @"&limit=", audioLimit];
+            NSURL *urlRequest = [NSURL URLWithString: url];
+            NSData *response = [NSData dataWithContentsOfURL:urlRequest];
+            NSDictionary *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
+            NSDictionary *responseDict = [objectDict objectForKey:@"response"];
+            
+            postsMA = (NSMutableArray<Post> *)[[NSMutableArray alloc] init];
+            responseDict = [responseDict objectForKey:@"posts"];
+            if(responseDict != nil) {
+                for(NSDictionary *item in responseDict) {
                     [postsMA addObject: [[Audio alloc] initWithDictionary: item]];
                 }
             }
-        
+
         
         // Issue the video request
-        url = [[NSString alloc] initWithFormat: @"%@%@%@%@%i%@%i", _blogURL, @"posts/video", apiKey, @"&offset=", _offsetRecentPostsVideo, @"&limit=", 10];
-        urlRequest = [NSURL URLWithString: url];
-		response = [NSData dataWithContentsOfURL:urlRequest];
-        objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
-        
-        responseDict = [objectDict objectForKey:@"response"];
-        responseDict = [responseDict objectForKey:@"posts"];
-        if(responseDict != nil) {
-            for(NSDictionary *item in responseDict) {
-                [postsMA addObject: [[Video alloc] initWithDictionary: item]];
+            url = [[NSString alloc] initWithFormat: @"%@%@%@%@%i%@%i", _blogURL, @"posts/video", apiKey, @"&offset=", videoOffset, @"&limit=", videoLimit];
+            urlRequest = [NSURL URLWithString: url];
+            response = [NSData dataWithContentsOfURL: urlRequest];
+            objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
+            
+            responseDict = [objectDict objectForKey:@"response"];
+            responseDict = [responseDict objectForKey:@"posts"];
+            if(responseDict != nil) {
+                for(NSDictionary *item in responseDict) {
+                    [postsMA addObject: [[Video alloc] initWithDictionary: item]];
+                }
             }
-        }
 
+        
+        // Set some booleans for lazy loading
+        if(_offsetRecentPostsAudio == 0 && !_retrievedAllRecentAudioPosts){
+            _retrievedAllRecentAudioPosts = YES;
+        } else if(_offsetRecentPostsAudio == 0 && !_retrievedAllRecentVideoPosts){
+            _retrievedAllRecentVideoPosts = YES;
+        }
+        if(_offsetRecentPostsAudio > maxNewPosts){
+            _retrievedAllRecentAudioPosts = NO;
+        }
+        if(_offsetRecentPostsVideo > maxNewPosts){
+            _retrievedAllRecentVideoPosts = NO;
+        }
+        if((audioPosts - _offsetRecentPostsAudio) > maxNewPosts){
+            _reachedTopAudioPosts = NO;
+        }
+        if((videoPosts - _offsetRecentPostsVideo) > maxNewPosts){
+            _reachedTopVideoPosts = NO;
+        }
+        
+        
+        
+        // Sort the posts on timestamp
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"postTimestamp" ascending: YES];
         NSArray<Post> *sortedArr = (NSArray<Post>*)[postsMA sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortDescriptor]];
-
-        
         
         block(sortedArr, err);
     });

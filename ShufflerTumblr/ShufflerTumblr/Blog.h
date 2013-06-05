@@ -25,6 +25,11 @@ typedef void (^ShufflerTumblrInfoQueryCompletionBlock)(id<Info> info, NSError *e
 @property BlogInfo *blogInfo;
 @property __block int offsetRecentPostsAudio;
 @property __block int offsetRecentPostsVideo;
+@property BOOL retrievedAllRecentAudioPosts;
+@property BOOL retrievedAllRecentVideoPosts;
+@property BOOL reachedTopAudioPosts;
+@property BOOL reachedTopVideoPosts;
+
 extern const NSString * apiKey;
 
 
@@ -32,5 +37,6 @@ extern const NSString * apiKey;
 - (void) getPosts: (PostType) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
 - (void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block;
 - (void) getNextPageLatest: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
+- (void) getPreviousPageLatest: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
 
 @end
