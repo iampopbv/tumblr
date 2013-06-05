@@ -63,9 +63,13 @@
 }
 
 -(NSString *)getName {
-	NSString *name = [NSString stringWithFormat:@"Audio - %@", self.caption];
+	NSString *name = [NSString stringWithFormat:@"Audio - %@", self.ID];
 	
 	return name;
+}
+
+-(NSString *) getListName {
+	return [NSString stringWithFormat:@"Audio - %@ - %@", self.artist , self.album];
 }
 
 -(id)getPostId {

@@ -51,7 +51,7 @@
     NSString *fileURL = [NSString stringWithFormat:@"%@/%@.plist", _root, [post getName]];
     NSFileManager *fileMngr = [NSFileManager defaultManager];
     if (![fileMngr fileExistsAtPath:fileURL]) {
-        NSLog(@"File does not yet exists, trying to add object...");
+        NSLog(@"File does not yet exists, trying to add object...: %@; With fileURL: %@" , post, fileURL);
         [NSKeyedArchiver archiveRootObject:post toFile:fileURL];
         [_favouriteObjects addObject:[NSKeyedUnarchiver unarchiveObjectWithFile:fileURL]];
         NSLog(@"File added to Favorites!");
