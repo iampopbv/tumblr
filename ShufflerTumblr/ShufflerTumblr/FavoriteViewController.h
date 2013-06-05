@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
+#import "Favourites.h"
 
-@interface FavoriteViewController : UIViewController
+@interface FavoriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property NSArray *favouriteData;
+
 
 @end

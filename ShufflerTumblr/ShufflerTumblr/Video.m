@@ -33,7 +33,7 @@
         self.blog = [self.response objectForKey:@"blog"];
         self.playURL = [dictionary objectForKey:@"permalink_url"];
         self.playerEmbed = [dictionary objectForKey:@"player"];
-        self.ID = [self.posts objectForKey:@"id"];
+        self.ID = [dictionary objectForKey:@"id"];
         self.date = [self.posts objectForKey:@"date"];
         self.sourceTitle = [dictionary objectForKey: @"source_title"];
         self.caption = [dictionary objectForKey:@"caption"];
@@ -49,13 +49,17 @@
 }
 
 -(NSString *)getName {
-    NSString *name = [NSString stringWithFormat:@"Video - %@", self.caption];
+    NSString *name = [NSString stringWithFormat:@"Video - %@", self.ID];
 
     return name;
 }
 
 -(id)getPostId {
     return self.ID;
+}
+
+-(NSString*)getListName {
+    return [NSString stringWithFormat:@"Video - %@", self.sourceTitle];
 }
 
 -(id)initWithCoder:(NSCoder*) coder {

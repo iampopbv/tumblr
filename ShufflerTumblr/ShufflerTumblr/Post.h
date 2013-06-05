@@ -32,6 +32,7 @@ typedef enum {
 
 -(id)initWithDictionary: (NSDictionary*) dictionary;
 -(NSString*)getName;
+-(NSString*) getListName;
 -(id)getPostId;
 
 @end
