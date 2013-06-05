@@ -50,6 +50,7 @@
 		AF0FB974174BB90500F015EC /* shuffler logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AF0FB961174BB90500F015EC /* shuffler logo.jpg */; };
 		AF0FB975174BB90500F015EC /* shuffler logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0FB962174BB90500F015EC /* shuffler logo.png */; };
 		AF0FB976174BB90500F015EC /* Starred.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0FB963174BB90500F015EC /* Starred.png */; };
+		AF38118E175E388500F3AA44 /* PostSorter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF38118D175E388400F3AA44 /* PostSorter.m */; };
 		AF44E108173E642E0088908D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44E107173E642E0088908D /* MediaPlayer.framework */; };
 		AF44E10B173E9B820088908D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44E10A173E9B820088908D /* MenuViewController.m */; };
 		AF44E10E173E9C830088908D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44E10D173E9C830088908D /* Reachability.m */; };
@@ -70,20 +71,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		3F7D7C82175C945D002E552B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3F7D7C7A175C945C002E552B /* OAuthConsumer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
-			remoteInfo = OAuthConsumer;
-		};
-		3F7D7C84175C945D002E552B /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 3F7D7C7A175C945C002E552B /* OAuthConsumer.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = FCAAF0750CC95C5E00C52F82;
-			remoteInfo = OAuthConsumerTestSuite;
-		};
 		A1FAD72C171EA7BC0095EC7E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A1FAD6F6171EA7BC0095EC7E /* Project object */;
@@ -158,10 +145,6 @@
 		3F7D7C76175C945C002E552B /* OAToken_KeychainExtensions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OAToken_KeychainExtensions.m; sourceTree = "<group>"; };
 		3F7D7C77175C945C002E552B /* OATokenTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OATokenTest.h; sourceTree = "<group>"; };
 		3F7D7C78175C945C002E552B /* OATokenTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OATokenTest.m; sourceTree = "<group>"; };
-		3F7D7C79175C945C002E552B /* OAuthConsumer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer.h; sourceTree = "<group>"; };
-		3F7D7C7A175C945C002E552B /* OAuthConsumer.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = OAuthConsumer.xcodeproj; sourceTree = "<group>"; };
-		3F7D7C7D175C945D002E552B /* OAuthConsumer_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OAuthConsumer_Prefix.pch; sourceTree = "<group>"; };
-		3F7D7C7E175C945D002E552B /* OAuthConsumerTestSuite-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "OAuthConsumerTestSuite-Info.plist"; sourceTree = "<group>"; };
 		6D01E8781758BDF3000884FB /* FavouriteBlog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteBlog.h; sourceTree = "<group>"; };
 		6D01E8791758BDF3000884FB /* FavouriteBlog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteBlog.m; sourceTree = "<group>"; };
 		7F51BE81172473C300AF3F04 /* Blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blog.h; sourceTree = "<group>"; };
@@ -222,6 +205,8 @@
 		AF0FB961174BB90500F015EC /* shuffler logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "shuffler logo.jpg"; path = "../Buttons/shuffler logo.jpg"; sourceTree = "<group>"; };
 		AF0FB962174BB90500F015EC /* shuffler logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shuffler logo.png"; path = "../Buttons/shuffler logo.png"; sourceTree = "<group>"; };
 		AF0FB963174BB90500F015EC /* Starred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Starred.png; path = ../Buttons/Starred.png; sourceTree = "<group>"; };
+		AF38118C175E388400F3AA44 /* PostSorter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostSorter.h; path = ShufflerTumblr/PostSorter.h; sourceTree = "<group>"; };
+		AF38118D175E388400F3AA44 /* PostSorter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostSorter.m; path = ShufflerTumblr/PostSorter.m; sourceTree = "<group>"; };
 		AF44E107173E642E0088908D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		AF44E109173E9B820088908D /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		AF44E10A173E9B820088908D /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
@@ -280,90 +265,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3F7D7C42175C945C002E552B /* OAuthConsumer */ = {
-			isa = PBXGroup;
-			children = (
-				3F7D7C43175C945C002E552B /* Crypto */,
-				3F7D7C46175C945C002E552B /* InfoPlist.strings */,
-				3F7D7C48175C945C002E552B /* Info.plist */,
-				3F7D7C49175C945C002E552B /* NSMutableURLRequest+Parameters.h */,
-				3F7D7C4A175C945C002E552B /* NSMutableURLRequest+Parameters.m */,
-				3F7D7C4B175C945C002E552B /* NSMutableURLRequest+ParametersTest.h */,
-				3F7D7C4C175C945C002E552B /* NSMutableURLRequest+ParametersTest.m */,
-				3F7D7C4D175C945C002E552B /* NSString+URLEncoding.h */,
-				3F7D7C4E175C945C002E552B /* NSString+URLEncoding.m */,
-				3F7D7C4F175C945C002E552B /* NSString+URLEncodingTest.h */,
-				3F7D7C50175C945C002E552B /* NSString+URLEncodingTest.m */,
-				3F7D7C51175C945C002E552B /* NSURL+Base.h */,
-				3F7D7C52175C945C002E552B /* NSURL+Base.m */,
-				3F7D7C53175C945C002E552B /* NSURL+BaseTest.h */,
-				3F7D7C54175C945C002E552B /* NSURL+BaseTest.m */,
-				3F7D7C55175C945C002E552B /* OAAsynchronousDataFetcher.h */,
-				3F7D7C56175C945C002E552B /* OAAsynchronousDataFetcher.m */,
-				3F7D7C57175C945C002E552B /* OAConsumer.h */,
-				3F7D7C58175C945C002E552B /* OAConsumer.m */,
-				3F7D7C59175C945C002E552B /* OAConsumerTest.h */,
-				3F7D7C5A175C945C002E552B /* OAConsumerTest.m */,
-				3F7D7C5B175C945C002E552B /* OADataFetcher.h */,
-				3F7D7C5C175C945C002E552B /* OADataFetcher.m */,
-				3F7D7C5D175C945C002E552B /* OADataFetcherTest.h */,
-				3F7D7C5E175C945C002E552B /* OADataFetcherTest.m */,
-				3F7D7C5F175C945C002E552B /* OAHMAC_SHA1SignatureProvider.h */,
-				3F7D7C60175C945C002E552B /* OAHMAC_SHA1SignatureProvider.m */,
-				3F7D7C61175C945C002E552B /* OAHMAC_SHA1SignatureProviderTest.h */,
-				3F7D7C62175C945C002E552B /* OAHMAC_SHA1SignatureProviderTest.m */,
-				3F7D7C63175C945C002E552B /* OAMutableURLRequest.h */,
-				3F7D7C64175C945C002E552B /* OAMutableURLRequest.m */,
-				3F7D7C65175C945C002E552B /* OAMutableURLRequestTest.h */,
-				3F7D7C66175C945C002E552B /* OAMutableURLRequestTest.m */,
-				3F7D7C67175C945C002E552B /* OAPlaintextSignatureProvider.h */,
-				3F7D7C68175C945C002E552B /* OAPlaintextSignatureProvider.m */,
-				3F7D7C69175C945C002E552B /* OAPlaintextSignatureProviderTest.h */,
-				3F7D7C6A175C945C002E552B /* OAPlaintextSignatureProviderTest.m */,
-				3F7D7C6B175C945C002E552B /* OARequestParameter.h */,
-				3F7D7C6C175C945C002E552B /* OARequestParameter.m */,
-				3F7D7C6D175C945C002E552B /* OARequestParameterTest.h */,
-				3F7D7C6E175C945C002E552B /* OARequestParameterTest.m */,
-				3F7D7C6F175C945C002E552B /* OAServiceTicket.h */,
-				3F7D7C70175C945C002E552B /* OAServiceTicket.m */,
-				3F7D7C71175C945C002E552B /* OASignatureProviding.h */,
-				3F7D7C72175C945C002E552B /* OATestServer.rb */,
-				3F7D7C73175C945C002E552B /* OAToken.h */,
-				3F7D7C74175C945C002E552B /* OAToken.m */,
-				3F7D7C75175C945C002E552B /* OAToken_KeychainExtensions.h */,
-				3F7D7C76175C945C002E552B /* OAToken_KeychainExtensions.m */,
-				3F7D7C77175C945C002E552B /* OATokenTest.h */,
-				3F7D7C78175C945C002E552B /* OATokenTest.m */,
-				3F7D7C79175C945C002E552B /* OAuthConsumer.h */,
-				3F7D7C7A175C945C002E552B /* OAuthConsumer.xcodeproj */,
-				3F7D7C7D175C945D002E552B /* OAuthConsumer_Prefix.pch */,
-				3F7D7C7E175C945D002E552B /* OAuthConsumerTestSuite-Info.plist */,
-			);
-			name = OAuthConsumer;
-			path = ShufflerTumblr/OAuthConsumer;
-			sourceTree = "<group>";
-		};
-		3F7D7C43175C945C002E552B /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				3F7D7C44175C945C002E552B /* Base64Transcoder.c */,
-				3F7D7C45175C945C002E552B /* Base64Transcoder.h */,
-			);
-			path = Crypto;
-			sourceTree = "<group>";
-		};
-		3F7D7C7B175C945C002E552B /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				3F7D7C83175C945D002E552B /* OAuthConsumer.framework */,
-				3F7D7C85175C945D002E552B /* OAuthConsumerTestSuite.octest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		A1FAD6F5171EA7BC0095EC7E = {
 			isa = PBXGroup;
 			children = (
+				AF38118C175E388400F3AA44 /* PostSorter.h */,
+				AF38118D175E388400F3AA44 /* PostSorter.m */,
 				A1FAD707171EA7BC0095EC7E /* ShufflerTumblr */,
 				A1FAD72E171EA7BC0095EC7E /* ShufflerTumblrTests */,
 				A1FAD700171EA7BC0095EC7E /* Frameworks */,
@@ -383,7 +289,6 @@
 		A1FAD700171EA7BC0095EC7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				3F7D7C42175C945C002E552B /* OAuthConsumer */,
 				AF44E10F173EB4080088908D /* SystemConfiguration.framework */,
 				AF44E107173E642E0088908D /* MediaPlayer.framework */,
 				8BC2E3921737B12700521124 /* AVFoundation.framework */,
@@ -624,7 +529,6 @@
 			projectReferences = (
 				{
 					ProductGroup = 3F7D7C7B175C945C002E552B /* Products */;
-					ProjectRef = 3F7D7C7A175C945C002E552B /* OAuthConsumer.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -634,23 +538,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		3F7D7C83175C945D002E552B /* OAuthConsumer.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = OAuthConsumer.framework;
-			remoteRef = 3F7D7C82175C945D002E552B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		3F7D7C85175C945D002E552B /* OAuthConsumerTestSuite.octest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = OAuthConsumerTestSuite.octest;
-			remoteRef = 3F7D7C84175C945D002E552B /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A1FAD6FC171EA7BC0095EC7E /* Resources */ = {
@@ -740,6 +627,7 @@
 				7FDC456B1757AC640065FA9F /* Favourites.m in Sources */,
 				6D01E87A1758BDF3000884FB /* FavouriteBlog.m in Sources */,
 				AF72CB621757AEE30035CE53 /* DataPostHandler.m in Sources */,
+				AF38118E175E388500F3AA44 /* PostSorter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

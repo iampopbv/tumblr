@@ -29,7 +29,8 @@ extern const NSString * apiKey;
 
 
 - (id)initWithURL: (NSString*) blogURL;
--(void) getPosts: (PostType) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
--(void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block;
+- (void) getPosts: (PostType) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
+- (void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block;
+- (void) getNextPageLatest: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
 
 @end

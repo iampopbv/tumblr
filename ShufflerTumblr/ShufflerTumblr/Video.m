@@ -23,7 +23,7 @@
 @synthesize thumbnailWidth;
 @synthesize type;
 @synthesize latestPostNr;
-@synthesize timestamp;
+@synthesize postTimestamp;
 
 -(id) initWithDictionary:(NSDictionary *) dictionary {
     self = [super init];
@@ -43,8 +43,8 @@
         self.thumbnailHeight =  [self.posts objectForKey:@"thumbnail_height"];
         self.type = VIDEO;
         self.latestPostNr = [[response objectForKey:@"total_posts"] intValue] - 1;
-        self.timestamp = [posts objectForKey:@"timestamp"];
-    }
+        self.postTimestamp = [dictionary objectForKey:@"timestamp"];
+    };
     return self;
 }
 
@@ -74,7 +74,7 @@
         self.thumbnailWidth = [coder decodeObjectForKey:@"thumbnailwidth"];
         self.thumbnailHeight = [coder decodeObjectForKey:@"thumbnailheight"];
         self.latestPostNr = [[coder decodeObjectForKey:@"latestPostNr"] intValue];
-        self.timestamp = [coder decodeObjectForKey:@"timestamp"];
+        self.postTimestamp = [coder decodeObjectForKey:@"timestamp"];
 	}
 	return self;
 }
@@ -93,7 +93,7 @@
     [coder encodeObject:self.thumbnailHeight forKey:@"thumbnailheight"];
     NSNumber *tmp = [[NSNumber alloc] initWithInt: self.latestPostNr];
     [coder encodeObject:tmp forKey:@"latestPostNr"];
-    [coder encodeObject: self.timestamp forKey:@"timestamp"];
+    [coder encodeObject: self.postTimestamp forKey:@"timestamp"];
 }
 
 @end

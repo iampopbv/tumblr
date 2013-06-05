@@ -128,6 +128,12 @@
     NSString *segueName = [segue identifier];
     if([segueName isEqualToString: @"segue_blog1"]){
         [(id<bloggetter>)segue.destinationViewController getBlog:_blog1];
+        
+        
+         [_blog1 getNextPageLatest:^(NSArray<Post> *posts, NSError *error) {
+             NSLog(@"Retreived 20 recent posts");
+        }];
+        
     } else if([segueName isEqualToString: @"segue_blog2"]) {
         [(id<bloggetter>)segue.destinationViewController getBlog:_blog2];
     } else if([segueName isEqualToString: @"segue_blog3"]){

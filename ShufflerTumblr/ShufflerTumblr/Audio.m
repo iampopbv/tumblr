@@ -24,7 +24,7 @@
 @synthesize albumArtURL;
 @synthesize type;
 @synthesize latestPostNr;
-@synthesize timestamp;
+@synthesize postTimestamp;
 
 -(id) initWithDictionary:(NSDictionary *)dictionary {
 	self = [super init];
@@ -52,12 +52,12 @@
 		NSData *imageData = [[NSData alloc] initWithContentsOfURL: albumArtURL];
 		self.albumArt = [[UIImage alloc] initWithData: imageData];
 		self.latestPostNr = [[self.blog objectForKey:@"total_posts"] intValue] - 1;
-		self.timestamp = [posts objectForKey:@"timestamp"];
+		self.postTimestamp = [dictionary objectForKey:@"timestamp"];
 		
 		
 		self.type = AUDIO;
-		NSLog(@"made %@ from %@ ( not %@ ) with %@",self.playURL, [dictionary objectForKey:@"audio_url"], [self.response objectForKey:@"audio_url"], dictionary);
-		NSLog(@"latest post nr: %i", latestPostNr);
+//		NSLog(@"made %@ from %@ ( not %@ ) with %@",self.playURL, [dictionary objectForKey:@"audio_url"], [self.response objectForKey:@"audio_url"], dictionary);
+//		NSLog(@"latest post nr: %i", latestPostNr);
 	}
 	return self;
 }
@@ -90,7 +90,7 @@
 		self.albumArtURL = [coder decodeObjectForKey:@"albumarturl"];
 		self.albumArt = [coder decodeObjectForKey:@"albumart"];
 		self.latestPostNr = [[coder decodeObjectForKey:@"latestPostNr"] intValue];
-		self.timestamp = [coder decodeObjectForKey:@"timestamp"];
+		self.postTimestamp = [coder decodeObjectForKey:@"timestamp"];
 
 	}
 	return self;
@@ -112,7 +112,7 @@
 	[coder encodeObject:self.albumArt forKey:@"albumart"];
 	NSNumber *tmp = [[NSNumber alloc] initWithInt: self.latestPostNr];
 	[coder encodeObject:tmp forKey:@"latestPostNr"];
-	[coder encodeObject: self.timestamp forKey:@"timestamp"];
+	[coder encodeObject: self.postTimestamp forKey:@"timestamp"];
 }
 
 -(void)parseResponse:(NSDictionary*)dict
