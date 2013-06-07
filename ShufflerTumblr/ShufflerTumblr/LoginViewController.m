@@ -7,6 +7,11 @@
 //
 
 #import "LoginViewController.h"
+#import "MPOAuthAPI.h"
+#import "MPOAuthAuthenticationMethodOAuth.h"
+
+#define kConsumerKey		@"9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLNsUPoWLV"
+#define kConsumerSecret		@"08SjC79ZiQPqY8Dn8kg0Rn2OxIPrNb8xEuNbB7Op7rMW0VFdOs"
 
 @interface LoginViewController ()
 
@@ -15,6 +20,16 @@
 //https://github.com/tumblr/TMTumblrSDK#documentation
 
 @implementation LoginViewController
+
+- (id)initWithURL:(NSURL *)inURL {
+	if ((self = [super initWithNibName:@"UserAuthViewController" bundle:nil])) {
+		self.title = @"User Auth";
+		self.navigationItem.prompt = @"Request Authorization for this application";
+		self.userAuthURL = inURL;
+	}
+	
+	return self;
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -28,14 +43,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+//    
+//    if (!_oauthAPI) {
+//		NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:	kConsumerKey, kMPOAuthCredentialConsumerKey,
+//									 kConsumerSecret, kMPOAuthCredentialConsumerSecret,
+//									 nil];
+//		_oauthAPI = [[MPOAuthAPI alloc] initWithCredentials:credentials
+//										  authenticationURL:[NSURL URLWithString:@"http://www.tumblr.com/oauth/authorize"]
+//												 andBaseURL:[NSURL URLWithString:@"http://www.tumblr.com/"]];
+//		
+//		if ([[_oauthAPI authenticationMethod] respondsToSelector:@selector(setDelegate:)]) {
+//			[(MPOAuthAuthenticationMethodOAuth *)[_oauthAPI authenticationMethod] setDelegate:(id <MPOAuthAuthenticationMethodOAuthDelegate>)[UIApplication sharedApplication].delegate];
+//		}
+//	} else {
+//        
+//        [_oauthAPI discardCredentials];
+//        [_oauthAPI authenticate];
+//    }
+//    
+    
+    
+	[webview setDelegate:self];
+	[webview loadRequest:[NSURLRequest requestWithURL:self.userAuthURL]];
+}
+
+- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
+	// this is a ghetto way to handle this, but it's for when you must use http:// URIs
+	// so that this demo will work correctly, this is an example, DONT.BE.GHETTO
+	NSURL *userAuthURL = [(id <MPOAuthAuthenticationMethodOAuthDelegate>)[UIApplication sharedApplication].delegate callbackURLForCompletedUserAuthorization];
+	if ([request.URL isEqual:userAuthURL]) {
+		[[self navigationController] popViewControllerAnimated:YES];
+		return NO;
+	}
 	
-    /*
-    NSURL *TumblrURL = [NSURL URLWithString:@"https://www.tumblr.com/login?from_splash=1"];
-    
-    NSURLRequest *TumblrRequest = [NSURLRequest requestWithURL:TumblrURL];
-    
-    [_TumblrLogin loadRequest:TumblrRequest];*/
-    [super viewDidLoad];    
+	return YES;
 }
 
 - (void)didReceiveMemoryWarning

@@ -8,10 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LoginViewController : UIViewController
+@class MPOAuthAPI;
 
-    @property (weak,nonatomic) IBOutlet UIWebView *TumblrLogin;
+@interface LoginViewController : UIViewController <UIWebViewDelegate> {
+    
+    IBOutlet UIWebView *webview;
+    NSURL *_userAuthURL;
+    
+    MPOAuthAPI	*_oauthAPI;
+    
+}
 
+@property (nonatomic, readwrite, retain) NSURL *userAuthURL;
+
+- (IBAction)clearCredentials;
+- (IBAction)reauthenticate;
 
     
 
