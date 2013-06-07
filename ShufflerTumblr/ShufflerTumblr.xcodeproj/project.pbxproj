@@ -28,7 +28,6 @@
 		3FBE3CAE17620695000386D4 /* NSString+URLEscapingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE3C9817620695000386D4 /* NSString+URLEscapingAdditions.m */; };
 		3FBE3CAF17620695000386D4 /* NSURL+MPURLParameterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE3C9A17620695000386D4 /* NSURL+MPURLParameterAdditions.m */; };
 		3FBE3CB017620695000386D4 /* NSURLResponse+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE3C9C17620695000386D4 /* NSURLResponse+Encoding.m */; };
-		3FBE3CB2176206D5000386D4 /* oauthAutoConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3FBE3CB1176206D5000386D4 /* oauthAutoConfig.plist */; };
 		3FBE3CB51762074E000386D4 /* MPOAuthMobileAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FBE3CB41762074E000386D4 /* MPOAuthMobileAppDelegate.m */; };
 		3FBE3CBB17620C89000386D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBA17620C89000386D4 /* Security.framework */; };
 		3FBE3CBF17620D56000386D4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBE17620D56000386D4 /* libxml2.dylib */; };
@@ -86,6 +85,7 @@
 		AF75463B1752003600DEDA96 /* FollowedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF75463A1752003500DEDA96 /* FollowedViewController.m */; };
 		AF75463E1752005100DEDA96 /* FavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF75463D1752005100DEDA96 /* FavoriteViewController.m */; };
 		AF7546411752005F00DEDA96 /* MyBlogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7546401752005F00DEDA96 /* MyBlogsViewController.m */; };
+		AF9E75B31762613C00106434 /* oauthAutoConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF9E75B21762613C00106434 /* oauthAutoConfig.plist */; };
 		AFBFABAB174E3ED70043EA3F /* YoutubeURLGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBFABAA174E3ED60043EA3F /* YoutubeURLGetter.m */; };
 		AFCFE9511754D1A500F71EC1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCFE9501754D1A500F71EC1 /* User.m */; };
 		AFFD3B7C17366D1500FC7E82 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3B7717366D1500FC7E82 /* DataViewController.m */; };
@@ -159,7 +159,6 @@
 		3FBE3C9A17620695000386D4 /* NSURL+MPURLParameterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+MPURLParameterAdditions.m"; sourceTree = "<group>"; };
 		3FBE3C9B17620695000386D4 /* NSURLResponse+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+Encoding.h"; sourceTree = "<group>"; };
 		3FBE3C9C17620695000386D4 /* NSURLResponse+Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLResponse+Encoding.m"; sourceTree = "<group>"; };
-		3FBE3CB1176206D5000386D4 /* oauthAutoConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = oauthAutoConfig.plist; sourceTree = "<group>"; };
 		3FBE3CB31762074E000386D4 /* MPOAuthMobileAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MPOAuthMobileAppDelegate.h; sourceTree = "<group>"; };
 		3FBE3CB41762074E000386D4 /* MPOAuthMobileAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MPOAuthMobileAppDelegate.m; sourceTree = "<group>"; };
 		3FBE3CBA17620C89000386D4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -243,6 +242,7 @@
 		AF75463D1752005100DEDA96 /* FavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavoriteViewController.m; sourceTree = "<group>"; };
 		AF75463F1752005F00DEDA96 /* MyBlogsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyBlogsViewController.h; sourceTree = "<group>"; };
 		AF7546401752005F00DEDA96 /* MyBlogsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBlogsViewController.m; sourceTree = "<group>"; };
+		AF9E75B21762613C00106434 /* oauthAutoConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = oauthAutoConfig.plist; sourceTree = "<group>"; };
 		AFBFABA9174E3ED60043EA3F /* YoutubeURLGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeURLGetter.h; sourceTree = "<group>"; };
 		AFBFABAA174E3ED60043EA3F /* YoutubeURLGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeURLGetter.m; sourceTree = "<group>"; };
 		AFCFE94F1754D1A500F71EC1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -409,7 +409,7 @@
 				A1FAD711171EA7BC0095EC7E /* AppDelegate.m */,
 				3FBE3CB31762074E000386D4 /* MPOAuthMobileAppDelegate.h */,
 				3FBE3CB41762074E000386D4 /* MPOAuthMobileAppDelegate.m */,
-				3FBE3CB1176206D5000386D4 /* oauthAutoConfig.plist */,
+				AF9E75B21762613C00106434 /* oauthAutoConfig.plist */,
 				AF1F827817354ED60001C15E /* images */,
 				A1FAD709171EA7BC0095EC7E /* ShufflerTumblr-Info.plist */,
 				A1FAD70A171EA7BC0095EC7E /* InfoPlist.strings */,
@@ -655,7 +655,7 @@
 				AF75462A1751F95800DEDA96 /* home_ico.png in Resources */,
 				AF7546321751FDC000DEDA96 /* followed_ico.png in Resources */,
 				AF7546341751FF0B00DEDA96 /* my_blogs_ico.png in Resources */,
-				3FBE3CB2176206D5000386D4 /* oauthAutoConfig.plist in Resources */,
+				AF9E75B31762613C00106434 /* oauthAutoConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
