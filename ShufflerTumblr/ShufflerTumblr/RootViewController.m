@@ -69,6 +69,7 @@
 {
 	self.blog = blog;
 	_modelController = [[ModelController alloc] initWithBlog:self.blog];
+	_modelController.rootVC = self;
 }
 
 #pragma mark - UIPageViewController delegate methods

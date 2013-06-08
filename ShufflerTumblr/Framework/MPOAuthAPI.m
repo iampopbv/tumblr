@@ -110,18 +110,18 @@ NSString * const MPOAuthAuthenticationURLKey		= @"MPOAuthAuthenticationURL";
 	signatureScheme_ = inScheme;
 	
 	NSString *methodString = @"HMAC-SHA1";
-	
-	switch (signatureScheme_) {
-		case MPOAuthSignatureSchemePlainText:
-			methodString = @"PLAINTEXT";
-			break;
-		case MPOAuthSignatureSchemeRSASHA1:
-			methodString = @"RSA-SHA1";
-		case MPOAuthSignatureSchemeHMACSHA1:
-		default:
-			// already initted to the default
-			break;
-	}
+//	
+//	switch (signatureScheme_) {
+//		case MPOAuthSignatureSchemePlainText:
+//			methodString = @"PLAINTEXT";
+//			break;
+//		case MPOAuthSignatureSchemeRSASHA1:
+//			methodString = @"RSA-SHA1";
+//		case MPOAuthSignatureSchemeHMACSHA1:
+//		default:
+//			// already initted to the default
+//			break;
+//	}
 	
 	[(MPOAuthCredentialConcreteStore *)credentials_ setSignatureMethod:methodString];
 }

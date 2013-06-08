@@ -127,18 +127,16 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *segueName = [segue identifier];
     if([segueName isEqualToString: @"segue_blog1"]){
+        [_blog1 reset];
         [(id<bloggetter>)segue.destinationViewController getBlog:_blog1];
-        
-        
-         [_blog1 getNextPageLatest:^(NSArray<Post> *posts, NSError *error) {
-             NSLog(@"Retreived 20 recent posts");
-        }];
-        
     } else if([segueName isEqualToString: @"segue_blog2"]) {
+        [_blog2 reset];
         [(id<bloggetter>)segue.destinationViewController getBlog:_blog2];
     } else if([segueName isEqualToString: @"segue_blog3"]){
+        [_blog3 reset];
         [(id<bloggetter>)segue.destinationViewController getBlog:_blog3];
     } else if([segueName isEqualToString: @"segue_blog4"]) {
+        [_blog4 reset];
         [(id<bloggetter>)segue.destinationViewController getBlog:_blog4];
     }
     

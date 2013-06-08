@@ -8,16 +8,20 @@
 
 #import <UIKit/UIKit.h>
 #import "Blog.h"
+#import "RootViewController.h"
 
 @class DataViewController;
 
 @interface ModelController : NSObject <UIPageViewControllerDataSource>
 
 @property Blog*blog;
+@property RootViewController *rootVC;
+@property BOOL isLoadingPosts;
 
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
 - (NSUInteger)indexOfViewController:(DataViewController *)viewController;
 
 -(id)initWithBlog:(Blog*)blog;
+
 
 @end

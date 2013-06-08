@@ -31,6 +31,7 @@
     self = [super init];
     if (self) {
         _pageData = nil;
+        _isLoadingPosts = NO;
     }
     return self;
 }
@@ -41,9 +42,7 @@
     if(self)
     {
         self.blog = blog;
-        [self.blog getPosts: VIDEO completionBlock:^(NSArray<Post> *posts, NSError *error) {
-            _pageData = [posts copy];
-        }];
+        _isLoadingPosts = NO;
     }
     return self;
 }
@@ -53,8 +52,9 @@
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
     // Return the data view controller for the given index.
     if (([self.pageData count] == 0)) {
-        [self.blog getPosts: VIDEO completionBlock:^(NSArray<Post> *posts, NSError *error) {
-            _pageData = [posts copy];
+        [self.blog getNextPageLatest:^(NSArray<Post> *posts, NSError *error) {
+            _pageData = [[NSMutableArray alloc] initWithArray: posts];
+            NSLog(@"loaded %i posts", [posts count]);
             dispatch_semaphore_signal(sema);
         }];
         
@@ -100,8 +100,43 @@
     
     index++;
     if (index == [self.pageData count]) {
+        if(!_isLoadingPosts) {
+            NSLog(@"Initiating posts");
+            _isLoadingPosts = YES;
+            [self.blog getNextPageLatest:^(NSArray<Post> *posts, NSError *error) {
+                if([posts count] != 0) {
+                    [_pageData removeObjectsInRange: NSMakeRange(0, [_pageData count] - 2)];
+                    [_pageData addObjectsFromArray:posts];
+                    
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        NSArray *viewControllers = @[viewController];
+                        [_rootVC.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
+                        
+                        [_rootVC addChildViewController: _rootVC.pageViewController];
+                        [_rootVC.view addSubview: _rootVC.pageViewController.view];
+                        
+                        // Set the page view controller's bounds using an inset rect so that self's view is visible around the edges of the pages.
+                        CGRect pageViewRect = _rootVC.view.bounds;
+                        _rootVC.pageViewController.view.frame = pageViewRect;
+                        
+                        [_rootVC.pageViewController didMoveToParentViewController:_rootVC];
+                        NSLog(@"loaded %i posts", [posts count]);
+                        _isLoadingPosts = NO;
+                    });
+                } else {
+                    // Show the user that this was the last post.
+                }
+            }];
+        } else {
+            NSLog(@"Already loading posts");
+        }
+        
         return nil;
     }
+    
+    
+    
     return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
 }
 
