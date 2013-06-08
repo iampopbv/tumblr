@@ -112,6 +112,7 @@ id<postgetter> delegate;
 		[_imageView setHidden: YES];
 		[_titleLabel setText: [video sourceTitle]];
 		
+		_videoView.allowsInlineMediaPlayback = YES;
 		if([[video playURL] hasPrefix:@"http://www.youtube.com"] || [[video playURL] hasPrefix:@"https://www.youtube.com"]){
 			[YoutubeURLGetter getYoutubeLinkWithURL: [video playURL] withBlock:^(NSString *youtubeDirectURL) {
 				[video setPlayURL: youtubeDirectURL];
