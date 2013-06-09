@@ -21,9 +21,6 @@
 
 @property (nonatomic, readwrite, retain) NSURL *userAuthURL;
 
-- (IBAction)clearCredentials;
-- (IBAction)reauthenticate;
-
     
 
 @end

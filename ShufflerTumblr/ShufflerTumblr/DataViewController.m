@@ -23,11 +23,11 @@ id<postgetter> delegate;
 // do this once on init
 - (id)initWithCoder:(NSCoder *)coder
 {
-    self = [super initWithCoder:coder];
-    if (self) {
-	    _queuePlayer = [[AVQueuePlayer alloc] init];
-    }
-    return self;
+	self = [super initWithCoder:coder];
+	if (self) {
+		_queuePlayer = [[AVQueuePlayer alloc] init];
+	}
+	return self;
 }
 
 - (IBAction)favouriteButtonTouchUpInside:(id)sender {
@@ -135,7 +135,13 @@ id<postgetter> delegate;
 	}
 }
 
+- (void) setLoading {
+	_loadingIndicator.hidden = NO;
+}
 
+- (void) setDoneLoading {
+	_loadingIndicator.hidden = YES;
+}
 
 - (void)viewDidUnload {
 	[delegate hidePost];
@@ -144,7 +150,8 @@ id<postgetter> delegate;
 	[self setImageheight:nil];
 	[self setPlayerHeight:nil];
 	[self setTitleHeight:nil];
-    [self setFavouriteButton:nil];
+	[self setFavouriteButton:nil];
+	[self setLoadingIndicator:nil];
 	[super viewDidUnload];
 }
 @end

@@ -83,7 +83,13 @@
 - (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
 {
     NSUInteger index = [self indexOfViewController:(DataViewController *)viewController];
+
     if ((index == 0) || (index == NSNotFound)) {
+        // When reached first
+        NSLog(@"index == 0");
+        
+        
+        
         return nil;
     }
     
@@ -99,19 +105,30 @@
     }
     
     index++;
+    
+    // When reached end of the posts
     if (index == [self.pageData count]) {
+        
+        // If not already loading the new posts
         if(!_isLoadingPosts) {
             NSLog(@"Initiating posts");
             _isLoadingPosts = YES;
+            
+            [((DataViewController *)viewController) setLoading];
+            
+            // Start loading the new posts from the blog
             [self.blog getNextPageLatest:^(NSArray<Post> *posts, NSError *error) {
                 if([posts count] != 0) {
+                    // Remove old data so we don't need an enormous amount of memory space.
                     [_pageData removeObjectsInRange: NSMakeRange(0, [_pageData count] - 2)];
                     [_pageData addObjectsFromArray:posts];
                     
+                    // Go and display the posts in the main thread.
                     dispatch_async(dispatch_get_main_queue(), ^{
                         
+                        // Start displaying WITH the current viewing viewcontroller
                         NSArray *viewControllers = @[viewController];
-                        [_rootVC.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
+                        [_rootVC.pageViewController setViewControllers:viewControllers direction: UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
                         
                         [_rootVC addChildViewController: _rootVC.pageViewController];
                         [_rootVC.view addSubview: _rootVC.pageViewController.view];
@@ -123,7 +140,9 @@
                         [_rootVC.pageViewController didMoveToParentViewController:_rootVC];
                         NSLog(@"loaded %i posts", [posts count]);
                         _isLoadingPosts = NO;
+                        [((DataViewController *)viewController) setDoneLoading];
                     });
+                    
                 } else {
                     // Show the user that this was the last post.
                 }

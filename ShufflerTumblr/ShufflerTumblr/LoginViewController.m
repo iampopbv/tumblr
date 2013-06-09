@@ -45,24 +45,24 @@
     [super viewDidLoad];
     
     
-//    
-//    if (!_oauthAPI) {
-//		NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:	kConsumerKey, kMPOAuthCredentialConsumerKey,
-//									 kConsumerSecret, kMPOAuthCredentialConsumerSecret,
-//									 nil];
-//		_oauthAPI = [[MPOAuthAPI alloc] initWithCredentials:credentials
-//										  authenticationURL:[NSURL URLWithString:@"http://www.tumblr.com/oauth/authorize"]
-//												 andBaseURL:[NSURL URLWithString:@"http://www.tumblr.com/"]];
-//		
-//		if ([[_oauthAPI authenticationMethod] respondsToSelector:@selector(setDelegate:)]) {
-//			[(MPOAuthAuthenticationMethodOAuth *)[_oauthAPI authenticationMethod] setDelegate:(id <MPOAuthAuthenticationMethodOAuthDelegate>)[UIApplication sharedApplication].delegate];
-//		}
-//	} else {
-//        
-//        [_oauthAPI discardCredentials];
-//        [_oauthAPI authenticate];
-//    }
-//    
+    
+    if (!_oauthAPI) {
+		NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:	kConsumerKey, kMPOAuthCredentialConsumerKey,
+									 kConsumerSecret, kMPOAuthCredentialConsumerSecret,
+									 nil];
+		_oauthAPI = [[MPOAuthAPI alloc] initWithCredentials:credentials
+										  authenticationURL:[NSURL URLWithString:@"http://www.tumblr.com/oauth/authorize"]
+												 andBaseURL:[NSURL URLWithString:@"http://www.tumblr.com/"]];
+		
+		if ([[_oauthAPI authenticationMethod] respondsToSelector:@selector(setDelegate:)]) {
+			[(MPOAuthAuthenticationMethodOAuth *)[_oauthAPI authenticationMethod] setDelegate:(id <MPOAuthAuthenticationMethodOAuthDelegate>)[UIApplication sharedApplication].delegate];
+		}
+	} else {
+        
+        [_oauthAPI discardCredentials];
+        [_oauthAPI authenticate];
+    }
+
     
     
 	[webview setDelegate:self];

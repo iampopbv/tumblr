@@ -56,8 +56,6 @@
 	NSString *foundPassword = nil;
 	NSString *serverName = [self.baseURL host];
 	NSString *securityDomain = [self.authenticationURL host];
-	NSDictionary *attributesDictionary = nil;
-	NSData *foundValue = nil;
 	OSStatus status = noErr;
     //	NSString *itemID = [NSString stringWithFormat:@"%@.oauth.%@", [[NSBundle mainBundle] bundleIdentifier], inName];
 	
@@ -71,16 +69,15 @@
                                              (id)kCFBooleanTrue, (__bridge id)kSecReturnPersistentRef,
 											 nil];
     
-	status = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, (void *)&attributesDictionary);
-	foundValue = [attributesDictionary objectForKey:(__bridge id)kSecValueData];
-	if (outKeychainItemRef) {
-		*outKeychainItemRef = attributesDictionary;
+	CFTypeRef cfValue = NULL;
+    status = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, &cfValue);
+    NSData *passData = (__bridge id)cfValue;
+    NSLog(@"passData: %@", passData);
+    
+	if (status == noErr && passData) {
+		foundPassword = [[NSString alloc] initWithData:passData encoding:NSUTF8StringEncoding];
 	}
-	
-	if (status == noErr && foundValue) {
-		foundPassword = [[NSString alloc] initWithData:foundValue encoding:NSUTF8StringEncoding];
-	}
-    NSLog(@"PASSSS HOAXXX: %@", foundPassword);
+
 	
 	return foundPassword;
 }

@@ -8,7 +8,6 @@
 
 #import "AppDelegate.h"
 #import "MPOAuthAuthenticationMethodOAuth.h"
-#import "MPOAuthMobileAppDelegate.h"
 #import "RootViewController.h"
 
 #import "MPURLRequestParameter.h"

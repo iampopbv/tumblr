@@ -17,6 +17,7 @@
 
 @interface DataViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *dataLabel;
 @property (strong, nonatomic) id<Post> post;
 @property NSMutableArray<Post> *posts;
@@ -38,5 +39,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageheight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *playerHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHeight;
+- (void) setLoading;
+- (void) setDoneLoading;
 
 @end

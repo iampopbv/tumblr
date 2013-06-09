@@ -32,6 +32,8 @@
     DataViewController *startingViewController = [self.modelController viewControllerAtIndex:0 storyboard:self.storyboard];
 	if(!startingViewController)return;
     NSArray *viewControllers = @[startingViewController];
+	
+	
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:NULL];
 
     self.pageViewController.dataSource = self.modelController;
@@ -55,6 +57,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void) swipeHandler {
+	NSLog(@"swiped right");
+}
+
 - (ModelController *)modelController
 {
      // Return the model controller object, creating it if necessary.
@@ -72,6 +78,7 @@
 	_modelController.rootVC = self;
 }
 
+
 #pragma mark - UIPageViewController delegate methods
 
 /*
@@ -87,7 +94,6 @@
     UIViewController *currentViewController = self.pageViewController.viewControllers[0];
     NSArray *viewControllers = @[currentViewController];
     [self.pageViewController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:NULL];
-
     self.pageViewController.doubleSided = NO;
     return UIPageViewControllerSpineLocationMin;
 }

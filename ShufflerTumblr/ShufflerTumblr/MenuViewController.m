@@ -35,6 +35,19 @@
     [[YoutubeURLGetter alloc] init];
     
     
+    // if([...isPlaying]) {
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"topbar_nowplaying"] forState:UIControlStateHighlighted];
+    button.frame = CGRectMake(0, 0, 65, 37);
+    [button addTarget:self action:@selector(openCurrentTrack) forControlEvents:UIControlEventTouchUpInside];
+    button.accessibilityLabel = @"Now playing";
+    button.tag = 123131;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    // }
+
+    
     // load the 4 featured blogs
     _blog1 = [[Blog alloc] initWithURL: @"http://tuneage.tumblr.com/"];
     [_blog1 getInfo:^(id<Info> info, NSError *error) {
@@ -86,8 +99,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-// Checks if we have an internet connection or not
 
+
+- (void) openCurrentTrack {
+    [self performSegueWithIdentifier:@"segue_blog1" sender:self];
+}
+
+// Checks if we have an internet connection or not
 - (void)testInternetConnection
 {
     __weak typeof(self) weakSelf = self;
