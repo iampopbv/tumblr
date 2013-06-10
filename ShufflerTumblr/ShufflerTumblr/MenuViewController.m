@@ -40,6 +40,7 @@
     _blogdata = [[NSMutableArray alloc] init];
     
     
+    
     // if([...isPlaying]) {
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
@@ -51,6 +52,11 @@
     button.tag = 123131;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     // }
+    
+    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shuffler logo.png"]];
+    logo.frame= CGRectMake(0,0,25,25);
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
+    
 
     
     // load the 4 featured blogs
@@ -135,7 +141,7 @@
             [_blogdata addObject: self];
         });
     }];
-    _signupbutton.font = [UIFont fontWithName:@"Brandon Grotesque" size:12];
+    _signupbutton.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:10];
     _listento.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     
     

@@ -13,6 +13,7 @@
 #import "MPURLRequestParameter.h"
 
 
+
 @implementation AppDelegate
 
 @synthesize oauthVerifier = oauthVerifier_;
@@ -20,8 +21,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setBackgroundImage: [UIImage imageNamed:@"navigationbar3.png"] forBarMetrics:UIBarMetricsDefault];
     return YES;
+    
+   
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

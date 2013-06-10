@@ -20,7 +20,7 @@
                                 <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="11"/>
                                 <state key="normal" title="SIGNUP/LOGIN WITH YOUR TUMBLR" backgroundImage="Loginbuttno.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <state key="highlighted">
                                     <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -41,23 +41,24 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AzW-9M-CXS">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="282" id="TFG-zf-ND2"/>
+                                    <constraint firstAttribute="height" constant="260" id="06O-l0-HPa"/>
+                                    <constraint firstAttribute="width" constant="298" id="pBo-I6-5kj"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="EFj-Al-Pha">
-                                        <rect key="frame" x="0.0" y="22" width="310" height="65"/>
+                                        <rect key="frame" x="0.0" y="22" width="298" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="298" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="gyV-Mr-tjT">
-                                        <rect key="frame" x="0.0" y="87" width="310" height="65"/>
+                                        <rect key="frame" x="0.0" y="87" width="298" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="298" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gi2-AZ-fzA">
@@ -77,24 +78,24 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
+                                            <constraint firstItem="gi2-AZ-fzA" firstAttribute="leading" secondItem="gyV-Mr-tjT" secondAttribute="leading" constant="159" id="LGE-jN-cPm"/>
                                             <constraint firstItem="gi2-AZ-fzA" firstAttribute="top" secondItem="gyV-Mr-tjT" secondAttribute="top" constant="10" id="bz1-X6-HZm"/>
-                                            <constraint firstAttribute="trailing" secondItem="gi2-AZ-fzA" secondAttribute="trailing" constant="78" id="kbr-l3-mlX"/>
                                         </constraints>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7oN-Sj-OUj">
-                                        <rect key="frame" x="0.0" y="152" width="310" height="65"/>
+                                        <rect key="frame" x="0.0" y="152" width="298" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="298" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="FLk-1X-0Xh">
-                                        <rect key="frame" x="0.0" y="217" width="310" height="65"/>
+                                        <rect key="frame" x="0.0" y="217" width="298" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="310" height="64"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="298" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -110,18 +111,19 @@
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="UYr-7e-VnS" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Byj-nV-cIT"/>
-                            <constraint firstItem="AzW-9M-CXS" firstAttribute="top" secondItem="m9r-dx-w7q" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ILy-Ov-kF0"/>
-                            <constraint firstItem="m9r-dx-w7q" firstAttribute="centerX" secondItem="qgE-mA-dko" secondAttribute="centerX" type="default" id="J5d-md-gkf"/>
+                            <constraint firstItem="UYr-7e-VnS" firstAttribute="centerX" secondItem="AzW-9M-CXS" secondAttribute="centerX" type="default" id="HC7-1r-bg5"/>
+                            <constraint firstItem="UYr-7e-VnS" firstAttribute="centerX" secondItem="qgE-mA-dko" secondAttribute="centerX" type="default" id="HZm-Dr-KFb"/>
+                            <constraint firstItem="AzW-9M-CXS" firstAttribute="top" secondItem="qgE-mA-dko" secondAttribute="top" constant="60" id="NLm-MJ-AiH"/>
                             <constraint firstItem="m9r-dx-w7q" firstAttribute="top" secondItem="qgE-mA-dko" secondAttribute="top" constant="20" symbolic="YES" type="default" id="PVT-j0-72j"/>
-                            <constraint firstItem="UYr-7e-VnS" firstAttribute="centerX" secondItem="AzW-9M-CXS" secondAttribute="centerX" type="default" id="UZ1-Mh-q4A"/>
-                            <constraint firstItem="AzW-9M-CXS" firstAttribute="trailing" secondItem="m9r-dx-w7q" secondAttribute="trailing" type="default" id="aQO-rS-4KC"/>
-                            <constraint firstItem="m9r-dx-w7q" firstAttribute="leading" secondItem="AzW-9M-CXS" secondAttribute="leading" type="default" id="oFu-f9-OuX"/>
+                            <constraint firstItem="AzW-9M-CXS" firstAttribute="leading" secondItem="m9r-dx-w7q" secondAttribute="leading" type="default" id="rvM-lg-4MO"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="b4h-5d-tPS" appends="YES" id="1cG-87-gRa"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="SHUMBLR" id="HJo-ii-8hm"/>
+                    <navigationItem key="navigationItem" title="SHUMBLR" id="HJo-ii-8hm">
+                        <barButtonItem key="backBarButtonItem" title="back" id="fmX-L6-2fY"/>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <connections>
                         <outlet property="listento" destination="m9r-dx-w7q" id="JIh-uT-yzg"/>
@@ -769,6 +771,81 @@
         <image name="sendbutton.png" width="52" height="40"/>
         <image name="shuffler logo.png" width="1024" height="1024"/>
     </resources>
+    <classes>
+        <class className="DashBoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DashBoardViewController.h"/>
+        </class>
+        <class className="DataViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="favouriteButtonTouchUpInside:"/>
+                <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageheight" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="loadingIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerHeight" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="textView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleHeight" candidateClass="NSLayoutConstraint"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="FavoriteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteViewController.h"/>
+        </class>
+        <class className="FollowedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FollowedViewController.h"/>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearCredentials"/>
+                <relationship kind="action" name="reauthenticate"/>
+                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="Shumblr" candidateClass="UINavigationItem"/>
+                <relationship kind="outlet" name="blog1Title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="blog2Title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="blog3Title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="blog4Title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="blog5Title" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="imageBlog1" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageBlog2" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageBlog3" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageBlog4" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imageBlog5" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="listento" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="signupbutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MyBlogsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyBlogsViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
+        </class>
+        <class className="playerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/playerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playpause:"/>
+                <relationship kind="outlet" name="playTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playpause" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="seekbar" candidateClass="UIProgressView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

@@ -2,21 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleURLTypes</key>
+	<key>UIAppFonts</key>
 	<array>
-		<dict>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>x-com-shumblr-mobile</string>
-			</array>
-			<key>CFBundleURLName</key>
-			<string>MPOauth Mobile User Authentication</string>
-		</dict>
+		<string>brandon_bld.ttf</string>
+		<string>brandon_blk_it.ttf</string>
+		<string>brandon_blk.ttf</string>
+		<string>brandon_light_it.ttf</string>
+		<string>Brandon_bld_it.ttf</string>
+		<string>brandon_light.ttf</string>
+		<string>brandon_med_it.ttf</string>
+		<string>brandon_med.ttf</string>
+		<string>brandon_re.ttf</string>
+		<string>brandon_reg_it.ttf</string>
+		<string>brandon_reg.ttf</string>
+		<string>brandon_thin_it.ttf</string>
+		<string>brandon_thin.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>
