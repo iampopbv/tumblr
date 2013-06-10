@@ -12,7 +12,6 @@
 #import "Post.h"
 #import "Audio.h"
 #import "postgetter.h"
-#import "playerViewController.h"
 #import "Favourites.h"
 
 @interface DataViewController : UIViewController
@@ -41,5 +40,13 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *titleHeight;
 - (void) setLoading;
 - (void) setDoneLoading;
+
+// player
+
+@property (weak, nonatomic) IBOutlet UILabel *playTimeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *playpause;
+@property (weak, nonatomic) IBOutlet UIProgressView *seekbar;
+- (IBAction)playpause:(id)sender;
+
 
 @end
