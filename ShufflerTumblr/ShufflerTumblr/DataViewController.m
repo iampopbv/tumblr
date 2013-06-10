@@ -87,14 +87,12 @@ id<postgetter> delegate;
 			[_videoView setHidden:YES];
 			[self.videoView setHidden:YES];
 			[_imageheight setConstant:0];
-			[self getPost:self.post from:self.posts];
 		}
 		else
 		{
 			NSLog(@"album");
 			[self.videoView setHidden:YES];
 			[_imageView setImage: [audioObject albumArt]];
-			[self getPost:self.post from:self.posts];
 		}
 		
 		
@@ -146,12 +144,14 @@ id sharedplayer;
 -(AVQueuePlayer *)player{return sharedplayer;}
 -(void)setPlayer:(AVQueuePlayer *)player{sharedplayer = player;}
 
--(void)getPost:(id<Post>)post from:(NSArray*)posts
+-(void)buildandplayqueue
 {
-	self.post = post;
 	NSMutableArray*queue = [[NSMutableArray alloc]init];
-	for(id<Post>nextpost in posts)
+	bool skip = YES;
+	for(id<Post>nextpost in self.posts)
 	{
+		if(nextpost == self.post)skip=NO;
+		if(skip)continue;
 		AVPlayerItem*item = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"http://a.tumblr.com/%@o1.mp3", [self.post.playURL lastPathComponent]]]];
 		NSLog(@"+:%@",item);
 		[queue addObject:item];
@@ -165,8 +165,7 @@ id sharedplayer;
 
 -(void)showPost
 {
-	if(self.post && self.player)
-		[self.player play];
+	[self buildandplayqueue];
 }
 
 -(void)hidePost
