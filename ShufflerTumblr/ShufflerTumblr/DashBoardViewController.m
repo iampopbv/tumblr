@@ -43,11 +43,11 @@
     
     
     
-    NSURL * url = [[NSURL alloc] initWithString: @"http://api.tumblr.com/v2/user/dashboard"];
-    NSMutableURLRequest *urlMutableRequest = [[NSMutableURLRequest alloc] initWithURL: url];
-    [urlMutableRequest setHTTPMethod: @"GET"];
     
-    MPOAuthURLRequest *request = [[MPOAuthURLRequest alloc] initWithURLRequest: urlMutableRequest];
+    
+    NSURL * url = [[NSURL alloc] initWithString: @"http://api.tumblr.com/v2/user/dashboard"];
+    NSArray *params = [[NSArray alloc] initWithObjects: [[MPURLRequestParameter alloc] initWithName:@"limit" andValue:@"20"], nil];
+    MPOAuthURLRequest *request = [[MPOAuthURLRequest alloc] initWithURL:url andParameters: params];
     
     
     
