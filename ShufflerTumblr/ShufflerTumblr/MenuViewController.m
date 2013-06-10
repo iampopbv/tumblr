@@ -71,9 +71,12 @@
                 NSString * capitalizedName = [blogInfo.name uppercaseString];
                 
                 [_tabledata addObject: capitalizedName];
-                [_tableimages addObject:[blogInfo image]];
-            else
-                [_tableimages addObject: [UIImage imageNamed:@"followed_ico.png"]];
+                if ([blogInfo image]) {
+                    [_tableimages addObject:[blogInfo image]];
+                } else {
+                    [_tableimages addObject: [UIImage imageNamed:@"followed_ico.png"]];
+                }
+          
                 [_tableView reloadData];
                 [_blogdata addObject: self];
             });
@@ -81,7 +84,7 @@
         [_blogs addObject: tmpBlog];
         index++;
     }
-    _signupbutton.font = [UIFont fontWithName:@"Brandon Grotesque" size:12];
+    _signupbutton.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:10];
     _listento.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     
     
