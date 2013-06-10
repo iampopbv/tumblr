@@ -76,6 +76,20 @@
 		AF44E10B173E9B820088908D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44E10A173E9B820088908D /* MenuViewController.m */; };
 		AF44E10E173E9C830088908D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44E10D173E9C830088908D /* Reachability.m */; };
 		AF44E110173EB4080088908D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44E10F173EB4080088908D /* SystemConfiguration.framework */; };
+		AF4AFB15176636E00034B881 /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4AFB14176636E00034B881 /* DiscoverViewController.m */; };
+		AF4AFB16176668F10034B881 /* Brandon_bld_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F5B1766056C00B9FFED /* Brandon_bld_it.ttf */; };
+		AF4AFB17176668F10034B881 /* brandon_bld.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F421766053D00B9FFED /* brandon_bld.ttf */; };
+		AF4AFB18176668F10034B881 /* brandon_blk_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F431766053D00B9FFED /* brandon_blk_it.ttf */; };
+		AF4AFB19176668F10034B881 /* brandon_blk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F441766053D00B9FFED /* brandon_blk.ttf */; };
+		AF4AFB1A176668F10034B881 /* brandon_light_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F451766053D00B9FFED /* brandon_light_it.ttf */; };
+		AF4AFB1B176668F10034B881 /* brandon_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F461766053D00B9FFED /* brandon_light.ttf */; };
+		AF4AFB1C176668F10034B881 /* brandon_med_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F471766053D00B9FFED /* brandon_med_it.ttf */; };
+		AF4AFB1D176668F10034B881 /* brandon_med.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F481766053D00B9FFED /* brandon_med.ttf */; };
+		AF4AFB1E176668F10034B881 /* brandon_re.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F491766053D00B9FFED /* brandon_re.ttf */; };
+		AF4AFB1F176668F10034B881 /* brandon_reg_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4A1766053D00B9FFED /* brandon_reg_it.ttf */; };
+		AF4AFB20176668F10034B881 /* brandon_reg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4B1766053D00B9FFED /* brandon_reg.ttf */; };
+		AF4AFB21176668F10034B881 /* brandon_thin_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4C1766053D00B9FFED /* brandon_thin_it.ttf */; };
+		AF4AFB22176668F10034B881 /* brandon_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4D1766053D00B9FFED /* brandon_thin.ttf */; };
 		AF72CB621757AEE30035CE53 /* DataPostHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AF72CB611757AEE30035CE53 /* DataPostHandler.m */; };
 		AF75462A1751F95800DEDA96 /* home_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7546291751F95800DEDA96 /* home_ico.png */; };
 		AF7546321751FDC000DEDA96 /* followed_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7546311751FDC000DEDA96 /* followed_ico.png */; };
@@ -180,6 +194,22 @@
 		8B9BDFFE17452E5D008B3500 /* postgetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postgetter.h; sourceTree = "<group>"; };
 		8B9BDFFF174570FB008B3500 /* bloggetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bloggetter.h; sourceTree = "<group>"; };
 		8BC2E3921737B12700521124 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		A1407F421766053D00B9FFED /* brandon_bld.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_bld.ttf; sourceTree = "<group>"; };
+		A1407F431766053D00B9FFED /* brandon_blk_it.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_blk_it.ttf; sourceTree = "<group>"; };
+		A1407F441766053D00B9FFED /* brandon_blk.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_blk.ttf; sourceTree = "<group>"; };
+		A1407F451766053D00B9FFED /* brandon_light_it.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_light_it.ttf; sourceTree = "<group>"; };
+		A1407F461766053D00B9FFED /* brandon_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_light.ttf; sourceTree = "<group>"; };
+		A1407F471766053D00B9FFED /* brandon_med_it.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_med_it.ttf; sourceTree = "<group>"; };
+		A1407F481766053D00B9FFED /* brandon_med.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_med.ttf; sourceTree = "<group>"; };
+		A1407F491766053D00B9FFED /* brandon_re.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_re.ttf; sourceTree = "<group>"; };
+		A1407F4A1766053D00B9FFED /* brandon_reg_it.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_reg_it.ttf; sourceTree = "<group>"; };
+		A1407F4B1766053D00B9FFED /* brandon_reg.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_reg.ttf; sourceTree = "<group>"; };
+		A1407F4C1766053D00B9FFED /* brandon_thin_it.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_thin_it.ttf; sourceTree = "<group>"; };
+		A1407F4D1766053D00B9FFED /* brandon_thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_thin.ttf; sourceTree = "<group>"; };
+		A1407F5B1766056C00B9FFED /* Brandon_bld_it.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Brandon_bld_it.ttf; sourceTree = "<group>"; };
+		A1407F6A1766094C00B9FFED /* navigationbar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navigationbar.png; sourceTree = "<group>"; };
+		A1407F6E17660D1200B9FFED /* Navigationbar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Navigationbar2.png; sourceTree = "<group>"; };
+		A1407F7017660D7200B9FFED /* Navigationbar3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Navigationbar3.png; sourceTree = "<group>"; };
 		A187A3551727D83900AF4F82 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A187A3561727D83900AF4F82 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		A1FAD6FE171EA7BC0095EC7E /* ShufflerTumblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShufflerTumblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -227,6 +257,8 @@
 		AF44E10C173E9C830088908D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AF44E10D173E9C830088908D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AF44E10F173EB4080088908D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AF4AFB13176636E00034B881 /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
+		AF4AFB14176636E00034B881 /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
 		AF72CB601757AEE30035CE53 /* DataPostHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPostHandler.h; sourceTree = "<group>"; };
 		AF72CB611757AEE30035CE53 /* DataPostHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPostHandler.m; sourceTree = "<group>"; };
 		AF7546291751F95800DEDA96 /* home_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_ico.png; sourceTree = "<group>"; };
@@ -341,6 +373,26 @@
 			path = Crypto;
 			sourceTree = "<group>";
 		};
+		A1407F5A1766054300B9FFED /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				A1407F5B1766056C00B9FFED /* Brandon_bld_it.ttf */,
+				A1407F421766053D00B9FFED /* brandon_bld.ttf */,
+				A1407F431766053D00B9FFED /* brandon_blk_it.ttf */,
+				A1407F441766053D00B9FFED /* brandon_blk.ttf */,
+				A1407F451766053D00B9FFED /* brandon_light_it.ttf */,
+				A1407F461766053D00B9FFED /* brandon_light.ttf */,
+				A1407F471766053D00B9FFED /* brandon_med_it.ttf */,
+				A1407F481766053D00B9FFED /* brandon_med.ttf */,
+				A1407F491766053D00B9FFED /* brandon_re.ttf */,
+				A1407F4A1766053D00B9FFED /* brandon_reg_it.ttf */,
+				A1407F4B1766053D00B9FFED /* brandon_reg.ttf */,
+				A1407F4C1766053D00B9FFED /* brandon_thin_it.ttf */,
+				A1407F4D1766053D00B9FFED /* brandon_thin.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
 		A1FAD6F5171EA7BC0095EC7E = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +448,7 @@
 		A1FAD708171EA7BC0095EC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A1407F5A1766054300B9FFED /* Fonts */,
 				A1FAD710171EA7BC0095EC7E /* AppDelegate.h */,
 				A1FAD711171EA7BC0095EC7E /* AppDelegate.m */,
 				AF1F827817354ED60001C15E /* images */,
@@ -482,6 +535,9 @@
 		AF1F827817354ED60001C15E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A1407F7017660D7200B9FFED /* Navigationbar3.png */,
+				A1407F6E17660D1200B9FFED /* Navigationbar2.png */,
+				A1407F6A1766094C00B9FFED /* navigationbar.png */,
 				AF967FA117646B8300CED5E1 /* topbar_nowplaying.png */,
 				AF967FA31764750600CED5E1 /* discover_ico.png */,
 				AF7546311751FDC000DEDA96 /* followed_ico.png */,
@@ -535,6 +591,8 @@
 			children = (
 				AF7546351751FFE400DEDA96 /* DashBoardViewController.h */,
 				AF7546361751FFE400DEDA96 /* DashBoardViewController.m */,
+				AF4AFB13176636E00034B881 /* DiscoverViewController.h */,
+				AF4AFB14176636E00034B881 /* DiscoverViewController.m */,
 				AF7546391752003500DEDA96 /* FollowedViewController.h */,
 				AF75463A1752003500DEDA96 /* FollowedViewController.m */,
 				AF75463C1752005100DEDA96 /* FavoriteViewController.h */,
@@ -618,6 +676,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF4AFB16176668F10034B881 /* Brandon_bld_it.ttf in Resources */,
+				AF4AFB17176668F10034B881 /* brandon_bld.ttf in Resources */,
+				AF4AFB18176668F10034B881 /* brandon_blk_it.ttf in Resources */,
+				AF4AFB19176668F10034B881 /* brandon_blk.ttf in Resources */,
+				AF4AFB1A176668F10034B881 /* brandon_light_it.ttf in Resources */,
+				AF4AFB1B176668F10034B881 /* brandon_light.ttf in Resources */,
+				AF4AFB1C176668F10034B881 /* brandon_med_it.ttf in Resources */,
+				AF4AFB1D176668F10034B881 /* brandon_med.ttf in Resources */,
+				AF4AFB1E176668F10034B881 /* brandon_re.ttf in Resources */,
+				AF4AFB1F176668F10034B881 /* brandon_reg_it.ttf in Resources */,
+				AF4AFB20176668F10034B881 /* brandon_reg.ttf in Resources */,
+				AF4AFB21176668F10034B881 /* brandon_thin_it.ttf in Resources */,
+				AF4AFB22176668F10034B881 /* brandon_thin.ttf in Resources */,
 				A1FAD70C171EA7BC0095EC7E /* InfoPlist.strings in Resources */,
 				A1FAD714171EA7BC0095EC7E /* Default.png in Resources */,
 				A1FAD716171EA7BC0095EC7E /* Default@2x.png in Resources */,
@@ -648,6 +719,9 @@
 				AF967FA217646B8300CED5E1 /* topbar_nowplaying.png in Resources */,
 				AF967FA41764750600CED5E1 /* discover_ico.png in Resources */,
 				3F33F71A1765CDE700C19694 /* oauthAutoConfig.plist in Resources */,
+				A1407F6B1766094C00B9FFED /* navigationbar.png in Resources */,
+				A1407F6F17660D1200B9FFED /* Navigationbar2.png in Resources */,
+				A1407F7117660D7200B9FFED /* Navigationbar3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -656,6 +730,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1FAD733171EA7BC0095EC7E /* InfoPlist.strings in Resources */,
+				A1407F4E1766053D00B9FFED /* brandon_bld.ttf in Resources */,
+				A1407F4F1766053D00B9FFED /* brandon_blk_it.ttf in Resources */,
+				A1407F501766053D00B9FFED /* brandon_blk.ttf in Resources */,
+				A1407F511766053D00B9FFED /* brandon_light_it.ttf in Resources */,
+				A1407F521766053D00B9FFED /* brandon_light.ttf in Resources */,
+				A1407F531766053D00B9FFED /* brandon_med_it.ttf in Resources */,
+				A1407F541766053D00B9FFED /* brandon_med.ttf in Resources */,
+				A1407F551766053D00B9FFED /* brandon_re.ttf in Resources */,
+				A1407F561766053D00B9FFED /* brandon_reg_it.ttf in Resources */,
+				A1407F571766053D00B9FFED /* brandon_reg.ttf in Resources */,
+				A1407F581766053D00B9FFED /* brandon_thin_it.ttf in Resources */,
+				A1407F591766053D00B9FFED /* brandon_thin.ttf in Resources */,
+				A1407F5C1766056C00B9FFED /* Brandon_bld_it.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,6 +810,7 @@
 				3F33F7161765C6F900C19694 /* NSString+URLEscapingAdditions.m in Sources */,
 				3F33F7171765C6F900C19694 /* NSURL+MPURLParameterAdditions.m in Sources */,
 				3F33F7181765C6F900C19694 /* NSURLResponse+Encoding.m in Sources */,
+				AF4AFB15176636E00034B881 /* DiscoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

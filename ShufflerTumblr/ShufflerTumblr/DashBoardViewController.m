@@ -33,6 +33,14 @@
     _responseData = [[NSMutableData alloc] init];
 	// Do any additional setup after loading the view.
     
+    NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                             [UIColor whiteColor], UITextAttributeTextColor,
+                                             [UIColor whiteColor], UITextAttributeTextShadowColor,
+                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+                                             [UIFont fontWithName:@"BrandonGrotesque-Bold" size:23.0], UITextAttributeFont,
+                                             nil];
+    [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
+    
     
     
     NSURL * url = [[NSURL alloc] initWithString: @"http://api.tumblr.com/v2/user/dashboard"];
@@ -46,7 +54,10 @@
     
     NSURLRequest *urlRequest = [request urlRequestSignedWithSecret:kConsumerSecret usingMethod: kMPOAuthSignatureMethodHMACSHA1];
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate: self];
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBar.topItem.title = @"Dashboard";
 }
 
 - (void)didReceiveMemoryWarning

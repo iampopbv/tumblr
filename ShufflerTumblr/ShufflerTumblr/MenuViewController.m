@@ -41,6 +41,7 @@
     _blogs = [[NSMutableArray alloc] init];
     
     
+    
     // if([...isPlaying]) {
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
@@ -52,6 +53,20 @@
     button.tag = 123131;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     // }
+    
+    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shuffler logo.png"]];
+    logo.frame= CGRectMake(0,0,25,25);
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
+
+    
+    NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            [UIColor whiteColor], UITextAttributeTextColor,
+                                            [UIColor whiteColor], UITextAttributeTextShadowColor,
+                                            [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+                                            [UIFont fontWithName:@"BrandonGrotesque-Bold" size:20.0], UITextAttributeFont,
+                                            nil];
+    [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
+    
 
     NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", nil];
     
@@ -65,7 +80,12 @@
                 NSString * capitalizedName = [blogInfo.name uppercaseString];
                 
                 [_tabledata addObject: capitalizedName];
-                [_tableimages addObject:[blogInfo image]];
+                if ([blogInfo image]) {
+                    [_tableimages addObject:[blogInfo image]];
+                } else {
+                    [_tableimages addObject: [UIImage imageNamed:@"followed_ico.png"]];
+                }
+          
                 [_tableView reloadData];
                 [_blogdata addObject: self];
             });
@@ -73,7 +93,7 @@
         [_blogs addObject: tmpBlog];
         index++;
     }
-    _signupbutton.font = [UIFont fontWithName:@"Brandon Grotesque" size:12];
+    _signupbutton.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:10];
     _listento.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     
     
@@ -87,7 +107,7 @@
 
 
 - (void) openCurrentTrack {
-    [self performSegueWithIdentifier:@"segue_blog1" sender:self];
+    [self performSegueWithIdentifier:@"segueToBlog" sender:self];
 }
 
 // Checks if we have an internet connection or not
@@ -163,12 +183,7 @@
 }
 
 - (void)viewDidUnload {
-    [self setImageBlog1:nil];
-    [self setImageBlog2:nil];
-    [self setImageBlog3:nil];
-    [self setImageBlog4:nil];
     [self setListento:nil];
-    [self setShumblr:nil];
     [self setSignupbutton:nil];
     [self setTableView:nil];
     [self setTableView:nil];

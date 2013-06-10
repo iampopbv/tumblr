@@ -9,14 +9,26 @@
 			<array>
 				<string>x-com-shumblr-mobile</string>
 			</array>
-			<key>CFBundleURLName</key>
-			<string>MPOauth Mobile User Authentication</string>
 		</dict>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>brandon_bld.ttf</string>
+		<string>brandon_blk_it.ttf</string>
+		<string>brandon_blk.ttf</string>
+		<string>brandon_light_it.ttf</string>
+		<string>Brandon_bld_it.ttf</string>
+		<string>brandon_light.ttf</string>
+		<string>brandon_med_it.ttf</string>
+		<string>brandon_med.ttf</string>
+		<string>brandon_re.ttf</string>
+		<string>brandon_reg_it.ttf</string>
+		<string>brandon_reg.ttf</string>
+		<string>brandon_thin_it.ttf</string>
+		<string>brandon_thin.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
-	<key>CFBundleDisplayName</key>
-	<string>${PRODUCT_NAME}</string>
 	<key>CFBundleExecutable</key>
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIdentifier</key>

@@ -72,7 +72,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
 {
 #pragma unused (target)
 #if __has_feature(objc_arc)
-    Reachability *reachability = ((__bridge Reachability*)info);
+    Reachability *reachability = ((__bridge  Reachability*)info);
 #else
     Reachability *reachability = ((Reachability*)info);
 #endif
@@ -217,7 +217,7 @@ static void TMReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkRea
     }
     
 #if __has_feature(objc_arc)
-    context.info = (__bridge void *)self;
+    context.info = (__bridge  void *)self;
 #else
     context.info = (void *)self;
 #endif
