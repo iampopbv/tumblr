@@ -29,11 +29,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                             [UIColor whiteColor], UITextAttributeTextColor,
+                                             [UIColor whiteColor], UITextAttributeTextShadowColor,
+                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+                                             [UIFont fontWithName:@"BrandonGrotesque-Bold" size:23.0], UITextAttributeFont,
+                                             nil];
+    [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
+    
+    
 	// Do any additional setup after loading the view.
     _tabledata = [[NSMutableArray alloc] init];
     _tableimages = [[NSMutableArray alloc] init];
     _blogdata = [[NSMutableArray alloc] init];
     _blogs = [[NSMutableArray alloc] init];
+    
+    
+    
     
     
     NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", @"http://mvmvmv.tumblr.com/", nil];

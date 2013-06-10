@@ -57,6 +57,15 @@
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shuffler logo.png"]];
     logo.frame= CGRectMake(0,0,25,25);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
+
+    
+    NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
+                                            [UIColor whiteColor], UITextAttributeTextColor,
+                                            [UIColor whiteColor], UITextAttributeTextShadowColor,
+                                            [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+                                            [UIFont fontWithName:@"BrandonGrotesque-Bold" size:20.0], UITextAttributeFont,
+                                            nil];
+    [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
     
 
     NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", nil];
