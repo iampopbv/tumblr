@@ -98,7 +98,7 @@
 
 
 - (void) openCurrentTrack {
-    [self performSegueWithIdentifier:@"segue_blog1" sender:self];
+    [self performSegueWithIdentifier:@"segueToBlog" sender:self];
 }
 
 // Checks if we have an internet connection or not
@@ -174,12 +174,7 @@
 }
 
 - (void)viewDidUnload {
-    [self setImageBlog1:nil];
-    [self setImageBlog2:nil];
-    [self setImageBlog3:nil];
-    [self setImageBlog4:nil];
     [self setListento:nil];
-    [self setShumblr:nil];
     [self setSignupbutton:nil];
     [self setTableView:nil];
     [self setTableView:nil];

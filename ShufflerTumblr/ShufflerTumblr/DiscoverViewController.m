@@ -25,22 +25,24 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    // Allocate memory
+	// Do any additional setup after loading the view.
     _tabledata = [[NSMutableArray alloc] init];
     _tableimages = [[NSMutableArray alloc] init];
     _blogdata = [[NSMutableArray alloc] init];
     _blogs = [[NSMutableArray alloc] init];
     
-	// Do any additional setup after loading the view.
-    NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", nil];
     
-
+    [self.navigationController setTitle: @"test"];
+    
+    NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", @"http://mvmvmv.tumblr.com/", nil];
+    
     // load the 4 featured blogs
     int index = 0;
+    
     for(NSString *blogURL in blogURLS){
         Blog *tmpBlog = [[Blog alloc] initWithURL: blogURL];
         [tmpBlog getInfo:^(id<Info> info, NSError *error) {
@@ -61,7 +63,12 @@
         }];
         [_blogs addObject: tmpBlog];
         index++;
-    }
+    }    
+}
+
+
+- (void) viewDidAppear:(BOOL)animated {
+    [_tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,11 +77,19 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma UITableView delegates
+//#pragma UITableView delegates
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSString *segueName = [segue identifier];
+    if([segueName isEqualToString: @"discover_segue"]){
+        [[_blogs objectAtIndex:_chosenBlog] reset];
+        [(id<bloggetter>)segue.destinationViewController getBlog: [_blogs objectAtIndex:_chosenBlog]];
+    }
+}
+
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _chosenBlog = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"segueToBlog" sender:self];
+    [self performSegueWithIdentifier:@"discover_segue" sender:self];
     
 }
 
