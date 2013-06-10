@@ -25,6 +25,8 @@
 - (oneway void)dealloc {
 	self.urlResponse = nil;
 	self.oauthParameters = nil;
+	
+	[super dealloc];
 }
 
 @synthesize urlResponse = _urlResponse;

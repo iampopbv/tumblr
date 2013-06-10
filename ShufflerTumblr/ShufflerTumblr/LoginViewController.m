@@ -59,7 +59,7 @@
 		}
 	} else {
         
-        [_oauthAPI discardCredentials];
+        //[_oauthAPI discardCredentials];
         [_oauthAPI authenticate];
     }
 
@@ -85,6 +85,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)clearCredentials {
+	[self.navigationItem setPrompt:@"Credentials Cleared"];
+	[_oauthAPI discardCredentials];
+}
+
+- (void)reauthenticate {
+	[self.navigationItem setPrompt:@"Reauthenticating User"];
+	[_oauthAPI authenticate];
 }
 
 @end

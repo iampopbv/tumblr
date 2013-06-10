@@ -42,7 +42,7 @@ NSString * const MPOAuthNotificationErrorHasOccurred		= @"MPOAuthNotificationErr
 @implementation MPOAuthAPIRequestLoader
 
 - (id)initWithURL:(NSURL *)inURL {
-	return [self initWithRequest:[[MPOAuthURLRequest alloc] initWithURL:inURL andParameters:nil] ];
+	return [self initWithRequest:[[MPOAuthURLRequest alloc] initWithURL:inURL andParameters:nil]];
 }
 
 - (id)initWithRequest:(MPOAuthURLRequest *)inRequest {
@@ -53,22 +53,13 @@ NSString * const MPOAuthNotificationErrorHasOccurred		= @"MPOAuthNotificationErr
 	return self;
 }
 
-- (oneway void)dealloc {
-	self.credentials = nil;
-	self.oauthRequest = nil;
-	self.oauthResponse = nil;
-	self.data = nil;
-	self.responseString = nil;
-
-}
-
-@synthesize credentials;
-@synthesize oauthRequest;
-@synthesize oauthResponse;
-@synthesize data;
-@synthesize responseString;
-@synthesize target;
-@synthesize action;
+@synthesize credentials = _credentials;
+@synthesize oauthRequest = _oauthRequest;
+@synthesize oauthResponse = _oauthResponse;
+@synthesize data = _dataBuffer;
+@synthesize responseString = _dataAsString;
+@synthesize target = _target;
+@synthesize action = _action;
 
 #pragma mark -
 

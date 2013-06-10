@@ -58,14 +58,8 @@ NSString * const MPOAuthCredentialVerifierKey				= @"oauth_verifier";
 	return self;
 }
 
-- (oneway void)dealloc {
-	[[NSNotificationCenter defaultCenter] removeObserver:self];
-	
-	self.oauthRequestTokenURL = nil;
-	self.oauthAuthorizeTokenURL = nil;
-}
 
-@synthesize delegate;
+@synthesize delegate = delegate_;
 @synthesize oauthRequestTokenURL = oauthRequestTokenURL_;
 @synthesize oauthAuthorizeTokenURL = oauthAuthorizeTokenURL_;
 @synthesize oauth10aModeActive = oauth10aModeActive_;
@@ -100,7 +94,7 @@ NSString * const MPOAuthCredentialVerifierKey				= @"oauth_verifier";
 			callbackParameter = [[MPURLRequestParameter alloc] initWithName:@"oauth_callback" andValue:[callbackURL absoluteString]];
 		} else {
 			// oob = "Out of bounds"
-			callbackParameter = [[MPURLRequestParameter alloc] initWithName:@"oauth_callback" andValue:@"oob"] ;
+			callbackParameter = [[MPURLRequestParameter alloc] initWithName:@"oauth_callback" andValue:@"oob"];
 		}
 		
 		NSArray *params = [NSArray arrayWithObject:callbackParameter];

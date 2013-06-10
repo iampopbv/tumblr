@@ -28,7 +28,7 @@
 	return self;
 }
 
-- (id)initWithString:(NSString *)inString {
+- (id)iniWithString:(NSString *)inString {
 	if ((self = [super init])) {
 		[self _parseStringForContent:inString];
 	}
@@ -40,6 +40,7 @@
 	self.expirationDate = nil;
 	self.urlRelationships = nil;
 	
+	[super dealloc];
 }
 
 @synthesize subject = _subject;

@@ -56,29 +56,34 @@
 	NSString *foundPassword = nil;
 	NSString *serverName = [self.baseURL host];
 	NSString *securityDomain = [self.authenticationURL host];
+	NSDictionary *attributesDictionary = nil;
+	NSData *foundValue = nil;
 	OSStatus status = noErr;
-    //	NSString *itemID = [NSString stringWithFormat:@"%@.oauth.%@", [[NSBundle mainBundle] bundleIdentifier], inName];
+//	NSString *itemID = [NSString stringWithFormat:@"%@.oauth.%@", [[NSBundle mainBundle] bundleIdentifier], inName];
 	
 	NSMutableDictionary *searchDictionary = [NSMutableDictionary dictionaryWithObjectsAndKeys:(__bridge id)kSecClassInternetPassword, (__bridge id)kSecClass,
-                                             securityDomain, (__bridge id)kSecAttrSecurityDomain,
-                                             serverName, (__bridge id)kSecAttrServer,
-                                             inName, (__bridge id)kSecAttrAccount,
-                                             (__bridge id)kSecMatchLimitOne, (__bridge id)kSecMatchLimit,
-                                             (id)kCFBooleanTrue, (__bridge id)kSecReturnData,
-                                             (id)kCFBooleanTrue, (__bridge id)kSecReturnAttributes,
-                                             (id)kCFBooleanTrue, (__bridge id)kSecReturnPersistentRef,
+																							  securityDomain, (__bridge id)kSecAttrSecurityDomain,
+																							  serverName, (__bridge id)kSecAttrServer,
+																							  inName, (__bridge id)kSecAttrAccount,
+																							  (__bridge id)kSecMatchLimitOne, (__bridge id)kSecMatchLimit,
+																							  (id)kCFBooleanTrue, (__bridge id)kSecReturnData,
+																							  (id)kCFBooleanTrue, (__bridge id)kSecReturnAttributes,
+																							  (id)kCFBooleanTrue, (__bridge id)kSecReturnPersistentRef,
 											 nil];
-    
-	CFTypeRef cfValue = NULL;
-    status = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, &cfValue);
-    NSData *passData = (__bridge id)cfValue;
-    NSLog(@"passData: %@", passData);
-    
-	if (status == noErr && passData) {
-		foundPassword = [[NSString alloc] initWithData:passData encoding:NSUTF8StringEncoding];
-	}
 
+	//status = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, (CFTypeRef *)&attributesDictionary);
+    status = SecItemCopyMatching((__bridge CFDictionaryRef)searchDictionary, (void *)&attributesDictionary);
+	foundValue = [attributesDictionary objectForKey:(__bridge id)kSecValueData];
+	if (outKeychainItemRef) {
+		*outKeychainItemRef = attributesDictionary;
+	}
 	
+	if (status == noErr && foundValue) {
+		foundPassword = [[NSString alloc] initWithData:foundValue encoding:NSUTF8StringEncoding];
+	}
+	
+    NSLog(@"foundpassword: %@", foundPassword);
+    
 	return foundPassword;
 }
 

@@ -30,8 +30,7 @@ typedef enum {
 	MPWSLRDDiscovererState			_discoveryState;
 }
 
-@property (nonatomic, readonly, assign)
-__unsafe_unretained id <MPWSLRDDiscovererDelegate> delegate;
+@property (nonatomic, readonly, assign) id <MPWSLRDDiscovererDelegate> delegate;
 @property (nonatomic, readonly, assign) MPWSLRDDiscovererState discoveryState;
 
 - (void)locateResourceOfType:(NSString *)inMimeType fromURL:(NSURL *)inURL;

@@ -42,7 +42,7 @@
 	size_t theResultLength = 32;
 	Base64EncodeData(result, 20, base64Result, &theResultLength);
 	NSData *theData = [NSData dataWithBytes:base64Result length:theResultLength];
-	NSString *base64EncodedResult = [[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding];
+	NSString *base64EncodedResult = [[[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding] autorelease];
 	
 	return base64EncodedResult;
 }
@@ -56,6 +56,7 @@
 			self.value = inSecret;
 		}
 	} else {
+		[self release];
 		self = nil;
 		[NSException raise:@"Unsupported Signature Method" format:@"The signature method \"%@\" is not currently support by MPOAuthConnection", inMethod];
 	}
@@ -73,6 +74,8 @@
 	return self;	
 }
 
-
+- (oneway void)dealloc {
+	[super dealloc];
+}
 
 @end

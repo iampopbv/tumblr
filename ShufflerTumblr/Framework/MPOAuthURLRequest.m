@@ -31,9 +31,9 @@
 - (id)initWithURLRequest:(NSURLRequest *)inRequest {
 	if ((self = [super init])) {
 		self.url = [[inRequest URL] urlByRemovingQuery];
-		self.parameters = [[MPURLRequestParameter parametersFromString:[[inRequest URL] query]] mutableCopy];
+		self.parameters = [[[MPURLRequestParameter parametersFromString:[[inRequest URL] query]] mutableCopy] autorelease];
 		self.HTTPMethod = [inRequest HTTPMethod];
-		self.urlRequest = [inRequest mutableCopy];
+		self.urlRequest = [[inRequest mutableCopy] autorelease];
 	}
 	return self;
 }
@@ -43,6 +43,8 @@
 	self.HTTPMethod = nil;
 	self.urlRequest = nil;
 	self.parameters = nil;
+	
+	[super dealloc];
 }
 
 @synthesize url = _url;
@@ -105,7 +107,7 @@
 		} else if ([nonOauthParameters count]) {
 			NSString *postDataString = [MPURLRequestParameter parameterStringForParameters:nonOauthParameters];
 			NSData *postData = [postDataString dataUsingEncoding:NSUTF8StringEncoding];
-			NSLog(@"postDataString - %@", postDataString);
+			MPLog(@"postDataString - %@", postDataString);
 			
 			[aRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
 			[aRequest setValue:[NSString stringWithFormat:@"%d", [postData length]] forHTTPHeaderField:@"Content-Length"];
@@ -115,9 +117,13 @@
 		[NSException raise:@"UnhandledHTTPMethodException" format:@"The requested HTTP method, %@, is not supported", self.HTTPMethod];
 	}
 
-	NSLog( @"urlString - %@", urlString);
+	MPLog( @"urlString - %@", urlString);
 	[aRequest setURL:[NSURL URLWithString:urlString]];
 	self.urlRequest = aRequest;
+	
+	[parameterString release];
+	[signatureParameter release];
+	[aRequest release];
 	
 	return aRequest;
 }

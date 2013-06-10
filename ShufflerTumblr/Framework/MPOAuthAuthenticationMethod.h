@@ -13,12 +13,12 @@ extern NSString * const MPOAuthAccessTokenURLKey;
 @class MPOAuthAPI;
 
 @interface MPOAuthAuthenticationMethod : NSObject {
-	MPOAuthAPI								*oauthAPI_;
+	__unsafe_unretained MPOAuthAPI								*oauthAPI_;
 	NSURL									*oauthGetAccessTokenURL_;
 	NSTimer									*refreshTimer_;
 }
 
-@property (nonatomic, readwrite, assign) __unsafe_unretained MPOAuthAPI *oauthAPI;
+@property (nonatomic, readwrite, assign) MPOAuthAPI *oauthAPI;
 @property (nonatomic, readwrite, retain) NSURL *oauthGetAccessTokenURL;
 
 - (id)initWithAPI:(MPOAuthAPI *)inAPI forURL:(NSURL *)inURL;

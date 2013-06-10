@@ -26,7 +26,7 @@
 	
 	[parameters addObjectsFromArray:inParameters];
 	
-	return [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", absoluteString, [MPURLRequestParameter parameterStringForParameters:parameters]]];
+	return [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", absoluteString, [MPURLRequestParameter parameterStringForParameters:[parameters autorelease]]]];
 }
 
 - (NSURL *)urlByAddingParameterDictionary:(NSDictionary *)inParameterDictionary {
@@ -46,6 +46,8 @@
 	} else if ([parameterDictionary count]) {
 		composedURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", absoluteString, [MPURLRequestParameter parameterStringForDictionary:parameterDictionary]]];
 	}
+	
+	[parameterDictionary release];
 
 	return composedURL;
 }

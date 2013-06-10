@@ -29,7 +29,7 @@ extern NSString * const MPOAuthNotificationErrorHasOccurred;
 	NSMutableData					*_dataBuffer;
 	NSString						*_dataAsString;
 	NSError							*_error;
-	id								_target;
+	__unsafe_unretained id								_target;
 	SEL								_action;
 }
 
@@ -38,7 +38,7 @@ extern NSString * const MPOAuthNotificationErrorHasOccurred;
 @property (nonatomic, readwrite, retain) MPOAuthURLResponse *oauthResponse;
 @property (nonatomic, readonly, retain) NSData *data;
 @property (nonatomic, readonly, retain) NSString *responseString;
-@property (nonatomic, readwrite, assign)  id target;
+@property (nonatomic, readwrite, assign) id target;
 @property (nonatomic, readwrite, assign) SEL action;
 
 - (id)initWithURL:(NSURL *)inURL;

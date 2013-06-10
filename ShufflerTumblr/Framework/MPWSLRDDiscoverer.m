@@ -34,7 +34,17 @@
 	return self;
 }
 
-@synthesize delegate;
+- (oneway void)dealloc {
+	self.endpointURL = nil;
+	self.soughtType = nil;
+	self.connection = nil;
+	self.response = nil;
+	self.responseData = nil;
+	
+	[super dealloc];
+}
+
+@synthesize delegate = _delegate;
 @synthesize endpointURL = _endpointURL;
 @synthesize soughtType = _soughtMIMEType;
 @synthesize connection = _urlConnection;

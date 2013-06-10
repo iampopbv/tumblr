@@ -342,14 +342,44 @@
                                     <segue destination="wu3-6g-l5U" kind="modal" modalTransitionStyle="crossDissolve" id="CMq-f3-aKa"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-wg-M2m">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Clear">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clearCredentials" destination="J1t-Nh-KTa" eventType="touchUpInside" id="4gQ-mb-uNz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0n-f2-BCG">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="ReAuth">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reauthenticate" destination="J1t-Nh-KTa" eventType="touchUpInside" id="qeB-js-Qft"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lMI-g8-tUg" firstAttribute="leading" secondItem="2WL-R9-Un1" secondAttribute="leading" constant="141" id="0DK-Wd-Eu9"/>
+                            <constraint firstAttribute="bottom" secondItem="dSc-wg-M2m" secondAttribute="bottom" constant="106" id="5Uo-NC-x9B"/>
+                            <constraint firstItem="A0n-f2-BCG" firstAttribute="leading" secondItem="dSc-wg-M2m" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="6Yn-o1-4CJ"/>
+                            <constraint firstItem="A0n-f2-BCG" firstAttribute="baseline" secondItem="dSc-wg-M2m" secondAttribute="baseline" type="default" id="C4g-aC-VMe"/>
                             <constraint firstItem="wrT-Rb-1Ho" firstAttribute="leading" secondItem="2WL-R9-Un1" secondAttribute="leading" type="default" id="KNg-HI-8cy"/>
                             <constraint firstItem="wrT-Rb-1Ho" firstAttribute="trailing" secondItem="2WL-R9-Un1" secondAttribute="trailing" type="default" id="MSx-f4-YQs"/>
                             <constraint firstItem="wrT-Rb-1Ho" firstAttribute="bottom" secondItem="2WL-R9-Un1" secondAttribute="bottom" type="default" id="PLu-j3-wwH"/>
                             <constraint firstItem="wrT-Rb-1Ho" firstAttribute="top" secondItem="2WL-R9-Un1" secondAttribute="top" type="default" id="V43-bg-lSp"/>
+                            <constraint firstItem="dSc-wg-M2m" firstAttribute="leading" secondItem="2WL-R9-Un1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZIq-73-nPo"/>
                             <constraint firstAttribute="bottom" secondItem="lMI-g8-tUg" secondAttribute="bottom" constant="28" id="wEv-2u-g4y"/>
                         </constraints>
                     </view>
@@ -832,7 +862,7 @@
             <objects>
                 <viewController id="iMl-fW-RDD" customClass="playerViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uQi-FZ-MY9">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
+                        <rect key="frame" x="0.0" y="0.0" width="321" height="24"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUc-vL-tGJ">
@@ -996,21 +1026,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="OZM-z6-uBZ" secondAttribute="trailing" constant="22" id="0fH-V6-DXh"/>
-                            <constraint firstItem="to0-Of-jbJ" firstAttribute="baseline" secondItem="OZM-z6-uBZ" secondAttribute="baseline" type="default" id="2AX-2D-Fr5"/>
-                            <constraint firstItem="OZM-z6-uBZ" firstAttribute="baseline" secondItem="pG5-a9-cMw" secondAttribute="baseline" type="default" id="2BA-3j-FZu"/>
                             <constraint firstItem="pG5-a9-cMw" firstAttribute="bottom" secondItem="to0-Of-jbJ" secondAttribute="bottom" type="default" id="2Cl-RV-SLV"/>
                             <constraint firstItem="1su-YN-qUi" firstAttribute="bottom" secondItem="824-Pk-MGd" secondAttribute="bottom" type="default" id="2oU-UH-iN1"/>
                             <constraint firstItem="pG5-a9-cMw" firstAttribute="top" secondItem="OZM-z6-uBZ" secondAttribute="top" type="default" id="3HG-UK-k6V"/>
                             <constraint firstItem="1su-YN-qUi" firstAttribute="top" secondItem="824-Pk-MGd" secondAttribute="top" type="default" id="7ey-ag-pnO"/>
-                            <constraint firstItem="kRC-Ld-9Y5" firstAttribute="baseline" secondItem="OZM-z6-uBZ" secondAttribute="baseline" type="default" id="AM7-0f-WBq"/>
                             <constraint firstItem="kRC-Ld-9Y5" firstAttribute="leading" secondItem="7mN-bt-BpZ" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="BJq-pe-Gnm"/>
                             <constraint firstAttribute="trailing" secondItem="1su-YN-qUi" secondAttribute="trailing" constant="124" id="BXo-Xl-E9b"/>
-                            <constraint firstItem="to0-Of-jbJ" firstAttribute="baseline" secondItem="pG5-a9-cMw" secondAttribute="baseline" type="default" id="JwZ-be-hj5"/>
                             <constraint firstAttribute="trailing" secondItem="824-Pk-MGd" secondAttribute="trailing" constant="55" id="Knv-yF-P0k"/>
                             <constraint firstAttribute="bottom" secondItem="1su-YN-qUi" secondAttribute="bottom" constant="7" id="S01-AS-jwq"/>
-                            <constraint firstItem="kRC-Ld-9Y5" firstAttribute="baseline" secondItem="to0-Of-jbJ" secondAttribute="baseline" type="default" id="TLl-Mo-iUA"/>
                             <constraint firstItem="Igh-Gz-E7q" firstAttribute="top" secondItem="7mN-bt-BpZ" secondAttribute="top" type="default" id="VOa-ju-Zvd"/>
-                            <constraint firstItem="kRC-Ld-9Y5" firstAttribute="baseline" secondItem="pG5-a9-cMw" secondAttribute="baseline" type="default" id="awo-MQ-Etu"/>
                             <constraint firstItem="kRC-Ld-9Y5" firstAttribute="bottom" secondItem="to0-Of-jbJ" secondAttribute="bottom" type="default" id="axZ-6a-Baw"/>
                             <constraint firstItem="kRC-Ld-9Y5" firstAttribute="top" secondItem="7mN-bt-BpZ" secondAttribute="top" constant="7" id="dWu-mn-vV9"/>
                             <constraint firstItem="to0-Of-jbJ" firstAttribute="leading" secondItem="7mN-bt-BpZ" secondAttribute="leading" constant="89" id="g6C-MR-xWJ"/>

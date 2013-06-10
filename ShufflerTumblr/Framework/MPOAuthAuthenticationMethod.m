@@ -41,17 +41,11 @@ NSString * const MPOAuthAccessTokenURLKey					= @"MPOAuthAccessTokenURL";
 	return self;
 }
 
-- (oneway void)dealloc {
-	self.oauthAPI = nil;
-	self.oauthGetAccessTokenURL = nil;
 
-	[self.refreshTimer invalidate];
-	self.refreshTimer = nil;
-}
-//
-//@synthesize oauthAPI = oauthAPI_;
-//@synthesize oauthGetAccessTokenURL = oauthGetAccessTokenURL_;
-//@synthesize refreshTimer = refreshTimer_;
+
+@synthesize oauthAPI = oauthAPI_;
+@synthesize oauthGetAccessTokenURL = oauthGetAccessTokenURL_;
+@synthesize refreshTimer = refreshTimer_;
 
 #pragma mark -
 
@@ -115,6 +109,7 @@ NSString * const MPOAuthAccessTokenURLKey					= @"MPOAuthAccessTokenURL";
 				  withParameters:sessionHandleParameter ? [NSArray arrayWithObject:sessionHandleParameter] : nil
 					  withTarget:nil
 					   andAction:nil];
+		
 }
 
 #pragma mark -
