@@ -51,19 +51,6 @@
 		A1407F581766053D00B9FFED /* brandon_thin_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4C1766053D00B9FFED /* brandon_thin_it.ttf */; };
 		A1407F591766053D00B9FFED /* brandon_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4D1766053D00B9FFED /* brandon_thin.ttf */; };
 		A1407F5C1766056C00B9FFED /* Brandon_bld_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F5B1766056C00B9FFED /* Brandon_bld_it.ttf */; };
-		A1407F5D1766065300B9FFED /* Brandon_bld_it.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F5B1766056C00B9FFED /* Brandon_bld_it.ttf */; };
-		A1407F5E1766065300B9FFED /* brandon_bld.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F421766053D00B9FFED /* brandon_bld.ttf */; };
-		A1407F5F1766065300B9FFED /* brandon_blk_it.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F431766053D00B9FFED /* brandon_blk_it.ttf */; };
-		A1407F601766065300B9FFED /* brandon_blk.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F441766053D00B9FFED /* brandon_blk.ttf */; };
-		A1407F611766065300B9FFED /* brandon_light_it.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F451766053D00B9FFED /* brandon_light_it.ttf */; };
-		A1407F621766065300B9FFED /* brandon_light.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F461766053D00B9FFED /* brandon_light.ttf */; };
-		A1407F631766065300B9FFED /* brandon_med_it.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F471766053D00B9FFED /* brandon_med_it.ttf */; };
-		A1407F641766065300B9FFED /* brandon_med.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F481766053D00B9FFED /* brandon_med.ttf */; };
-		A1407F651766065300B9FFED /* brandon_re.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F491766053D00B9FFED /* brandon_re.ttf */; };
-		A1407F661766065300B9FFED /* brandon_reg_it.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F4A1766053D00B9FFED /* brandon_reg_it.ttf */; };
-		A1407F671766065300B9FFED /* brandon_reg.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F4B1766053D00B9FFED /* brandon_reg.ttf */; };
-		A1407F681766065300B9FFED /* brandon_thin_it.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F4C1766053D00B9FFED /* brandon_thin_it.ttf */; };
-		A1407F691766065300B9FFED /* brandon_thin.ttf in Sources */ = {isa = PBXBuildFile; fileRef = A1407F4D1766053D00B9FFED /* brandon_thin.ttf */; };
 		A1407F6B1766094C00B9FFED /* navigationbar.png in Resources */ = {isa = PBXBuildFile; fileRef = A1407F6A1766094C00B9FFED /* navigationbar.png */; };
 		A1407F6F17660D1200B9FFED /* Navigationbar2.png in Resources */ = {isa = PBXBuildFile; fileRef = A1407F6E17660D1200B9FFED /* Navigationbar2.png */; };
 		A1407F7117660D7200B9FFED /* Navigationbar3.png in Resources */ = {isa = PBXBuildFile; fileRef = A1407F7017660D7200B9FFED /* Navigationbar3.png */; };
@@ -106,6 +93,20 @@
 		AF44E10B173E9B820088908D /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44E10A173E9B820088908D /* MenuViewController.m */; };
 		AF44E10E173E9C830088908D /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = AF44E10D173E9C830088908D /* Reachability.m */; };
 		AF44E110173EB4080088908D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44E10F173EB4080088908D /* SystemConfiguration.framework */; };
+		AF4AFB15176636E00034B881 /* DiscoverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4AFB14176636E00034B881 /* DiscoverViewController.m */; };
+		AF4AFB16176668F10034B881 /* Brandon_bld_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F5B1766056C00B9FFED /* Brandon_bld_it.ttf */; };
+		AF4AFB17176668F10034B881 /* brandon_bld.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F421766053D00B9FFED /* brandon_bld.ttf */; };
+		AF4AFB18176668F10034B881 /* brandon_blk_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F431766053D00B9FFED /* brandon_blk_it.ttf */; };
+		AF4AFB19176668F10034B881 /* brandon_blk.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F441766053D00B9FFED /* brandon_blk.ttf */; };
+		AF4AFB1A176668F10034B881 /* brandon_light_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F451766053D00B9FFED /* brandon_light_it.ttf */; };
+		AF4AFB1B176668F10034B881 /* brandon_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F461766053D00B9FFED /* brandon_light.ttf */; };
+		AF4AFB1C176668F10034B881 /* brandon_med_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F471766053D00B9FFED /* brandon_med_it.ttf */; };
+		AF4AFB1D176668F10034B881 /* brandon_med.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F481766053D00B9FFED /* brandon_med.ttf */; };
+		AF4AFB1E176668F10034B881 /* brandon_re.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F491766053D00B9FFED /* brandon_re.ttf */; };
+		AF4AFB1F176668F10034B881 /* brandon_reg_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4A1766053D00B9FFED /* brandon_reg_it.ttf */; };
+		AF4AFB20176668F10034B881 /* brandon_reg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4B1766053D00B9FFED /* brandon_reg.ttf */; };
+		AF4AFB21176668F10034B881 /* brandon_thin_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4C1766053D00B9FFED /* brandon_thin_it.ttf */; };
+		AF4AFB22176668F10034B881 /* brandon_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4D1766053D00B9FFED /* brandon_thin.ttf */; };
 		AF72CB621757AEE30035CE53 /* DataPostHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AF72CB611757AEE30035CE53 /* DataPostHandler.m */; };
 		AF75462A1751F95800DEDA96 /* home_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7546291751F95800DEDA96 /* home_ico.png */; };
 		AF7546321751FDC000DEDA96 /* followed_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7546311751FDC000DEDA96 /* followed_ico.png */; };
@@ -275,6 +276,8 @@
 		AF44E10C173E9C830088908D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		AF44E10D173E9C830088908D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		AF44E10F173EB4080088908D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		AF4AFB13176636E00034B881 /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
+		AF4AFB14176636E00034B881 /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
 		AF72CB601757AEE30035CE53 /* DataPostHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPostHandler.h; sourceTree = "<group>"; };
 		AF72CB611757AEE30035CE53 /* DataPostHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPostHandler.m; sourceTree = "<group>"; };
 		AF7546291751F95800DEDA96 /* home_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_ico.png; sourceTree = "<group>"; };
@@ -609,6 +612,8 @@
 			children = (
 				AF7546351751FFE400DEDA96 /* DashBoardViewController.h */,
 				AF7546361751FFE400DEDA96 /* DashBoardViewController.m */,
+				AF4AFB13176636E00034B881 /* DiscoverViewController.h */,
+				AF4AFB14176636E00034B881 /* DiscoverViewController.m */,
 				AF7546391752003500DEDA96 /* FollowedViewController.h */,
 				AF75463A1752003500DEDA96 /* FollowedViewController.m */,
 				AF75463C1752005100DEDA96 /* FavoriteViewController.h */,
@@ -692,6 +697,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF4AFB16176668F10034B881 /* Brandon_bld_it.ttf in Resources */,
+				AF4AFB17176668F10034B881 /* brandon_bld.ttf in Resources */,
+				AF4AFB18176668F10034B881 /* brandon_blk_it.ttf in Resources */,
+				AF4AFB19176668F10034B881 /* brandon_blk.ttf in Resources */,
+				AF4AFB1A176668F10034B881 /* brandon_light_it.ttf in Resources */,
+				AF4AFB1B176668F10034B881 /* brandon_light.ttf in Resources */,
+				AF4AFB1C176668F10034B881 /* brandon_med_it.ttf in Resources */,
+				AF4AFB1D176668F10034B881 /* brandon_med.ttf in Resources */,
+				AF4AFB1E176668F10034B881 /* brandon_re.ttf in Resources */,
+				AF4AFB1F176668F10034B881 /* brandon_reg_it.ttf in Resources */,
+				AF4AFB20176668F10034B881 /* brandon_reg.ttf in Resources */,
+				AF4AFB21176668F10034B881 /* brandon_thin_it.ttf in Resources */,
+				AF4AFB22176668F10034B881 /* brandon_thin.ttf in Resources */,
 				A1FAD70C171EA7BC0095EC7E /* InfoPlist.strings in Resources */,
 				A1FAD714171EA7BC0095EC7E /* Default.png in Resources */,
 				A1FAD716171EA7BC0095EC7E /* Default@2x.png in Resources */,
@@ -772,19 +790,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1407F5D1766065300B9FFED /* Brandon_bld_it.ttf in Sources */,
-				A1407F5E1766065300B9FFED /* brandon_bld.ttf in Sources */,
-				A1407F5F1766065300B9FFED /* brandon_blk_it.ttf in Sources */,
-				A1407F601766065300B9FFED /* brandon_blk.ttf in Sources */,
-				A1407F611766065300B9FFED /* brandon_light_it.ttf in Sources */,
-				A1407F621766065300B9FFED /* brandon_light.ttf in Sources */,
-				A1407F631766065300B9FFED /* brandon_med_it.ttf in Sources */,
-				A1407F641766065300B9FFED /* brandon_med.ttf in Sources */,
-				A1407F651766065300B9FFED /* brandon_re.ttf in Sources */,
-				A1407F661766065300B9FFED /* brandon_reg_it.ttf in Sources */,
-				A1407F671766065300B9FFED /* brandon_reg.ttf in Sources */,
-				A1407F681766065300B9FFED /* brandon_thin_it.ttf in Sources */,
-				A1407F691766065300B9FFED /* brandon_thin.ttf in Sources */,
 				A1FAD70E171EA7BC0095EC7E /* main.m in Sources */,
 				A1FAD712171EA7BC0095EC7E /* AppDelegate.m in Sources */,
 				A187A3571727D83900AF4F82 /* LoginViewController.m in Sources */,
@@ -827,6 +832,7 @@
 				3F33F7161765C6F900C19694 /* NSString+URLEscapingAdditions.m in Sources */,
 				3F33F7171765C6F900C19694 /* NSURL+MPURLParameterAdditions.m in Sources */,
 				3F33F7181765C6F900C19694 /* NSURLResponse+Encoding.m in Sources */,
+				AF4AFB15176636E00034B881 /* DiscoverViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
