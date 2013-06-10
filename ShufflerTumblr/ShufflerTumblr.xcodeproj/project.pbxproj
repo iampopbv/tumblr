@@ -27,6 +27,7 @@
 		3F33F7161765C6F900C19694 /* NSString+URLEscapingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33F7001765C6F900C19694 /* NSString+URLEscapingAdditions.m */; };
 		3F33F7171765C6F900C19694 /* NSURL+MPURLParameterAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33F7021765C6F900C19694 /* NSURL+MPURLParameterAdditions.m */; };
 		3F33F7181765C6F900C19694 /* NSURLResponse+Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F33F7041765C6F900C19694 /* NSURLResponse+Encoding.m */; };
+		3F33F71A1765CDE700C19694 /* oauthAutoConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F33F7191765CDE700C19694 /* oauthAutoConfig.plist */; };
 		3F7D7BDE175C9341002E552B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC2E3921737B12700521124 /* AVFoundation.framework */; };
 		3FBE3CBB17620C89000386D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBA17620C89000386D4 /* Security.framework */; };
 		3FBE3CBF17620D56000386D4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBE17620D56000386D4 /* libxml2.dylib */; };
@@ -86,7 +87,6 @@
 		AF7546411752005F00DEDA96 /* MyBlogsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF7546401752005F00DEDA96 /* MyBlogsViewController.m */; };
 		AF967FA217646B8300CED5E1 /* topbar_nowplaying.png in Resources */ = {isa = PBXBuildFile; fileRef = AF967FA117646B8300CED5E1 /* topbar_nowplaying.png */; };
 		AF967FA41764750600CED5E1 /* discover_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF967FA31764750600CED5E1 /* discover_ico.png */; };
-		AF9E75B31762613C00106434 /* oauthAutoConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = AF9E75B21762613C00106434 /* oauthAutoConfig.plist */; };
 		AFBFABAB174E3ED70043EA3F /* YoutubeURLGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = AFBFABAA174E3ED60043EA3F /* YoutubeURLGetter.m */; };
 		AFCFE9511754D1A500F71EC1 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AFCFE9501754D1A500F71EC1 /* User.m */; };
 		AFFD3B7C17366D1500FC7E82 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3B7717366D1500FC7E82 /* DataViewController.m */; };
@@ -160,6 +160,7 @@
 		3F33F7021765C6F900C19694 /* NSURL+MPURLParameterAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+MPURLParameterAdditions.m"; sourceTree = "<group>"; };
 		3F33F7031765C6F900C19694 /* NSURLResponse+Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLResponse+Encoding.h"; sourceTree = "<group>"; };
 		3F33F7041765C6F900C19694 /* NSURLResponse+Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLResponse+Encoding.m"; sourceTree = "<group>"; };
+		3F33F7191765CDE700C19694 /* oauthAutoConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = oauthAutoConfig.plist; sourceTree = "<group>"; };
 		3FBE3CBA17620C89000386D4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3FBE3CBE17620D56000386D4 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		6D01E8781758BDF3000884FB /* FavouriteBlog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteBlog.h; sourceTree = "<group>"; };
@@ -243,7 +244,6 @@
 		AF7546401752005F00DEDA96 /* MyBlogsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyBlogsViewController.m; sourceTree = "<group>"; };
 		AF967FA117646B8300CED5E1 /* topbar_nowplaying.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = topbar_nowplaying.png; sourceTree = "<group>"; };
 		AF967FA31764750600CED5E1 /* discover_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = discover_ico.png; sourceTree = "<group>"; };
-		AF9E75B21762613C00106434 /* oauthAutoConfig.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = oauthAutoConfig.plist; sourceTree = "<group>"; };
 		AFBFABA9174E3ED60043EA3F /* YoutubeURLGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YoutubeURLGetter.h; sourceTree = "<group>"; };
 		AFBFABAA174E3ED60043EA3F /* YoutubeURLGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YoutubeURLGetter.m; sourceTree = "<group>"; };
 		AFCFE94F1754D1A500F71EC1 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -400,11 +400,11 @@
 			children = (
 				A1FAD710171EA7BC0095EC7E /* AppDelegate.h */,
 				A1FAD711171EA7BC0095EC7E /* AppDelegate.m */,
-				AF9E75B21762613C00106434 /* oauthAutoConfig.plist */,
 				AF1F827817354ED60001C15E /* images */,
 				A1FAD709171EA7BC0095EC7E /* ShufflerTumblr-Info.plist */,
 				A1FAD70A171EA7BC0095EC7E /* InfoPlist.strings */,
 				A1FAD70D171EA7BC0095EC7E /* main.m */,
+				3F33F7191765CDE700C19694 /* oauthAutoConfig.plist */,
 				A1FAD70F171EA7BC0095EC7E /* ShufflerTumblr-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -648,9 +648,9 @@
 				AF75462A1751F95800DEDA96 /* home_ico.png in Resources */,
 				AF7546321751FDC000DEDA96 /* followed_ico.png in Resources */,
 				AF7546341751FF0B00DEDA96 /* my_blogs_ico.png in Resources */,
-				AF9E75B31762613C00106434 /* oauthAutoConfig.plist in Resources */,
 				AF967FA217646B8300CED5E1 /* topbar_nowplaying.png in Resources */,
 				AF967FA41764750600CED5E1 /* discover_ico.png in Resources */,
+				3F33F71A1765CDE700C19694 /* oauthAutoConfig.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

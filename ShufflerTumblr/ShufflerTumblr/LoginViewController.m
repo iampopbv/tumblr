@@ -45,7 +45,6 @@
     [super viewDidLoad];
     
     
-    
     if (!_oauthAPI) {
 		NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:	kConsumerKey, kMPOAuthCredentialConsumerKey,
 									 kConsumerSecret, kMPOAuthCredentialConsumerSecret,
@@ -57,16 +56,15 @@
 		if ([[_oauthAPI authenticationMethod] respondsToSelector:@selector(setDelegate:)]) {
 			[(MPOAuthAuthenticationMethodOAuth *)[_oauthAPI authenticationMethod] setDelegate:(id <MPOAuthAuthenticationMethodOAuthDelegate>)[UIApplication sharedApplication].delegate];
 		}
-	} else {
         
-        //[_oauthAPI discardCredentials];
-        [_oauthAPI authenticate];
-    }
+	} else {
+		[_oauthAPI authenticate];
+	}
 
     
     
 	[webview setDelegate:self];
-	[webview loadRequest:[NSURLRequest requestWithURL:self.userAuthURL]];
+//	[webview loadRequest:[NSURLRequest requestWithURL:self.userAuthURL]];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {

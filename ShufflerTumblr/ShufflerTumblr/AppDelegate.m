@@ -62,7 +62,7 @@
 - (NSURL *)callbackURLForCompletedUserAuthorization {
 	// The x-com-mpoauth-mobile URI is a claimed URI Type
 	// check Info.plist for details
-	return [NSURL URLWithString:@"x-com-mpoauth-mobile://success"];
+	return [NSURL URLWithString:@"x-com-shumblr-mobile://success"];
 }
 
 - (NSString *)oauthVerifierForCompletedUserAuthorization {

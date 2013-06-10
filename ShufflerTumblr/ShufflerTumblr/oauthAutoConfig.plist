@@ -139,31 +139,14 @@
 		<key>MPOAuthAccessTokenURL</key>
 		<string>http://api.soundcloud.com/oauth/request_token</string>
 	</dict>
-	<key>.tripit.com</key>
-	<dict>
-		<key>MPOAuthRequestTokenURL</key>
-		<string>https://api.tripit.com/oauth/request_token</string>
-		<key>MPOAuthUserAuthorizationURL</key>
-		<string>https://www.tripit.com/oauth/authorize</string>
-		<key>MPOAuthUserAuthorizationMobileURL</key>
-		<string>https://m.tripit.com/oauth/authorize</string>
-		<key>MPOAuthAccessTokenURL</key>
-		<string>https://api.tripit.com/oauth/access_token</string>
-	</dict>
 	<key>.tumblr.com</key>
 	<dict>
-		<key>MPOAuthRequestTokenURL</key>
-		<string>http://www.tumblr.com/oauth/request_token</string>
-		<key>MPOAuthUserAuthorizationURL</key>
-		<string>http://www.tumblr.com/oauth/authorize
-</string>
-		<key>MPOAuthUserAuthorizationMobileURL</key>
-		<string>http://www.tumblr.com/oauth/authorize
-http://www.tumblr.com/oauth/authorize
-</string>
 		<key>MPOAuthAccessTokenURL</key>
-		<string>http://www.tumblr.com/oauth/access_token
-</string>
+		<string>http://www.tumblr.com/oauth/access_token/</string>
+		<key>MPOAuthUserAuthorizationURL</key>
+		<string>http://www.tumblr.com/oauth/authorize/</string>
+		<key>MPOAuthRequestTokenURL</key>
+		<string>http://www.tumblr.com/oauth/request_token/</string>
 	</dict>
 </dict>
 </plist>
