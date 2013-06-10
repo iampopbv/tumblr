@@ -88,9 +88,9 @@
           
                 [_tableView reloadData];
                 [_blogdata addObject: self];
+                [_blogs addObject: tmpBlog];
             });
         }];
-        [_blogs addObject: tmpBlog];
         index++;
     }
     _signupbutton.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:10];
