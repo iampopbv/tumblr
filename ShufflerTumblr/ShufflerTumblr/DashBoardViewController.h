@@ -10,4 +10,6 @@
 
 @interface DashBoardViewController : UIViewController
 
+@property NSMutableData *responseData;
+
 @end

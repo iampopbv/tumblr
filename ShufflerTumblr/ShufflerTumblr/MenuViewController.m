@@ -38,6 +38,7 @@
     _tabledata = [[NSMutableArray alloc] init];
     _tableimages = [[NSMutableArray alloc] init];
     _blogdata = [[NSMutableArray alloc] init];
+    _blogs = [[NSMutableArray alloc] init];
     
     
     
@@ -58,90 +59,29 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
     
 
+    NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", nil];
     
     // load the 4 featured blogs
-    _blog1 = [[Blog alloc] initWithURL: @"http://maxabelson.com/"];
-    [_blog1 getInfo:^(id<Info> info, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            BlogInfo * blogInfo = info;
-            NSString * capitalizedName = [blogInfo.name uppercaseString];
-            [_blog1Title setText: capitalizedName];
-            
-            [_tabledata addObject: capitalizedName];
-            [_imageBlog1 setImage: [blogInfo image]];
-            [_tableimages addObject:[blogInfo image]];
-            [_tableView reloadData];
-            [_blogdata addObject: self];
-        });
-    }];
-    
-    NSLog(@"Init second blog");
-    _blog2 = [[Blog alloc] initWithURL: @"http://breakupyourband.tumblr.com/"];
-    [_blog2 getInfo:^(id<Info> info, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            BlogInfo * blogInfo = info;
-            NSString * capitalizedName = [blogInfo.name uppercaseString];
-            
-            [_blog2Title setText: capitalizedName];
-            [_tabledata addObject: capitalizedName];
-            [_imageBlog2 setImage: [blogInfo image]];
-            [_tableimages addObject:[blogInfo image]];
-            [_blogdata addObject: self];
-            [_tableView reloadData];
-        });
-    }];
-    NSLog(@"Init third blog");
-    _blog3 = [[Blog alloc] initWithURL: @"http://traviesblog.com/"];
-    [_blog3 getInfo:^(id<Info> info, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            BlogInfo * blogInfo = info;
-            NSString * capitalizedName = [blogInfo.name uppercaseString];
-            
-            [_blog3Title setText: capitalizedName];
-            [_tabledata addObject: capitalizedName];
-            [_imageBlog3 setImage: [blogInfo image]];
-            [_tableimages addObject:[blogInfo image]];
-            [_tableView reloadData];
-            [_blogdata addObject: self];
-        });
-    }];
-    NSLog(@"Init fourth blog");
-    _blog4 = [[Blog alloc] initWithURL: @"http://earsofthebeholder.com/"];
-    [_blog4 getInfo:^(id<Info> info, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            BlogInfo * blogInfo = info;
-            NSString * capitalizedName = [blogInfo.name uppercaseString];
-            
-            [_blog4Title setText: capitalizedName];
-            [_tabledata addObject: capitalizedName];
-            [_imageBlog4 setImage: [blogInfo image]];
-            [_tableimages addObject:[blogInfo image]];
-            [_tableView reloadData];
-            [_blogdata addObject: self];
-        });
-    }];
-    NSLog(@"Init fith blog");
-    _blog5 = [[Blog alloc] initWithURL: @"http://petewentz.com/"];
-    [_blog5 getInfo:^(id<Info> info, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            BlogInfo * blogInfo = info;
-            NSString * capitalizedName = [blogInfo.name uppercaseString];
-            
-            [_blog5Title setText: capitalizedName];
-            if(capitalizedName != nil)
+    int index = 0;
+    for(NSString *blogURL in blogURLS){
+        Blog *tmpBlog = [[Blog alloc] initWithURL: blogURL];
+        [tmpBlog getInfo:^(id<Info> info, NSError *error) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                BlogInfo * blogInfo = info;
+                NSString * capitalizedName = [blogInfo.name uppercaseString];
+                
                 [_tabledata addObject: capitalizedName];
-            else
-                [_tabledata addObject:@"No title"];
-            [_imageBlog5 setImage: [blogInfo image]];
-            if ([blogInfo image] != nil)
                 [_tableimages addObject:[blogInfo image]];
             else
                 [_tableimages addObject: [UIImage imageNamed:@"followed_ico.png"]];
-            [_tableView reloadData];
-            [_blogdata addObject: self];
-        });
-    }];
-    _signupbutton.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:10];
+                [_tableView reloadData];
+                [_blogdata addObject: self];
+            });
+        }];
+        [_blogs addObject: tmpBlog];
+        index++;
+    }
+    _signupbutton.font = [UIFont fontWithName:@"Brandon Grotesque" size:12];
     _listento.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     
     
@@ -197,32 +137,15 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *segueName = [segue identifier];
-    if([segueName isEqualToString: @"segue_blog1"]){
-        [_blog1 reset];
-        [(id<bloggetter>)segue.destinationViewController getBlog:_blog1];
-    } else if([segueName isEqualToString: @"segue_blog2"]) {
-        [_blog2 reset];
-        [(id<bloggetter>)segue.destinationViewController getBlog:_blog2];
-    } else if([segueName isEqualToString: @"segue_blog3"]){
-        [_blog3 reset];
-        [(id<bloggetter>)segue.destinationViewController getBlog:_blog3];
-    } else if([segueName isEqualToString: @"segue_blog4"]) {
-        [_blog4 reset];
-        [(id<bloggetter>)segue.destinationViewController getBlog:_blog4];
-    }else if([segueName isEqualToString: @"segue_blog5"]) {
-        [(id<bloggetter>)segue.destinationViewController getBlog:_blog5];
-    }else if([segueName isEqualToString: @"LoadBlogSegue"]) {
-        [(id<bloggetter>)segue.destinationViewController getBlog:_segueBlog];
+    if([segueName isEqualToString: @"segueToBlog"]){
+        [[_blogs objectAtIndex:_chosenBlog] reset];
+        [(id<bloggetter>)segue.destinationViewController getBlog: [_blogs objectAtIndex:_chosenBlog]];
     }
-    
-    
 }
 
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _segueBlog = [_blogdata objectAtIndex: indexPath.row];
-    
-    
-
+    _chosenBlog = indexPath.row;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"segueToBlog" sender:self];
     
 }

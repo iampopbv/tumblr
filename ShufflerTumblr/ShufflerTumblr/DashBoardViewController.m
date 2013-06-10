@@ -30,8 +30,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _responseData = [[NSMutableData alloc] init];
 	// Do any additional setup after loading the view.
     
+    
+    
+    NSURL * url = [[NSURL alloc] initWithString: @"http://api.tumblr.com/v2/user/dashboard"];
+    NSMutableURLRequest *urlMutableRequest = [[NSMutableURLRequest alloc] initWithURL: url];
+    [urlMutableRequest setHTTPMethod: @"GET"];
+    
+    MPOAuthURLRequest *request = [[MPOAuthURLRequest alloc] initWithURLRequest: urlMutableRequest];
+    
+    
+    
+    
+    NSURLRequest *urlRequest = [request urlRequestSignedWithSecret:kConsumerSecret usingMethod: kMPOAuthSignatureMethodHMACSHA1];
+    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate: self];
     
 }
 
@@ -39,13 +53,20 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    
-    NSURL * url = [[NSURL alloc] initWithString: @"http://api.tumblr.com/v2/user/dashboard"];
-    NSMutableURLRequest *urlMutableRequest = [[NSMutableURLRequest alloc] initWithURL: url];
-    [urlMutableRequest setHTTPMethod: @"GET"];
-    MPOAuthURLRequest *request = [[MPOAuthURLRequest alloc] initWithURLRequest: urlMutableRequest];
-    NSURLRequest *urlRequest = [request urlRequestSignedWithSecret:kConsumerSecret usingMethod: kMPOAuthSignatureMethodHMACSHA1];
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate: self];
+
 }
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+    [_responseData appendData: data];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    // it is now safe to use the data elsewhere.
+    NSString* dataS = [NSString stringWithUTF8String:[_responseData bytes]];
+    NSLog(@"Data received %@", dataS);
+
+    [_responseData setData: nil];
+}
+
 
 @end
