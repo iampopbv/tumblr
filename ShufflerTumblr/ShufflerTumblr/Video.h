@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Post.h"
+#import "YoutubeURLGetter.h"
 
 @interface Video : NSObject <Post>
 

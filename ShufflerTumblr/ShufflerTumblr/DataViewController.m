@@ -24,9 +24,7 @@ id<postgetter> delegate;
 - (id)initWithCoder:(NSCoder *)coder
 {
 	self = [super initWithCoder:coder];
-	if (self) {
-		_queuePlayer = [[AVQueuePlayer alloc] init];
-	}
+	if (self) {}
 	return self;
 }
 
@@ -70,7 +68,7 @@ id<postgetter> delegate;
 	if(self.post.type  == AUDIO){
 		Audio *audioObject = (Audio*)self.post;
 		
-		if([audioObject.playerEmbed rangeOfString:@"shockwave"].length ||
+		if([audioObject.playerEmbed rangeOfString:@"shockwave"].length &&
 		   NO )
 		{
 			[_playerContainer setHidden:YES];
@@ -89,14 +87,14 @@ id<postgetter> delegate;
 			[_videoView setHidden:YES];
 			[self.videoView setHidden:YES];
 			[_imageheight setConstant:0];
-			[delegate showPost];
+			[self showPost];
 		}
 		else
 		{
 			NSLog(@"album");
 			[self.videoView setHidden:YES];
 			[_imageView setImage: [audioObject albumArt]];
-			[delegate showPost];
+			[self showPost];
 		}
 		
 		
@@ -154,27 +152,15 @@ static inline NSString*timestring(float const seconds)
 }
 
 id sharedplayer;
--(AVPlayer *)player{return sharedplayer;}
--(void)setPlayer:(AVPlayer *)player{sharedplayer = player;}
+-(AVQueuePlayer *)player{return sharedplayer;}
+-(void)setPlayer:(AVQueuePlayer *)player{sharedplayer = player;}
 
--(void)getPost:(id<Post>)post
+-(void)getPost:(id<Post>)post from:(NSArray*)posts
 {
 	self.post = post;
 	
-	if([post type] == VIDEO) {
-		if([[post playURL] hasPrefix:@"http://www.youtube.com"] || [[post playURL] hasPrefix:@"https://www.youtube.com"]){
-			[YoutubeURLGetter getYoutubeLinkWithURL: [post playURL] withBlock:^(NSString *youtubeDirectURL) {
-				[post setPlayURL: youtubeDirectURL];
-				self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
-				NSLog(@"playing %@, from %@", self.post.playURL, self.post);
-			}];
-		}
-	} else {
-		
-		self.player = [AVPlayer playerWithURL: [NSURL URLWithString: self.post.playURL]];
+	self.player = [AVQueuePlayer playerWithURL: [NSURL URLWithString: [NSString stringWithFormat:@"http://a.tumblr.com/%@o1.mp3", [self.post.playURL lastPathComponent]]]];
 		NSLog(@"playing %@, from %@", self.post.playURL, self.post);
-	}
-	
 }
 
 -(void)showPost
