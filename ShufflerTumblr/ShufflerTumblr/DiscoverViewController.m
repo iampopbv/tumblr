@@ -29,17 +29,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                             [UIColor whiteColor], UITextAttributeTextColor,
-                                             [UIColor whiteColor], UITextAttributeTextShadowColor,
-                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
-                                             [UIFont fontWithName:@"BrandonGrotesque-Bold" size:23.0], UITextAttributeFont,
-                                             nil];
-    [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
-    
-    
-	// Do any additional setup after loading the view.
+    // Do any additional setup after loading the view.
     _tabledata = [[NSMutableArray alloc] init];
     _tableimages = [[NSMutableArray alloc] init];
     _blogdata = [[NSMutableArray alloc] init];
@@ -70,9 +60,9 @@
                 
                 [_tableView reloadData];
                 [_blogdata addObject: self];
+                [_blogs addObject: tmpBlog];
             });
         }];
-        [_blogs addObject: tmpBlog];
         index++;
     }
         _topMessageLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
