@@ -13,6 +13,7 @@
 #import "Audio.h"
 #import "postgetter.h"
 #import "Favourites.h"
+#import <CoreMedia/CMTime.h>
 
 @interface DataViewController : UIViewController
 
@@ -45,6 +46,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *playpause;
 @property (weak, nonatomic) IBOutlet UISlider *seekbar;
 - (IBAction)playpause:(UIButton *)sender;
+- (IBAction)seek:(UISlider *)sender;
 
 
 @end

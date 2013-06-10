@@ -37,6 +37,7 @@
 		7F9BA4CF1727E6E500F26F2C /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CE1727E6E500F26F2C /* Audio.m */; };
 		7FA53F8A172E98E700F0AFA5 /* BlogInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FA53F89172E98E700F0AFA5 /* BlogInfo.m */; };
 		7FDC456B1757AC640065FA9F /* Favourites.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FDC456A1757AC640065FA9F /* Favourites.m */; };
+		8BE37D77176696C30025B178 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE37D76176696C30025B178 /* CoreMedia.framework */; };
 		A187A3571727D83900AF4F82 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A187A3561727D83900AF4F82 /* LoginViewController.m */; };
 		A1FAD702171EA7BC0095EC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD701171EA7BC0095EC7E /* UIKit.framework */; };
 		A1FAD704171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
@@ -194,6 +195,7 @@
 		8B9BDFFE17452E5D008B3500 /* postgetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = postgetter.h; sourceTree = "<group>"; };
 		8B9BDFFF174570FB008B3500 /* bloggetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bloggetter.h; sourceTree = "<group>"; };
 		8BC2E3921737B12700521124 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		8BE37D76176696C30025B178 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A1407F421766053D00B9FFED /* brandon_bld.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_bld.ttf; sourceTree = "<group>"; };
 		A1407F431766053D00B9FFED /* brandon_blk_it.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_blk_it.ttf; sourceTree = "<group>"; };
 		A1407F441766053D00B9FFED /* brandon_blk.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_blk.ttf; sourceTree = "<group>"; };
@@ -291,6 +293,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE37D77176696C30025B178 /* CoreMedia.framework in Frameworks */,
 				3FBE3CBF17620D56000386D4 /* libxml2.dylib in Frameworks */,
 				3FBE3CBB17620C89000386D4 /* Security.framework in Frameworks */,
 				3F7D7BDE175C9341002E552B /* AVFoundation.framework in Frameworks */,
@@ -415,6 +418,7 @@
 		A1FAD700171EA7BC0095EC7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BE37D76176696C30025B178 /* CoreMedia.framework */,
 				3F33F6D81765C6F800C19694 /* Framework */,
 				3FBE3CBE17620D56000386D4 /* libxml2.dylib */,
 				AF44E10F173EB4080088908D /* SystemConfiguration.framework */,
@@ -719,9 +723,6 @@
 				AF967FA217646B8300CED5E1 /* topbar_nowplaying.png in Resources */,
 				AF967FA41764750600CED5E1 /* discover_ico.png in Resources */,
 				3F33F71A1765CDE700C19694 /* oauthAutoConfig.plist in Resources */,
-				A1407F6B1766094C00B9FFED /* navigationbar.png in Resources */,
-				A1407F6F17660D1200B9FFED /* Navigationbar2.png in Resources */,
-				A1407F7117660D7200B9FFED /* Navigationbar3.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -730,19 +731,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A1FAD733171EA7BC0095EC7E /* InfoPlist.strings in Resources */,
-				A1407F4E1766053D00B9FFED /* brandon_bld.ttf in Resources */,
-				A1407F4F1766053D00B9FFED /* brandon_blk_it.ttf in Resources */,
-				A1407F501766053D00B9FFED /* brandon_blk.ttf in Resources */,
-				A1407F511766053D00B9FFED /* brandon_light_it.ttf in Resources */,
-				A1407F521766053D00B9FFED /* brandon_light.ttf in Resources */,
-				A1407F531766053D00B9FFED /* brandon_med_it.ttf in Resources */,
-				A1407F541766053D00B9FFED /* brandon_med.ttf in Resources */,
-				A1407F551766053D00B9FFED /* brandon_re.ttf in Resources */,
-				A1407F561766053D00B9FFED /* brandon_reg_it.ttf in Resources */,
-				A1407F571766053D00B9FFED /* brandon_reg.ttf in Resources */,
-				A1407F581766053D00B9FFED /* brandon_thin_it.ttf in Resources */,
-				A1407F591766053D00B9FFED /* brandon_thin.ttf in Resources */,
-				A1407F5C1766056C00B9FFED /* Brandon_bld_it.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

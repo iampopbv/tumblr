@@ -148,17 +148,31 @@ id sharedplayer;
 
 -(void)buildandplayqueue
 {
+	if(self.player)
+	{
+		[self.player pause];
+		self.player = nil;
+	}
+	
 	NSMutableArray*queue = [[NSMutableArray alloc]init];
 	bool skip = YES;
 	for(id<Post>nextpost in self.posts)
 	{
 		if(nextpost == self.post)skip=NO;
 		if(skip)continue;
-		AVPlayerItem*item = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"http://a.tumblr.com/%@o1.mp3", [self.post.playURL lastPathComponent]]]];
+		AVPlayerItem*item = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"http://a.tumblr.com/%@o1.mp3", [nextpost.playURL lastPathComponent]]]];
 		NSLog(@"+:%@",item);
 		[queue addObject:item];
 	}
 	self.player = [AVQueuePlayer queuePlayerWithItems:queue];
+	self.seekbar.maximumValue = CMTimeGetSeconds(self.player.currentItem.duration);
+	[self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:nil usingBlock:^(CMTime time) {
+		float secs = CMTimeGetSeconds(time),max=CMTimeGetSeconds(self.player.currentItem.duration);
+		self.seekbar.maximumValue = max;
+		self.seekbar.value = secs;
+		[self.playTimeLabel setText:timestring(secs)];
+		[self.toGoLabel setText:timestring(max-secs)];
+	}];
 	NSLog(@"playing %@, from %@", self.post.playURL, self.post);
 	[self.player play];
 	NSLog(@"ppp:%@",queue);
@@ -192,6 +206,13 @@ id sharedplayer;
 		[self pause];
 	else
 		[self continue];
+}
+
+- (IBAction)seek:(UISlider *)sender
+{
+	[self.player pause];
+	[self.player seekToTime: CMTimeMakeWithSeconds(sender.value,1)];
+	[self.player play];
 }
 
 -(void)continue
