@@ -90,7 +90,7 @@
 	
 	NSString *urlString = nil;
 	NSMutableString *parameterString = [[NSMutableString alloc] initWithString:[MPURLRequestParameter parameterStringForParameters:self.parameters]];
-	MPOAuthSignatureParameter *signatureParameter = [[MPOAuthSignatureParameter alloc] initWithText:parameterString andSecret:inSecret forRequest:self usingMethod:inScheme];
+	MPOAuthSignatureParameter *signatureParameter = [[MPOAuthSignatureParameter alloc] initWithText:parameterString andSecret:inSecret forRequest:self usingMethod: inScheme];
 
 	[parameterString appendFormat:@"&%@", [signatureParameter URLEncodedParameterString]];
 	[aRequest setHTTPMethod:self.HTTPMethod];
@@ -107,7 +107,7 @@
 		} else if ([nonOauthParameters count]) {
 			NSString *postDataString = [MPURLRequestParameter parameterStringForParameters:nonOauthParameters];
 			NSData *postData = [postDataString dataUsingEncoding:NSUTF8StringEncoding];
-			MPLog(@"postDataString - %@", postDataString);
+			NSLog(@"postDataString - %@", postDataString);
 			
 			[aRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
 			[aRequest setValue:[NSString stringWithFormat:@"%d", [postData length]] forHTTPHeaderField:@"Content-Length"];
@@ -117,7 +117,7 @@
 		[NSException raise:@"UnhandledHTTPMethodException" format:@"The requested HTTP method, %@, is not supported", self.HTTPMethod];
 	}
 
-	MPLog( @"urlString - %@", urlString);
+	NSLog( @"urlString - %@", urlString);
 	[aRequest setURL:[NSURL URLWithString:urlString]];
 	self.urlRequest = aRequest;
 	

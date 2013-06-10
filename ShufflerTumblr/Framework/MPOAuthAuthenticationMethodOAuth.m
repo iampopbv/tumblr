@@ -133,6 +133,7 @@ NSString * const MPOAuthCredentialVerifierKey				= @"oauth_verifier";
 
 - (void)_authenticationRequestForUserPermissionsConfirmationAtURL:(NSURL *)userAuthURL {
 #if TARGET_OS_IPHONE
+    // Here we open Safari or the defaut browser of the iPhone user
 	[[UIApplication sharedApplication] openURL:userAuthURL];
 #else
 	[[NSWorkspace sharedWorkspace] openURL:userAuthURL];

@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "MPOAuthAuthenticationMethodOAuth.h"
 #import "RootViewController.h"
-
+#import "DashBoardViewController.h"
 #import "MPURLRequestParameter.h"
 
 
@@ -78,9 +78,13 @@
 	if ([[url host] isEqualToString:@"success"] && [url query].length > 0) {
 		NSDictionary *oauthParameters = [MPURLRequestParameter parameterDictionaryFromString:[url query]];
 		oauthVerifier_ = [oauthParameters objectForKey:@"oauth_verifier"];
-        NSLog(@"hierzo");
+        
+        // Notifty the LoginViewController that we can go to the dashboard
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"segueListener" object:nil];
+        
+        NSLog(@"Success authenticating");
 	}
-    
+    NSLog(@"Failure when authenticating");
 	return YES;
 }
 @end

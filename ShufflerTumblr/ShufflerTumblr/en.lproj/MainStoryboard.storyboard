@@ -296,7 +296,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jK-nc-e29" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="b4h-5d-tPS"/>
             </objects>
-            <point key="canvasLocation" x="538" y="-106"/>
+            <point key="canvasLocation" x="162" y="282"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="Rt2-4u-xQi">
@@ -312,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vNR-0g-9n8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1051" y="-106"/>
+            <point key="canvasLocation" x="675" y="282"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="nPG-i0-6OX">
@@ -329,7 +329,7 @@
                                     <outletCollection property="gestureRecognizers" destination="qX5-xg-RxY" appends="YES" id="0W7-hs-pBL"/>
                                 </connections>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMI-g8-tUg">
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lMI-g8-tUg">
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Go to login page">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -339,47 +339,17 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="wu3-6g-l5U" kind="modal" modalTransitionStyle="crossDissolve" id="CMq-f3-aKa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-wg-M2m">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Clear">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="clearCredentials" destination="J1t-Nh-KTa" eventType="touchUpInside" id="4gQ-mb-uNz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A0n-f2-BCG">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="ReAuth">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="reauthenticate" destination="J1t-Nh-KTa" eventType="touchUpInside" id="qeB-js-Qft"/>
+                                    <segue destination="wu3-6g-l5U" kind="modal" identifier="login_segue" modalTransitionStyle="crossDissolve" id="CMq-f3-aKa"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="lMI-g8-tUg" firstAttribute="leading" secondItem="2WL-R9-Un1" secondAttribute="leading" constant="141" id="0DK-Wd-Eu9"/>
-                            <constraint firstAttribute="bottom" secondItem="dSc-wg-M2m" secondAttribute="bottom" constant="106" id="5Uo-NC-x9B"/>
-                            <constraint firstItem="A0n-f2-BCG" firstAttribute="leading" secondItem="dSc-wg-M2m" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="6Yn-o1-4CJ"/>
-                            <constraint firstItem="A0n-f2-BCG" firstAttribute="baseline" secondItem="dSc-wg-M2m" secondAttribute="baseline" type="default" id="C4g-aC-VMe"/>
                             <constraint firstItem="wrT-Rb-1Ho" firstAttribute="leading" secondItem="2WL-R9-Un1" secondAttribute="leading" type="default" id="KNg-HI-8cy"/>
                             <constraint firstItem="wrT-Rb-1Ho" firstAttribute="trailing" secondItem="2WL-R9-Un1" secondAttribute="trailing" type="default" id="MSx-f4-YQs"/>
                             <constraint firstItem="wrT-Rb-1Ho" firstAttribute="bottom" secondItem="2WL-R9-Un1" secondAttribute="bottom" type="default" id="PLu-j3-wwH"/>
                             <constraint firstItem="wrT-Rb-1Ho" firstAttribute="top" secondItem="2WL-R9-Un1" secondAttribute="top" type="default" id="V43-bg-lSp"/>
-                            <constraint firstItem="dSc-wg-M2m" firstAttribute="leading" secondItem="2WL-R9-Un1" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ZIq-73-nPo"/>
                             <constraint firstAttribute="bottom" secondItem="lMI-g8-tUg" secondAttribute="bottom" constant="28" id="wEv-2u-g4y"/>
                         </constraints>
                     </view>
@@ -392,7 +362,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Rb-Kf-A6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="left" id="qX5-xg-RxY"/>
             </objects>
-            <point key="canvasLocation" x="612" y="610"/>
+            <point key="canvasLocation" x="236" y="998"/>
         </scene>
         <!--Followed View Controller - Followed-->
         <scene sceneID="Mdq-6u-oIh">
@@ -429,7 +399,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdQ-Jm-Wim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="1179"/>
+            <point key="canvasLocation" x="1438" y="1567"/>
         </scene>
         <!--Dash Board View Controller - Dashboard-->
         <scene sceneID="tXW-eG-MbA">
@@ -466,7 +436,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOJ-WZ-fan" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814" y="610"/>
+            <point key="canvasLocation" x="1438" y="998"/>
         </scene>
         <!--My Blogs View Controller - My Blogs-->
         <scene sceneID="1pk-bb-ipp">
@@ -503,7 +473,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1c-1Q-smz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2188" y="610"/>
+            <point key="canvasLocation" x="1812" y="998"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="iCo-qQ-BqP">
@@ -618,7 +588,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zcl-dj-hK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2188" y="1179"/>
+            <point key="canvasLocation" x="1812" y="1567"/>
         </scene>
         <!--View Controller - Discover-->
         <scene sceneID="hrG-D9-H4p">
@@ -633,12 +603,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVe-F9-iv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2569" y="1179"/>
+            <point key="canvasLocation" x="2193" y="1567"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qFR-7g-04R">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="wu3-6g-l5U" sceneMemberID="viewController">
+                <tabBarController restorationIdentifier="LandingPage" storyboardIdentifier="LandingPage" definesPresentationContext="YES" id="wu3-6g-l5U" sceneMemberID="viewController">
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="saf-Sp-s2C">
@@ -656,7 +626,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UV-LD-z6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1026" y="737"/>
+            <point key="canvasLocation" x="650" y="1125"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dRe-4i-yIs">
@@ -675,7 +645,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvt-cH-SJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46" y="-106"/>
+            <point key="canvasLocation" x="-422" y="282"/>
         </scene>
         <!--Data View Controller-->
         <scene sceneID="cmB-hV-mTH">
@@ -855,14 +825,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Opk-ou-yiI" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1404" y="-106"/>
+            <point key="canvasLocation" x="1028" y="282"/>
         </scene>
         <!--Player View Controller-->
         <scene sceneID="FXo-Gs-D6V">
             <objects>
                 <viewController id="iMl-fW-RDD" customClass="playerViewController" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="uQi-FZ-MY9">
-                        <rect key="frame" x="0.0" y="0.0" width="321" height="24"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="24"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUc-vL-tGJ">
@@ -947,7 +917,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Oca-LQ-YPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1838" y="-67"/>
+            <point key="canvasLocation" x="1462" y="321"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7Ql-Te-s3Y">
@@ -1051,7 +1021,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n5y-Sv-cXt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="128" y="496"/>
+            <point key="canvasLocation" x="-248" y="884"/>
         </scene>
     </scenes>
     <resources>
@@ -1144,6 +1114,6 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Wwv-K4-sxv"/>
+        <segue reference="Mnw-fB-D4I"/>
     </inferredMetricsTieBreakers>
 </document>

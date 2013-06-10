@@ -9,9 +9,7 @@
 #import "LoginViewController.h"
 #import "MPOAuthAPI.h"
 #import "MPOAuthAuthenticationMethodOAuth.h"
-
-#define kConsumerKey		@"9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLNsUPoWLV"
-#define kConsumerSecret		@"08SjC79ZiQPqY8Dn8kg0Rn2OxIPrNb8xEuNbB7Op7rMW0VFdOs"
+#import "keys.h"
 
 @interface LoginViewController ()
 
@@ -40,11 +38,17 @@
     return self;
 }
 
+
+- (void) loginSegue {
+    [self performSegueWithIdentifier:@"login_segue" sender:self];
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSegue) name:@"segueListener" object:nil];
+
     if (!_oauthAPI) {
 		NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:	kConsumerKey, kMPOAuthCredentialConsumerKey,
 									 kConsumerSecret, kMPOAuthCredentialConsumerSecret,
