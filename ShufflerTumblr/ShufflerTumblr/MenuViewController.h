@@ -17,12 +17,9 @@
 @property Reachability *internetReachableChecker;
 @property BOOL hasInternet;
 
-@property Blog *blog1;
-@property Blog *blog2;
-@property Blog *blog3;
-@property Blog *blog4;
-@property Blog *blog5;
+@property NSMutableArray *blogs;
 @property Blog *segueBlog;
+@property int chosenBlog;
 @property UIStoryboardSegue *mainSegue;
 
 
