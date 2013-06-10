@@ -33,6 +33,10 @@
     }];
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBar.topItem.title = @"Followed";
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

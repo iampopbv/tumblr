@@ -34,7 +34,6 @@
 	// Do any additional setup after loading the view.
     
     
-    
     NSURL * url = [[NSURL alloc] initWithString: @"http://api.tumblr.com/v2/user/dashboard"];
     NSMutableURLRequest *urlMutableRequest = [[NSMutableURLRequest alloc] initWithURL: url];
     [urlMutableRequest setHTTPMethod: @"GET"];
@@ -46,7 +45,10 @@
     
     NSURLRequest *urlRequest = [request urlRequestSignedWithSecret:kConsumerSecret usingMethod: kMPOAuthSignatureMethodHMACSHA1];
     NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate: self];
-    
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBar.topItem.title = @"Dashboard";
 }
 
 - (void)didReceiveMemoryWarning

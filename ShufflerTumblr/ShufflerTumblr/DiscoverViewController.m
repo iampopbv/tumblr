@@ -36,8 +36,6 @@
     _blogs = [[NSMutableArray alloc] init];
     
     
-    [self.navigationController setTitle: @"test"];
-    
     NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", @"http://mvmvmv.tumblr.com/", nil];
     
     // load the 4 featured blogs
@@ -63,12 +61,13 @@
         }];
         [_blogs addObject: tmpBlog];
         index++;
-    }    
+    }
+        _topMessageLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
 }
 
 
 - (void) viewDidAppear:(BOOL)animated {
-    [_tableView reloadData];
+    self.navigationController.navigationBar.topItem.title = @"Discover";
 }
 
 - (void)didReceiveMemoryWarning
@@ -115,6 +114,7 @@
 
 - (void)viewDidUnload {
     [self setTableView:nil];
+    [self setTopMessageLabel:nil];
     [super viewDidUnload];
 }
 @end

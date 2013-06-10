@@ -35,4 +35,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBar.topItem.title = @"My Blogs";
+}
+
 @end

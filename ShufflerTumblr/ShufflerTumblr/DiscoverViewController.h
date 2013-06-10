@@ -14,6 +14,7 @@
 
 @property int chosenBlog;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *topMessageLabel;
 
 // the data
 @property NSMutableArray *tabledata;

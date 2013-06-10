@@ -30,6 +30,10 @@
     _favouriteData = [[Favourites sharedManager] getFavourites];
 }
 
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBar.topItem.title = @"Favorite";
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [_favouriteData count];
