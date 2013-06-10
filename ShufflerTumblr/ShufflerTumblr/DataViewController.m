@@ -87,14 +87,14 @@ id<postgetter> delegate;
 			[_videoView setHidden:YES];
 			[self.videoView setHidden:YES];
 			[_imageheight setConstant:0];
-			[self showPost];
+			[self getPost:self.post from:self.posts];
 		}
 		else
 		{
 			NSLog(@"album");
 			[self.videoView setHidden:YES];
 			[_imageView setImage: [audioObject albumArt]];
-			[self showPost];
+			[self getPost:self.post from:self.posts];
 		}
 		
 		
@@ -124,15 +124,6 @@ id<postgetter> delegate;
 	[self.captionView loadHTMLString:[_post caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-	NSString *segueName = [segue identifier];
-	if([segueName isEqualToString: @"embedplayer"]){
-		delegate = segue.destinationViewController;
-		[segue.destinationViewController getPost:self.post];
-	}
-}
-
 - (void) setLoading {
 	_loadingIndicator.hidden = NO;
 }
@@ -158,9 +149,18 @@ id sharedplayer;
 -(void)getPost:(id<Post>)post from:(NSArray*)posts
 {
 	self.post = post;
-	
-	self.player = [AVQueuePlayer playerWithURL: [NSURL URLWithString: [NSString stringWithFormat:@"http://a.tumblr.com/%@o1.mp3", [self.post.playURL lastPathComponent]]]];
-		NSLog(@"playing %@, from %@", self.post.playURL, self.post);
+	NSMutableArray*queue = [[NSMutableArray alloc]init];
+	for(id<Post>nextpost in posts)
+	{
+		AVPlayerItem*item = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"http://a.tumblr.com/%@o1.mp3", [self.post.playURL lastPathComponent]]]];
+		NSLog(@"+:%@",item);
+		[queue addObject:item];
+	}
+	self.player = [AVQueuePlayer queuePlayerWithItems:queue];
+	NSLog(@"playing %@, from %@", self.post.playURL, self.post);
+	[self.player play];
+	NSLog(@"ppp:%@",queue);
+
 }
 
 -(void)showPost

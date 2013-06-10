@@ -126,7 +126,7 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ - %@ [ %@ ] %@", self.artist, self.trackName, self.playURL, self.caption];
+    return [NSString stringWithFormat:@"<Audio: %@ - %@ >", self.artist, self.trackName, self.playURL, self.caption];
 }
 
 @end
