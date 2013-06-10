@@ -57,11 +57,13 @@
 			[(MPOAuthAuthenticationMethodOAuth *)[_oauthAPI authenticationMethod] setDelegate:(id <MPOAuthAuthenticationMethodOAuthDelegate>)[UIApplication sharedApplication].delegate];
 		}
         
+        [_oauthAPI discardCredentials];
+        
 	} else {
 		[_oauthAPI authenticate];
 	}
 
-    
+    [_oauthAPI authenticate];
     
 	[webview setDelegate:self];
 //	[webview loadRequest:[NSURLRequest requestWithURL:self.userAuthURL]];
