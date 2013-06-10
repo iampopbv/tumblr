@@ -86,7 +86,9 @@ id<postgetter> delegate;
 			[_imageView setHidden:YES];
 			[_videoView setHidden:YES];
 			[self.videoView setHidden:YES];
-			[_imageheight setConstant:0];
+			//[_imageheight setConstant:0];
+		
+			[delegate showPost];
 		}
 		else
 		{
@@ -211,6 +213,11 @@ id sharedplayer;
 
 	[self setFavouriteButton:nil];
 	[self setLoadingIndicator:nil];
+	[self setPlayerContainer:nil];
+	[self setPlayTimeLabel:nil];
+	[self setToGoLabel:nil];
+	[self setPlaypause:nil];
+	[self setSeekbar:nil];
 	[super viewDidUnload];
 	self.player = nil;
 	[self setSeekbar:nil];

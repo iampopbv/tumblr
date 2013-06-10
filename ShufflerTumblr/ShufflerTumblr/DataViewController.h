@@ -41,9 +41,10 @@
 // player
 
 @property (weak, nonatomic) IBOutlet UILabel *playTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *toGoLabel;
 @property (weak, nonatomic) IBOutlet UIButton *playpause;
-@property (weak, nonatomic) IBOutlet UIProgressView *seekbar;
-- (IBAction)playpause:(id)sender;
+@property (weak, nonatomic) IBOutlet UISlider *seekbar;
+- (IBAction)playpause:(UIButton *)sender;
 
 
 @end
