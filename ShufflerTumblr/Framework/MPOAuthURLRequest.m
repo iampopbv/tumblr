@@ -95,7 +95,7 @@
 	[parameterString appendFormat:@"&%@", [signatureParameter URLEncodedParameterString]];
 	[aRequest setHTTPMethod:self.HTTPMethod];
 	
-	if ([[self HTTPMethod] isEqualToString:@"GET"] && [self.parameters count]) {
+	if ([[self HTTPMethod] isEqualToString:@"GET"] ) { // && [self.parameters count]
 		urlString = [NSString stringWithFormat:@"%@?%@", [self.url absoluteString], parameterString];
 	} else if  ([[self HTTPMethod] isEqualToString:@"POST"]) {
 		NSArray *nonOauthParameters = [self nonOAuthParameters];
