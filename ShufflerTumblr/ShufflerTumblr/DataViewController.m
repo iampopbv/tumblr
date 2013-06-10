@@ -48,7 +48,7 @@ id<postgetter> delegate;
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	
+	[self showPost];
 }
 
 - (void) embedVideo: (NSString*) url {
