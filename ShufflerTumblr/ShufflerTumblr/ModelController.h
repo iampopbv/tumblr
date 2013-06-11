@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "Blog.h"
 #import "RootViewController.h"
+#import "NextPostLoader.h"
 
 @class DataViewController;
 
-@interface ModelController : NSObject <UIPageViewControllerDataSource>
+@interface ModelController : NSObject <UIPageViewControllerDataSource,NextPageLoader>
 
 @property Blog*blog;
 @property RootViewController *rootVC;

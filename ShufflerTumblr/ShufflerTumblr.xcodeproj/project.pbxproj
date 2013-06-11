@@ -196,6 +196,7 @@
 		8B9BDFFF174570FB008B3500 /* bloggetter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = bloggetter.h; sourceTree = "<group>"; };
 		8BC2E3921737B12700521124 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		8BE37D76176696C30025B178 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		8BE37D7817669ED20025B178 /* NextPostLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextPostLoader.h; sourceTree = "<group>"; };
 		A1407F421766053D00B9FFED /* brandon_bld.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_bld.ttf; sourceTree = "<group>"; };
 		A1407F431766053D00B9FFED /* brandon_blk_it.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_blk_it.ttf; sourceTree = "<group>"; };
 		A1407F441766053D00B9FFED /* brandon_blk.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = brandon_blk.ttf; sourceTree = "<group>"; };
@@ -496,6 +497,7 @@
 				AFFD3B7917366D1500FC7E82 /* ModelController.m */,
 				8B9BDFFE17452E5D008B3500 /* postgetter.h */,
 				8B9BDFFF174570FB008B3500 /* bloggetter.h */,
+				8BE37D7817669ED20025B178 /* NextPostLoader.h */,
 			);
 			name = PostControllers;
 			sourceTree = "<group>";

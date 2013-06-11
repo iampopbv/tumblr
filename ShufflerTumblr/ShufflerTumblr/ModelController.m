@@ -69,6 +69,7 @@
     DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
     dataViewController.post = self.pageData[index];
     dataViewController.posts= self.pageData;
+	dataViewController.loader=self;
     return dataViewController;
 }
 
@@ -158,6 +159,11 @@
     
     
     return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
+}
+
+-(void)loadNextPage
+{
+	NSLog(@"###TODO### autoswipe");
 }
 
 @end

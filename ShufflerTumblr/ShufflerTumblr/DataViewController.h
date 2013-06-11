@@ -14,6 +14,7 @@
 #import "postgetter.h"
 #import "Favourites.h"
 #import <CoreMedia/CMTime.h>
+#import "NextPostLoader.h"
 
 @interface DataViewController : UIViewController
 
@@ -32,6 +33,7 @@
 
 @property Favourites *favourites;
 
+@property id<NextPageLoader>loader;
 @property AVQueuePlayer*player;
 
 @property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
