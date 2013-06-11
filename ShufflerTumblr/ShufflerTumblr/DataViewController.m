@@ -169,8 +169,9 @@ id sharedplayer;
 	self.player = [AVQueuePlayer queuePlayerWithItems:queue];
 	[self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:nil usingBlock:^(CMTime time) {
 		float secs = CMTimeGetSeconds(time),max=CMTimeGetSeconds(self.player.currentItem.duration);
-		if(secs == NAN || max == NAN || max < self.seekbar.minimumValue )return;
-		self.seekbar.maximumValue = max;
+		// check against nan
+		if(secs != secs || max != max || max < self.seekbar.minimumValue )return;
+		self.seekbar.maximumValue = max!=max?self.seekbar.minimumValue:max;
 		self.seekbar.value = secs;
 		[self.playTimeLabel setText:timestring(secs)];
 		[self.toGoLabel setText:timestring(max-secs)];
