@@ -68,8 +68,6 @@
     // Create a new view controller and pass suitable data.
     DataViewController *dataViewController = [storyboard instantiateViewControllerWithIdentifier:@"DataViewController"];
     dataViewController.post = self.pageData[index];
-    dataViewController.posts= self.pageData;
-	dataViewController.loader=self;
     return dataViewController;
 }
 
@@ -159,11 +157,6 @@
     
     
     return [self viewControllerAtIndex:index storyboard:viewController.storyboard];
-}
-
--(void)loadNextPage
-{
-	NSLog(@"###TODO### autoswipe");
 }
 
 @end

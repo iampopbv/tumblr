@@ -44,12 +44,6 @@
         self.type = VIDEO;
         self.latestPostNr = [[response objectForKey:@"total_posts"] intValue] - 1;
         self.postTimestamp = [dictionary objectForKey:@"timestamp"];
-        
-        if([[self playURL] hasPrefix:@"http://www.youtube.com"] || [[self playURL] hasPrefix:@"https://www.youtube.com"]){
-			[YoutubeURLGetter getYoutubeLinkWithURL: [self playURL] withBlock:^(NSString *youtubeDirectURL) {
-				[self setPlayURL: youtubeDirectURL];
-			}];
-        }
     };
     return self;
 }

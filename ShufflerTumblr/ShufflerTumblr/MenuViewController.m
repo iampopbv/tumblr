@@ -68,7 +68,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
     
 
-    NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://blacksquares.tumblr.com", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", nil];
+    NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", nil];
     
     // load the 4 featured blogs
     int index = 0;

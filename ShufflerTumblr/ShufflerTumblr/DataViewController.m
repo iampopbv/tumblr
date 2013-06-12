@@ -24,7 +24,9 @@ id<postgetter> delegate;
 - (id)initWithCoder:(NSCoder *)coder
 {
 	self = [super initWithCoder:coder];
-	if (self) {}
+	if (self) {
+		_queuePlayer = [[AVQueuePlayer alloc] init];
+	}
 	return self;
 }
 
@@ -37,6 +39,13 @@ id<postgetter> delegate;
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self fillUI];
+    
+    self.optionsbalk.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"optionsbalk.png"]];
+    
+    _titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
+	
+	UIBarButtonItem *barButtonAppearance = [UIBarButtonItem appearance];
+	[barButtonAppearance setTintColor:[UIColor blackColor]]; // Change to your colour
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,7 +57,7 @@ id<postgetter> delegate;
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	[self showPost];
+	
 }
 
 - (void) embedVideo: (NSString*) url {
@@ -68,7 +77,7 @@ id<postgetter> delegate;
 	if(self.post.type  == AUDIO){
 		Audio *audioObject = (Audio*)self.post;
 		
-		if([audioObject.playerEmbed rangeOfString:@"shockwave"].length &&
+		if([audioObject.playerEmbed rangeOfString:@"shockwave"].length ||
 		   NO )
 		{
 			[_playerContainer setHidden:YES];
@@ -86,7 +95,6 @@ id<postgetter> delegate;
 			[_imageView setHidden:YES];
 			[_videoView setHidden:YES];
 			[self.videoView setHidden:YES];
-			//[_imageheight setConstant:0];
 		
 			[delegate showPost];
 		}
@@ -95,8 +103,14 @@ id<postgetter> delegate;
 			NSLog(@"album");
 			[self.videoView setHidden:YES];
 			[_imageView setImage: [audioObject albumArt]];
+			[delegate showPost];
 		}
-		
+		/*NSString*title: [title uppercaseString];
+		NSMutableAttributedString*titleatt = [[NSMutableAttributedString alloc] initWithString:title];
+		//
+		//style your  attributedstring
+		//
+		self.attributedtext = [audioObject trackName];*/
 		
 		self.titleLabel.attributedText = [audioObject trackName];
 		if(!audioObject.trackName)
@@ -124,6 +138,15 @@ id<postgetter> delegate;
 	[self.captionView loadHTMLString:[_post caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+	NSString *segueName = [segue identifier];
+	if([segueName isEqualToString: @"embedplayer"]){
+		delegate = segue.destinationViewController;
+		[segue.destinationViewController getPost:self.post];
+	}
+}
+
 - (void) setLoading {
 	_loadingIndicator.hidden = NO;
 }
@@ -132,108 +155,6 @@ id<postgetter> delegate;
 	_loadingIndicator.hidden = YES;
 }
 
-// player
-static inline NSString*timestring(float const seconds)
-{
-	return [NSString stringWithFormat:@"%@%d:%02d",
-		   seconds < 3600 ? @"":
-		   [NSString stringWithFormat:@"%d:",((int)seconds)/3600],
-		   (((int)seconds)%3600)/60,
-		   (((int)seconds)%3600)%60];
-}
-
-id sharedplayer;
--(AVQueuePlayer *)player{return sharedplayer;}
--(void)setPlayer:(AVQueuePlayer *)player{sharedplayer = player;}
-
--(void)buildandplayqueue
-{
-	if(self.player)
-	{
-		[self.player pause];
-		self.player = nil;
-	}
-	
-	if(self.post.type == VIDEO)return;
-	
-	NSMutableArray*queue = [[NSMutableArray alloc]init];
-	bool skip = YES;
-	for(id<Post>nextpost in self.posts)
-	{
-		if(nextpost == self.post)skip=NO;
-		if(skip)continue;
-		AVPlayerItem*item = [[AVPlayerItem alloc] initWithURL:[NSURL URLWithString: [NSString stringWithFormat:@"http://a.tumblr.com/%@o1.mp3", [nextpost.playURL lastPathComponent]]]];
-		[queue addObject:item];
-	}
-	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:queue[0]];
-	self.player = [AVQueuePlayer queuePlayerWithItems:queue];
-	[self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1) queue:nil usingBlock:^(CMTime time) {
-		float secs = CMTimeGetSeconds(time),max=CMTimeGetSeconds(self.player.currentItem.duration);
-		// check against nan
-		if(secs != secs || max != max || max < self.seekbar.minimumValue )return;
-		self.seekbar.maximumValue = max!=max?self.seekbar.minimumValue:max;
-		self.seekbar.value = secs;
-		[self.playTimeLabel setText:timestring(secs)];
-		[self.toGoLabel setText:timestring(max-secs)];
-	}];
-	NSLog(@"playing %@", self.post);
-	[self.player play];
-}
-
--(void)itemDidFinishPlaying {
-	// Will be called when AVPlayer finishes playing playerItem
-	NSLog(@"Track finished playing.");
-	[self.loader loadNextPage];
-}
-
--(void)showPost
-{
-	[self buildandplayqueue];
-}
-
--(void)hidePost
-{
-	if(self.player && self.player.rate)
-		[self.player pause];
-}
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-	self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-	if (self) {
-		// Custom initialization
-	}
-	return self;
-}
-
-
-
-- (IBAction)playpause:(id)sender {
-	if(self.player.rate)
-		[self pause];
-	else
-		[self continue];
-}
-
-- (IBAction)seek:(UISlider *)sender
-{
-	[self.player pause];
-	[self.player seekToTime: CMTimeMakeWithSeconds(sender.value,1)];
-	[self.player play];
-}
-
--(void)continue
-{
-	[self.player play];
-}
-
--(void)pause
-{
-	[self.player pause];
-}
-
-
-
 - (void)viewDidUnload {
 	[delegate hidePost];
 	[self setScrollView:nil];
@@ -241,16 +162,7 @@ id sharedplayer;
 
 	[self setFavouriteButton:nil];
 	[self setLoadingIndicator:nil];
-	[self setPlayerContainer:nil];
-	[self setPlayTimeLabel:nil];
-	[self setToGoLabel:nil];
-	[self setPlaypause:nil];
-	[self setSeekbar:nil];
-	[super viewDidUnload];
-	self.player = nil;
-	[self setSeekbar:nil];
-	[self setPlaypause:nil];
-	[self setPlayTimeLabel:nil];
+    [self setOptionsbalk:nil];
 	[super viewDidUnload];
 }
 @end
