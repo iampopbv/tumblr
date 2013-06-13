@@ -105,6 +105,24 @@
     return cell;
 }
 
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    double cal = (_tableview.contentOffset.y / _tableview.rowHeight) ;
+    if (cal >= [tableObjects count] - 4){
+        [[User sharedInstance] getNextPageDashboard:^(NSArray<Post> * posts) {
+            [[User sharedInstance] getNextFollowingPage:^(NSArray<Info> *blogs) {
+                for (BlogInfo *blog in blogs) {
+                    [tableObjects addObject: blog];
+                    [tabledata addObject: [blog name]];
+                    [tableimages addObject: [blog image]];
+                }
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_tableview reloadData];
+                });
+            }];
+        }];
+    }
+}
 
 - (void)viewDidUnload {
     [self setTableview:nil];

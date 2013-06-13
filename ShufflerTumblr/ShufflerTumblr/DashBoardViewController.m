@@ -132,9 +132,36 @@
 }
 
 
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    double cal = (_tableview.contentOffset.y / _tableview.rowHeight) ;
+    if (cal >= [tableObjects count] - 4){
+        [[User sharedInstance] getNextPageDashboard:^(NSArray<Post> * posts) {
+            [tableObjects addObjectsFromArray: posts];
+            
+            for (id<Post> post in posts) {
+                [tabledata addObject: [post blogName]];
+                Audio * tmp = (Audio*)post;
+                if([post type] == AUDIO && [tmp albumArt] != nil){
+                    [tableimages addObject: [tmp albumArt]];
+                } else {
+                    [tableimages addObject: [UIImage imageNamed:@"play_ico"]];
+                }
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableview reloadData];
+            });
+        }];
+    }
+}
+
+
 - (void)viewDidUnload {
     [self setTableview:nil];
     [self setHeadLabel:nil];
     [super viewDidUnload];
 }
+
+
+
 @end
