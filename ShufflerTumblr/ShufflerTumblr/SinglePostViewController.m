@@ -33,8 +33,7 @@ id<postgetter> delegate;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-
-    NSLog(@"posttype class: %i", [_post type] );
+    NSLog(@"post: %@", _post);
     if([_post type]  == AUDIO){
 		Audio *audioObject = (Audio*)self.post;
 		

@@ -90,7 +90,7 @@
     if([segueName isEqualToString: @"dashboard_segue"]){
         // Place the post in a new view.
         SinglePostViewController *tmp = [segue destinationViewController];
-        tmp.post = [_tabledata objectAtIndex: _chosenPost];
+        tmp.post = [_posts objectAtIndex: _chosenPost];
     }
 }
 
