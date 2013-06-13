@@ -7,6 +7,7 @@
 //
 
 #import "FavoriteViewController.h"
+#import "SinglePostViewController.h"
 
 @interface FavoriteViewController ()
 
@@ -39,6 +40,23 @@
     return [_favouriteData count];
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSString *segueName = [segue identifier];
+    if([segueName isEqualToString: @"favourite_segue"]){
+        // Place the post in a new view.
+        SinglePostViewController *tmp = [segue destinationViewController];
+        NSLog(@"Object: %@", [_favouriteData objectAtIndex: _chosenPost] );
+        tmp.post = [_favouriteData objectAtIndex: _chosenPost];
+    }
+}
+
+-(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    _chosenPost = indexPath.row;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"favourite_segue" sender:self];
+    
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *simpleTableIdentifier = @"SimpleTableItem";
@@ -57,7 +75,7 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    _favouriteData = nil;
+    //_favouriteData = nil;
 }
 
 @end

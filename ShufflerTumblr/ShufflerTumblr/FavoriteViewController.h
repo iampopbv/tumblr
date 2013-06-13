@@ -10,9 +10,10 @@
 #import "Post.h"
 #import "Favourites.h"
 
+
 @interface FavoriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @property NSArray *favouriteData;
-
+@property int chosenPost;
 
 @end
