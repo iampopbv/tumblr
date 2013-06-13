@@ -694,7 +694,6 @@
         <class className="DataViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
             <relationships>
-                <relationship kind="action" name="favouriteButtonTouchUpInside:"/>
                 <relationship kind="action" name="sharebuttonpressed:"/>
                 <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
@@ -737,7 +736,7 @@
                 <relationship kind="action" name="signInButtonPressed:"/>
                 <relationship kind="outlet" name="listento" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="signinButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="listento" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="signupbutton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>
