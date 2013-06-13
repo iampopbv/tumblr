@@ -448,8 +448,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LBo-wQ-Pgl">
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="329" id="00c-uQ-gEi"/>
                                     <constraint firstAttribute="height" constant="265" id="HEu-Jf-a38"/>
+                                    <constraint firstAttribute="width" constant="329" id="xJR-E4-k8P"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Navigationbar3.png" translatesAutoresizingMaskIntoConstraints="NO" id="lPd-2W-p0Y">
@@ -496,6 +496,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="sharebuttonpressed:" destination="5xV-DI-Wgr" eventType="touchUpInside" id="87S-so-JoR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpF-nQ-hn5">
                                 <constraints>
@@ -524,9 +527,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="MOh-XL-kL2" firstAttribute="trailing" secondItem="BT1-AD-TU0" secondAttribute="trailing" type="default" id="3rp-Oj-2W7"/>
-                            <constraint firstItem="MOh-XL-kL2" firstAttribute="leading" secondItem="BT1-AD-TU0" secondAttribute="leading" type="default" id="4OL-df-OqT"/>
-                            <constraint firstAttribute="bottom" secondItem="MOh-XL-kL2" secondAttribute="bottom" constant="100" id="4Sz-nl-12b"/>
+                            <constraint firstItem="MOh-XL-kL2" firstAttribute="centerX" secondItem="aCt-xq-9Q7" secondAttribute="centerX" type="default" id="2dW-Dl-Niw"/>
                             <constraint firstItem="lPd-2W-p0Y" firstAttribute="leading" secondItem="BT1-AD-TU0" secondAttribute="leading" type="default" id="93y-R8-5M5"/>
                             <constraint firstItem="RpF-nQ-hn5" firstAttribute="trailing" secondItem="BT1-AD-TU0" secondAttribute="trailing" type="default" id="9E5-3S-h8M"/>
                             <constraint firstItem="0cq-5q-a2N" firstAttribute="top" secondItem="aCt-xq-9Q7" secondAttribute="top" type="default" id="Ceq-Aa-vBo"/>
@@ -534,13 +535,14 @@
                             <constraint firstItem="aCt-xq-9Q7" firstAttribute="centerX" secondItem="lPd-2W-p0Y" secondAttribute="centerX" type="default" id="Naw-76-N9q"/>
                             <constraint firstAttribute="trailing" secondItem="0cq-5q-a2N" secondAttribute="trailing" constant="40" type="user" id="ORd-WL-NUq"/>
                             <constraint firstItem="lPd-2W-p0Y" firstAttribute="trailing" secondItem="BT1-AD-TU0" secondAttribute="trailing" type="default" id="PNp-Sd-zQ8"/>
+                            <constraint firstItem="my2-tP-XNM" firstAttribute="bottom" secondItem="LBo-wQ-Pgl" secondAttribute="bottom" type="default" id="RkF-bq-mf5"/>
                             <constraint firstItem="LKP-y7-4zY" firstAttribute="leading" secondItem="BT1-AD-TU0" secondAttribute="leading" constant="40" id="T90-Jp-Lmx"/>
                             <constraint firstItem="0cq-5q-a2N" firstAttribute="bottom" secondItem="aCt-xq-9Q7" secondAttribute="bottom" type="default" id="UEP-Es-QcF"/>
                             <constraint firstItem="LBo-wQ-Pgl" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="32" id="Wlz-ER-bHO"/>
-                            <constraint firstItem="LBo-wQ-Pgl" firstAttribute="bottom" secondItem="my2-tP-XNM" secondAttribute="bottom" type="default" id="bB1-Gf-OyP"/>
+                            <constraint firstItem="MOh-XL-kL2" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="261" id="YZM-XL-qGb"/>
                             <constraint firstItem="LKP-y7-4zY" firstAttribute="bottom" secondItem="aCt-xq-9Q7" secondAttribute="bottom" type="default" id="c9c-ah-0z5"/>
                             <constraint firstItem="LBo-wQ-Pgl" firstAttribute="trailing" secondItem="BT1-AD-TU0" secondAttribute="trailing" type="default" id="cp2-hK-xtB"/>
-                            <constraint firstItem="MOh-XL-kL2" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="327" id="dF4-85-qXK"/>
+                            <constraint firstAttribute="bottom" secondItem="MOh-XL-kL2" secondAttribute="bottom" constant="166" id="eCT-AO-eg2"/>
                             <constraint firstItem="lPd-2W-p0Y" firstAttribute="centerY" secondItem="LKP-y7-4zY" secondAttribute="centerY" type="default" id="f3s-mW-h2x"/>
                             <constraint firstItem="lPd-2W-p0Y" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="1" id="fuS-Tp-a2l"/>
                             <constraint firstItem="RpF-nQ-hn5" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="177" id="i5E-uM-mKC"/>
@@ -548,6 +550,7 @@
                             <constraint firstItem="2sk-8Z-BLe" firstAttribute="trailing" secondItem="BT1-AD-TU0" secondAttribute="trailing" type="default" id="kLr-7N-qE5"/>
                             <constraint firstItem="2sk-8Z-BLe" firstAttribute="bottom" secondItem="BT1-AD-TU0" secondAttribute="bottom" type="default" id="lEG-pP-NWU"/>
                             <constraint firstItem="LBo-wQ-Pgl" firstAttribute="top" secondItem="my2-tP-XNM" secondAttribute="top" type="default" id="mIQ-dZ-2NF"/>
+                            <constraint firstItem="MOh-XL-kL2" firstAttribute="trailing" secondItem="BT1-AD-TU0" secondAttribute="trailing" type="default" id="rrc-1S-WTg"/>
                             <constraint firstItem="2sk-8Z-BLe" firstAttribute="leading" secondItem="BT1-AD-TU0" secondAttribute="leading" type="default" id="sYF-qh-U3g"/>
                         </constraints>
                     </view>
@@ -556,6 +559,7 @@
                         <outlet property="imageView" destination="LBo-wQ-Pgl" id="Muh-3o-fws"/>
                         <outlet property="loadingIndicator" destination="LXo-C3-0Ix" id="C6l-l5-Ekr"/>
                         <outlet property="playerContainer" destination="MOh-XL-kL2" id="nEg-FK-MSh"/>
+                        <outlet property="sharebutton" destination="0cq-5q-a2N" id="feJ-fI-HWM"/>
                         <outlet property="titleLabel" destination="RpF-nQ-hn5" id="7Tc-Lj-PU4"/>
                         <outlet property="videoView" destination="my2-tP-XNM" id="ij4-AU-ScK"/>
                     </connections>
@@ -588,7 +592,7 @@
             <objects>
                 <viewController id="y81-BF-aFh" sceneMemberID="viewController">
                     <view key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="5dW-G7-h43">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="33"/>
+                        <rect key="frame" x="0.0" y="0.0" width="321" height="33"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hUc-vL-tGJ">
@@ -691,6 +695,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
             <relationships>
                 <relationship kind="action" name="favouriteButtonTouchUpInside:"/>
+                <relationship kind="action" name="sharebuttonpressed:"/>
                 <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
                 <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
@@ -699,6 +704,7 @@
                 <relationship kind="outlet" name="optionsbalk" candidateClass="UIView"/>
                 <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="sharebutton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="textView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
@@ -731,7 +737,7 @@
                 <relationship kind="action" name="signInButtonPressed:"/>
                 <relationship kind="outlet" name="listento" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="signinButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="signupbutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="listento" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
             </relationships>
         </class>

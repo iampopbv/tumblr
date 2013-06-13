@@ -16,6 +16,8 @@
 #import "Favourites.h"
 
 @interface DataViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIButton *sharebutton;
+- (IBAction)sharebuttonpressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView *optionsbalk;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingIndicator;

@@ -11,6 +11,7 @@
 #import "Video.h"
 #import "Post.h"
 #import "YoutubeURLGetter.h"
+#import <Social/Social.h>
 
 @interface DataViewController ()
 
@@ -159,10 +160,20 @@ id<postgetter> delegate;
 	[delegate hidePost];
 	[self setScrollView:nil];
 	[self setCaptionView:nil];
-
+	[self setSharebutton:nil];
 	[self setFavouriteButton:nil];
 	[self setLoadingIndicator:nil];
     [self setOptionsbalk:nil];
 	[super viewDidUnload];
+}
+- (IBAction)sharebuttonpressed:(id)sender {
+	NSString * extraText = @"I've listened to this song!";
+	NSString *initalText = [[NSString alloc] initWithFormat:@"%@\n%@", extraText, [_titleLabel text]];
+	UIActivityViewController *objvc = [[UIActivityViewController alloc]initWithActivityItems:[NSArray arrayWithObjects: initalText, [UIImage imageNamed:@"shuffler logo"], nil] applicationActivities:nil];
+	 objvc.excludedActivityTypes = @[UIActivityTypeMessage, UIActivityTypeAssignToContact, UIActivityTypePostToWeibo , UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+	
+	[self presentViewController:objvc animated:YES completion:nil];
+     
+    
 }
 @end
