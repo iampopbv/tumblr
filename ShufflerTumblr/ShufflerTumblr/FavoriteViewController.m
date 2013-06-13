@@ -29,12 +29,23 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _favouriteData = [[Favourites sharedManager] getFavourites];
-    [[TMAPIClient sharedInstance] dashboard: nil callback:^(id response, NSError *error) {
+    [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
         NSArray *tempArray = [response objectForKey:@"liked_posts"];
+        NSLog(@"Response: %@" , response);
         for(int i = 0;i<[tempArray count];i++) {
-            [_favouriteData addObject: [tempArray objectAtIndex:i]];
+            NSString *type = [[tempArray objectAtIndex:i] objectForKey:@"type"];
+            id<Post> object;
+            if ([type isEqual:@"video"]) {
+                object = [[Video alloc] initWithDictionary: [tempArray objectAtIndex:i]];
+            }
+            else {
+                object = [[Audio alloc] initWithDictionary: [tempArray objectAtIndex:i]];
+            }
+            [_favouriteData addObject: object];
+            [_tableView reloadData];
         }
     }];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -74,6 +85,7 @@
     }
     
     cell.textLabel.text = [[_favouriteData objectAtIndex:indexPath.row] getListName];
+    NSLog(@"Created new cell with text: %@" , cell.textLabel.text);
     return cell;
 }
 
