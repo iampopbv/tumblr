@@ -29,6 +29,9 @@ id<postgetter> delegate;
     }
     return self;
 }
+- (IBAction)favouriteButtonTouchedUpInside:(id)sender {
+    [[Favourites sharedManager] addFavourite: _post];
+}
 
 - (void)viewDidLoad
 {
@@ -138,6 +141,7 @@ id<postgetter> delegate;
 }
 
 -(void)viewDidUnload {
+    [self setFavouriteButton:nil];
 	[delegate hidePost];
 }
 

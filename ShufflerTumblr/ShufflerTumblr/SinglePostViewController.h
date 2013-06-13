@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import "Favourites.h"
 
 @interface SinglePostViewController : UIViewController
 
@@ -18,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIWebView *videoView;
 @property (weak, nonatomic) IBOutlet UIButton *sharebutton;
+@property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
 
 
 - (IBAction)sharebuttonpressed:(id)sender;
