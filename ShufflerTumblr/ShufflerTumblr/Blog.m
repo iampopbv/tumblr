@@ -12,7 +12,7 @@
 
 const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLNsUPoWLV";
 const int maxNewPosts = 2;
-
+BOOL hasSetOffset = NO;
 
 - (id)init
 {
@@ -36,12 +36,7 @@ const int maxNewPosts = 2;
             blogURL = [[NSString alloc] initWithFormat:@"%@/", blogURL];
         _blogURL = [[NSURL alloc] initWithString: [[NSString alloc] initWithFormat:@"http://api.tumblr.com/v2/blog/%@", blogURL]];
         
-        [self queryLastPostNrOfType: AUDIO onCompletion:^(int latestPostNr, NSError *error) {
-            _audioPosts = latestPostNr;
-        }];
-        [self queryLastPostNrOfType: VIDEO onCompletion:^(int latestPostNr, NSError *error) {
-            _videoPosts = latestPostNr;
-        }];
+        
         
         
         _offsetRecentPostsVideo = 0;
@@ -112,7 +107,22 @@ const int maxNewPosts = 2;
     _offsetRecentPostsVideo = 0;
 }
 
+-(void) setOffsets {
+    [self queryLastPostNrOfType: AUDIO onCompletion:^(int latestPostNr, NSError *error) {
+        _audioPosts = latestPostNr;
+    }];
+    [self queryLastPostNrOfType: VIDEO onCompletion:^(int latestPostNr, NSError *error) {
+        _videoPosts = latestPostNr;
+    }];
+    hasSetOffset = YES;
+}
+
 - (void) getNextPageLatest: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
+    // If the offsets are not set yet, download them
+    if (!hasSetOffset) {
+        [self setOffsets];
+    }
+    
     int audioLimit = maxNewPosts;
     int videoLimit = maxNewPosts;
     

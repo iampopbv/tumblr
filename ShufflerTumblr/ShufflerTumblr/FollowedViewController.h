@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Blog.h"
+#import "PostTableDelegate.h"
 
-@interface FollowedViewController : UIViewController
-
-@property Blog *testBlog;
+@interface FollowedViewController : UIViewController <PostTableDelegate>
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end

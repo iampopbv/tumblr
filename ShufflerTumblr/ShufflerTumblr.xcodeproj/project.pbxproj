@@ -331,6 +331,7 @@
 		AFD8A0451769FB4F005E3693 /* play_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_ico.png; sourceTree = "<group>"; };
 		AFD8A047176A0119005E3693 /* SinglePostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SinglePostViewController.h; sourceTree = "<group>"; };
 		AFD8A048176A0119005E3693 /* SinglePostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SinglePostViewController.m; sourceTree = "<group>"; };
+		AFD8A04A176A3E7E005E3693 /* PostTableDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostTableDelegate.h; sourceTree = "<group>"; };
 		AFFD3B7617366D1500FC7E82 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
 		AFFD3B7717366D1500FC7E82 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; tabWidth = 5; usesTabs = 1; };
 		AFFD3B7817366D1500FC7E82 /* ModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
@@ -597,6 +598,7 @@
 		AF7546381751FFF300DEDA96 /* TabBarViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AFD8A04A176A3E7E005E3693 /* PostTableDelegate.h */,
 				AF7546351751FFE400DEDA96 /* DashBoardViewController.h */,
 				AF7546361751FFE400DEDA96 /* DashBoardViewController.m */,
 				AF4AFB13176636E00034B881 /* DiscoverViewController.h */,

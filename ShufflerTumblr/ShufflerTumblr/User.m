@@ -11,7 +11,7 @@
 #import "TMAPIClient.h"
 #import "Audio.h"
 #import "Video.h"
-
+#import "BlogInfo.h"
 
 @implementation User
 
@@ -131,12 +131,33 @@ const int limitNextPage = 5;
     
 }
 
+
 - (NSDictionary*) retrieveUserInfo {
     
 }
 
 - (void) getNextFollowingPage: (BlogInfoRetrievalBlock) block {
-    
+    NSArray * paramsKeys = [[NSArray alloc] initWithObjects:
+                            @"limit",
+                            @"offset",
+                            nil];
+    NSArray * paramsVals = [[NSArray alloc] initWithObjects:
+                            [[NSString alloc] initWithFormat:@"%i", limitNextPage],
+                            [[NSString alloc] initWithFormat:@"%i", _followingOffset],
+                            nil];
+    NSDictionary *paramsDict = [[NSDictionary alloc] initWithObjects: paramsVals forKeys: paramsKeys];
+    [[TMAPIClient sharedInstance] following: paramsDict callback:^(id response, NSError *error) {
+        if(!error) {
+            NSMutableArray<Info> *blogs = (NSMutableArray<Info> *)[[NSMutableArray alloc] init];
+            NSDictionary * blogsDict = [response objectForKey: @"blogs"];
+            for(NSDictionary *blogDict in blogsDict){
+                BlogInfo *tmp = [[BlogInfo alloc] initWithBlogDictionary: blogDict];
+                [blogs addObject: tmp];
+            }
+            block(blogs);
+            _followingOffset += limitNextPage;
+        }
+    }];
 }
 
 @end

@@ -8,21 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import "PostTableDelegate.h"
 
-@interface DashBoardViewController : UIViewController
+@interface DashBoardViewController : UIViewController <PostTableDelegate>
 
-@property NSMutableArray<Post> *posts;
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 @property (weak, nonatomic) IBOutlet UILabel *headLabel;
-
-@property int chosenPost;
-
-// the data
-@property NSMutableArray *tabledata;
-@property NSMutableArray *tableimages;
-@property NSMutableArray *blogdata;
-
-
-
 
 @end

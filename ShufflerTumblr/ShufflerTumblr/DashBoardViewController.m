@@ -17,6 +17,12 @@
 
 @implementation DashBoardViewController
 
+@synthesize blogdata;
+@synthesize tabledata;
+@synthesize chosenRow;
+@synthesize tableimages;
+@synthesize tableObjects;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -29,10 +35,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _tabledata = [[NSMutableArray alloc] init];
-    _tableimages = [[NSMutableArray alloc] init];
-    _blogdata = [[NSMutableArray alloc] init];
-    _posts = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
+    tabledata = [[NSMutableArray alloc] init];
+    tableimages = [[NSMutableArray alloc] init];
+    blogdata = [[NSMutableArray alloc] init];
+    tableObjects = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
 	// Do any additional setup after loading the view.
     
     _headLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
@@ -57,16 +63,20 @@
                                              [UIFont fontWithName:@"BrandonGrotesque-Bold" size:23.0], UITextAttributeFont,
                                              nil];
     [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
+    
+    
+    
+    
     [[User sharedInstance] getNextPageDashboard:^(NSArray<Post> * posts) {
-        [_posts addObjectsFromArray: posts];
+        [tableObjects addObjectsFromArray: posts];
         
         for (id<Post> post in posts) {
-            [_tabledata addObject: [post blogName]];
+            [tabledata addObject: [post blogName]];
             Audio * tmp = (Audio*)post;
             if([post type] == AUDIO && [tmp albumArt] != nil){
-                [_tableimages addObject: [tmp albumArt]];
+                [tableimages addObject: [tmp albumArt]];
             } else {
-                [_tableimages addObject: [UIImage imageNamed:@"play_ico"]];
+                [tableimages addObject: [UIImage imageNamed:@"play_ico"]];
             }
         }
         [_tableview reloadData];
@@ -90,12 +100,12 @@
     if([segueName isEqualToString: @"dashboard_segue"]){
         // Place the post in a new view.
         SinglePostViewController *tmp = [segue destinationViewController];
-        tmp.post = [_posts objectAtIndex: _chosenPost];
+        tmp.post = [tableObjects objectAtIndex: chosenRow];
     }
 }
 
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _chosenPost = indexPath.row;
+    chosenRow = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"dashboard_segue" sender:self];
     
@@ -103,7 +113,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_tabledata count];
+    return [tabledata count];
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -113,10 +123,10 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.textLabel.text = [_tabledata objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tabledata objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size: 20];
     cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.imageView.image = [_tableimages objectAtIndex: indexPath.row];
+    cell.imageView.image = [tableimages objectAtIndex: indexPath.row];
     cell.backgroundView = [[UIImageView alloc]initWithImage: [UIImage imageNamed:@"Blogfront.png"]];
     return cell;
 }

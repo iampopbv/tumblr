@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Info.h"
+#import "PostTableDelegate.h"
 
-@interface MyBlogsViewController : UIViewController
+@interface MyBlogsViewController : UIViewController <PostTableDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
+
 
 @end

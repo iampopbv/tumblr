@@ -7,18 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PostTableDelegate.h"
 
-@interface DiscoverViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface DiscoverViewController : UIViewController <PostTableDelegate>
 
-@property NSMutableArray *blogs;
-
-@property int chosenBlog;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *topMessageLabel;
 
-// the data
-@property NSMutableArray *tabledata;
-@property NSMutableArray *tableimages;
-@property NSMutableArray *blogdata;
 
 @end

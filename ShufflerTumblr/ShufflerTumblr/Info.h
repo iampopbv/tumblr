@@ -14,5 +14,6 @@
 @property NSDictionary* blog;
 
 -(id) initWithDictionary: (NSDictionary*) data;
+-(id) initWithBlogDictionary:(NSDictionary *) blogDict;
 
 @end

@@ -16,6 +16,12 @@
 
 @implementation DiscoverViewController
 
+@synthesize blogdata;
+@synthesize tabledata;
+@synthesize chosenRow;
+@synthesize tableimages;
+@synthesize tableObjects;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -30,10 +36,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    _tabledata = [[NSMutableArray alloc] init];
-    _tableimages = [[NSMutableArray alloc] init];
-    _blogdata = [[NSMutableArray alloc] init];
-    _blogs = [[NSMutableArray alloc] init];
+    tabledata = [[NSMutableArray alloc] init];
+    tableimages = [[NSMutableArray alloc] init];
+    blogdata = [[NSMutableArray alloc] init];
+    tableObjects = [[NSMutableArray alloc] init];
     
     
     
@@ -51,15 +57,15 @@
                 BlogInfo * blogInfo = info;
                 NSString * capitalizedName = [blogInfo.name uppercaseString];
                 
-                [_tabledata addObject: capitalizedName];
+                [tabledata addObject: capitalizedName];
                 if ([blogInfo image]) {
-                    [_tableimages addObject:[blogInfo image]];
+                    [tableimages addObject:[blogInfo image]];
                 } else {
-                    [_tableimages addObject: [UIImage imageNamed:@"followed_ico.png"]];
+                    [tableimages addObject: [UIImage imageNamed:@"followed_ico.png"]];
                 }
                 
                 [_tableView reloadData];
-                [_blogs addObject: tmpBlog];
+                [tableObjects addObject: tmpBlog];
             });
         }];
         index++;
@@ -82,13 +88,13 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *segueName = [segue identifier];
     if([segueName isEqualToString: @"discover_segue"]){
-        [[_blogs objectAtIndex:_chosenBlog] reset];
-        [(id<bloggetter>)segue.destinationViewController getBlog: [_blogs objectAtIndex:_chosenBlog]];
+        [[tableObjects objectAtIndex: chosenRow] reset];
+        [(id<bloggetter>)segue.destinationViewController getBlog: [tableObjects objectAtIndex: chosenRow]];
     }
 }
 
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _chosenBlog = indexPath.row;
+    chosenRow = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"discover_segue" sender:self];
     
@@ -96,7 +102,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_tabledata count];
+    return [tabledata count];
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -106,10 +112,10 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
-    cell.textLabel.text = [_tabledata objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tabledata objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:15];
     cell.textLabel.backgroundColor = [UIColor clearColor];
-    cell.imageView.image = [_tableimages objectAtIndex: indexPath.row];
+    cell.imageView.image = [tableimages objectAtIndex: indexPath.row];
     cell.backgroundView = [[UIImageView alloc]initWithImage: [UIImage imageNamed:@"Blogfront.png"]];
     return cell;
 }

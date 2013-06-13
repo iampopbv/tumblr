@@ -193,8 +193,27 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="j87-RT-Y4A">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="j87-RT-Y4A">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8Hq-iD-jg6">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <segue destination="kTZ-rW-4PK" kind="push" identifier="followed_segue" id="Hov-ys-b1q"/>
+                                    </connections>
+                                </button>
+                                <connections>
+                                    <outlet property="dataSource" destination="z81-eb-DFS" id="aUk-Gl-3PR"/>
+                                    <outlet property="delegate" destination="z81-eb-DFS" id="kNV-Ft-58Q"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -207,6 +226,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Followed" image="followed_ico.png" id="g4i-54-YZm"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="tableview" destination="j87-RT-Y4A" id="I92-ko-jlq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdQ-Jm-Wim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,7 +242,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lrh-Bn-Hvc">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lrh-Bn-Hvc">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MlO-4d-JRv">
                                     <rect key="frame" x="0.0" y="0.0" width="310" height="44"/>
@@ -277,8 +299,27 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="n6r-Lg-9tp">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="n6r-Lg-9tp">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hkT-oG-CZQ">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                    <state key="normal" title="Button">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <state key="highlighted">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <segue destination="kTZ-rW-4PK" kind="push" identifier="myblogs_segue" id="DIB-L8-fGL"/>
+                                    </connections>
+                                </button>
+                                <connections>
+                                    <outlet property="dataSource" destination="rSs-Qr-MYx" id="3BH-8a-Mi0"/>
+                                    <outlet property="delegate" destination="rSs-Qr-MYx" id="vld-Kc-2wW"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -291,6 +332,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="My Blogs" image="my_blogs_ico.png" id="CV5-n0-cbX"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="tableview" destination="n6r-Lg-9tp" id="m9L-1a-1nP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1c-1Q-smz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -335,7 +379,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VZS-lZ-DFz">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VZS-lZ-DFz">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MFF-dn-3Kr">
                                     <rect key="frame" x="0.0" y="0.0" width="310" height="44"/>
@@ -369,6 +413,7 @@
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Listen to some awesome tumblrs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R76-kl-LGp">
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="301" id="49a-Ur-yu5"/>
                                     <constraint firstAttribute="height" constant="27" id="6GS-Vv-Sze"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
@@ -380,12 +425,11 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="4rP-CD-fk0" secondAttribute="bottom" constant="136" id="4QE-SJ-ziF"/>
                             <constraint firstItem="VZS-lZ-DFz" firstAttribute="bottom" secondItem="1iv-z7-cBb" secondAttribute="bottom" type="default" id="DIW-P4-sNU"/>
-                            <constraint firstItem="R76-kl-LGp" firstAttribute="leading" secondItem="1iv-z7-cBb" secondAttribute="leading" type="default" id="JDV-yF-qOF"/>
                             <constraint firstItem="VZS-lZ-DFz" firstAttribute="trailing" secondItem="1iv-z7-cBb" secondAttribute="trailing" constant="-5" type="user" id="Ms4-VK-Vuo"/>
-                            <constraint firstItem="R76-kl-LGp" firstAttribute="centerX" secondItem="4rP-CD-fk0" secondAttribute="centerX" type="default" id="Vgk-eS-p2r"/>
                             <constraint firstItem="VZS-lZ-DFz" firstAttribute="leading" secondItem="1iv-z7-cBb" secondAttribute="leading" constant="5" type="user" id="bj1-gc-1DG"/>
                             <constraint firstItem="VZS-lZ-DFz" firstAttribute="top" secondItem="R76-kl-LGp" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="e86-1l-QKF"/>
-                            <constraint firstItem="R76-kl-LGp" firstAttribute="trailing" secondItem="1iv-z7-cBb" secondAttribute="trailing" type="default" id="s3e-XL-xPm"/>
+                            <constraint firstItem="R76-kl-LGp" firstAttribute="centerX" secondItem="4rP-CD-fk0" secondAttribute="centerX" type="default" id="eZL-en-n3i"/>
+                            <constraint firstItem="4rP-CD-fk0" firstAttribute="centerX" secondItem="VZS-lZ-DFz" secondAttribute="centerX" type="default" id="kks-H1-cq3"/>
                             <constraint firstItem="R76-kl-LGp" firstAttribute="top" secondItem="1iv-z7-cBb" secondAttribute="top" constant="20" symbolic="YES" type="default" id="sKc-hc-lDs"/>
                         </constraints>
                     </view>
@@ -856,6 +900,92 @@
         <image name="sendbutton.png" width="52" height="40"/>
         <image name="shuffler logo.png" width="1024" height="1024"/>
     </resources>
+    <classes>
+        <class className="DashBoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DashBoardViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="DataViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="followButtonPressed:"/>
+                <relationship kind="action" name="sharebuttonpressed:"/>
+                <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
+                <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="followBlogButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loadingIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="optionsbalk" candidateClass="UIView"/>
+                <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="sharebutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="textView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="DiscoverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DiscoverViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="topMessageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FavoriteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteViewController.h"/>
+        </class>
+        <class className="FollowedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FollowedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="clearCredentials"/>
+                <relationship kind="action" name="reauthenticate"/>
+                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="signInButtonPressed:"/>
+                <relationship kind="outlet" name="listento" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="signinButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="signupbutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MyBlogsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyBlogsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
+        </class>
+        <class className="SinglePostViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SinglePostViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sharebuttonpressed:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="sharebutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -863,6 +993,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="fhp-yp-afM"/>
-        <segue reference="7Rx-iw-sdu"/>
+        <segue reference="Hov-ys-b1q"/>
     </inferredMetricsTieBreakers>
 </document>
