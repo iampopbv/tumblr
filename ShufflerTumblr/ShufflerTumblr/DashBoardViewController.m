@@ -9,6 +9,7 @@
 #import "DashBoardViewController.h"
 #import "User.h"
 #import "Audio.h"
+#import "SinglePostViewController.h"
 
 @interface DashBoardViewController ()
 
@@ -35,6 +36,19 @@
 	// Do any additional setup after loading the view.
     
     _headLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
+    
+    // if([...isPlaying]) {
+    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+    UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
+    [button setBackgroundImage:image forState:UIControlStateNormal];
+    [button setBackgroundImage:[UIImage imageNamed:@"topbar_nowplaying"] forState:UIControlStateHighlighted];
+    button.frame = CGRectMake(0, 0, 65, 37);
+    [button addTarget:self action:@selector(openCurrentTrack) forControlEvents:UIControlEventTouchUpInside];
+    button.accessibilityLabel = @"Now playing";
+    button.tag = 123131;
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    // }
+    
     
     NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                              [UIColor whiteColor], UITextAttributeTextColor,
@@ -75,6 +89,8 @@
     NSString *segueName = [segue identifier];
     if([segueName isEqualToString: @"dashboard_segue"]){
         // Place the post in a new view.
+        SinglePostViewController *tmp = [segue destinationViewController];
+        tmp.post = [_tabledata objectAtIndex: _chosenPost];
     }
 }
 

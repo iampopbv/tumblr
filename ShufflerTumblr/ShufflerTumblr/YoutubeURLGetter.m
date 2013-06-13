@@ -11,29 +11,32 @@
 @implementation YoutubeURLGetter
 
 NSString * ytDirectURLConverterURL = @"http://shuffler.fm/youtube/magic?key=Q29yaXRpYmEgbWVsaG9yIHRpbWUgZG8gYnJhc2ls";
-static YoutubeURLGetter * youtubeURLGetter;
 UIWebView *webHelper;
+
++ (id)sharedInstance {
+    static YoutubeURLGetter *instance;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{ instance = [[YoutubeURLGetter alloc] init]; });
+    return instance;
+}
 
 - (id)init
 {
-    if(youtubeURLGetter == nil){
-        youtubeURLGetter = [super init];
-        if (self) {
-            if (!webHelper) { // load the page if never loaded before
-                NSURL *url = [[NSURL alloc] initWithString: ytDirectURLConverterURL];
-                webHelper = [[UIWebView alloc] init];
-                [webHelper loadRequest:[[NSURLRequest alloc] initWithURL: url]];
-            }
+    if(self = [super init]){
+        if (!webHelper) { // load the page if never loaded before
+            NSURL *url = [[NSURL alloc] initWithString: ytDirectURLConverterURL];
+            webHelper = [[UIWebView alloc] init];
+            [webHelper loadRequest:[[NSURLRequest alloc] initWithURL: url]];
         }
     }
-    return youtubeURLGetter;
+    return self;
 }
 
-+ (NSString*) getYTID: (NSString*) youtubeURL {
+- (NSString*) getYTID: (NSString*) youtubeURL {
     return (NSString*)[[youtubeURL componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="] ]objectAtIndex:1];
 }
 
-+ (void) getYoutubeLinkWithURL: (NSString*) youtubeURL withBlock: (PageLoadingCompletionBlock) block {
+- (void) getYoutubeLinkWithURL: (NSString*) youtubeURL withBlock: (PageLoadingCompletionBlock) block {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         int countErrors = 0;

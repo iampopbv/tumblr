@@ -36,7 +36,7 @@
     [self testInternetConnection];
     
     // init the url getter so youtube urls can be converted anytime later on in a split second!
-    [[YoutubeURLGetter alloc] init];
+    [YoutubeURLGetter sharedInstance];
     _tabledata = [[NSMutableArray alloc] init];
     _tableimages = [[NSMutableArray alloc] init];
     _blogdata = [[NSMutableArray alloc] init];

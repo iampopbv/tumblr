@@ -25,6 +25,7 @@
 @synthesize latestPostNr;
 @synthesize postTimestamp;
 @synthesize blogName;
+@synthesize postURL;
 
 -(id) initWithDictionary:(NSDictionary *) dictionary {
     self = [super init];
@@ -32,6 +33,7 @@
         self.response = [dictionary objectForKey:@"response"];
         self.posts = [dictionary objectForKey:@"post"];
         self.blogName = [dictionary objectForKey: @"blog_name"];
+        self.postURL = [dictionary objectForKey: @"post_url"];
         self.blog = [self.response objectForKey:@"blog"];
         self.playURL = [dictionary objectForKey:@"permalink_url"];
         self.playerEmbed = [dictionary objectForKey:@"player"];

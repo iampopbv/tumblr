@@ -127,7 +127,7 @@ id<postgetter> delegate;
 		
 		_videoView.allowsInlineMediaPlayback = YES;
 		if([[video playURL] hasPrefix:@"http://www.youtube.com"] || [[video playURL] hasPrefix:@"https://www.youtube.com"]){
-			[YoutubeURLGetter getYoutubeLinkWithURL: [video playURL] withBlock:^(NSString *youtubeDirectURL) {
+			[[YoutubeURLGetter sharedInstance]getYoutubeLinkWithURL: [video playURL] withBlock:^(NSString *youtubeDirectURL) {
 				[video setPlayURL: youtubeDirectURL];
 				[self embedVideo: [video playURL]];
 			}];
@@ -168,12 +168,10 @@ id<postgetter> delegate;
 }
 - (IBAction)sharebuttonpressed:(id)sender {
 	NSString * extraText = @"I've listened to this song!";
-	NSString *initalText = [[NSString alloc] initWithFormat:@"%@\n%@", extraText, [_titleLabel text]];
+	NSString *initalText = [[NSString alloc] initWithFormat:@"%@\n%@", extraText, [_post postURL]];
 	UIActivityViewController *objvc = [[UIActivityViewController alloc]initWithActivityItems:[NSArray arrayWithObjects: initalText, [UIImage imageNamed:@"shuffler logo"], nil] applicationActivities:nil];
-	 objvc.excludedActivityTypes = @[UIActivityTypeMessage, UIActivityTypeAssignToContact, UIActivityTypePostToWeibo , UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
+	objvc.excludedActivityTypes = @[UIActivityTypeMessage, UIActivityTypeAssignToContact, UIActivityTypePostToWeibo , UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
 	
 	[self presentViewController:objvc animated:YES completion:nil];
-     
-    
 }
 @end
