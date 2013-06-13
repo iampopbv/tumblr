@@ -9,6 +9,8 @@
 #import "MenuViewController.h"
 #import "Blog.h"
 #import "YoutubeURLGetter.h"
+#import "TMAPIClient.h"
+#import "keys.h"
 
 @interface MenuViewController ()
 
@@ -187,6 +189,38 @@
     [self setSignupbutton:nil];
     [self setTableView:nil];
     [self setTableView:nil];
+    [self setSigninButton:nil];
     [super viewDidUnload];
+}
+- (IBAction)signInButtonPressed:(id)sender {
+    [TMAPIClient sharedInstance].OAuthConsumerKey = kConsumerKey;
+    [TMAPIClient sharedInstance].OAuthConsumerSecret = kConsumerSecret;
+    
+    [[TMAPIClient sharedInstance] authenticate:@"Shumbler" callback:^(NSError *error) {
+        if(!error){
+            NSLog(@"Succes on authentication");
+            
+            NSArray * paramsKeys = [[NSArray alloc] initWithObjects: @"limit", nil];
+            NSArray * paramsVals = [[NSArray alloc] initWithObjects: @"5", nil];
+            NSDictionary *paramsDict = [[NSDictionary alloc] initWithObjects: paramsVals forKeys: paramsKeys];
+            [[TMAPIClient sharedInstance] dashboard: paramsDict callback:^(id response, NSError *error) {
+                if (!error) {
+                    NSDictionary *dashboard = response;
+                    
+                    NSLog(@"got back: %@", dashboard);
+                    NSLog(@"Got dashboard info :}");
+                    [self performSegueWithIdentifier:@"login_segue" sender:self];
+                } else {
+                    // Pop-up for failure
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        UIAlertView *cellularData = [[UIAlertView alloc] initWithTitle: @"Fout" message:@"U heeft geen toegang gegeven aan Shuffler. U kunt de app niet gebruiken"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+                        [cellularData show];
+                    });
+                }
+            }];
+        } else {
+            NSLog(@"Failure when authenticating");
+        }
+    }];
 }
 @end

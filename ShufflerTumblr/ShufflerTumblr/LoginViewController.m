@@ -7,9 +7,8 @@
 //
 
 #import "LoginViewController.h"
-#import "MPOAuthAPI.h"
-#import "MPOAuthAuthenticationMethodOAuth.h"
 #import "keys.h"
+#import "TMAPIClient.h"
 
 @interface LoginViewController ()
 
@@ -48,41 +47,25 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSegue) name:@"segueListener" object:nil];
-
-    if (!_oauthAPI) {
-		NSDictionary *credentials = [NSDictionary dictionaryWithObjectsAndKeys:	kConsumerKey, kMPOAuthCredentialConsumerKey,
-									 kConsumerSecret, kMPOAuthCredentialConsumerSecret,
-									 nil];
-		_oauthAPI = [[MPOAuthAPI alloc] initWithCredentials:credentials
-										  authenticationURL:[NSURL URLWithString:@"http://www.tumblr.com/oauth/authorize"]
-												 andBaseURL:[NSURL URLWithString:@"http://www.tumblr.com/"]];
-		
-		if ([[_oauthAPI authenticationMethod] respondsToSelector:@selector(setDelegate:)]) {
-			[(MPOAuthAuthenticationMethodOAuth *)[_oauthAPI authenticationMethod] setDelegate:(id <MPOAuthAuthenticationMethodOAuthDelegate>)[UIApplication sharedApplication].delegate];
-		}
-        
-        [_oauthAPI discardCredentials];
-        
-	} else {
-		[_oauthAPI authenticate];
-	}
-
-    [_oauthAPI authenticate];
     
-	[webview setDelegate:self];
-//	[webview loadRequest:[NSURLRequest requestWithURL:self.userAuthURL]];
+    
+    
+    
+    
+    //	[webview setDelegate:self];
+    //	[webview loadRequest:[NSURLRequest requestWithURL:self.userAuthURL]];
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-	// this is a ghetto way to handle this, but it's for when you must use http:// URIs
-	// so that this demo will work correctly, this is an example, DONT.BE.GHETTO
-	NSURL *userAuthURL = [(id <MPOAuthAuthenticationMethodOAuthDelegate>)[UIApplication sharedApplication].delegate callbackURLForCompletedUserAuthorization];
-	if ([request.URL isEqual:userAuthURL]) {
-		[[self navigationController] popViewControllerAnimated:YES];
-		return NO;
-	}
-	
-	return YES;
+    // this is a ghetto way to handle this, but it's for when you must use http:// URIs
+    // so that this demo will work correctly, this is an example, DONT.BE.GHETTO
+    //	NSURL *userAuthURL = [(id <MPOAuthAuthenticationMethodOAuthDelegate>)[UIApplication sharedApplication].delegate callbackURLForCompletedUserAuthorization];
+    //	if ([request.URL isEqual:userAuthURL]) {
+    //		[[self navigationController] popViewControllerAnimated:YES];
+    //		return NO;
+    //	}
+    //
+    return YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -92,13 +75,13 @@
 }
 
 - (void)clearCredentials {
-	[self.navigationItem setPrompt:@"Credentials Cleared"];
-	[_oauthAPI discardCredentials];
+    //	[self.navigationItem setPrompt:@"Credentials Cleared"];
+    //	[_oauthAPI discardCredentials];
 }
 
 - (void)reauthenticate {
-	[self.navigationItem setPrompt:@"Reauthenticating User"];
-	[_oauthAPI authenticate];
+    //	[self.navigationItem setPrompt:@"Reauthenticating User"];
+    //	[_oauthAPI authenticate];
 }
 
 @end

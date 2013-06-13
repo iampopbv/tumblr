@@ -7,10 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "MPOAuthAuthenticationMethodOAuth.h"
 #import "RootViewController.h"
 #import "DashBoardViewController.h"
-#import "MPURLRequestParameter.h"
+#import "TMAPIClient.h"
 
 
 
@@ -77,18 +76,10 @@
 	return YES;
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-	// the url is the callback url with the query string including oauth_token and oauth_verifier in 1.0a
-	if ([[url host] isEqualToString:@"success"] && [url query].length > 0) {
-		NSDictionary *oauthParameters = [MPURLRequestParameter parameterDictionaryFromString:[url query]];
-		oauthVerifier_ = [oauthParameters objectForKey:@"oauth_verifier"];
-        
-        // Notifty the LoginViewController that we can go to the dashboard
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"segueListener" object:nil];
-        
-        NSLog(@"Success authenticating");
-	}
-    NSLog(@"Failure when authenticating");
-	return YES;
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
+         annotation:(id)annotation {
+    return [[TMAPIClient sharedInstance] handleOpenURL:url];
 }
+
 @end

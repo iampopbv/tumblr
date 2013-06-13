@@ -29,4 +29,7 @@
 @property NSMutableArray *tabledata;
 @property NSMutableArray *tableimages;
 @property NSMutableArray *blogdata;
+@property (weak, nonatomic) IBOutlet UIButton *signinButton;
+
+- (IBAction)signInButtonPressed:(id)sender;
 @end

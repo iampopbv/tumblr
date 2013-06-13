@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Info.h"
+#import "Post.h"
 
 @interface User : NSObject
 
@@ -18,17 +19,13 @@
 @property NSArray<Info> *blogs;
 @property BOOL loggedIn;
 
+@property int dashboardOffset;
+@property int followingOffset;
+
 typedef void (^BlogInfoRetrievalBlock)(NSArray<Info>* blogs);
 
-- (void) retrieveUserDashboard;
-- (void) retrieveUserInfo;
-- (void) retrieveNextFollowingPage: (BlogInfoRetrievalBlock) block;
-
-- (id) initWithUsername: (NSString*) username;
-- (void) followBlog: (NSString*) blogURL;
-- (void) unfollowBlog: (NSString*) blogURL;
-- (void) likePost: (int) postId withReblogKey: (NSString*) reblogKey;
-- (void) unlikePost: (int) postId withReblogKey: (NSString*) reblogKey;
-- (BOOL) loginWithPassword: (NSString*) password;
+- (NSArray<Post>*) getNextPageDashboard;
+- (NSDictionary*) retrieveUserInfo;
+- (NSArray<Info>*) getNextFollowingPage: (BlogInfoRetrievalBlock) block;
 
 @end

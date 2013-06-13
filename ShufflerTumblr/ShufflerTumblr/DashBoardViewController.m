@@ -7,10 +7,7 @@
 //
 
 #import "DashBoardViewController.h"
-#import "MPOAuthURLRequest.h"
-#import "MPOAuthURLResponse.h"
 #import "keys.h"
-#import "MPOAuthSignatureParameter.h"
 
 @interface DashBoardViewController ()
 
@@ -44,16 +41,6 @@
     
     
     
-    
-    NSURL * url = [[NSURL alloc] initWithString: @"http://api.tumblr.com/v2/user/dashboard"];
-    NSArray *params = [[NSArray alloc] initWithObjects: [[MPURLRequestParameter alloc] initWithName:@"limit" andValue:@"20"], nil];
-    MPOAuthURLRequest *request = [[MPOAuthURLRequest alloc] initWithURL:url andParameters: params];
-    
-    
-    
-    
-    NSURLRequest *urlRequest = [request urlRequestSignedWithSecret:kConsumerSecret usingMethod: kMPOAuthSignatureMethodHMACSHA1];
-    NSURLConnection *conn = [[NSURLConnection alloc] initWithRequest:urlRequest delegate: self];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
