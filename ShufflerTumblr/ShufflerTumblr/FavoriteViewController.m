@@ -29,6 +29,12 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _favouriteData = [[Favourites sharedManager] getFavourites];
+    [[TMAPIClient sharedInstance] dashboard: nil callback:^(id response, NSError *error) {
+        NSArray *tempArray = [response objectForKey:@"liked_posts"];
+        for(int i = 0;i<[tempArray count];i++) {
+            [_favouriteData addObject: [tempArray objectAtIndex:i]];
+        }
+    }];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

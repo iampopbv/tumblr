@@ -9,11 +9,12 @@
 #import <UIKit/UIKit.h>
 #import "Post.h"
 #import "Favourites.h"
+#import "TMAPIClient.h"
 
 
 @interface FavoriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property NSArray *favouriteData;
+@property NSMutableArray *favouriteData;
 @property int chosenPost;
 
 @end
