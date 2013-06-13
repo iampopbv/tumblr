@@ -28,7 +28,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    _favouriteData = [[Favourites sharedManager] getFavourites];
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBar.topItem.title = @"Favorite";
+    [_favouriteData removeAllObjects];
+    _favouriteData = [NSMutableArray arrayWithArray: [[Favourites sharedManager] getFavourites]];
     [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
         NSArray *tempArray = [response objectForKey:@"liked_posts"];
         NSLog(@"Response: %@" , response);
@@ -47,11 +54,6 @@
             [_tableView reloadData];
         }
     }];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    self.navigationController.navigationBar.topItem.title = @"Favorite";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -64,7 +66,6 @@
     if([segueName isEqualToString: @"favourite_segue"]){
         // Place the post in a new view.
         SinglePostViewController *tmp = [segue destinationViewController];
-        NSLog(@"Object: %@", [_favouriteData objectAtIndex: _chosenPost] );
         tmp.post = [_favouriteData objectAtIndex: _chosenPost];
     }
 }
