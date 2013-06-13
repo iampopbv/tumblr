@@ -7,6 +7,7 @@
 //
 
 #import "FavoriteViewController.h"
+#import "SinglePostViewController.h"
 
 @interface FavoriteViewController ()
 
@@ -28,6 +29,23 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     _favouriteData = [[Favourites sharedManager] getFavourites];
+    [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
+        NSArray *tempArray = [response objectForKey:@"liked_posts"];
+        NSLog(@"Response: %@" , response);
+        for(int i = 0;i<[tempArray count];i++) {
+            NSString *type = [[tempArray objectAtIndex:i] objectForKey:@"type"];
+            id<Post> object;
+            if ([type isEqual:@"video"]) {
+                object = [[Video alloc] initWithDictionary: [tempArray objectAtIndex:i]];
+            }
+            else {
+                object = [[Audio alloc] initWithDictionary: [tempArray objectAtIndex:i]];
+            }
+            [_favouriteData addObject: object];
+            [_tableView reloadData];
+        }
+    }];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -37,6 +55,23 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [_favouriteData count];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSString *segueName = [segue identifier];
+    if([segueName isEqualToString: @"favourite_segue"]){
+        // Place the post in a new view.
+        SinglePostViewController *tmp = [segue destinationViewController];
+        NSLog(@"Object: %@", [_favouriteData objectAtIndex: _chosenPost] );
+        tmp.post = [_favouriteData objectAtIndex: _chosenPost];
+    }
+}
+
+-(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    _chosenPost = indexPath.row;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"favourite_segue" sender:self];
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -50,6 +85,7 @@
     }
     
     cell.textLabel.text = [[_favouriteData objectAtIndex:indexPath.row] getListName];
+    NSLog(@"Created new cell with text: %@" , cell.textLabel.text);
     return cell;
 }
 
@@ -57,7 +93,7 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    _favouriteData = nil;
+    //_favouriteData = nil;
 }
 
 @end

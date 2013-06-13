@@ -95,7 +95,7 @@
     return false;
 }
 
--(NSArray*) getFavourites {
+-(NSMutableArray*) getFavourites {
     return _favouriteObjects;
 }
 

@@ -9,10 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "Post.h"
 #import "Favourites.h"
+#import "TMAPIClient.h"
+#import "Video.h"
+#import "Audio.h"
+
 
 @interface FavoriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property NSArray *favouriteData;
-
+@property NSMutableArray *favouriteData;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property int chosenPost;
 
 @end

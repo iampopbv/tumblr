@@ -63,7 +63,7 @@
 }
 
 -(NSString*)getListName {
-    return [NSString stringWithFormat:@"Video - %@", self.sourceTitle];
+    return [NSString stringWithFormat:@"Video - %@", self.ID];
 }
 
 -(id)initWithCoder:(NSCoder*) coder {

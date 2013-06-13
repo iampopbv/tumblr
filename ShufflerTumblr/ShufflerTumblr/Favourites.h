@@ -18,6 +18,6 @@
 -(void)addFavourite: (id<Post>) post;
 -(void)removeFavourite: (id<Post>) post;
 -(BOOL)checkFavourite: (id) ID;
--(NSArray*)getFavourites;
+-(NSMutableArray*)getFavourites;
 
 @end
