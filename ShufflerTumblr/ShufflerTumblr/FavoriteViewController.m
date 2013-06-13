@@ -38,8 +38,10 @@
             if ([type isEqual:@"video"]) {
                 object = [[Video alloc] initWithDictionary: [tempArray objectAtIndex:i]];
             }
-            else {
+            else if([type isEqual:@"audio"]) {
                 object = [[Audio alloc] initWithDictionary: [tempArray objectAtIndex:i]];
+            } else {
+                continue;
             }
             [_favouriteData addObject: object];
             [_tableView reloadData];
