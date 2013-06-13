@@ -12,6 +12,8 @@
 #import "Post.h"
 #import "YoutubeURLGetter.h"
 #import <Social/Social.h>
+#import "TMAPIClient.h"
+#import "User.h"
 
 @interface DataViewController ()
 
@@ -40,10 +42,10 @@ id<postgetter> delegate;
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	[self fillUI];
-    
-    self.optionsbalk.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"optionsbalk.png"]];
-    
-    _titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
+	
+	self.optionsbalk.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"optionsbalk.png"]];
+	
+	_titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
 	
 	UIBarButtonItem *barButtonAppearance = [UIBarButtonItem appearance];
 	[barButtonAppearance setTintColor:[UIColor blackColor]]; // Change to your colour
@@ -82,7 +84,7 @@ id<postgetter> delegate;
 		   NO )
 		{
 			[_playerContainer setHidden:YES];
-		
+			
 			[_imageView setHidden:YES];
 			NSString*html = [NSString stringWithFormat:@"%@%@%@%@%@",
 						  @"<!DOCTYPE html><html><head><title>",audioObject.trackName,@"</title><meta content-encoding='utf-8' /></head><body>",audioObject.embed,@"</body></html>" ];
@@ -96,7 +98,7 @@ id<postgetter> delegate;
 			[_imageView setHidden:YES];
 			[_videoView setHidden:YES];
 			[self.videoView setHidden:YES];
-		
+			
 			[delegate showPost];
 		}
 		else
@@ -107,11 +109,11 @@ id<postgetter> delegate;
 			[delegate showPost];
 		}
 		/*NSString*title: [title uppercaseString];
-		NSMutableAttributedString*titleatt = [[NSMutableAttributedString alloc] initWithString:title];
-		//
-		//style your  attributedstring
-		//
-		self.attributedtext = [audioObject trackName];*/
+		 NSMutableAttributedString*titleatt = [[NSMutableAttributedString alloc] initWithString:title];
+		 //
+		 //style your  attributedstring
+		 //
+		 self.attributedtext = [audioObject trackName];*/
 		
 		self.titleLabel.attributedText = [audioObject trackName];
 		if(!audioObject.trackName)
@@ -163,7 +165,8 @@ id<postgetter> delegate;
 	[self setSharebutton:nil];
 	[self setFavouriteButton:nil];
 	[self setLoadingIndicator:nil];
-    [self setOptionsbalk:nil];
+	[self setOptionsbalk:nil];
+	[self setFollowBlogButton:nil];
 	[super viewDidUnload];
 }
 - (IBAction)sharebuttonpressed:(id)sender {
@@ -173,5 +176,32 @@ id<postgetter> delegate;
 	objvc.excludedActivityTypes = @[UIActivityTypeMessage, UIActivityTypeAssignToContact, UIActivityTypePostToWeibo , UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
 	
 	[self presentViewController:objvc animated:YES completion:nil];
+}
+- (IBAction)followButtonPressed:(id)sender {
+	if([[User sharedInstance] loggedIn]) {
+		NSString *blogURL = [[NSString alloc] initWithFormat:@"%@.tumblr.com", [_post blogName]];
+		NSLog(@"blog url: %@", blogURL);
+		[[TMAPIClient sharedInstance] follow: blogURL callback:^(id response, NSError *error) {
+			if(!error){
+				dispatch_async(dispatch_get_main_queue(), ^{
+					NSString *message = [[NSString alloc] initWithFormat: @"Je volgt nu %@", [_post blogName]];
+					UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message: message  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+					[alert show];
+				});
+			} else {
+				dispatch_async(dispatch_get_main_queue(), ^{
+					UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"Je bent nog niet ingelogd dus je kan nog geen blogs volgen!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+					[alert show];
+				});
+			}
+		}];
+	} else {
+		dispatch_async(dispatch_get_main_queue(), ^{
+			
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"Je bent nog niet ingelogd dus je kan nog geen blogs volgen!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+			[alert show];
+			
+		});
+	}
 }
 @end

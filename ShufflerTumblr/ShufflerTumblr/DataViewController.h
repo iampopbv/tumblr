@@ -33,12 +33,14 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIWebView *captionView;
 @property AVQueuePlayer * queuePlayer;
+- (IBAction)followButtonPressed:(id)sender;
 
 @property Favourites *favourites;
 
 @property AVPlayer*player;
 
 @property (weak, nonatomic) IBOutlet UIButton *favouriteButton;
+@property (weak, nonatomic) IBOutlet UIButton *followBlogButton;
 
 - (void) setLoading;
 - (void) setDoneLoading;

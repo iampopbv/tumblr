@@ -11,6 +11,7 @@
 #import "YoutubeURLGetter.h"
 #import "TMAPIClient.h"
 #import "keys.h"
+#import "User.h"
 
 @interface MenuViewController ()
 
@@ -200,6 +201,7 @@
         if(!error){
             NSLog(@"Succes on authentication");
             [self performSegueWithIdentifier: @"login_segue" sender: self];
+            [[User sharedInstance] setLoggedIn: YES];
         } else {
             // Pop-up for failure
             dispatch_async(dispatch_get_main_queue(), ^{

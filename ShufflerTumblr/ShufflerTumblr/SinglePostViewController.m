@@ -11,6 +11,7 @@
 #import "Video.h"
 #import "YoutubeURLGetter.h"
 #import "postgetter.h"
+#import "TMAPIClient.h"
 
 @interface SinglePostViewController ()
 
@@ -89,7 +90,7 @@ id<postgetter> delegate;
 		}
 		[[_videoView scrollView] setScrollEnabled: NO];
 	}
-//	[self.captionView loadHTMLString:[_post caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
+    //	[self.captionView loadHTMLString:[_post caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
 }
 
 - (void)didReceiveMemoryWarning
@@ -119,6 +120,21 @@ id<postgetter> delegate;
     objvc.excludedActivityTypes = @[UIActivityTypeMessage, UIActivityTypeAssignToContact, UIActivityTypePostToWeibo , UIActivityTypeCopyToPasteboard, UIActivityTypePrint, UIActivityTypeSaveToCameraRoll];
 	
 	[self presentViewController:objvc animated:YES completion:nil];
+}
+
+- (IBAction)shareButtonPressed:(id)sender {
+    NSString *blogURL = [[NSString alloc] initWithFormat:@"%@.tumblr.com", [_post blogName]];
+    NSLog(@"blog url: %@", blogURL);
+    [[TMAPIClient sharedInstance] follow: blogURL callback:^(id response, NSError *error) {
+        if(!error){
+            NSLog(@"%@", response);
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"Je bent nog niet ingelogd dus je kan nog geen blogs volgen!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+                [alert show];
+            });
+        }
+    }];
 }
 
 -(void)viewDidUnload {

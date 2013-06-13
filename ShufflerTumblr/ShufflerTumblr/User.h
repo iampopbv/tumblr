@@ -27,6 +27,8 @@ typedef void (^BlogInfoRetrievalBlock)(NSArray<Info>* blogs);
 typedef void (^callback) (NSArray<Post>*);
 typedef void (^callbackWithBlogNames) (NSArray<Post>*, NSArray* blognames);
 
+
+
 + (id)sharedInstance;
 - (void) resetOffsets;
 - (void) getNextPageDashboard: (callback) callback;

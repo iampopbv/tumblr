@@ -513,6 +513,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="followButtonPressed:" destination="5xV-DI-Wgr" eventType="touchUpInside" id="uV3-ni-G7I"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cq-5q-a2N">
                                 <constraints>
@@ -586,6 +589,7 @@
                     </view>
                     <connections>
                         <outlet property="favouriteButton" destination="LKP-y7-4zY" id="wLS-VH-QnX"/>
+                        <outlet property="followBlogButton" destination="aCt-xq-9Q7" id="iR6-d2-b9W"/>
                         <outlet property="imageView" destination="LBo-wQ-Pgl" id="Muh-3o-fws"/>
                         <outlet property="loadingIndicator" destination="LXo-C3-0Ix" id="C6l-l5-Ekr"/>
                         <outlet property="playerContainer" destination="MOh-XL-kL2" id="nEg-FK-MSh"/>
@@ -669,6 +673,9 @@
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="shareButtonPressed:" destination="aXO-Nc-9CH" eventType="touchUpInside" id="X1i-HU-Aw8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3T6-xl-ela">
                                 <constraints>
