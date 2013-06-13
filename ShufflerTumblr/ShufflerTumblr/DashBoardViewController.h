@@ -7,9 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Post.h"
 
 @interface DashBoardViewController : UIViewController
 
-@property NSMutableData *responseData;
+@property NSMutableArray<Post> *posts;
+@property (weak, nonatomic) IBOutlet UITableView *tableview;
+@property (weak, nonatomic) IBOutlet UILabel *headLabel;
+
+@property int chosenPost;
+
+// the data
+@property NSMutableArray *tabledata;
+@property NSMutableArray *tableimages;
+@property NSMutableArray *blogdata;
+
 
 @end

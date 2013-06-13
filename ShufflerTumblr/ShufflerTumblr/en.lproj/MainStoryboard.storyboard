@@ -115,7 +115,7 @@
             <objects>
                 <viewController id="kTZ-rW-4PK" customClass="RootViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1nb-dt-MCL">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LXo-C3-0Ix">
@@ -222,18 +222,33 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lrh-Bn-Hvc">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="07A-Ex-WNz" id="CY9-3c-Umf"/>
+                                    <outlet property="delegate" destination="07A-Ex-WNz" id="I6X-MO-dtA"/>
+                                </connections>
                             </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Check out the latest tracks!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="015-aW-P2h">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="leading" secondItem="cwE-2W-1ms" secondAttribute="leading" type="default" id="A26-68-yGb"/>
-                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="top" secondItem="cwE-2W-1ms" secondAttribute="top" type="default" id="AjB-XR-akU"/>
-                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="trailing" secondItem="cwE-2W-1ms" secondAttribute="trailing" type="default" id="QJ8-26-3Me"/>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="leading" secondItem="cwE-2W-1ms" secondAttribute="leading" constant="5" type="user" id="A26-68-yGb"/>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="top" secondItem="015-aW-P2h" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="K43-X5-Tcx"/>
+                            <constraint firstItem="015-aW-P2h" firstAttribute="top" secondItem="cwE-2W-1ms" secondAttribute="top" constant="20" symbolic="YES" type="default" id="NwA-Zu-5Zq"/>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="trailing" secondItem="cwE-2W-1ms" secondAttribute="trailing" constant="-5" type="user" id="QJ8-26-3Me"/>
                             <constraint firstItem="lrh-Bn-Hvc" firstAttribute="bottom" secondItem="cwE-2W-1ms" secondAttribute="bottom" type="default" id="m3m-nq-3yv"/>
+                            <constraint firstItem="015-aW-P2h" firstAttribute="centerX" secondItem="lrh-Bn-Hvc" secondAttribute="centerX" type="default" id="yz0-eD-HRd"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="home_ico.png" id="eUt-bc-JHE"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackTranslucent"/>
+                    <connections>
+                        <outlet property="headLabel" destination="015-aW-P2h" id="I0a-xk-eNy"/>
+                        <outlet property="tableview" destination="lrh-Bn-Hvc" id="Jfj-ez-dut"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOJ-WZ-fan" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -308,7 +323,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VZS-lZ-DFz">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="MFF-dn-3Kr">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="310" height="44"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <state key="normal">
@@ -340,7 +355,6 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Listen to some awesome tumblrs" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R76-kl-LGp">
                                 <constraints>
                                     <constraint firstAttribute="height" constant="27" id="6GS-Vv-Sze"/>
-                                    <constraint firstAttribute="width" constant="310" id="MP6-eh-Z76"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -351,12 +365,13 @@
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="4rP-CD-fk0" secondAttribute="bottom" constant="136" id="4QE-SJ-ziF"/>
                             <constraint firstItem="VZS-lZ-DFz" firstAttribute="bottom" secondItem="1iv-z7-cBb" secondAttribute="bottom" type="default" id="DIW-P4-sNU"/>
-                            <constraint firstItem="VZS-lZ-DFz" firstAttribute="trailing" secondItem="1iv-z7-cBb" secondAttribute="trailing" type="default" id="Ms4-VK-Vuo"/>
+                            <constraint firstItem="R76-kl-LGp" firstAttribute="leading" secondItem="1iv-z7-cBb" secondAttribute="leading" type="default" id="JDV-yF-qOF"/>
+                            <constraint firstItem="VZS-lZ-DFz" firstAttribute="trailing" secondItem="1iv-z7-cBb" secondAttribute="trailing" constant="-5" type="user" id="Ms4-VK-Vuo"/>
                             <constraint firstItem="R76-kl-LGp" firstAttribute="centerX" secondItem="4rP-CD-fk0" secondAttribute="centerX" type="default" id="Vgk-eS-p2r"/>
-                            <constraint firstItem="VZS-lZ-DFz" firstAttribute="leading" secondItem="1iv-z7-cBb" secondAttribute="leading" type="default" id="bj1-gc-1DG"/>
+                            <constraint firstItem="VZS-lZ-DFz" firstAttribute="leading" secondItem="1iv-z7-cBb" secondAttribute="leading" constant="5" type="user" id="bj1-gc-1DG"/>
                             <constraint firstItem="VZS-lZ-DFz" firstAttribute="top" secondItem="R76-kl-LGp" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="e86-1l-QKF"/>
+                            <constraint firstItem="R76-kl-LGp" firstAttribute="trailing" secondItem="1iv-z7-cBb" secondAttribute="trailing" type="default" id="s3e-XL-xPm"/>
                             <constraint firstItem="R76-kl-LGp" firstAttribute="top" secondItem="1iv-z7-cBb" secondAttribute="top" constant="20" symbolic="YES" type="default" id="sKc-hc-lDs"/>
-                            <constraint firstItem="R76-kl-LGp" firstAttribute="centerX" secondItem="VZS-lZ-DFz" secondAttribute="centerX" type="default" id="vz6-KE-u23"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Discover" image="discover_ico.png" id="cbm-Am-CUm"/>
@@ -690,6 +705,10 @@
     <classes>
         <class className="DashBoardViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DashBoardViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
+            </relationships>
         </class>
         <class className="DataViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
@@ -749,12 +768,6 @@
         <class className="RootViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
         </class>
-        <class className="playerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/playerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playpause:"/>
-            </relationships>
-        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -762,7 +775,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6IC-Ci-QMp"/>
         <segue reference="eSA-jM-BfF"/>
+        <segue reference="7Rx-iw-sdu"/>
     </inferredMetricsTieBreakers>
 </document>

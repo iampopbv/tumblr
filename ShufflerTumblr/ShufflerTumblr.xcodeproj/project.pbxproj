@@ -115,6 +115,7 @@
 		AFD8A0421769C239005E3693 /* TMOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD8A0251769C239005E3693 /* TMOAuth.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
 		AFD8A0431769C239005E3693 /* TMTumblrAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD8A0271769C239005E3693 /* TMTumblrAuthenticator.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
 		AFD8A0441769C239005E3693 /* TMSDKFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD8A02A1769C239005E3693 /* TMSDKFunctions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		AFD8A0461769FB4F005E3693 /* play_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AFD8A0451769FB4F005E3693 /* play_ico.png */; };
 		AFFD3B7C17366D1500FC7E82 /* DataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3B7717366D1500FC7E82 /* DataViewController.m */; };
 		AFFD3B7D17366D1500FC7E82 /* ModelController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3B7917366D1500FC7E82 /* ModelController.m */; };
 		AFFD3B7E17366D1500FC7E82 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AFFD3B7B17366D1500FC7E82 /* RootViewController.m */; };
@@ -326,6 +327,7 @@
 		AFD8A0271769C239005E3693 /* TMTumblrAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTumblrAuthenticator.m; sourceTree = "<group>"; };
 		AFD8A0291769C239005E3693 /* TMSDKFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSDKFunctions.h; sourceTree = "<group>"; };
 		AFD8A02A1769C239005E3693 /* TMSDKFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMSDKFunctions.m; sourceTree = "<group>"; };
+		AFD8A0451769FB4F005E3693 /* play_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_ico.png; sourceTree = "<group>"; };
 		AFFD3B7617366D1500FC7E82 /* DataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataViewController.h; sourceTree = "<group>"; };
 		AFFD3B7717366D1500FC7E82 /* DataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 5; lastKnownFileType = sourcecode.c.objc; path = DataViewController.m; sourceTree = "<group>"; tabWidth = 5; usesTabs = 1; };
 		AFFD3B7817366D1500FC7E82 /* ModelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelController.h; sourceTree = "<group>"; };
@@ -530,6 +532,7 @@
 		AF1F827817354ED60001C15E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AFD8A0451769FB4F005E3693 /* play_ico.png */,
 				AFD89FCC17686E19005E3693 /* favoritebutton.png */,
 				AFD89FCD17686E19005E3693 /* Navigationbar1.png */,
 				AFD89FCE17686E19005E3693 /* optionsbalk.png */,
@@ -922,6 +925,7 @@
 				AFD8A03D1769C239005E3693 /* UIActivityTumblr@2x.png in Resources */,
 				AFD8A03E1769C239005E3693 /* UIActivityTumblr@2x~ipad.png in Resources */,
 				AFD8A03F1769C239005E3693 /* UIActivityTumblr~ipad.png in Resources */,
+				AFD8A0461769FB4F005E3693 /* play_ico.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

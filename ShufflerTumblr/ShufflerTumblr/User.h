@@ -19,13 +19,18 @@
 @property NSArray<Info> *blogs;
 @property BOOL loggedIn;
 
-@property int dashboardOffset;
+@property int dashboardOffsetAudio;
+@property int dashboardOffsetVideo;
 @property int followingOffset;
 
 typedef void (^BlogInfoRetrievalBlock)(NSArray<Info>* blogs);
+typedef void (^callback) (NSArray<Post>*);
+typedef void (^callbackWithBlogNames) (NSArray<Post>*, NSArray* blognames);
 
-- (NSArray<Post>*) getNextPageDashboard;
++ (id)sharedInstance;
+- (void) resetOffsets;
+- (void) getNextPageDashboard: (callback) callback;
 - (NSDictionary*) retrieveUserInfo;
-- (NSArray<Info>*) getNextFollowingPage: (BlogInfoRetrievalBlock) block;
+- (void) getNextFollowingPage: (BlogInfoRetrievalBlock) block;
 
 @end

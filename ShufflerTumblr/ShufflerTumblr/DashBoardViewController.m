@@ -7,7 +7,8 @@
 //
 
 #import "DashBoardViewController.h"
-#import "keys.h"
+#import "User.h"
+#import "Audio.h"
 
 @interface DashBoardViewController ()
 
@@ -27,8 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _responseData = [[NSMutableData alloc] init];
+    _tabledata = [[NSMutableArray alloc] init];
+    _tableimages = [[NSMutableArray alloc] init];
+    _blogdata = [[NSMutableArray alloc] init];
+    _posts = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
 	// Do any additional setup after loading the view.
+    
+    _headLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     
     NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                              [UIColor whiteColor], UITextAttributeTextColor,
@@ -37,10 +43,20 @@
                                              [UIFont fontWithName:@"BrandonGrotesque-Bold" size:23.0], UITextAttributeFont,
                                              nil];
     [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
-    
-    
-    
-    
+    [[User sharedInstance] getNextPageDashboard:^(NSArray<Post> * posts) {
+        [_posts addObjectsFromArray: posts];
+        
+        for (id<Post> post in posts) {
+            [_tabledata addObject: [post blogName]];
+            Audio * tmp = (Audio*)post;
+            if([post type] == AUDIO && [tmp albumArt] != nil){
+                [_tableimages addObject: [tmp albumArt]];
+            } else {
+                [_tableimages addObject: [UIImage imageNamed:@"play_ico"]];
+            }
+        }
+        [_tableview reloadData];
+    }];
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -51,20 +67,48 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-
+    
 }
 
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [_responseData appendData: data];
+#pragma UITableView delegates
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSString *segueName = [segue identifier];
+    if([segueName isEqualToString: @"dashboard_segue"]){
+        // Place the post in a new view.
+    }
 }
 
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    // it is now safe to use the data elsewhere.
-    NSString* dataS = [NSString stringWithUTF8String:[_responseData bytes]];
-    NSLog(@"Data received %@", dataS);
+-(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    _chosenPost = indexPath.row;
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"dashboard_segue" sender:self];
+    
+}
 
-    [_responseData setData: nil];
+-(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_tabledata count];
+}
+
+-(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    if (cell == nil){
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    cell.textLabel.text = [_tabledata objectAtIndex:indexPath.row];
+    cell.textLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size: 20];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.imageView.image = [_tableimages objectAtIndex: indexPath.row];
+    cell.backgroundView = [[UIImageView alloc]initWithImage: [UIImage imageNamed:@"Blogfront.png"]];
+    return cell;
 }
 
 
+- (void)viewDidUnload {
+    [self setTableview:nil];
+    [self setHeadLabel:nil];
+    [super viewDidUnload];
+}
 @end

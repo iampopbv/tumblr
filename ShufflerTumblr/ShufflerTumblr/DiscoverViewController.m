@@ -59,7 +59,6 @@
                 }
                 
                 [_tableView reloadData];
-                [_blogdata addObject: self];
                 [_blogs addObject: tmpBlog];
             });
         }];
@@ -79,7 +78,7 @@
     // Dispose of any resources that can be recreated.
 }
 
-//#pragma UITableView delegates
+#pragma UITableView delegates
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *segueName = [segue identifier];
     if([segueName isEqualToString: @"discover_segue"]){

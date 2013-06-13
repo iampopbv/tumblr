@@ -25,12 +25,15 @@
 @synthesize type;
 @synthesize latestPostNr;
 @synthesize postTimestamp;
+@synthesize blogName;
 
 -(id) initWithDictionary:(NSDictionary *)dictionary {
 	self = [super init];
 	if (self) {
 		self.posts = [dictionary objectForKey:@"post"];
 		//[self.response objectForKey:@"post"];
+		
+		self.blogName = [dictionary objectForKey: @"blog_name"];
 		self.blog = [dictionary objectForKey:@"blog"];
 		self.playURL = [dictionary objectForKey:@"audio_url"];
 		self.playerEmbed = [dictionary objectForKey:@"player"];

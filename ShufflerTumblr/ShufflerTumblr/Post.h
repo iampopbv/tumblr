@@ -28,6 +28,7 @@ typedef enum {
 @property PostType type;
 @property int latestPostNr;
 @property NSNumber *postTimestamp;
+@property NSString *blogName;
 
 
 -(id)initWithDictionary: (NSDictionary*) dictionary;
