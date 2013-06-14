@@ -32,9 +32,11 @@
     return self;
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     tabledata = [[NSMutableArray alloc] init];
     tableimages = [[NSMutableArray alloc] init];
     blogdata = [[NSMutableArray alloc] init];
@@ -123,6 +125,8 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    UIView *bgColorView = [[UIView alloc] init];
+    [bgColorView setBackgroundColor:[UIColor blackColor]];
     cell.textLabel.text = [tabledata objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size: 20];
     cell.textLabel.backgroundColor = [UIColor clearColor];

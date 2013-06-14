@@ -20,6 +20,12 @@
 		8BE37D77176696C30025B178 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE37D76176696C30025B178 /* CoreMedia.framework */; };
 		A16C4FC61769A95F0049745B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16C4FC51769A95F0049745B /* Social.framework */; };
 		A187A3571727D83900AF4F82 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A187A3561727D83900AF4F82 /* LoginViewController.m */; };
+		A1906E66176A664A00EA2809 /* shumblrlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E65176A664A00EA2809 /* shumblrlogo.png */; };
+		A1906E6A176A780400EA2809 /* shufflersplash.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E69176A780400EA2809 /* shufflersplash.png */; };
+		A1906E6C176A782C00EA2809 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E6B176A782C00EA2809 /* Default.png */; };
+		A1906E70176A791700EA2809 /* shuffler logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E6F176A791700EA2809 /* shuffler logo.png */; };
+		A1906E72176A79B200EA2809 /* shuffler logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E71176A79B200EA2809 /* shuffler logo.png */; };
+		A1906E74176A7BB500EA2809 /* selectedfavorite.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E73176A7BB500EA2809 /* selectedfavorite.png */; };
 		A1FAD702171EA7BC0095EC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD701171EA7BC0095EC7E /* UIKit.framework */; };
 		A1FAD704171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
 		A1FAD706171EA7BC0095EC7E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD705171EA7BC0095EC7E /* CoreGraphics.framework */; };
@@ -187,6 +193,12 @@
 		A16C4FC51769A95F0049745B /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		A187A3551727D83900AF4F82 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		A187A3561727D83900AF4F82 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		A1906E65176A664A00EA2809 /* shumblrlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shumblrlogo.png; sourceTree = "<group>"; };
+		A1906E69176A780400EA2809 /* shufflersplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shufflersplash.png; sourceTree = "<group>"; };
+		A1906E6B176A782C00EA2809 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		A1906E6F176A791700EA2809 /* shuffler logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shuffler logo.png"; sourceTree = "<group>"; };
+		A1906E71176A79B200EA2809 /* shuffler logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shuffler logo.png"; path = "../../../shuffler logo.png"; sourceTree = "<group>"; };
+		A1906E73176A7BB500EA2809 /* selectedfavorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectedfavorite.png; path = ../../../../Downloads/selectedfavorite.png; sourceTree = "<group>"; };
 		A1FAD6FE171EA7BC0095EC7E /* ShufflerTumblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShufflerTumblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FAD701171EA7BC0095EC7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		A1FAD703171EA7BC0095EC7E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -394,6 +406,8 @@
 		A1FAD6F5171EA7BC0095EC7E = {
 			isa = PBXGroup;
 			children = (
+				A1906E6F176A791700EA2809 /* shuffler logo.png */,
+				A1906E6B176A782C00EA2809 /* Default.png */,
 				A16C4FC51769A95F0049745B /* Social.framework */,
 				A1FAD707171EA7BC0095EC7E /* ShufflerTumblr */,
 				A1FAD72E171EA7BC0095EC7E /* ShufflerTumblrTests */,
@@ -538,6 +552,10 @@
 		AF1F827817354ED60001C15E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				A1906E69176A780400EA2809 /* shufflersplash.png */,
+				A1906E65176A664A00EA2809 /* shumblrlogo.png */,
+				A1906E73176A7BB500EA2809 /* selectedfavorite.png */,
+				A1906E71176A79B200EA2809 /* shuffler logo.png */,
 				AFD8A0451769FB4F005E3693 /* play_ico.png */,
 				AFD89FCC17686E19005E3693 /* favoritebutton.png */,
 				AFD89FCD17686E19005E3693 /* Navigationbar1.png */,
@@ -933,6 +951,12 @@
 				AFD8A03E1769C239005E3693 /* UIActivityTumblr@2x~ipad.png in Resources */,
 				AFD8A03F1769C239005E3693 /* UIActivityTumblr~ipad.png in Resources */,
 				AFD8A0461769FB4F005E3693 /* play_ico.png in Resources */,
+				A1906E66176A664A00EA2809 /* shumblrlogo.png in Resources */,
+				A1906E6A176A780400EA2809 /* shufflersplash.png in Resources */,
+				A1906E6C176A782C00EA2809 /* Default.png in Resources */,
+				A1906E70176A791700EA2809 /* shuffler logo.png in Resources */,
+				A1906E72176A79B200EA2809 /* shuffler logo.png in Resources */,
+				A1906E74176A7BB500EA2809 /* selectedfavorite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
