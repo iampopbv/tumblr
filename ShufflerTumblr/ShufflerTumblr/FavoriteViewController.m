@@ -38,7 +38,6 @@
     _favouriteData = [NSMutableArray arrayWithArray: [[Favourites sharedManager] getFavourites]];
     [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
         NSArray *tempArray = [response objectForKey:@"liked_posts"];
-        NSLog(@"Response: %@" , response);
         for(int i = 0;i<[tempArray count];i++) {
             NSString *type = [[tempArray objectAtIndex:i] objectForKey:@"type"];
             id<Post> object;
