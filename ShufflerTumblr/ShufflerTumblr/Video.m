@@ -43,7 +43,6 @@
         self.reblogKey = [dictionary objectForKey:@"reblog_key"];
         self.sourceTitle = [dictionary objectForKey: @"source_title"];
         self.caption = [dictionary objectForKey:@"caption"];
-        self.caption = [[NSString alloc] initWithFormat: @"%@%@%@", @"<html><body style='font-family:Lucida Sans Unicode;'>",self.caption , @"</body></html>"];
         self.thumbnailURL = [self.posts objectForKey:@"thumbnail_url"];
         self.thumbnailWidth = [self.posts objectForKey:@"thumbnail_width"];
         self.thumbnailHeight =  [self.posts objectForKey:@"thumbnail_height"];

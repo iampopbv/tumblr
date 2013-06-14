@@ -12,6 +12,8 @@
 		3FBE3CBB17620C89000386D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBA17620C89000386D4 /* Security.framework */; };
 		3FBE3CBF17620D56000386D4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBE17620D56000386D4 /* libxml2.dylib */; };
 		6D01E87A1758BDF3000884FB /* FavouriteBlog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D01E8791758BDF3000884FB /* FavouriteBlog.m */; };
+		6D9F104B176B2D1300AF7C30 /* shuffler logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D9F1038176B2D1300AF7C30 /* shuffler logo.jpg */; };
+		6D9F104D176B2D1300AF7C30 /* Shufflerbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D9F103A176B2D1300AF7C30 /* Shufflerbackground.png */; };
 		7F51BE83172473C300AF3F04 /* Blog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51BE82172473C300AF3F04 /* Blog.m */; };
 		7F9BA4CC1727E66600F26F2C /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CB1727E66600F26F2C /* Video.m */; };
 		7F9BA4CF1727E6E500F26F2C /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9BA4CE1727E6E500F26F2C /* Audio.m */; };
@@ -24,7 +26,6 @@
 		A1906E6A176A780400EA2809 /* shufflersplash.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E69176A780400EA2809 /* shufflersplash.png */; };
 		A1906E6C176A782C00EA2809 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E6B176A782C00EA2809 /* Default.png */; };
 		A1906E70176A791700EA2809 /* shuffler logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E6F176A791700EA2809 /* shuffler logo.png */; };
-		A1906E72176A79B200EA2809 /* shuffler logo.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E71176A79B200EA2809 /* shuffler logo.png */; };
 		A1906E74176A7BB500EA2809 /* selectedfavorite.png in Resources */ = {isa = PBXBuildFile; fileRef = A1906E73176A7BB500EA2809 /* selectedfavorite.png */; };
 		A1FAD702171EA7BC0095EC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD701171EA7BC0095EC7E /* UIKit.framework */; };
 		A1FAD704171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
@@ -157,6 +158,8 @@
 		3FBE3CBE17620D56000386D4 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		6D01E8781758BDF3000884FB /* FavouriteBlog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteBlog.h; sourceTree = "<group>"; };
 		6D01E8791758BDF3000884FB /* FavouriteBlog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteBlog.m; sourceTree = "<group>"; };
+		6D9F1038176B2D1300AF7C30 /* shuffler logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "shuffler logo.jpg"; path = "../Buttons/shuffler logo.jpg"; sourceTree = "<group>"; };
+		6D9F103A176B2D1300AF7C30 /* Shufflerbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shufflerbackground.png; path = ../Buttons/Shufflerbackground.png; sourceTree = "<group>"; };
 		7F51BE81172473C300AF3F04 /* Blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blog.h; sourceTree = "<group>"; };
 		7F51BE82172473C300AF3F04 /* Blog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Blog.m; sourceTree = "<group>"; };
 		7F9BA4C71727D1D600F26F2C /* Post.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Post.h; sourceTree = "<group>"; };
@@ -197,7 +200,6 @@
 		A1906E69176A780400EA2809 /* shufflersplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shufflersplash.png; sourceTree = "<group>"; };
 		A1906E6B176A782C00EA2809 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		A1906E6F176A791700EA2809 /* shuffler logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shuffler logo.png"; sourceTree = "<group>"; };
-		A1906E71176A79B200EA2809 /* shuffler logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shuffler logo.png"; path = "../../../shuffler logo.png"; sourceTree = "<group>"; };
 		A1906E73176A7BB500EA2809 /* selectedfavorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = selectedfavorite.png; path = ../../../../Downloads/selectedfavorite.png; sourceTree = "<group>"; };
 		A1FAD6FE171EA7BC0095EC7E /* ShufflerTumblr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShufflerTumblr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FAD701171EA7BC0095EC7E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -552,10 +554,11 @@
 		AF1F827817354ED60001C15E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				6D9F103A176B2D1300AF7C30 /* Shufflerbackground.png */,
+				6D9F1038176B2D1300AF7C30 /* shuffler logo.jpg */,
 				A1906E69176A780400EA2809 /* shufflersplash.png */,
 				A1906E65176A664A00EA2809 /* shumblrlogo.png */,
 				A1906E73176A7BB500EA2809 /* selectedfavorite.png */,
-				A1906E71176A79B200EA2809 /* shuffler logo.png */,
 				AFD8A0451769FB4F005E3693 /* play_ico.png */,
 				AFD89FCC17686E19005E3693 /* favoritebutton.png */,
 				AFD89FCD17686E19005E3693 /* Navigationbar1.png */,
@@ -955,8 +958,9 @@
 				A1906E6A176A780400EA2809 /* shufflersplash.png in Resources */,
 				A1906E6C176A782C00EA2809 /* Default.png in Resources */,
 				A1906E70176A791700EA2809 /* shuffler logo.png in Resources */,
-				A1906E72176A79B200EA2809 /* shuffler logo.png in Resources */,
 				A1906E74176A7BB500EA2809 /* selectedfavorite.png in Resources */,
+				6D9F104B176B2D1300AF7C30 /* shuffler logo.jpg in Resources */,
+				6D9F104D176B2D1300AF7C30 /* Shufflerbackground.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

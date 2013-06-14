@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12E55" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="idz-EE-YMN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="idz-EE-YMN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -572,6 +572,7 @@
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <state key="selected" backgroundImage="selectedfavorite.png"/>
                                 <state key="highlighted">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -638,33 +639,34 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="2sk-8Z-BLe" firstAttribute="top" secondItem="LBo-wQ-Pgl" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="71o-hh-cTf"/>
                             <constraint firstItem="lPd-2W-p0Y" firstAttribute="leading" secondItem="BT1-AD-TU0" secondAttribute="leading" type="default" id="93y-R8-5M5"/>
                             <constraint firstItem="RpF-nQ-hn5" firstAttribute="trailing" secondItem="BT1-AD-TU0" secondAttribute="trailing" type="default" id="9E5-3S-h8M"/>
                             <constraint firstItem="LBo-wQ-Pgl" firstAttribute="leading" secondItem="BT1-AD-TU0" secondAttribute="leading" constant="-6" id="9oR-qM-uGk"/>
                             <constraint firstItem="0cq-5q-a2N" firstAttribute="top" secondItem="aCt-xq-9Q7" secondAttribute="top" type="default" id="Ceq-Aa-vBo"/>
+                            <constraint firstItem="LBo-wQ-Pgl" firstAttribute="top" secondItem="aCt-xq-9Q7" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Dkt-iC-Rh9"/>
                             <constraint firstItem="MOh-XL-kL2" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="224" id="E5T-ad-XHr"/>
                             <constraint firstItem="LBo-wQ-Pgl" firstAttribute="centerX" secondItem="aCt-xq-9Q7" secondAttribute="centerX" type="default" id="Eq0-gR-lfd"/>
                             <constraint firstItem="my2-tP-XNM" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="31" id="F3d-YZ-cMu"/>
                             <constraint firstItem="2sk-8Z-BLe" firstAttribute="leading" secondItem="BT1-AD-TU0" secondAttribute="leading" type="default" id="FhO-wC-92w"/>
-                            <constraint firstItem="2sk-8Z-BLe" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="254" id="JZR-1F-3Mf"/>
                             <constraint firstAttribute="trailing" secondItem="0cq-5q-a2N" secondAttribute="trailing" constant="40" type="user" id="ORd-WL-NUq"/>
                             <constraint firstItem="MOh-XL-kL2" firstAttribute="leading" secondItem="BT1-AD-TU0" secondAttribute="leading" type="default" id="PRL-Ri-lJC"/>
+                            <constraint firstItem="LBo-wQ-Pgl" firstAttribute="top" secondItem="LKP-y7-4zY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="PXd-IH-5fB"/>
                             <constraint firstItem="LKP-y7-4zY" firstAttribute="leading" secondItem="BT1-AD-TU0" secondAttribute="leading" constant="40" id="T90-Jp-Lmx"/>
-                            <constraint firstItem="aCt-xq-9Q7" firstAttribute="bottom" secondItem="0cq-5q-a2N" secondAttribute="bottom" type="default" id="be9-dG-sRT"/>
-                            <constraint firstItem="LBo-wQ-Pgl" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="39" id="ddE-r1-YEM"/>
                             <constraint firstItem="RpF-nQ-hn5" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="177" id="fqB-je-ieg"/>
                             <constraint firstItem="lPd-2W-p0Y" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="1" id="fuS-Tp-a2l"/>
                             <constraint firstItem="LKP-y7-4zY" firstAttribute="top" secondItem="BT1-AD-TU0" secondAttribute="top" constant="12" id="hjo-19-Kg3"/>
                             <constraint firstItem="2sk-8Z-BLe" firstAttribute="trailing" secondItem="BT1-AD-TU0" secondAttribute="trailing" type="default" id="iZD-yG-lnn"/>
                             <constraint firstItem="LKP-y7-4zY" firstAttribute="top" secondItem="aCt-xq-9Q7" secondAttribute="top" type="default" id="ifb-vS-uHg"/>
                             <constraint firstAttribute="bottom" secondItem="MOh-XL-kL2" secondAttribute="bottom" constant="201" id="mOW-gp-89V"/>
+                            <constraint firstItem="LBo-wQ-Pgl" firstAttribute="top" secondItem="0cq-5q-a2N" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="o83-kt-3B8"/>
                             <constraint firstItem="my2-tP-XNM" firstAttribute="leading" secondItem="BT1-AD-TU0" secondAttribute="leading" constant="-8" id="oEG-gU-7CC"/>
                             <constraint firstItem="lPd-2W-p0Y" firstAttribute="trailing" secondItem="BT1-AD-TU0" secondAttribute="trailing" type="default" id="t4E-GW-sCy"/>
-                            <constraint firstItem="aCt-xq-9Q7" firstAttribute="bottom" secondItem="LKP-y7-4zY" secondAttribute="bottom" type="default" id="vhT-ED-tLR"/>
-                            <constraint firstItem="2sk-8Z-BLe" firstAttribute="centerX" secondItem="MOh-XL-kL2" secondAttribute="centerX" type="default" id="yJN-aQ-u6K"/>
+                            <constraint firstItem="2sk-8Z-BLe" firstAttribute="trailing" secondItem="MOh-XL-kL2" secondAttribute="trailing" type="default" id="yu7-gp-zTk"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="descriptionView" destination="2sk-8Z-BLe" id="rxO-U8-UZW"/>
                         <outlet property="favouriteButton" destination="LKP-y7-4zY" id="wLS-VH-QnX"/>
                         <outlet property="followBlogButton" destination="aCt-xq-9Q7" id="iR6-d2-b9W"/>
                         <outlet property="imageView" destination="LBo-wQ-Pgl" id="Muh-3o-fws"/>
@@ -947,107 +949,15 @@
         <image name="sendbutton.png" width="52" height="40"/>
         <image name="shumblrlogo.png" width="112" height="156"/>
     </resources>
-    <classes>
-        <class className="DashBoardViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DashBoardViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="headLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="DataViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="favouriteButtonTouchUpInside:"/>
-                <relationship kind="action" name="followButtonPressed:"/>
-                <relationship kind="action" name="sharebuttonpressed:"/>
-                <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
-                <relationship kind="outlet" name="dataLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="followBlogButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="loadingIndicator" candidateClass="UIActivityIndicatorView"/>
-                <relationship kind="outlet" name="optionsbalk" candidateClass="UIView"/>
-                <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
-                <relationship kind="outlet" name="sharebutton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="textView" candidateClass="UIView"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="DiscoverViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DiscoverViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="topMessageLabel" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FavoriteViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="textfavorite" candidateClass="UILabel"/>
-            </relationships>
-        </class>
-        <class className="FollowedViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/FollowedViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="LoginViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="clearCredentials"/>
-                <relationship kind="action" name="reauthenticate"/>
-                <relationship kind="outlet" name="webview" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="MenuViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="signInButtonPressed:"/>
-                <relationship kind="outlet" name="listento" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="signinButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="signupbutton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="MyBlogsViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyBlogsViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="RootViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
-        </class>
-        <class className="SinglePostViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/SinglePostViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="sharebuttonpressed:"/>
-                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
-                <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
-                <relationship kind="outlet" name="sharebutton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Yk4-f9-YJj"/>
-        <segue reference="qd4-uL-ugH"/>
         <segue reference="eSA-jM-BfF"/>
         <segue reference="6IC-Ci-QMp"/>
+        <segue reference="qd4-uL-ugH"/>
+        <segue reference="Xgs-us-vdj"/>
     </inferredMetricsTieBreakers>
 </document>

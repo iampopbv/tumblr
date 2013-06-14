@@ -77,6 +77,9 @@ id<postgetter> delegate;
 }
 
 - (void) fillUI {
+	[self.descriptionView setEditable: NO];
+	[self.descriptionView setScrollEnabled: YES];
+	
 	if(self.post.type  == AUDIO){
 		Audio *audioObject = (Audio*)self.post;
 		
@@ -138,7 +141,7 @@ id<postgetter> delegate;
 		}
 		[[_videoView scrollView] setScrollEnabled: NO];
 	}
-	[self.captionView loadHTMLString:[_post caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
+	[self.descriptionView setText:[self.post caption]];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -161,12 +164,12 @@ id<postgetter> delegate;
 - (void)viewDidUnload {
 	[delegate hidePost];
 	[self setScrollView:nil];
-	[self setCaptionView:nil];
 	[self setSharebutton:nil];
 	[self setFavouriteButton:nil];
 	[self setLoadingIndicator:nil];
 	[self setOptionsbalk:nil];
 	[self setFollowBlogButton:nil];
+    [self setDescriptionView:nil];
 	[super viewDidUnload];
 }
 - (IBAction)sharebuttonpressed:(id)sender {
