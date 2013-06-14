@@ -68,6 +68,10 @@
     return [NSString stringWithFormat:@"Video - %@", self.blogName];
 }
 
+-(PostType) getType {
+    return self.type;
+}
+
 -(id)initWithCoder:(NSCoder*) coder {
 	self = [super init];
 	if(self) {

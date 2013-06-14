@@ -37,5 +37,6 @@ typedef enum {
 -(NSString*)getName;
 -(NSString*) getListName;
 -(id)getPostId;
+-(PostType) getType;
 
 @end

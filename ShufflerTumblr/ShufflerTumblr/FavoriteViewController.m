@@ -88,6 +88,12 @@
     }
     
     cell.textLabel.text = [[_favouriteData objectAtIndex:indexPath.row] getListName];
+    if ([[_favouriteData objectAtIndex: indexPath.row] getType] == AUDIO && [[_favouriteData objectAtIndex:indexPath.row] albumArt] != nil) {
+        cell.imageView.image = [[_favouriteData objectAtIndex:indexPath.row] albumArt];
+    } else {
+        cell.imageView.image = [UIImage imageNamed:@"play_ico"];
+    }
+    cell.backgroundView = [[UIImageView alloc]initWithImage: [UIImage imageNamed:@"Blogfront.png"]];
     NSLog(@"Created new cell with text: %@" , cell.textLabel.text);
     return cell;
 }
