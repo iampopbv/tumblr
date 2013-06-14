@@ -201,6 +201,11 @@
     [TMAPIClient sharedInstance].OAuthConsumerKey = kConsumerKey;
     [TMAPIClient sharedInstance].OAuthConsumerSecret = kConsumerSecret;
     
+    NSString * docsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex: 0];
+    // Write away the keys for next time
+    NSString *listPath = [docsDir stringByAppendingPathComponent:@"keys.plist"];
+    
+//    if(![[NSFileManager defaultManager] fileExistsAtPath: listPath]){
     [[TMAPIClient sharedInstance] authenticate:@"Shumbler" callback:^(NSError *error) {
         if(!error){
             NSLog(@"Succes on authentication");
@@ -208,38 +213,31 @@
             [[User sharedInstance] setLoggedIn: YES];
             
             
-            NSString * token = [[TMAPIClient sharedInstance] OAuthToken];
-            NSString * tokenSecret = [[TMAPIClient sharedInstance] OAuthTokenSecret];
-            NSLog(@"token: %@", token);
-            NSLog(@"secret: %@", tokenSecret);
-            
-            
-//            // Write away the keys for next time
-            NSString *toFile = [[NSString alloc] initWithFormat: @"%@\n%@", token, tokenSecret];
-            NSError *error;
-            
-            // Create file manager
-            //NSFileManager *fileMgr = [NSFileManager defaultManager];
-            
-            NSString *documentsDirectory = [NSHomeDirectory()
-                                            stringByAppendingPathComponent:@"Documents"];
-            
-            NSString *filePath = [documentsDirectory
-                                  stringByAppendingPathComponent:@"fileArray.txt"];
-            
-            NSLog(@"string to write:%@",token);
-            // Write to the file
-            [token writeToFile:filePath atomically:YES 
-                            encoding:NSUTF8StringEncoding error:&error];
-            
-        } else {
+//            NSString * token = [[TMAPIClient sharedInstance] OAuthToken];
+//            NSString * tokenSecret = [[TMAPIClient sharedInstance] OAuthTokenSecret];
+//            NSLog(@"token: %@", token);
+//            NSLog(@"secret: %@", tokenSecret);
+//            
+//            
+//            
+//            
+//            if(![[NSFileManager defaultManager] fileExistsAtPath: listPath]){
+//                [[NSFileManager defaultManager] copyItemAtPath: [[NSBundle mainBundle]pathForResource:@"keys" ofType:@"plist" ] toPath:listPath error:nil];
+//            }
+//            NSArray *keysArray = [[NSArray alloc] initWithObjects: token, tokenSecret, nil];
+//            [keysArray writeToFile:listPath atomically:YES];
+
+                    } else {
             // Pop-up for failure
             dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *cellularData = [[UIAlertView alloc] initWithTitle: @"Fout" message:@"U heeft geen toegang gegeven aan Shuffler. U kunt de app niet gebruiken"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
-                [cellularData show];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Fout" message:@"U heeft geen toegang gegeven aan Shuffler. U kunt de app niet gebruiken"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+                [alert show];
             });
             
         }
     }];
+//    } else {
+////        [[TMAPIClient sharedInstance] setOAuthConsumerKey:<#(NSString *)#>]
+//    }
 }
 @end

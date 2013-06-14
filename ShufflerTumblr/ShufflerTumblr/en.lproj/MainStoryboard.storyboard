@@ -40,7 +40,6 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AzW-9M-CXS">
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="287" id="4vn-o4-laT"/>
                                     <constraint firstAttribute="width" constant="298" id="pBo-I6-5kj"/>
                                 </constraints>
                                 <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ifN-Ne-KbL">
@@ -83,10 +82,11 @@
                             <constraint firstAttribute="bottom" secondItem="UYr-7e-VnS" secondAttribute="bottom" constant="20" symbolic="YES" type="default" id="Byj-nV-cIT"/>
                             <constraint firstItem="3jA-A0-ivD" firstAttribute="bottom" secondItem="qgE-mA-dko" secondAttribute="bottom" type="default" id="EB0-SB-ZSZ"/>
                             <constraint firstItem="UYr-7e-VnS" firstAttribute="centerX" secondItem="AzW-9M-CXS" secondAttribute="centerX" type="default" id="HC7-1r-bg5"/>
+                            <constraint firstItem="AzW-9M-CXS" firstAttribute="top" secondItem="m9r-dx-w7q" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Hhd-RW-qU2"/>
                             <constraint firstItem="m9r-dx-w7q" firstAttribute="top" secondItem="qgE-mA-dko" secondAttribute="top" constant="20" symbolic="YES" type="default" id="PVT-j0-72j"/>
                             <constraint firstItem="3jA-A0-ivD" firstAttribute="centerX" secondItem="UYr-7e-VnS" secondAttribute="centerX" type="default" id="emb-zC-PYE"/>
                             <constraint firstItem="UYr-7e-VnS" firstAttribute="top" secondItem="AzW-9M-CXS" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="k3b-oX-esa"/>
-                            <constraint firstItem="3jA-A0-ivD" firstAttribute="centerX" secondItem="qgE-mA-dko" secondAttribute="centerX" type="default" id="l9b-jo-bjI"/>
+                            <constraint firstItem="AzW-9M-CXS" firstAttribute="centerX" secondItem="qgE-mA-dko" secondAttribute="centerX" type="default" id="pYf-0G-7ze"/>
                             <constraint firstItem="AzW-9M-CXS" firstAttribute="leading" secondItem="m9r-dx-w7q" secondAttribute="leading" type="default" id="rvM-lg-4MO"/>
                         </constraints>
                         <connections>
@@ -114,7 +114,7 @@
             <objects>
                 <viewController id="kTZ-rW-4PK" customClass="RootViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1nb-dt-MCL">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="LXo-C3-0Ix">
@@ -244,7 +244,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lrh-Bn-Hvc">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="318" id="5Cy-zp-IX8"/>
                                     <constraint firstAttribute="width" constant="310" id="e0y-6h-Ac3"/>
                                 </constraints>
                                 <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MlO-4d-JRv">
@@ -275,10 +274,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="top" secondItem="015-aW-P2h" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="GnB-IO-XOe"/>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="centerX" secondItem="015-aW-P2h" secondAttribute="centerX" type="default" id="LdM-4z-KQi"/>
                             <constraint firstItem="015-aW-P2h" firstAttribute="top" secondItem="cwE-2W-1ms" secondAttribute="top" constant="20" symbolic="YES" type="default" id="NwA-Zu-5Zq"/>
                             <constraint firstItem="015-aW-P2h" firstAttribute="centerX" secondItem="cwE-2W-1ms" secondAttribute="centerX" type="default" id="etz-Af-o8k"/>
-                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="top" secondItem="cwE-2W-1ms" secondAttribute="top" constant="42" id="h1N-dJ-lYS"/>
-                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="leading" secondItem="cwE-2W-1ms" secondAttribute="leading" constant="6" id="r4O-v2-5F5"/>
+                            <constraint firstItem="lrh-Bn-Hvc" firstAttribute="bottom" secondItem="cwE-2W-1ms" secondAttribute="bottom" type="default" id="hZx-gI-iNb"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Dashboard" image="home_ico.png" id="eUt-bc-JHE"/>
@@ -352,7 +352,6 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="75" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="roe-e8-edo">
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="318" id="8LF-hX-Jg6"/>
                                     <constraint firstAttribute="width" constant="310" id="abg-XN-HSa"/>
                                 </constraints>
                                 <button key="tableFooterView" hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2nx-32-qbh">
@@ -371,8 +370,8 @@
                                     </connections>
                                 </button>
                                 <connections>
-                                    <outlet property="dataSource" destination="07A-Ex-WNz" id="tIc-CX-JZl"/>
-                                    <outlet property="delegate" destination="07A-Ex-WNz" id="jlG-fr-PiX"/>
+                                    <outlet property="dataSource" destination="KYu-KY-ukQ" id="K0a-Ic-FfW"/>
+                                    <outlet property="delegate" destination="KYu-KY-ukQ" id="TgE-UG-C0v"/>
                                 </connections>
                             </tableView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Listen to your favorites again!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iUb-Q9-KcQ">
@@ -383,10 +382,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="roe-e8-edo" firstAttribute="centerX" secondItem="phz-sw-YCI" secondAttribute="centerX" type="default" id="9j4-FD-MNk"/>
-                            <constraint firstItem="iUb-Q9-KcQ" firstAttribute="leading" secondItem="phz-sw-YCI" secondAttribute="leading" constant="35" id="VKm-83-jiF"/>
-                            <constraint firstItem="iUb-Q9-KcQ" firstAttribute="top" secondItem="phz-sw-YCI" secondAttribute="top" constant="10" id="xbt-9j-1YM"/>
-                            <constraint firstItem="roe-e8-edo" firstAttribute="top" secondItem="iUb-Q9-KcQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="z5k-2L-6Ub"/>
+                            <constraint firstItem="roe-e8-edo" firstAttribute="bottom" secondItem="phz-sw-YCI" secondAttribute="bottom" type="default" id="Bz0-bd-OQm"/>
+                            <constraint firstItem="iUb-Q9-KcQ" firstAttribute="centerX" secondItem="roe-e8-edo" secondAttribute="centerX" type="default" id="QcR-JG-08j"/>
+                            <constraint firstItem="iUb-Q9-KcQ" firstAttribute="top" secondItem="phz-sw-YCI" secondAttribute="top" constant="20" symbolic="YES" type="default" id="YoG-hW-K3g"/>
+                            <constraint firstItem="roe-e8-edo" firstAttribute="centerX" secondItem="phz-sw-YCI" secondAttribute="centerX" type="default" id="aFH-d3-Gwt"/>
+                            <constraint firstItem="roe-e8-edo" firstAttribute="top" secondItem="iUb-Q9-KcQ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gcr-sX-4PU"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="AZg-0H-Hpy"/>
@@ -958,7 +958,6 @@
         <class className="DataViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
             <relationships>
-                <relationship kind="action" name="favouriteButtonTouchUpInside:"/>
                 <relationship kind="action" name="followButtonPressed:"/>
                 <relationship kind="action" name="sharebuttonpressed:"/>
                 <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
@@ -1029,8 +1028,6 @@
         <class className="SinglePostViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SinglePostViewController.h"/>
             <relationships>
-                <relationship kind="action" name="favouriteButtonTouchedUpInside:"/>
-                <relationship kind="action" name="shareButtonPressed:"/>
                 <relationship kind="action" name="sharebuttonpressed:"/>
                 <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
@@ -1048,8 +1045,8 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="Yk4-f9-YJj"/>
-        <segue reference="qd4-uL-ugH"/>
+        <segue reference="rQY-Ji-g1j"/>
         <segue reference="eSA-jM-BfF"/>
-        <segue reference="6IC-Ci-QMp"/>
+        <segue reference="7Rx-iw-sdu"/>
     </inferredMetricsTieBreakers>
 </document>
