@@ -125,6 +125,14 @@
     return cell;
 }
 
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    double cal = (_tableView.contentOffset.y / _tableView.rowHeight) ;
+    if (cal >= [tableObjects count] - 4){
+        // Load new pages
+    }
+}
+
 - (void)viewDidUnload {
     [self setTableView:nil];
     [self setTopMessageLabel:nil];

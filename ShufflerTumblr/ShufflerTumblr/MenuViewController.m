@@ -31,8 +31,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-  
+    
+    
 	// Do any additional setup after loading the view.
     [self testInternetConnection];
     
@@ -60,17 +60,17 @@
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
     logo.frame= CGRectMake(0,0,20,25);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
-
+    
     
     NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                            [UIColor whiteColor], UITextAttributeTextColor,
-                                            [UIColor whiteColor], UITextAttributeTextShadowColor,
-                                            [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
-                                            [UIFont fontWithName:@"BrandonGrotesque-Bold" size:20.0], UITextAttributeFont,
-                                            nil];
+                                             [UIColor whiteColor], UITextAttributeTextColor,
+                                             [UIColor whiteColor], UITextAttributeTextShadowColor,
+                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
+                                             [UIFont fontWithName:@"BrandonGrotesque-Bold" size:20.0], UITextAttributeFont,
+                                             nil];
     [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
     
-
+    
     NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", nil];
     
     // load the 4 featured blogs
@@ -88,7 +88,7 @@
                 } else {
                     [_tableimages addObject: [UIImage imageNamed:@"followed_ico.png"]];
                 }
-          
+                
                 [_tableView reloadData];
                 [_blogdata addObject: self];
                 [_blogs addObject: tmpBlog];
@@ -206,13 +206,29 @@
             NSLog(@"Succes on authentication");
             [self performSegueWithIdentifier: @"login_segue" sender: self];
             [[User sharedInstance] setLoggedIn: YES];
+            
+            
+            NSString * token = [[TMAPIClient sharedInstance] OAuthToken];
+            NSString * tokenSecret = [[TMAPIClient sharedInstance] OAuthTokenSecret];
+            NSLog(@"token: %@", token);
+            NSLog(@"secret: %@", tokenSecret);
+            
+            
+//            // Write away the keys for next time
+//            char *saves = "abcd";
+//            NSData *data = [[NSData alloc] initWithBytes:saves length:4];
+//            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//            NSString *documentsDirectory = [paths objectAtIndex:0];
+//            NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"MyFile"];
+//            [data writeToFile:appFile atomically:YES];
+            
         } else {
             // Pop-up for failure
             dispatch_async(dispatch_get_main_queue(), ^{
                 UIAlertView *cellularData = [[UIAlertView alloc] initWithTitle: @"Fout" message:@"U heeft geen toegang gegeven aan Shuffler. U kunt de app niet gebruiken"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
                 [cellularData show];
             });
-
+            
         }
     }];
 }

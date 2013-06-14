@@ -7,6 +7,7 @@
 //
 
 #import "Favourites.h"
+#import "TMAPIClient.h"
 
 @implementation Favourites
 
@@ -23,7 +24,7 @@
 -(id)init {
     self = [super init];
     if (self) {
-        _favouriteObjects = [[NSMutableArray alloc] init];
+        /*_favouriteObjects = [[NSMutableArray alloc] init];
         NSFileManager *fileMngr = [NSFileManager defaultManager];
         _root = [[[NSHomeDirectory() stringByAppendingPathComponent:@"Documents"] stringByAppendingPathComponent:@"shuffler"] stringByAppendingPathComponent: @"favourites"];
         BOOL dir;
@@ -40,14 +41,14 @@
             NSString *fileURL = [NSString stringWithFormat:@"%@/%@", _root, file];
             id<Post> object = [NSKeyedUnarchiver unarchiveObjectWithFile:fileURL];
             [_favouriteObjects addObject:object];
-        }
+        }*/
 
     }
     return self;
 }
 
 -(void) addFavourite:(id<Post>)post {
-    NSLog(@"--------------------------------Adding New Object to Favourites-------------------------------------");
+    /*NSLog(@"--------------------------------Adding New Object to Favourites-------------------------------------");
     NSString *fileURL = [NSString stringWithFormat:@"%@/%@.plist", _root, [post getName]];
     NSFileManager *fileMngr = [NSFileManager defaultManager];
     if (![fileMngr fileExistsAtPath:fileURL]) {
@@ -59,11 +60,38 @@
         NSLog(@"File already exists, going to remove Object...");
         [self removeFavourite: post];
     }
-    NSLog(@"Finished. Total objects in favoriteObjects: %d", [self.favouriteObjects count]);
+    NSLog(@"Finished. Total objects in favoriteObjects: %d", [self.favouriteObjects count]);*/
+    [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
+        if(!error) {
+            NSLog(@"check");
+            NSArray *tempArray = [response objectForKey:@"liked_posts"];
+            BOOL success = true;
+            for(int i = 0;i<[tempArray count];i++) {
+                NSLog(@"Checking Post ID: %@ with likesArray ID: %@" , [post getPostId] , [[tempArray objectAtIndex:i] objectForKey:@"id"]);
+                if ([[post getPostId] isEqual:[[tempArray objectAtIndex:i] objectForKey:@"id"]]) {
+                    NSLog(@"Object is already favourited");
+                    [self removeFavourite: post];
+                    success = false;
+                    break;
+                }
+            }
+            if (success) {
+                [[TMAPIClient sharedInstance] like:[post getPostId] reblogKey:[post reblogKey] callback:^(id response, NSError *error) {
+                    if(!error) {
+                        NSLog(@"Successfully added favourite to favourites");
+                    } else {
+                        NSLog(@"An error occurred while trying to add favourite");
+                    }
+                }];
+            }
+        } else {
+            NSLog(@"An error occurred!");
+        }
+    }];
 }
 
 -(void) removeFavourite:(id<Post>)post {
-    NSLog(@"--------------------------------Removing Objects from Favourites-------------------------------------");
+    /*(NSLog(@"--------------------------------Removing Objects from Favourites-------------------------------------");
     NSString *fileURL = [NSString stringWithFormat:@"%@/%@.plist", _root, [post getName]];
     NSFileManager *fileMngr = [NSFileManager defaultManager];
     for(int i = 0;i<[_favouriteObjects count];i++) {
@@ -83,7 +111,33 @@
     } else {
         NSLog(@"Error couldn't find file in system: %@" , fileURL);
     }
-    NSLog(@"Finished. Total objects in favoriteObjects: %d", [self.favouriteObjects count]);
+    NSLog(@"Finished. Total objects in favoriteObjects: %d", [self.favouriteObjects count]);*/
+    
+    [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
+        if(!error) {
+            NSLog(@"check");
+            NSArray *tempArray = [response objectForKey:@"liked_posts"];
+            BOOL success = false;
+            for(int i = 0;i<[tempArray count];i++) {
+                NSLog(@"Checking Post ID: %@ with likesArray ID: %@" , [post getPostId] , [[tempArray objectAtIndex:i] objectForKey:@"id"]);
+                if ([[post getPostId] isEqual: [[tempArray objectAtIndex:i] objectForKey:@"id"]]) {
+                    success = true;
+                    break;
+                }
+            }
+            if (success) {
+                [[TMAPIClient sharedInstance] unlike:[post getPostId] reblogKey:[post reblogKey] callback:^(id response, NSError *error) {
+                    if(!error) {
+                        NSLog(@"Successfully removed favourite to favourites");
+                    } else {
+                        NSLog(@"An error occurred while trying to remove favourite:\n%@" , response);
+                    }
+                }];
+            }
+        } else {
+            NSLog(@"An error occurred!");
+        }
+    }];
 }
 
 -(BOOL) checkFavourite: (id) ID {

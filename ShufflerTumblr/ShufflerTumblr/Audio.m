@@ -27,6 +27,7 @@
 @synthesize postTimestamp;
 @synthesize blogName;
 @synthesize postURL;
+@synthesize reblogKey;
 
 -(id) initWithDictionary:(NSDictionary *)dictionary {
 	self = [super init];
@@ -39,8 +40,10 @@
 		self.postURL = [dictionary objectForKey: @"post_url"];
 		self.playURL = [dictionary objectForKey:@"audio_url"];
 		self.playerEmbed = [dictionary objectForKey:@"player"];
+		self.reblogKey = [dictionary objectForKey:@"reblog_key"];
 		self.embed=[dictionary objectForKey: @"embed"];
 		self.ID = [dictionary objectForKey:@"id"];
+		NSLog(@"ID: %@" , self.ID);
 		self.date = [dictionary objectForKey:@"date"];
 		self.caption = [dictionary objectForKey:@"caption"];
 		{
@@ -68,13 +71,13 @@
 }
 
 -(NSString *)getName {
-	NSString *name = [NSString stringWithFormat:@"Audio - %@", self.ID];
+	NSString *name = [NSString stringWithFormat:@"Audio from: %@", self.ID];
 	
 	return name;
 }
 
 -(NSString *) getListName {
-	return [NSString stringWithFormat:@"Audio - %@ - %@", self.artist , self.album];
+	return [NSString stringWithFormat:@"Audio - %@", self.blogName];
 }
 
 -(id)getPostId {
@@ -92,6 +95,7 @@
 		self.embed = [coder decodeObjectForKey:@"embed"];
 		self.ID = [coder decodeObjectForKey:@"id"];
 		self.date = [coder decodeObjectForKey:@"date"];
+		self.reblogKey = [coder decodeObjectForKey:@"reblogKey"];
 		self.caption = [coder decodeObjectForKey:@"caption"];
 		self.trackName = [coder decodeObjectForKey:@"trackname"];
 		self.artist = [coder decodeObjectForKey:@"artist"];
@@ -113,6 +117,7 @@
 	[coder encodeObject:self.embed forKey:@"embed"];
 	[coder encodeObject:self.ID forKey:@"id"];
 	[coder encodeObject:self.date forKey:@"date"];
+	[coder encodeObject:self.reblogKey forKey:@"reblogKey"];
 	[coder encodeObject:self.caption forKey:@"caption"];
 	[coder encodeObject:self.trackName forKey:@"trackname"];
 	[coder encodeObject:self.artist forKey:@"artist"];
@@ -131,7 +136,7 @@
 
 -(NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ - %@ [ %@ ] %@", self.artist, self.trackName, self.playURL, self.caption];
+    return [NSString stringWithFormat:@"%@ - %@ - %@ [ %@ ] %@", self.ID,  self.artist, self.trackName, self.playURL, self.caption];
 }
 
 @end

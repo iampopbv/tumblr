@@ -26,6 +26,7 @@
 @synthesize postTimestamp;
 @synthesize blogName;
 @synthesize postURL;
+@synthesize reblogKey;
 
 -(id) initWithDictionary:(NSDictionary *) dictionary {
     self = [super init];
@@ -39,6 +40,7 @@
         self.playerEmbed = [dictionary objectForKey:@"player"];
         self.ID = [dictionary objectForKey:@"id"];
         self.date = [self.posts objectForKey:@"date"];
+        self.reblogKey = [dictionary objectForKey:@"reblog_key"];
         self.sourceTitle = [dictionary objectForKey: @"source_title"];
         self.caption = [dictionary objectForKey:@"caption"];
         self.caption = [[NSString alloc] initWithFormat: @"%@%@%@", @"<html><body style='font-family:Lucida Sans Unicode;'>",self.caption , @"</body></html>"];
@@ -53,7 +55,7 @@
 }
 
 -(NSString *)getName {
-    NSString *name = [NSString stringWithFormat:@"Video - %@", self.ID];
+    NSString *name = [NSString stringWithFormat:@"Video from: %@", self.ID];
 
     return name;
 }
@@ -63,7 +65,7 @@
 }
 
 -(NSString*)getListName {
-    return [NSString stringWithFormat:@"Video - %@", self.ID];
+    return [NSString stringWithFormat:@"Video - %@", self.blogName];
 }
 
 -(id)initWithCoder:(NSCoder*) coder {
@@ -76,6 +78,7 @@
 		self.playerEmbed = [coder decodeObjectForKey:@"playerembed"];
 		self.ID = [coder decodeObjectForKey:@"id"];
 		self.date = [coder decodeObjectForKey:@"date"];
+        self.reblogKey = [coder decodeObjectForKey:@"reblogKey"];
         self.sourceTitle = [coder decodeObjectForKey:@"sourcetitle"];
 		self.caption = [coder decodeObjectForKey:@"caption"];
         self.thumbnailURL = [coder decodeObjectForKey:@"thumbnailurl"];
@@ -94,6 +97,7 @@
 	[coder encodeObject:self.playerEmbed forKey:@"playerembed"];
 	[coder encodeObject:self.ID forKey:@"id"];
 	[coder encodeObject:self.date forKey:@"date"];
+    [coder encodeObject:self.reblogKey forKey:@"reblogKey"];
     [coder encodeObject:self.sourceTitle forKey:@"sourcetitle"];
 	[coder encodeObject:self.caption forKey:@"caption"];
     [coder encodeObject:self.thumbnailURL forKey:@"thumbnailurl"];

@@ -32,10 +32,16 @@
     logo.frame= CGRectMake(0,0,20,25);
      self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
 	// Do any additional setup after loading the view.
-    _favouriteData = [[Favourites sharedManager] getFavourites];
+    
+    
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    self.navigationController.navigationBar.topItem.title = @"Favorite";
+    [_favouriteData removeAllObjects];
+    _favouriteData = [NSMutableArray arrayWithArray: [[Favourites sharedManager] getFavourites]];
     [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
         NSArray *tempArray = [response objectForKey:@"liked_posts"];
-        NSLog(@"Response: %@" , response);
         for(int i = 0;i<[tempArray count];i++) {
             NSString *type = [[tempArray objectAtIndex:i] objectForKey:@"type"];
             id<Post> object;
@@ -51,11 +57,6 @@
             [_tableView reloadData];
         }
     }];
-    
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    self.navigationController.navigationBar.topItem.title = @"Favorite";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -68,7 +69,6 @@
     if([segueName isEqualToString: @"favourite_segue"]){
         // Place the post in a new view.
         SinglePostViewController *tmp = [segue destinationViewController];
-        NSLog(@"Object: %@", [_favouriteData objectAtIndex: _chosenPost] );
         tmp.post = [_favouriteData objectAtIndex: _chosenPost];
     }
 }
@@ -93,7 +93,6 @@
     UIView *bgColorView = [[UIView alloc] init];
     [bgColorView setBackgroundColor:[UIColor blackColor]];
     cell.textLabel.text = [[_favouriteData objectAtIndex:indexPath.row] getListName];
-    NSLog(@"Created new cell with text: %@" , cell.textLabel.text);
     return cell;
 }
 
