@@ -27,6 +27,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _textfavorite.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
+    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
+    logo.frame= CGRectMake(0,0,20,25);
+     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
 	// Do any additional setup after loading the view.
     
     
@@ -86,6 +90,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
+    UIView *bgColorView = [[UIView alloc] init];
+    [bgColorView setBackgroundColor:[UIColor blackColor]];
     cell.textLabel.text = [[_favouriteData objectAtIndex:indexPath.row] getListName];
     return cell;
 }
@@ -97,4 +103,8 @@
     //_favouriteData = nil;
 }
 
+- (void)viewDidUnload {
+    [self setTextfavorite:nil];
+    [super viewDidUnload];
+}
 @end

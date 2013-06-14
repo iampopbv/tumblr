@@ -57,8 +57,8 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     // }
     
-    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shuffler logo.png"]];
-    logo.frame= CGRectMake(0,0,25,25);
+    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
+    logo.frame= CGRectMake(0,0,20,25);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
     
     
@@ -177,6 +177,10 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    UIView *bgColorView = [[UIView alloc] init];
+    [bgColorView setBackgroundColor:[UIColor blackColor]];
+    [cell setSelectedBackgroundView:bgColorView];
+
     cell.textLabel.text = [_tabledata objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:15];
     cell.textLabel.backgroundColor = [UIColor clearColor];

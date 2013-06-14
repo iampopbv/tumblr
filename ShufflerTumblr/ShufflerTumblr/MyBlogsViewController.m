@@ -37,6 +37,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
+    logo.frame= CGRectMake(0,0,20,25);
+     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
     
     tabledata = [[NSMutableArray alloc] init];
     tableimages = [[NSMutableArray alloc] init];
@@ -102,6 +105,8 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    UIView *bgColorView = [[UIView alloc] init];
+    [bgColorView setBackgroundColor:[UIColor blackColor]];
     cell.textLabel.text = [tabledata objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size: 20];
     cell.textLabel.backgroundColor = [UIColor clearColor];
