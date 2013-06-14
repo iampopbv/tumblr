@@ -211,12 +211,22 @@
             
             
 //            // Write away the keys for next time
-//            char *saves = "abcd";
-//            NSData *data = [[NSData alloc] initWithBytes:saves length:4];
-//            NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//            NSString *documentsDirectory = [paths objectAtIndex:0];
-//            NSString *appFile = [documentsDirectory stringByAppendingPathComponent:@"MyFile"];
-//            [data writeToFile:appFile atomically:YES];
+            NSString *toFile = [[NSString alloc] initWithFormat: @"%@\n%@", token, tokenSecret];
+            NSError *error;
+            
+            // Create file manager
+            //NSFileManager *fileMgr = [NSFileManager defaultManager];
+            
+            NSString *documentsDirectory = [NSHomeDirectory()
+                                            stringByAppendingPathComponent:@"Documents"];
+            
+            NSString *filePath = [documentsDirectory
+                                  stringByAppendingPathComponent:@"fileArray.txt"];
+            
+            NSLog(@"string to write:%@",token);
+            // Write to the file
+            [token writeToFile:filePath atomically:YES 
+                            encoding:NSUTF8StringEncoding error:&error];
             
         } else {
             // Pop-up for failure
