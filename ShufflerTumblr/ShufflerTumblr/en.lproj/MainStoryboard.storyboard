@@ -958,6 +958,7 @@
         <class className="DataViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
             <relationships>
+                <relationship kind="action" name="favouriteButtonTouchUpInside:"/>
                 <relationship kind="action" name="followButtonPressed:"/>
                 <relationship kind="action" name="sharebuttonpressed:"/>
                 <relationship kind="outlet" name="captionView" candidateClass="UIWebView"/>
@@ -1035,12 +1036,6 @@
                 <relationship kind="outlet" name="sharebutton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
-            </relationships>
-        </class>
-        <class className="playerViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/playerViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="playpause:"/>
             </relationships>
         </class>
     </classes>
