@@ -84,6 +84,10 @@
 	return self.ID;
 }
 
+-(PostType) getType {
+	return self.type;
+}
+
 -(id)initWithCoder:(NSCoder*) coder {
 	self = [super init];
 	if(self) {
