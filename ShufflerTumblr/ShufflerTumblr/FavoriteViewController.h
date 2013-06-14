@@ -15,6 +15,7 @@
 
 
 @interface FavoriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UILabel *textfavorite;
 
 @property NSMutableArray *favouriteData;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

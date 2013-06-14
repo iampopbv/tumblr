@@ -37,6 +37,8 @@ id<postgetter> delegate;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    UIBarButtonItem *barButtonAppearance = [UIBarButtonItem appearance];
+	[barButtonAppearance setTintColor:[UIColor blackColor]]; // Change to your colour
     NSLog(@"post: %@", _post);
     if([_post type]  == AUDIO){
 		Audio *audioObject = (Audio*)self.post;
