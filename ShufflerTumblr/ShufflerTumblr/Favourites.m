@@ -47,6 +47,9 @@
     return self;
 }
 
+/**
+ * Adds a favorite post.
+ */
 -(void) addFavourite:(id<Post>)post {
     /*NSLog(@"--------------------------------Adding New Object to Favourites-------------------------------------");
     NSString *fileURL = [NSString stringWithFormat:@"%@/%@.plist", _root, [post getName]];
@@ -90,6 +93,9 @@
     }];
 }
 
+/**
+ * Removes a favorite post.
+ */
 -(void) removeFavourite:(id<Post>)post {
     /*(NSLog(@"--------------------------------Removing Objects from Favourites-------------------------------------");
     NSString *fileURL = [NSString stringWithFormat:@"%@/%@.plist", _root, [post getName]];
@@ -140,6 +146,7 @@
     }];
 }
 
+// Checks whether a fav exist or not
 -(BOOL) checkFavourite: (id) ID {
     for(int i = 0; i <[_favouriteObjects count];i++) {
         if ([[[_favouriteObjects objectAtIndex:i] getPostId] isEqual:ID]) {

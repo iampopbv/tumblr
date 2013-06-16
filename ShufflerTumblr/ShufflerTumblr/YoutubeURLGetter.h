@@ -15,7 +15,9 @@ typedef void (^PageLoadingCompletionBlock)(NSString* youtubeDirectURL);
 extern UIWebView *webHelper;
 extern NSString *ytDirectURLConverterURL;
 
+// Shared manager (Singleton)
 + (id) sharedInstance;
+// Get the raw Youtube link
 - (void) getYoutubeLinkWithURL: (NSString*) youtubeURL withBlock: (PageLoadingCompletionBlock) block;
 
 @end

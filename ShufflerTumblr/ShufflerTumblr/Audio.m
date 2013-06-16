@@ -29,6 +29,7 @@
 @synthesize postURL;
 @synthesize reblogKey;
 
+// Parse the dictionary to the object items
 -(id) initWithDictionary:(NSDictionary *)dictionary {
 	self = [super init];
 	if (self) {
@@ -87,6 +88,7 @@
 	return self.type;
 }
 
+// init the variables
 -(id)initWithCoder:(NSCoder*) coder {
 	self = [super init];
 	if(self) {
@@ -112,6 +114,7 @@
 	return self;
 }
 
+// encode the object
 -(void)encodeWithCoder:(NSCoder*) coder {
 	[coder encodeObject:self.posts forKey:@"post"];
 	[coder encodeObject:self.blog forKey:@"blog"];

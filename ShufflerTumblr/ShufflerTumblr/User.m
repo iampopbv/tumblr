@@ -38,6 +38,8 @@ const int limitNextPage = 5;
     _dashboardOffsetVideo = 0;
 }
 
+
+// Get the next page of the dashboard
 - (void) getNextPageDashboard: (callback) callback {
     __block BOOL _didLoadDashPart1 = NO;
     
@@ -57,11 +59,10 @@ const int limitNextPage = 5;
     [[TMAPIClient sharedInstance] dashboard: paramsDict callback:^(id response, NSError *error) {
         if (!error) {
             NSDictionary *dashboard = response;
-//            NSLog(@"response: %@", response);
+
             // Do the parsing
             NSDictionary *postsDict = [dashboard objectForKey:@"posts"];
             for(NSDictionary *item in postsDict){
-//                NSLog(@"type: %@", [item objectForKey:@"type"]);
                 [posts addObject: [[Audio alloc] initWithDictionary: item]];
             }
             
@@ -135,9 +136,12 @@ const int limitNextPage = 5;
 
 
 - (NSDictionary*) retrieveUserInfo {
-    
+    [NSException raise:@"Unimplemented method" format:@"Unimplemented class/method exception"];
+    return nil;
 }
 
+
+// Get the next page of the followed blogs
 - (void) getNextFollowingPage: (BlogInfoRetrievalBlock) block {
     NSArray * paramsKeys = [[NSArray alloc] initWithObjects:
                             @"limit",

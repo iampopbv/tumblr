@@ -10,17 +10,24 @@
 
 @implementation Blog
 
+// The API key
 const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLNsUPoWLV";
+// The maximum number of new posts
 const int maxNewPosts = 2;
 BOOL hasSetOffset = NO;
 
+/**
+ * Discourage initing a blog without a URL.
+ */
 - (id)init
 {
     [NSException raise:@"NoURLException" format:@"No url passed. Use initWithURL instead"];
     return nil;
 }
 
-
+/**
+ * Init all variables, validate and set the blog URL.
+ */
 - (id)initWithURL: (NSString*) blogURL {
     self = [super init];
     if (self) {
@@ -37,8 +44,6 @@ BOOL hasSetOffset = NO;
         _blogURL = [[NSURL alloc] initWithString: [[NSString alloc] initWithFormat:@"http://api.tumblr.com/v2/blog/%@", blogURL]];
         
         
-        
-        
         _offsetRecentPostsVideo = 0;
         _offsetRecentPostsVideo = 0;
         _retrievedAllRecentAudioPosts = NO;
@@ -49,6 +54,11 @@ BOOL hasSetOffset = NO;
     return self;
 }
 
+
+/**
+ * Gets posts of a type
+ */
+#pragma DEPRECATED
 -(void) getPosts: (PostType) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     NSString *apiType = (type == VIDEO ? @"video" : @"audio");
@@ -107,6 +117,9 @@ BOOL hasSetOffset = NO;
     _offsetRecentPostsVideo = 0;
 }
 
+/**
+ * Download the offsets from the API.
+ */
 -(void) setOffsets {
     [self queryLastPostNrOfType: AUDIO onCompletion:^(int latestPostNr, NSError *error) {
         _audioPosts = latestPostNr;
@@ -117,6 +130,10 @@ BOOL hasSetOffset = NO;
     hasSetOffset = YES;
 }
 
+
+/**
+ * Downloads the next latest page
+ */
 - (void) getNextPageLatest: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
     // If the offsets are not set yet, download them
     if (!hasSetOffset) {
@@ -126,6 +143,7 @@ BOOL hasSetOffset = NO;
     int audioLimit = maxNewPosts;
     int videoLimit = maxNewPosts;
     
+    // Do some checks
     if(_retrievedAllRecentAudioPosts && !_retrievedAllRecentVideoPosts){
         if((_videoPosts - _offsetRecentPostsVideo ) > 5){
             videoLimit = maxNewPosts * 2;
@@ -142,22 +160,22 @@ BOOL hasSetOffset = NO;
         }
     }
     
+//    Debug info
+//    NSLog(@"===============================");
+//    NSLog(@"%@", _blogURL);
+//    NSLog(@"Video limit: %i", videoLimit);
+//    NSLog(@"Audio limit: %i", audioLimit);
+//    NSLog(@"Video offset: %i", _offsetRecentPostsVideo);
+//    NSLog(@"Audio offset: %i", _offsetRecentPostsAudio);
+//    NSLog(@"Video posts: %i", _audioPosts);
+//    NSLog(@"Audio posts: %i", _videoPosts);
+//    NSLog(@"===============================");
     
-    NSLog(@"===============================");
-    NSLog(@"%@", _blogURL);
-    NSLog(@"Video limit: %i", videoLimit);
-    NSLog(@"Audio limit: %i", audioLimit);
-    NSLog(@"Video offset: %i", _offsetRecentPostsVideo);
-    NSLog(@"Audio offset: %i", _offsetRecentPostsAudio);
-    NSLog(@"Video posts: %i", _audioPosts);
-    NSLog(@"Audio posts: %i", _videoPosts);
-    NSLog(@"===============================");
-    
-    
+    // Get the posts
     [self getLatestPosts: block withAudioOffset: _offsetRecentPostsAudio AndVideoOffset: _offsetRecentPostsVideo AndAudioLimit:
      audioLimit AndVideoLimit: videoLimit];
     
-    // Do some checks
+    // Do some after checks and set the offsets
     if((_offsetRecentPostsAudio - _audioPosts) <= maxNewPosts) {
         _offsetRecentPostsAudio += audioLimit; // increase the offset with the amount of retrieved audio posts (limit)
     } else {
@@ -171,9 +189,10 @@ BOOL hasSetOffset = NO;
 }
 
 
+/**
+ * Downloads the previous latest page
+ */
 - (void) getPreviousPageLatest: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
-    
-    
     int audioLimit = maxNewPosts;
     int videoLimit = maxNewPosts;
     
@@ -194,6 +213,9 @@ BOOL hasSetOffset = NO;
     
 }
 
+/**
+ * Downloads posts based on an offset and limit
+ */
 -(void) getLatestPosts: (ShufflerTumblrMultiplePostQueryCompletionBlock) block withAudioOffset: (int) audioOffset AndVideoOffset: (int) videoOffset AndAudioLimit: (int) audioLimit AndVideoLimit: (int) videoLimit {
     
     
@@ -249,30 +271,8 @@ BOOL hasSetOffset = NO;
             }
         }
         
-        
-        //        // Set some booleans for lazy loading
-        //        if(_offsetRecentPostsAudio == 0 && !_retrievedAllRecentAudioPosts){
-        //            _retrievedAllRecentAudioPosts = YES;
-        //        } else if(_offsetRecentPostsAudio == 0 && !_retrievedAllRecentVideoPosts){
-        //            _retrievedAllRecentVideoPosts = YES;
-        //        }
-        //        if(_offsetRecentPostsAudio > maxNewPosts){
-        //            _retrievedAllRecentAudioPosts = NO;
-        //        }
-        //        if(_offsetRecentPostsVideo > maxNewPosts){
-        //            _retrievedAllRecentVideoPosts = NO;
-        //        }
-        //        if((_audioPosts - _offsetRecentPostsAudio) > maxNewPosts){
-        //            _reachedTopAudioPosts = NO;
-        //        }
-        //        if((_videoPosts - _offsetRecentPostsVideo) > maxNewPosts){
-        //            _reachedTopVideoPosts = NO;
-        //        }
-        
-        
-        
-        NSArray<Post> *sortedArr;
         // Sort the posts on timestamp
+        NSArray<Post> *sortedArr;
         NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"postTimestamp" ascending: NO];
         sortedArr = (NSArray<Post>*)[postsMA sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortDescriptor]];
         
@@ -280,6 +280,9 @@ BOOL hasSetOffset = NO;
     });
 }
 
+/**
+ * Downloads blog info.
+ */
 -(void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block {
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	dispatch_async(queue, ^{
@@ -306,6 +309,9 @@ BOOL hasSetOffset = NO;
 }
 
 
+/**
+ * Returns the total post number of a specific type of posts.
+ */
 - (void) queryLastPostNrOfType: (PostType) type onCompletion: (ShufflerTumblrTotalPostQueryCompletionBlock) block {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
 	dispatch_async(queue, ^{

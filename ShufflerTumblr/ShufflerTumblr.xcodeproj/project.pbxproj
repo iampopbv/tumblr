@@ -11,7 +11,6 @@
 		3F7D7BDE175C9341002E552B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC2E3921737B12700521124 /* AVFoundation.framework */; };
 		3FBE3CBB17620C89000386D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBA17620C89000386D4 /* Security.framework */; };
 		3FBE3CBF17620D56000386D4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBE17620D56000386D4 /* libxml2.dylib */; };
-		6D01E87A1758BDF3000884FB /* FavouriteBlog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D01E8791758BDF3000884FB /* FavouriteBlog.m */; };
 		6D9F104B176B2D1300AF7C30 /* shuffler logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 6D9F1038176B2D1300AF7C30 /* shuffler logo.jpg */; };
 		6D9F104D176B2D1300AF7C30 /* Shufflerbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 6D9F103A176B2D1300AF7C30 /* Shufflerbackground.png */; };
 		7F51BE83172473C300AF3F04 /* Blog.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F51BE82172473C300AF3F04 /* Blog.m */; };
@@ -155,8 +154,6 @@
 		3F7EA92F1765F946008DA0CD /* keys.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = keys.h; sourceTree = "<group>"; };
 		3FBE3CBA17620C89000386D4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3FBE3CBE17620D56000386D4 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		6D01E8781758BDF3000884FB /* FavouriteBlog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FavouriteBlog.h; sourceTree = "<group>"; };
-		6D01E8791758BDF3000884FB /* FavouriteBlog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FavouriteBlog.m; sourceTree = "<group>"; };
 		6D9F1038176B2D1300AF7C30 /* shuffler logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "shuffler logo.jpg"; path = "../Buttons/shuffler logo.jpg"; sourceTree = "<group>"; };
 		6D9F103A176B2D1300AF7C30 /* Shufflerbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shufflerbackground.png; path = ../Buttons/Shufflerbackground.png; sourceTree = "<group>"; };
 		7F51BE81172473C300AF3F04 /* Blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Blog.h; sourceTree = "<group>"; };
@@ -444,10 +441,6 @@
 			isa = PBXGroup;
 			children = (
 				AF1F827617354E8A0001C15E /* ViewControllers */,
-				7F51BE81172473C300AF3F04 /* Blog.h */,
-				7F51BE82172473C300AF3F04 /* Blog.m */,
-				6D01E8781758BDF3000884FB /* FavouriteBlog.h */,
-				6D01E8791758BDF3000884FB /* FavouriteBlog.m */,
 				AF1F827917354F250001C15E /* Interface */,
 				AF1F827717354EC40001C15E /* Model */,
 				A1FAD708171EA7BC0095EC7E /* Supporting Files */,
@@ -526,6 +519,8 @@
 		AF1F827717354EC40001C15E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7F51BE81172473C300AF3F04 /* Blog.h */,
+				7F51BE82172473C300AF3F04 /* Blog.m */,
 				AFCFE94F1754D1A500F71EC1 /* User.h */,
 				AFCFE9501754D1A500F71EC1 /* User.m */,
 				7F9BA4C71727D1D600F26F2C /* Post.h */,
@@ -1007,7 +1002,6 @@
 				AF7546411752005F00DEDA96 /* MyBlogsViewController.m in Sources */,
 				AFCFE9511754D1A500F71EC1 /* User.m in Sources */,
 				7FDC456B1757AC640065FA9F /* Favourites.m in Sources */,
-				6D01E87A1758BDF3000884FB /* FavouriteBlog.m in Sources */,
 				AF4AFB15176636E00034B881 /* DiscoverViewController.m in Sources */,
 				AFD8A02B1769C239005E3693 /* JXHTTPDataBody.m in Sources */,
 				AFD8A02C1769C239005E3693 /* JXHTTPFileBody.m in Sources */,

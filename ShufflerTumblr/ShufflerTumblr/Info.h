@@ -10,10 +10,14 @@
 
 @protocol Info <NSObject>
 
-
+/**
+ *
+ */
 @property NSDictionary* blog;
 
+// Fill the object with a response dictionary from the Tumblr API
 -(id) initWithDictionary: (NSDictionary*) data;
+// Fill the object with a blog dictionary from the Tumblr API
 -(id) initWithBlogDictionary:(NSDictionary *) blogDict;
 
 @end

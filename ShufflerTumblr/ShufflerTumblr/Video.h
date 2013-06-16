@@ -9,11 +9,18 @@
 #import <Foundation/Foundation.h>
 #import "Post.h"
 
+/**
+ * Video object.
+ */
 @interface Video : NSObject <Post>
 
+// ThumbnailURL
 @property NSString* thumbnailURL;
+// Thumbnail width
 @property NSString* thumbnailWidth;
+// Thumbnail height
 @property NSString* thumbnailHeight;
+// Source title
 @property NSString* sourceTitle;
 
 @end

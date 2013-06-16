@@ -32,10 +32,12 @@ UIWebView *webHelper;
     return self;
 }
 
+// Get the ID of a youtube url
 - (NSString*) getYTID: (NSString*) youtubeURL {
     return (NSString*)[[youtubeURL componentsSeparatedByCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"="] ]objectAtIndex:1];
 }
 
+// Get the raw YouTube link
 - (void) getYoutubeLinkWithURL: (NSString*) youtubeURL withBlock: (PageLoadingCompletionBlock) block {
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{

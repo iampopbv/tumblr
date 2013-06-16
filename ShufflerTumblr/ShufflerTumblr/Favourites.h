@@ -9,14 +9,24 @@
 #import <Foundation/Foundation.h>
 #import "Post.h"
 
+/**
+ * The Favorites mangager.
+ * It writes and reads the
+ */
 @interface Favourites : NSObject
 
+// The loaded favorites.
 @property NSMutableArray *favouriteObjects;
+// The root directory
 @property NSString *root;
 
+// the Singleton manager
 +(Favourites *)sharedManager;
+// Adds a favorite
 -(void)addFavourite: (id<Post>) post;
+// Removes a favorite
 -(void)removeFavourite: (id<Post>) post;
+// Checks whether a fav exist or not
 -(BOOL)checkFavourite: (id) ID;
 -(NSMutableArray*)getFavourites;
 

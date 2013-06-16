@@ -13,6 +13,7 @@
 
 @synthesize blog;
 
+// Fill the object with a response dictionary from the Tumblr API
 -(id) initWithDictionary:(NSDictionary *) data {
     self = [super init];
     if (self) {
@@ -40,6 +41,7 @@
     return self;
 }
 
+// Fill the object with a blog dictionary from the Tumblr API
 -(id) initWithBlogDictionary:(NSDictionary *) blogDict {
     self = [super init];
     if (self) {
