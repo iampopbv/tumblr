@@ -46,13 +46,12 @@
 		NSLog(@"ID: %@" , self.ID);
 		self.date = [dictionary objectForKey:@"date"];
 		self.caption = [dictionary objectForKey:@"caption"];
-		{
 			NSString*namehtml = [dictionary objectForKey:@"track_name"];
 			if(namehtml)
 			{
-				self.trackName = [[NSAttributedString alloc] initWithString:namehtml];
+				self.trackName = [[NSAttributedString alloc] initWithString: namehtml];
 			}
-		}
+
 		self.artist = [dictionary objectForKey:@"artist"];
 		self.album = [dictionary objectForKey:@"album"];
 		self.albumArtURL = [NSURL URLWithString: [dictionary objectForKey:@"album_art"]];

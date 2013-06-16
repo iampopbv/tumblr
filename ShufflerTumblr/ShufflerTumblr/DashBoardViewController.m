@@ -73,11 +73,32 @@
         [tableObjects addObjectsFromArray: posts];
         
         for (id<Post> post in posts) {
-            [tabledata addObject: [post blogName]];
             Audio * tmp = (Audio*)post;
-            if([post type] == AUDIO && [tmp albumArt] != nil){
-                [tableimages addObject: [tmp albumArt]];
+            if([post type] == AUDIO){
+                NSString *title;
+                
+                //remove the '{}' from the attributed string
+                NSString *trackName = [[tmp trackName] string];
+                if([tmp artist] != nil)
+                    title = [[NSString alloc] initWithFormat: @"%@ - %@", [tmp artist], trackName];
+                else if([tmp trackName] != nil)
+                    title = [[NSString alloc] initWithFormat: @"%@ - %@", [tmp blogName], trackName];
+                else {
+                    title = [tmp blogName];
+                }
+                [tabledata addObject: title];
+                
+                
+                
+                
+                
+                if([tmp albumArt] != nil) {
+                    [tableimages addObject: [tmp albumArt]];
+                } else {
+                    [tableimages addObject: [UIImage imageNamed:@"audio_ico"]];
+                }
             } else {
+                [tabledata addObject: [post blogName]];
                 [tableimages addObject: [UIImage imageNamed:@"play_ico"]];
             }
         }
@@ -144,11 +165,30 @@
             [tableObjects addObjectsFromArray: posts];
             
             for (id<Post> post in posts) {
-                [tabledata addObject: [post blogName]];
                 Audio * tmp = (Audio*)post;
-                if([post type] == AUDIO && [tmp albumArt] != nil){
-                    [tableimages addObject: [tmp albumArt]];
+                if([post type] == AUDIO){
+                    NSString *title;
+                    
+                    //remove the '{}' from the attributed string
+                    NSString *trackName = [[tmp trackName] string];
+                    if([tmp artist] != nil)
+                        title = [[NSString alloc] initWithFormat: @"%@ - %@", [tmp artist], trackName];
+                    else if([tmp trackName] != nil)
+                        title = [[NSString alloc] initWithFormat: @"%@ - %@", [tmp blogName], trackName];
+                    else {
+                        title = [tmp blogName];
+                    }
+                    NSLog(@"title: %@", title);
+                    [tabledata addObject: title];
+                    
+                    
+                    if([tmp albumArt] != nil) {
+                        [tableimages addObject: [tmp albumArt]];
+                    } else {
+                        [tableimages addObject: [UIImage imageNamed:@"audio_ico"]];
+                    }
                 } else {
+                    [tabledata addObject: [post blogName]];
                     [tableimages addObject: [UIImage imageNamed:@"play_ico"]];
                 }
             }
