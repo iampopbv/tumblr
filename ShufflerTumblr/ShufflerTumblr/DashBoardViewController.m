@@ -17,8 +17,7 @@
 
 @implementation DashBoardViewController
 
-@synthesize blogdata;
-@synthesize tabledata;
+@synthesize tableText;
 @synthesize chosenRow;
 @synthesize tableimages;
 @synthesize tableObjects;
@@ -37,14 +36,14 @@
 {
     [super viewDidLoad];
     
-    tabledata = [[NSMutableArray alloc] init];
+    // init the table data holders
+    tableText = [[NSMutableArray alloc] init];
     tableimages = [[NSMutableArray alloc] init];
-    blogdata = [[NSMutableArray alloc] init];
     tableObjects = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
-	// Do any additional setup after loading the view.
     
     _headLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     
+    // If there is something playing make a button to link to it
     // if([...isPlaying]) {
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
@@ -68,7 +67,7 @@
     
     
     
-    
+    // Get the dashboard and display the first 5 items
     [[User sharedInstance] getNextPageDashboard:^(NSArray<Post> * posts) {
         [tableObjects addObjectsFromArray: posts];
         
@@ -86,7 +85,7 @@
                 else {
                     title = [tmp blogName];
                 }
-                [tabledata addObject: title];
+                [tableText addObject: title];
                 
                 
                 
@@ -98,7 +97,7 @@
                     [tableimages addObject: [UIImage imageNamed:@"audio_ico"]];
                 }
             } else {
-                [tabledata addObject: [post blogName]];
+                [tableText addObject: [post blogName]];
                 [tableimages addObject: [UIImage imageNamed:@"play_ico"]];
             }
         }
@@ -136,7 +135,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tabledata count];
+    return [tableText count];
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -148,7 +147,7 @@
     }
     UIView *bgColorView = [[UIView alloc] init];
     [bgColorView setBackgroundColor:[UIColor blackColor]];
-    cell.textLabel.text = [tabledata objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tableText objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size: 20];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.imageView.image = [tableimages objectAtIndex: indexPath.row];
@@ -156,7 +155,7 @@
     return cell;
 }
 
-
+// Lazyloading; when at the end, load a new dashboard page
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     
     double cal = (_tableview.contentOffset.y / _tableview.rowHeight) ;
@@ -179,7 +178,7 @@
                         title = [tmp blogName];
                     }
                     NSLog(@"title: %@", title);
-                    [tabledata addObject: title];
+                    [tableText addObject: title];
                     
                     
                     if([tmp albumArt] != nil) {
@@ -188,7 +187,7 @@
                         [tableimages addObject: [UIImage imageNamed:@"audio_ico"]];
                     }
                 } else {
-                    [tabledata addObject: [post blogName]];
+                    [tableText addObject: [post blogName]];
                     [tableimages addObject: [UIImage imageNamed:@"play_ico"]];
                 }
             }

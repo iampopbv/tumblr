@@ -12,13 +12,18 @@
 #import "TMAPIClient.h"
 #import "Video.h"
 #import "Audio.h"
+#import "PostTableDelegate.h"
 
+/**
+ * Displays the favorite blogs of the logged in user.
+ */
 
-@interface FavoriteViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface FavoriteViewController : UIViewController <PostTableDelegate>
+
+/** UI Components **/
+// The label at the top
 @property (weak, nonatomic) IBOutlet UILabel *textfavorite;
-
-@property NSMutableArray *favouriteData;
+// The tableview where the posts should be placed in.
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property int chosenPost;
 
 @end

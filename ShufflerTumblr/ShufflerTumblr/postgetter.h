@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Post.h"
 
+/**
+ * Protocol for showing a post.
+ */
 @protocol postgetter <NSObject>
 
 -(void)getPost:(id<Post>)post;

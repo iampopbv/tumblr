@@ -10,9 +10,15 @@
 #import "Post.h"
 #import "PostTableDelegate.h"
 
+/**
+ * Displays the audio and video posts of the dashboard of the logged in user.
+ */
 @interface DashBoardViewController : UIViewController <PostTableDelegate>
 
+/** UI Components **/
+// The tableview where the posts should be placed in.
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
+// The label at the top
 @property (weak, nonatomic) IBOutlet UILabel *headLabel;
 
 @end

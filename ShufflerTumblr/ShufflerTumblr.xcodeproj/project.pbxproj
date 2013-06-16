@@ -78,7 +78,6 @@
 		AF4AFB20176668F10034B881 /* brandon_reg.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4B1766053D00B9FFED /* brandon_reg.ttf */; };
 		AF4AFB21176668F10034B881 /* brandon_thin_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4C1766053D00B9FFED /* brandon_thin_it.ttf */; };
 		AF4AFB22176668F10034B881 /* brandon_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1407F4D1766053D00B9FFED /* brandon_thin.ttf */; };
-		AF72CB621757AEE30035CE53 /* DataPostHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AF72CB611757AEE30035CE53 /* DataPostHandler.m */; };
 		AF75462A1751F95800DEDA96 /* home_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7546291751F95800DEDA96 /* home_ico.png */; };
 		AF7546321751FDC000DEDA96 /* followed_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7546311751FDC000DEDA96 /* followed_ico.png */; };
 		AF7546341751FF0B00DEDA96 /* my_blogs_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = AF7546331751FF0B00DEDA96 /* my_blogs_ico.png */; };
@@ -242,13 +241,11 @@
 		AF44E107173E642E0088908D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		AF44E109173E9B820088908D /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		AF44E10A173E9B820088908D /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
-		AF44E10C173E9C830088908D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
-		AF44E10D173E9C830088908D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		AF44E10C173E9C830088908D /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = ShufflerTumblr/Reachability.h; sourceTree = "<group>"; };
+		AF44E10D173E9C830088908D /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = ShufflerTumblr/Reachability.m; sourceTree = "<group>"; };
 		AF44E10F173EB4080088908D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AF4AFB13176636E00034B881 /* DiscoverViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoverViewController.h; sourceTree = "<group>"; };
 		AF4AFB14176636E00034B881 /* DiscoverViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoverViewController.m; sourceTree = "<group>"; };
-		AF72CB601757AEE30035CE53 /* DataPostHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPostHandler.h; sourceTree = "<group>"; };
-		AF72CB611757AEE30035CE53 /* DataPostHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPostHandler.m; sourceTree = "<group>"; };
 		AF7546291751F95800DEDA96 /* home_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home_ico.png; sourceTree = "<group>"; };
 		AF7546311751FDC000DEDA96 /* followed_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = followed_ico.png; sourceTree = "<group>"; };
 		AF7546331751FF0B00DEDA96 /* my_blogs_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = my_blogs_ico.png; sourceTree = "<group>"; };
@@ -427,6 +424,7 @@
 		A1FAD700171EA7BC0095EC7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF428F33176E5C8F00322525 /* Reachability.framework */,
 				A16C4FC51769A95F0049745B /* Social.framework */,
 				AFD89FD61769C239005E3693 /* TumblrSDK.framework */,
 				8BE37D76176696C30025B178 /* CoreMedia.framework */,
@@ -445,7 +443,6 @@
 		A1FAD707171EA7BC0095EC7E /* ShufflerTumblr */ = {
 			isa = PBXGroup;
 			children = (
-				AF72CB5F1757AEBF0035CE53 /* Handler */,
 				AF1F827617354E8A0001C15E /* ViewControllers */,
 				7F51BE81172473C300AF3F04 /* Blog.h */,
 				7F51BE82172473C300AF3F04 /* Blog.m */,
@@ -531,8 +528,6 @@
 			children = (
 				AFCFE94F1754D1A500F71EC1 /* User.h */,
 				AFCFE9501754D1A500F71EC1 /* User.m */,
-				AF44E10C173E9C830088908D /* Reachability.h */,
-				AF44E10D173E9C830088908D /* Reachability.m */,
 				7F9BA4C71727D1D600F26F2C /* Post.h */,
 				7F9BA4CA1727E66600F26F2C /* Video.h */,
 				7F9BA4CB1727E66600F26F2C /* Video.m */,
@@ -605,13 +600,13 @@
 			name = Interface;
 			sourceTree = "<group>";
 		};
-		AF72CB5F1757AEBF0035CE53 /* Handler */ = {
+		AF428F33176E5C8F00322525 /* Reachability.framework */ = {
 			isa = PBXGroup;
 			children = (
-				AF72CB601757AEE30035CE53 /* DataPostHandler.h */,
-				AF72CB611757AEE30035CE53 /* DataPostHandler.m */,
+				AF44E10C173E9C830088908D /* Reachability.h */,
+				AF44E10D173E9C830088908D /* Reachability.m */,
 			);
-			name = Handler;
+			name = Reachability.framework;
 			sourceTree = "<group>";
 		};
 		AF7546381751FFF300DEDA96 /* TabBarViewControllers */ = {
@@ -1013,7 +1008,6 @@
 				AFCFE9511754D1A500F71EC1 /* User.m in Sources */,
 				7FDC456B1757AC640065FA9F /* Favourites.m in Sources */,
 				6D01E87A1758BDF3000884FB /* FavouriteBlog.m in Sources */,
-				AF72CB621757AEE30035CE53 /* DataPostHandler.m in Sources */,
 				AF4AFB15176636E00034B881 /* DiscoverViewController.m in Sources */,
 				AFD8A02B1769C239005E3693 /* JXHTTPDataBody.m in Sources */,
 				AFD8A02C1769C239005E3693 /* JXHTTPFileBody.m in Sources */,

@@ -15,6 +15,11 @@
 
 @implementation FavoriteViewController
 
+@synthesize chosenRow;
+@synthesize tableText;
+@synthesize tableimages;
+@synthesize tableObjects;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -27,19 +32,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // Logo display
     _textfavorite.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
     logo.frame= CGRectMake(0,0,20,25);
      self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
-	// Do any additional setup after loading the view.
     
     
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+    // Download the favorites
     self.navigationController.navigationBar.topItem.title = @"Favorite";
-    [_favouriteData removeAllObjects];
-    _favouriteData = [NSMutableArray arrayWithArray: [[Favourites sharedManager] getFavourites]];
+    [tableText removeAllObjects];
+    tableText = [NSMutableArray arrayWithArray: [[Favourites sharedManager] getFavourites]];
     [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
         NSArray *tempArray = [response objectForKey:@"liked_posts"];
         for(int i = 0;i<[tempArray count];i++) {
@@ -53,15 +61,17 @@
             } else {
                 continue;
             }
-            [_favouriteData addObject: object];
+            [tableText addObject: object];
             [_tableView reloadData];
         }
     }];
 }
 
+
+#pragma UITableView delegate object
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_favouriteData count];
+    return [tableText count];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -69,12 +79,12 @@
     if([segueName isEqualToString: @"favourite_segue"]){
         // Place the post in a new view.
         SinglePostViewController *tmp = [segue destinationViewController];
-        tmp.post = [_favouriteData objectAtIndex: _chosenPost];
+        tmp.post = [tableText objectAtIndex: chosenRow];
     }
 }
 
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _chosenPost = indexPath.row;
+    chosenRow = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [self performSegueWithIdentifier:@"favourite_segue" sender:self];
     
@@ -92,9 +102,9 @@
     
     UIView *bgColorView = [[UIView alloc] init];
     [bgColorView setBackgroundColor:[UIColor blackColor]];
-    cell.textLabel.text = [[_favouriteData objectAtIndex:indexPath.row] getListName];
-    if ([[_favouriteData objectAtIndex: indexPath.row] getType] == AUDIO && [[_favouriteData objectAtIndex:indexPath.row] albumArt] != nil) {
-        cell.imageView.image = [[_favouriteData objectAtIndex:indexPath.row] albumArt];
+    cell.textLabel.text = [[tableText objectAtIndex:indexPath.row] getListName];
+    if ([[tableText objectAtIndex: indexPath.row] getType] == AUDIO && [[tableText objectAtIndex:indexPath.row] albumArt] != nil) {
+        cell.imageView.image = [[tableText objectAtIndex:indexPath.row] albumArt];
     } else {
         cell.imageView.image = [UIImage imageNamed:@"play_ico"];
     }

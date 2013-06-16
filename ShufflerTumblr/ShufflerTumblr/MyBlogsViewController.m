@@ -19,8 +19,7 @@
 
 @implementation MyBlogsViewController
 
-@synthesize blogdata;
-@synthesize tabledata;
+@synthesize tableText;
 @synthesize chosenRow;
 @synthesize tableimages;
 @synthesize tableObjects;
@@ -37,16 +36,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    
+    // Show the shuffler logo
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
     logo.frame= CGRectMake(0,0,20,25);
-     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
     
-    tabledata = [[NSMutableArray alloc] init];
+    // Init the table data holders
+    tableText = [[NSMutableArray alloc] init];
     tableimages = [[NSMutableArray alloc] init];
-    blogdata = [[NSMutableArray alloc] init];
     tableObjects = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
     
-	// Do any additional setup after loading the view.
+    // Download the users info
     [[TMAPIClient sharedInstance] userInfo:^(id response, NSError *error) {
         tableObjects = (NSMutableArray<Info>*)[[NSMutableArray alloc] init];
         
@@ -54,7 +56,7 @@
         for (NSDictionary *blogDict in blogsDict) {
             BlogInfo *tmpBlog = [[BlogInfo alloc] initWithBlogDictionary: blogDict];
             [tableObjects addObject: tmpBlog];
-            [tabledata addObject: [tmpBlog name]];
+            [tableText addObject: [tmpBlog name]];
             [tableimages addObject: [tmpBlog image]];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -95,7 +97,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tabledata count];
+    return [tableText count];
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,7 +109,7 @@
     }
     UIView *bgColorView = [[UIView alloc] init];
     [bgColorView setBackgroundColor:[UIColor blackColor]];
-    cell.textLabel.text = [tabledata objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tableText objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size: 20];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.imageView.image = [tableimages objectAtIndex: indexPath.row];

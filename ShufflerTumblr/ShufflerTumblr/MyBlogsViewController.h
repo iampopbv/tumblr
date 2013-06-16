@@ -10,8 +10,14 @@
 #import "Info.h"
 #import "PostTableDelegate.h"
 
+
+/**
+ * Displays the blogs of the logged in user.
+ */
 @interface MyBlogsViewController : UIViewController <PostTableDelegate>
 
+/** UI Components **/
+// The tableview where the posts should be placed in.
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 

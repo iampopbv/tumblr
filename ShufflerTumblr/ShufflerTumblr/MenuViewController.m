@@ -34,6 +34,7 @@
 {
     [super viewDidAppear:animated];
     
+    // Go to the dashboard if we have the credentials
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LoggedInNavigationController"];
     [vc setModalPresentationStyle: UIModalPresentationFullScreen];
@@ -61,14 +62,7 @@
 {
     
     [super viewDidLoad];
-    
-    
-    
-    
-    
-    
-    
-	// Do any additional setup after loading the view.
+    // Test whether we got interwebss
     [self testInternetConnection];
     
     // init the url getter so youtube urls can be converted anytime later on in a split second!
@@ -79,7 +73,7 @@
     _blogs = [[NSMutableArray alloc] init];
     
     
-    
+    // If playing; show the post
     // if([...isPlaying]) {
     UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
     UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
@@ -92,6 +86,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     // }
     
+    // Display the logo of ShufflerFM in the top
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
     logo.frame= CGRectMake(0,0,20,25);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
@@ -106,6 +101,7 @@
     [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
     
     
+    // The featured blogs
     NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", nil];
     
     // load the 4 featured blogs
@@ -176,10 +172,11 @@
 }
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+    
     // a segue from here should only result in a popup if there is no internet
     if(!_hasInternet){
-        UIAlertView *cellularData = [[UIAlertView alloc] initWithTitle: @"Geen internet" message:@"U heeft een active internetverbinding nodig om Shumbler te kunnen gebruiken"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
-        [cellularData show];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Geen internet" message:@"U heeft een active internetverbinding nodig om Shumbler te kunnen gebruiken"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+        [alert show];
         return NO;
     }
     return YES;
@@ -193,6 +190,7 @@
     }
 }
 
+#pragma UITableView delegate methods
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _chosenBlog = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -224,14 +222,9 @@
     return cell;
 }
 
-- (void)viewDidUnload {
-    [self setListento:nil];
-    [self setSignupbutton:nil];
-    [self setTableView:nil];
-    [self setTableView:nil];
-    [self setSigninButton:nil];
-    [super viewDidUnload];
-}
+
+
+// Login with OAuth and save the credentials
 - (IBAction)signInButtonPressed:(id)sender {
     
     NSString * docsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex: 0];
@@ -248,12 +241,8 @@
                 
                 NSString * token = [[TMAPIClient sharedInstance] OAuthToken];
                 NSString * tokenSecret = [[TMAPIClient sharedInstance] OAuthTokenSecret];
-                NSLog(@"token: %@", token);
-                NSLog(@"secret: %@", tokenSecret);
-                
-                //            if(![[NSFileManager defaultManager] fileExistsAtPath: listPath]){
-                //                [[NSFileManager defaultManager] copyItemAtPath: [[NSBundle mainBundle]pathForResource:@"keys" ofType:@"plist" ] toPath:listPath error:nil];
-                //            }
+
+                // Save the credentials
                 NSArray *keysArray = [[NSArray alloc] initWithObjects: token, tokenSecret, nil];
                 [keysArray writeToFile:listPath atomically:YES];
                 
@@ -275,4 +264,14 @@
         [self performSegueWithIdentifier: @"login_segue" sender: self];
     }
 }
+
+- (void)viewDidUnload {
+    [self setListento:nil];
+    [self setSignupbutton:nil];
+    [self setTableView:nil];
+    [self setTableView:nil];
+    [self setSigninButton:nil];
+    [super viewDidUnload];
+}
+
 @end

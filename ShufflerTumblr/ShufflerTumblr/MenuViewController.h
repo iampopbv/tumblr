@@ -12,23 +12,32 @@
 #import "Blog.h"
 #import "bloggetter.h"
 
+
+/**
+ * The begin page. Here we show some featured blogs and we provide a link to login.
+ */
 @interface MenuViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+// Checks if the Internet is available
 @property Reachability *internetReachableChecker;
+// True when there is Internet available
 @property BOOL hasInternet;
 
+// The featured blogs
 @property NSMutableArray *blogs;
+// The selected blog in the tableview
 @property int chosenBlog;
 @property UIStoryboardSegue *mainSegue;
 
-
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *signupbutton;
-@property (weak, nonatomic) IBOutlet UILabel *listento;
-
+// The data holder for the tabledata
 @property NSMutableArray *tabledata;
 @property NSMutableArray *tableimages;
 @property NSMutableArray *blogdata;
+
+/** UI Components **/
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *signupbutton;
+@property (weak, nonatomic) IBOutlet UILabel *listento;
 @property (weak, nonatomic) IBOutlet UIButton *signinButton;
 
 - (IBAction)signInButtonPressed:(id)sender;

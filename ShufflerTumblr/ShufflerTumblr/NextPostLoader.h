@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * Protocol for showing the next post.
+ */
 @protocol NextPageLoader <NSObject>
 
 -(void)loadNextPage;

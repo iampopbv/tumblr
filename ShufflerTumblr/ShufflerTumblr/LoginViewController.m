@@ -20,9 +20,6 @@
 
 - (id)initWithURL:(NSURL *)inURL {
 	if ((self = [super initWithNibName:@"UserAuthViewController" bundle:nil])) {
-		self.title = @"User Auth";
-		self.navigationItem.prompt = @"Request Authorization for this application";
-		self.userAuthURL = inURL;
 	}
 	
 	return self;
@@ -48,24 +45,6 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(loginSegue) name:@"segueListener" object:nil];
     
-    
-    
-    
-    
-    //	[webview setDelegate:self];
-    //	[webview loadRequest:[NSURLRequest requestWithURL:self.userAuthURL]];
-}
-
-- (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType {
-    // this is a ghetto way to handle this, but it's for when you must use http:// URIs
-    // so that this demo will work correctly, this is an example, DONT.BE.GHETTO
-    //	NSURL *userAuthURL = [(id <MPOAuthAuthenticationMethodOAuthDelegate>)[UIApplication sharedApplication].delegate callbackURLForCompletedUserAuthorization];
-    //	if ([request.URL isEqual:userAuthURL]) {
-    //		[[self navigationController] popViewControllerAnimated:YES];
-    //		return NO;
-    //	}
-    //
-    return YES;
 }
 
 - (void)didReceiveMemoryWarning

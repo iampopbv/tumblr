@@ -9,6 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "Blog.h"
 
+/**
+ * Protocol for showing a post.
+ */
 @protocol bloggetter <NSObject>
 
 -(void)getBlog:(Blog*)blog;

@@ -16,8 +16,7 @@
 
 @implementation DiscoverViewController
 
-@synthesize blogdata;
-@synthesize tabledata;
+@synthesize tableText;
 @synthesize chosenRow;
 @synthesize tableimages;
 @synthesize tableObjects;
@@ -35,22 +34,24 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    // init the table data holders
+    tableText = [[NSMutableArray alloc] init];
+    tableimages = [[NSMutableArray alloc] init];
+    tableObjects = [[NSMutableArray alloc] init];
+    
+    // Show the logo of shuffler up in the top
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
     logo.frame= CGRectMake(0,0,20,25);
      self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
-    // Do any additional setup after loading the view.
-    tabledata = [[NSMutableArray alloc] init];
-    tableimages = [[NSMutableArray alloc] init];
-    blogdata = [[NSMutableArray alloc] init];
-    tableObjects = [[NSMutableArray alloc] init];
+
     
     
     
-    
-    
+    // The featured blogs
     NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", @"http://mvmvmv.tumblr.com/", nil];
     
-    // load the 4 featured blogs
+    // load the featured blogs
     int index = 0;
     
     for(NSString *blogURL in blogURLS){
@@ -60,7 +61,7 @@
                 BlogInfo * blogInfo = info;
                 NSString * capitalizedName = [blogInfo.name uppercaseString];
                 
-                [tabledata addObject: capitalizedName];
+                [tableText addObject: capitalizedName];
                 if ([blogInfo image]) {
                     [tableimages addObject:[blogInfo image]];
                 } else {
@@ -105,7 +106,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tabledata count];
+    return [tableText count];
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -117,7 +118,7 @@
     }
     UIView *bgColorView = [[UIView alloc] init];
     [bgColorView setBackgroundColor:[UIColor blackColor]];
-    cell.textLabel.text = [tabledata objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tableText objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:15];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.imageView.image = [tableimages objectAtIndex: indexPath.row];
@@ -125,6 +126,7 @@
     return cell;
 }
 
+// Load the new page (still needs implemntation by ShufflerFM)
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     
     double cal = (_tableView.contentOffset.y / _tableView.rowHeight) ;

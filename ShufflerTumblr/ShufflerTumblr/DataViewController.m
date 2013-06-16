@@ -40,10 +40,8 @@ id<postgetter> delegate;
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
 	[self fillUI];
 	
-	self.optionsbalk.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"optionsbalk.png"]];
 	
 	_titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
 	
@@ -76,6 +74,7 @@ id<postgetter> delegate;
 	}
 }
 
+// Fills the UI based on what post needs to be displayed
 - (void) fillUI {
 	[self.descriptionView setEditable: NO];
 	[self.descriptionView setScrollEnabled: YES];
@@ -119,11 +118,6 @@ id<postgetter> delegate;
 		 self.attributedtext = [audioObject trackName];*/
 		
 		self.titleLabel.attributedText = [audioObject trackName];
-		if(!audioObject.trackName)
-		{
-			[self.textView setHidden:YES];
-			
-		}
 	} else if(self.post.type == VIDEO){
 		Video * video = (Video*)_post;
 		[_playerContainer setHidden: YES];
@@ -131,6 +125,8 @@ id<postgetter> delegate;
 		[_titleLabel setText: [video sourceTitle]];
 		
 		_videoView.allowsInlineMediaPlayback = YES;
+		
+		// if it is a youtube video, convert it to a direct link for displaying the video
 		if([[video playURL] hasPrefix:@"http://www.youtube.com"] || [[video playURL] hasPrefix:@"https://www.youtube.com"]){
 			[[YoutubeURLGetter sharedInstance]getYoutubeLinkWithURL: [video playURL] withBlock:^(NSString *youtubeDirectURL) {
 				[video setPlayURL: youtubeDirectURL];
@@ -141,12 +137,15 @@ id<postgetter> delegate;
 		}
 		[[_videoView scrollView] setScrollEnabled: NO];
 	}
+	// Set the description
 	[self.descriptionView setText:[self.post caption]];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	NSString *segueName = [segue identifier];
+	
+	// Pass on the post to the embed player
 	if([segueName isEqualToString: @"embedplayer"]){
 		delegate = segue.destinationViewController;
 		[segue.destinationViewController getPost:self.post];
@@ -163,15 +162,15 @@ id<postgetter> delegate;
 
 - (void)viewDidUnload {
 	[delegate hidePost];
-	[self setScrollView:nil];
 	[self setSharebutton:nil];
 	[self setFavouriteButton:nil];
 	[self setLoadingIndicator:nil];
-	[self setOptionsbalk:nil];
 	[self setFollowBlogButton:nil];
     [self setDescriptionView:nil];
 	[super viewDidUnload];
 }
+
+// Show the share options
 - (IBAction)sharebuttonpressed:(id)sender {
 	NSString * extraText = @"I've listened to this song!";
 	NSString *initalText = [[NSString alloc] initWithFormat:@"%@\n%@", extraText, [_post postURL]];
@@ -180,6 +179,8 @@ id<postgetter> delegate;
 	
 	[self presentViewController:objvc animated:YES completion:nil];
 }
+
+// Let the user be able to follow this blog.
 - (IBAction)followButtonPressed:(id)sender {
 	if([[User sharedInstance] loggedIn]) {
 		NSString *blogURL = [[NSString alloc] initWithFormat:@"%@.tumblr.com", [_post blogName]];

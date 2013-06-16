@@ -10,7 +10,13 @@
 #import "Blog.h"
 #import "PostTableDelegate.h"
 
+/**
+ * Displays the followed blogs of the logged in user.
+ */
 @interface FollowedViewController : UIViewController <PostTableDelegate>
+
+/** UI Components **/
+// The tableview where the posts should be placed in.
 @property (weak, nonatomic) IBOutlet UITableView *tableview;
 
 @end

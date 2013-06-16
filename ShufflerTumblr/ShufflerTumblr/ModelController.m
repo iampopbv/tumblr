@@ -50,6 +50,7 @@
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard
 {
     dispatch_semaphore_t sema = dispatch_semaphore_create(0);
+    
     // Return the data view controller for the given index.
     if (([self.pageData count] == 0)) {
         [self.blog getNextPageLatest:^(NSArray<Post> *posts, NSError *error) {

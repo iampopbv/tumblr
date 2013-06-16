@@ -17,8 +17,7 @@
 
 @implementation FollowedViewController
 
-@synthesize blogdata;
-@synthesize tabledata;
+@synthesize tableText;
 @synthesize chosenRow;
 @synthesize tableimages;
 @synthesize tableObjects;
@@ -35,19 +34,22 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    // show th ShufflerFM logo
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
     logo.frame= CGRectMake(0,0,20,25);
 	 self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
-    tabledata = [[NSMutableArray alloc] init];
-    tableimages = [[NSMutableArray alloc] init];
-    blogdata = [[NSMutableArray alloc] init];
-    tableObjects = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
     
-    // Do any additional setup after loading the view.
+    
+    // init the table data holders
+    tableText = [[NSMutableArray alloc] init];
+    tableimages = [[NSMutableArray alloc] init];
+    tableObjects = [[NSMutableArray alloc] init];
+    
+    // Get the next following page
     [[User sharedInstance] getNextFollowingPage:^(NSArray<Info> *blogs) {
         for (BlogInfo *blog in blogs) {
             [tableObjects addObject: blog];
-            [tabledata addObject: [blog name]];
+            [tableText addObject: [blog name]];
             [tableimages addObject: [blog image]];
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -70,6 +72,8 @@
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *segueName = [segue identifier];
+    
+    // Pass on the info of the blog that was selected in the table
     if([segueName isEqualToString: @"followed_segue"]){
         
         BlogInfo *selectedBlogInfo = [tableObjects objectAtIndex:chosenRow];
@@ -89,7 +93,7 @@
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [tabledata count];
+    return [tableText count];
 }
 
 -(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -101,7 +105,7 @@
     }
     UIView *bgColorView = [[UIView alloc] init];
     [bgColorView setBackgroundColor:[UIColor blackColor]];
-    cell.textLabel.text = [tabledata objectAtIndex:indexPath.row];
+    cell.textLabel.text = [tableText objectAtIndex:indexPath.row];
     cell.textLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size: 20];
     cell.textLabel.backgroundColor = [UIColor clearColor];
     cell.imageView.image = [tableimages objectAtIndex: indexPath.row];
@@ -117,7 +121,7 @@
             [[User sharedInstance] getNextFollowingPage:^(NSArray<Info> *blogs) {
                 for (BlogInfo *blog in blogs) {
                     [tableObjects addObject: blog];
-                    [tabledata addObject: [blog name]];
+                    [tableText addObject: [blog name]];
                     [tableimages addObject: [blog image]];
                 }
                 dispatch_async(dispatch_get_main_queue(), ^{

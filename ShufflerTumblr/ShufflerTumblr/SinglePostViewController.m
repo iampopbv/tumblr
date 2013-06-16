@@ -37,9 +37,14 @@ id<postgetter> delegate;
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    // make the backbutton black
     UIBarButtonItem *barButtonAppearance = [UIBarButtonItem appearance];
-	[barButtonAppearance setTintColor:[UIColor blackColor]]; // Change to your colour
-    NSLog(@"post: %@", _post);
+	[barButtonAppearance setTintColor:[UIColor blackColor]]; 
+    
+    
+    // Is this an audio or a video post?
+    // Show the post in an appropiate manner
     if([_post type]  == AUDIO){
 		Audio *audioObject = (Audio*)self.post;
 		
@@ -105,6 +110,7 @@ id<postgetter> delegate;
 }
 
 
+// Embeds a video
 - (void) embedVideo: (NSString*) url {
 	NSString *html = [[NSString alloc] initWithFormat:@"%@%@%@%@", @"<video controls autoplay webkit-playsinline width=\"320\" height=\"225\">", @"<source src=\"", url, @"\" ></video>"];
 	[_videoView loadHTMLString: html baseURL:nil];
@@ -112,12 +118,15 @@ id<postgetter> delegate;
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     NSString *segueName = [segue identifier];
+    
+    // Pass the post
 	if([segueName isEqualToString: @"embedplayer"]){
 		delegate = segue.destinationViewController;
 		[segue.destinationViewController getPost:self.post];
 	}
 }
 
+// Create a share pop-up
 - (IBAction)sharebuttonpressed:(id)sender {
 	NSString * extraText = @"I've listened to this song!";
 	NSString *initalText = [[NSString alloc] initWithFormat:@"%@\n%@", extraText, [_post postURL]];
@@ -127,6 +136,7 @@ id<postgetter> delegate;
 	[self presentViewController:objvc animated:YES completion:nil];
 }
 
+// Create a share pop-up
 - (IBAction)shareButtonPressed:(id)sender {
     NSString *blogURL = [[NSString alloc] initWithFormat:@"%@.tumblr.com", [_post blogName]];
     NSLog(@"blog url: %@", blogURL);

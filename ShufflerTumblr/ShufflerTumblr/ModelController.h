@@ -12,15 +12,24 @@
 
 @class DataViewController;
 
+/**
+ * The model for the data that needs displaying int DataViewController
+ */
+
 @interface ModelController : NSObject <UIPageViewControllerDataSource>
 
-@property Blog*blog;
+// The blog to display
+@property Blog *blog;
+// The link to the RootViewController used for loading new data
 @property RootViewController *rootVC;
+// True if loading new posts
 @property BOOL isLoadingPosts;
 
+// UIPageViewControlelr Delegates
 - (DataViewController *)viewControllerAtIndex:(NSUInteger)index storyboard:(UIStoryboard *)storyboard;
 - (NSUInteger)indexOfViewController:(DataViewController *)viewController;
 
+// Inits with the blogs specified
 -(id)initWithBlog:(Blog*)blog;
 
 

@@ -8,20 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@class MPOAuthAPI;
-
-@interface LoginViewController : UIViewController <UIWebViewDelegate> {
-    
-    IBOutlet UIWebView *webview;
-    NSURL *_userAuthURL;
-    
-    MPOAuthAPI	*_oauthAPI;
-    
-}
-
-@property (nonatomic, readwrite, retain) NSURL *userAuthURL;
-
-- (IBAction)clearCredentials;
-- (IBAction)reauthenticate;
+/**
+ * Used for OAuth login (for later phase)
+ */
+@interface LoginViewController : UIViewController 
 
 @end
