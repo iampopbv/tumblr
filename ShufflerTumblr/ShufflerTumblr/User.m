@@ -83,6 +83,9 @@ const int limitNextPage = 5;
             
         } else {
             // Something went wrong try again.
+            [[TMAPIClient sharedInstance] authenticate:@"Shumbler" callback:^(NSError * error) {
+               // Catch the error
+            }];
         }
     }];
     

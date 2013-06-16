@@ -500,7 +500,7 @@
         <!--Navigation Controller-->
         <scene sceneID="cNO-Xh-61A">
             <objects>
-                <navigationController definesPresentationContext="YES" id="Hol-ui-3hB" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoggedInNavigationController" definesPresentationContext="YES" id="Hol-ui-3hB" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="47U-4K-UEm">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
