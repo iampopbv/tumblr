@@ -402,7 +402,6 @@
 		A1FAD6F5171EA7BC0095EC7E = {
 			isa = PBXGroup;
 			children = (
-				A16C4FC51769A95F0049745B /* Social.framework */,
 				A1FAD707171EA7BC0095EC7E /* ShufflerTumblr */,
 				A1FAD72E171EA7BC0095EC7E /* ShufflerTumblrTests */,
 				A1FAD700171EA7BC0095EC7E /* Frameworks */,
@@ -422,6 +421,7 @@
 		A1FAD700171EA7BC0095EC7E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A16C4FC51769A95F0049745B /* Social.framework */,
 				AFD89FD61769C239005E3693 /* TumblrSDK.framework */,
 				8BE37D76176696C30025B178 /* CoreMedia.framework */,
 				3FBE3CBE17620D56000386D4 /* libxml2.dylib */,
