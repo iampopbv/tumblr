@@ -26,12 +26,12 @@
 @property NSMutableArray<Post> *posts;
 @property (weak, nonatomic) IBOutlet UIView *textView;
 @property (weak, nonatomic) IBOutlet UIView *playerContainer;
+@property (weak, nonatomic) IBOutlet UITextView *descriptionView;
 
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIWebView *videoView;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
-@property (weak, nonatomic) IBOutlet UIWebView *captionView;
 @property AVQueuePlayer * queuePlayer;
 - (IBAction)followButtonPressed:(id)sender;
 
