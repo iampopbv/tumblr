@@ -949,6 +949,97 @@
         <image name="sendbutton.png" width="52" height="40"/>
         <image name="shumblrlogo.png" width="112" height="156"/>
     </resources>
+    <classes>
+        <class className="DashBoardViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DashBoardViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="DataViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DataViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="followButtonPressed:"/>
+                <relationship kind="action" name="sharebuttonpressed:"/>
+                <relationship kind="outlet" name="descriptionView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="followBlogButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loadingIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="sharebutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="DiscoverViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DiscoverViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="topMessageLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FavoriteViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FavoriteViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="textfavorite" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="FollowedViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FollowedViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+        </class>
+        <class className="MenuViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MenuViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="signInButtonPressed:"/>
+                <relationship kind="outlet" name="listento" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="signinButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="signupbutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="MyBlogsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/MyBlogsViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableview" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="RootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RootViewController.h"/>
+        </class>
+        <class className="SinglePostViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SinglePostViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="sharebuttonpressed:"/>
+                <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="playerContainer" candidateClass="UIView"/>
+                <relationship kind="outlet" name="sharebutton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="videoView" candidateClass="UIWebView"/>
+            </relationships>
+        </class>
+        <class className="playerViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/playerViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="playpause:"/>
+                <relationship kind="outlet" name="playTimeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="playpause" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="seekbar" candidateClass="UIProgressView"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
