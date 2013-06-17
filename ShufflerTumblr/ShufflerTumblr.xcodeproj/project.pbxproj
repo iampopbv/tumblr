@@ -127,6 +127,7 @@
 		AFD8A0421769C239005E3693 /* TMOAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD8A0251769C239005E3693 /* TMOAuth.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
 		AFD8A0431769C239005E3693 /* TMTumblrAuthenticator.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD8A0271769C239005E3693 /* TMTumblrAuthenticator.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
 		AFD8A0441769C239005E3693 /* TMSDKFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = AFD8A02A1769C239005E3693 /* TMSDKFunctions.m */; settings = {COMPILER_FLAGS = "-fobjc-arc -DOS_OBJECT_USE_OBJC=0"; }; };
+		AFEC6B79176F4FC400B9050C /* Player.m in Sources */ = {isa = PBXBuildFile; fileRef = AFEC6B78176F4FC400B9050C /* Player.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -348,6 +349,8 @@
 		AFD8A0271769C239005E3693 /* TMTumblrAuthenticator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMTumblrAuthenticator.m; sourceTree = "<group>"; };
 		AFD8A0291769C239005E3693 /* TMSDKFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TMSDKFunctions.h; sourceTree = "<group>"; };
 		AFD8A02A1769C239005E3693 /* TMSDKFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TMSDKFunctions.m; sourceTree = "<group>"; };
+		AFEC6B77176F4FC400B9050C /* Player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Player.h; path = Classes/Player.h; sourceTree = "<group>"; };
+		AFEC6B78176F4FC400B9050C /* Player.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Player.m; path = Classes/Player.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -454,9 +457,9 @@
 			isa = PBXGroup;
 			children = (
 				AF428F4C176E7E5C00322525 /* AppDelegate.h */,
+				AF428F4D176E7E5C00322525 /* AppDelegate.m */,
 				A1407F5A1766054300B9FFED /* Fonts */,
 				AF1F827817354ED60001C15E /* images */,
-				AF428F4D176E7E5C00322525 /* AppDelegate.m */,
 				AF428F4E176E7E5C00322525 /* keys.h */,
 				A1FAD709171EA7BC0095EC7E /* ShufflerTumblr-Info.plist */,
 				AF428FC5176E802500322525 /* ShufflerTumblr-Prefix.pch */,
@@ -522,6 +525,8 @@
 		AF1F827717354EC40001C15E /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AFEC6B77176F4FC400B9050C /* Player.h */,
+				AFEC6B78176F4FC400B9050C /* Player.m */,
 				AF428F36176E7E1200322525 /* Blog.h */,
 				AF428F37176E7E1200322525 /* Blog.m */,
 				AF428F3E176E7E1200322525 /* User.h */,
@@ -1028,6 +1033,7 @@
 				AF428FBF176E7F4F00322525 /* RootViewController.m in Sources */,
 				AF428FC0176E7F4F00322525 /* SinglePostViewController.m in Sources */,
 				AF428FC4176E7F7000322525 /* BlogInfo.m in Sources */,
+				AFEC6B79176F4FC400B9050C /* Player.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
