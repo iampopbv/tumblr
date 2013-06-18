@@ -29,6 +29,8 @@
 
 // Creates a pop-up
 - (IBAction)sharebuttonpressed:(id)sender;
+- (IBAction)followButtonPressed:(id)sender;
+- (IBAction)favoriteButtonPressed:(id)sender;
 
 
 @end

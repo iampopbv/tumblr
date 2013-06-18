@@ -25,5 +25,7 @@
 - (void) playNextPost;
 // Plays the previous post in the playlist
 - (void) playPreviousPost;
+// adds track to the current playlist
+- (void) addToPlaylist: (NSArray<Post>*) posts;
 
 @end

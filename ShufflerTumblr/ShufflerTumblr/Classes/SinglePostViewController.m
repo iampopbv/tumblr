@@ -11,6 +11,7 @@
 #import "Video.h"
 #import "YoutubeURLGetter.h"
 #import "TMAPIClient.h"
+#import "User.h"
 
 @interface SinglePostViewController ()
 
@@ -26,9 +27,6 @@
         // Custom initialization
     }
     return self;
-}
-- (IBAction)favouriteButtonTouchedUpInside:(id)sender {
-    [[Favourites sharedManager] addFavourite: _post];
 }
 
 - (void)viewDidLoad
@@ -91,6 +89,7 @@
 }
 
 
+
 - (void)swipedRight:(id)sender {
     NSLog(@"Swiped right");
     UIView *newPostView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil] objectAtIndex: 0];
@@ -127,21 +126,7 @@
         _postView = newPostView;
     }];
 }
-// Create a share pop-up
-- (IBAction)shareButtonPressed:(id)sender {
-    NSString *blogURL = [[NSString alloc] initWithFormat:@"%@.tumblr.com", [_post blogName]];
-    NSLog(@"blog url: %@", blogURL);
-    [[TMAPIClient sharedInstance] follow: blogURL callback:^(id response, NSError *error) {
-        if(!error){
-            NSLog(@"%@", response);
-        } else {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"Je bent nog niet ingelogd dus je kan nog geen blogs volgen!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
-                [alert show];
-            });
-        }
-    }];
-}
+
 - (void) setPost: (id<Post>) post {
     _post = post;
     
@@ -201,6 +186,61 @@
         [[_videoView scrollView] setScrollEnabled: NO];
     }
     //	[self.captionView loadHTMLString:[_post caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
+}
+
+
+- (IBAction)followButtonPressed:(id)sender {
+    if([[User sharedInstance] loggedIn]) {
+		NSString *blogURL = [[NSString alloc] initWithFormat:@"%@.tumblr.com", [_post blogName]];
+		NSLog(@"blog url: %@", blogURL);
+		[[TMAPIClient sharedInstance] follow: blogURL callback:^(id response, NSError *error) {
+			if(!error){
+				dispatch_async(dispatch_get_main_queue(), ^{
+					NSString *message = [[NSString alloc] initWithFormat: @"Je volgt nu %@", [_post blogName]];
+					UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message: message  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+					[alert show];
+				});
+			} else {
+				dispatch_async(dispatch_get_main_queue(), ^{
+					UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"Je bent nog niet ingelogd dus je kan nog geen blogs volgen!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+					[alert show];
+				});
+			}
+		}];
+	} else {
+		dispatch_async(dispatch_get_main_queue(), ^{
+            
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"Je bent nog niet ingelogd dus je kan nog geen blogs volgen!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+			[alert show];
+            
+		});
+	}
+}
+
+- (IBAction)favoriteButtonPressed:(id)sender {
+    if([[User sharedInstance] loggedIn]) {
+        [[Favourites sharedManager] addFavourite: _post];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Inloggen" message:@"Je bent nog niet ingelogd!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+        [alert show];
+    }
+}
+
+
+// Create a share pop-up
+- (IBAction)shareButtonPressed:(id)sender {
+    NSString *blogURL = [[NSString alloc] initWithFormat:@"%@.tumblr.com", [_post blogName]];
+    NSLog(@"blog url: %@", blogURL);
+    [[TMAPIClient sharedInstance] follow: blogURL callback:^(id response, NSError *error) {
+        if(!error){
+            NSLog(@"%@", response);
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"Je bent nog niet ingelogd dus je kan nog geen blogs volgen!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+                [alert show];
+            });
+        }
+    }];
 }
 
 

@@ -88,9 +88,6 @@
                 [tableText addObject: title];
                 
                 
-                
-                
-                
                 if([tmp albumArt] != nil) {
                     [tableimages addObject: [tmp albumArt]];
                 } else {
