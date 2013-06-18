@@ -223,6 +223,7 @@
 								<string key="NSFrame">{{0, 312}, {320, 256}}</string>
 								<reference key="NSSuperview" ref="33353116"/>
 								<reference key="NSWindow"/>
+								<reference key="NSNextKeyView"/>
 								<object class="NSColor" key="IBUIBackgroundColor">
 									<int key="NSColorSpace">1</int>
 									<bytes key="NSRGB">MSAxIDEAA</bytes>
@@ -299,51 +300,44 @@
 			<array class="NSMutableArray" key="connectionRecords">
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">sharebutton</string>
-						<reference key="source" ref="33353116"/>
-						<reference key="destination" ref="108688052"/>
-					</object>
-					<int key="connectionID">264</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">videoView</string>
-						<reference key="source" ref="33353116"/>
-						<reference key="destination" ref="724238954"/>
-					</object>
-					<int key="connectionID">265</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">imageView</string>
-						<reference key="source" ref="33353116"/>
+						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="712576105"/>
 					</object>
-					<int key="connectionID">266</int>
+					<int key="connectionID">291</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">titleLabel</string>
-						<reference key="source" ref="33353116"/>
+						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="715735428"/>
 					</object>
-					<int key="connectionID">267</int>
+					<int key="connectionID">292</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">favouriteButton</string>
-						<reference key="source" ref="33353116"/>
-						<reference key="destination" ref="335990044"/>
+						<string key="label">videoView</string>
+						<reference key="source" ref="372490531"/>
+						<reference key="destination" ref="724238954"/>
 					</object>
-					<int key="connectionID">268</int>
+					<int key="connectionID">293</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">descriptionLabel</string>
-						<reference key="source" ref="33353116"/>
+						<string key="label">captionView</string>
+						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="822984589"/>
 					</object>
-					<int key="connectionID">269</int>
+					<int key="connectionID">295</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">sharebuttonpressed:</string>
+						<reference key="source" ref="108688052"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">294</int>
 				</object>
 			</array>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1214,7 +1208,6 @@
 					<reference ref="983144487"/>
 					<reference ref="45392613"/>
 				</array>
-				<string key="223.CustomClassName">PostView</string>
 				<string key="223.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<reference key="223.IBUserGuides" ref="0"/>
 				<array key="223.IBViewMetadataConstraints">
@@ -1373,7 +1366,7 @@
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">290</int>
+			<int key="maxID">295</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -1386,70 +1379,16 @@
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">
-					<string key="className">PostView</string>
-					<string key="superclassName">UIView</string>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="descriptionLabel">UITextView</string>
-						<string key="favouriteButton">UIButton</string>
-						<string key="imageView">UIImageView</string>
-						<string key="playerContainer">UIView</string>
-						<string key="sharebutton">UIButton</string>
-						<string key="titleLabel">UILabel</string>
-						<string key="videoView">UIWebView</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="descriptionLabel">
-							<string key="name">descriptionLabel</string>
-							<string key="candidateClassName">UITextView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="favouriteButton">
-							<string key="name">favouriteButton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="imageView">
-							<string key="name">imageView</string>
-							<string key="candidateClassName">UIImageView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="playerContainer">
-							<string key="name">playerContainer</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="sharebutton">
-							<string key="name">sharebutton</string>
-							<string key="candidateClassName">UIButton</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="titleLabel">
-							<string key="name">titleLabel</string>
-							<string key="candidateClassName">UILabel</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="videoView">
-							<string key="name">videoView</string>
-							<string key="candidateClassName">UIWebView</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/PostView.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
 					<string key="className">SinglePostViewController</string>
 					<string key="superclassName">UIViewController</string>
 					<dictionary class="NSMutableDictionary" key="actions">
 						<string key="favouriteButtonTouchedUpInside:">id</string>
-						<string key="loadNewPost:">id</string>
 						<string key="shareButtonPressed:">id</string>
 						<string key="sharebuttonpressed:">id</string>
-						<string key="swipedLeft:">id</string>
-						<string key="swipedRight:">id</string>
 					</dictionary>
 					<dictionary class="NSMutableDictionary" key="actionInfosByName">
 						<object class="IBActionInfo" key="favouriteButtonTouchedUpInside:">
 							<string key="name">favouriteButtonTouchedUpInside:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="loadNewPost:">
-							<string key="name">loadNewPost:</string>
 							<string key="candidateClassName">id</string>
 						</object>
 						<object class="IBActionInfo" key="shareButtonPressed:">
@@ -1460,26 +1399,31 @@
 							<string key="name">sharebuttonpressed:</string>
 							<string key="candidateClassName">id</string>
 						</object>
-						<object class="IBActionInfo" key="swipedLeft:">
-							<string key="name">swipedLeft:</string>
-							<string key="candidateClassName">id</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="outlets">
+						<string key="captionView">UITextView</string>
+						<string key="imageView">UIImageView</string>
+						<string key="titleLabel">UILabel</string>
+						<string key="videoView">UIWebView</string>
+					</dictionary>
+					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
+						<object class="IBToOneOutletInfo" key="captionView">
+							<string key="name">captionView</string>
+							<string key="candidateClassName">UITextView</string>
 						</object>
-						<object class="IBActionInfo" key="swipedRight:">
-							<string key="name">swipedRight:</string>
-							<string key="candidateClassName">id</string>
+						<object class="IBToOneOutletInfo" key="imageView">
+							<string key="name">imageView</string>
+							<string key="candidateClassName">UIImageView</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="titleLabel">
+							<string key="name">titleLabel</string>
+							<string key="candidateClassName">UILabel</string>
+						</object>
+						<object class="IBToOneOutletInfo" key="videoView">
+							<string key="name">videoView</string>
+							<string key="candidateClassName">UIWebView</string>
 						</object>
 					</dictionary>
-					<object class="NSMutableDictionary" key="outlets">
-						<string key="NS.key.0">postView</string>
-						<string key="NS.object.0">PostView</string>
-					</object>
-					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<string key="NS.key.0">postView</string>
-						<object class="IBToOneOutletInfo" key="NS.object.0">
-							<string key="name">postView</string>
-							<string key="candidateClassName">PostView</string>
-						</object>
-					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/SinglePostViewController.h</string>

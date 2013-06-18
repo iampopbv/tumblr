@@ -6,17 +6,18 @@
 //  Copyright (c) 2013 stud. All rights reserved.
 //
 
-#import "SinglePostViewController.h"
+#import "PostViewController.h"
 #import "Audio.h"
 #import "Video.h"
 #import "YoutubeURLGetter.h"
 #import "TMAPIClient.h"
+#import "User.h"
 
-@interface SinglePostViewController ()
+@interface PostViewController ()
 
 @end
 
-@implementation SinglePostViewController
+@implementation PostViewController
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -27,9 +28,7 @@
     }
     return self;
 }
-- (IBAction)favouriteButtonTouchedUpInside:(id)sender {
-    [[Favourites sharedManager] addFavourite: _post];
-}
+
 
 - (void)viewDidLoad
 {
@@ -38,9 +37,24 @@
     
     [self setupView];
     
+}
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    NSString *segueName = [segue identifier];
     
-    
-    
+    // Pass the post
+	if([segueName isEqualToString: @"embedplayer"]){
+	}
 }
 
 - (void) setupView {
@@ -59,26 +73,6 @@
     [self.view addGestureRecognizer:swipeGesture];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-
-// Embeds a video
-- (void) embedVideo: (NSString*) url {
-	NSString *html = [[NSString alloc] initWithFormat:@"%@%@%@%@", @"<video controls autoplay webkit-playsinline width=\"320\" height=\"225\">", @"<source src=\"", url, @"\" ></video>"];
-    [_videoView loadHTMLString: html baseURL:nil];
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString *segueName = [segue identifier];
-    
-    // Pass the post
-	if([segueName isEqualToString: @"embedplayer"]){
-	}
-}
 
 // Create a share pop-up
 - (IBAction)sharebuttonpressed:(id)sender {
@@ -93,7 +87,7 @@
 
 - (void)swipedRight:(id)sender {
     NSLog(@"Swiped right");
-    UIView *newPostView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil] objectAtIndex: 0];
+    UIView *newPostView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil] objectAtIndex:0];
     CGRect newFrame = [newPostView frame];
     newFrame.origin.x -= newFrame.size.width;
     [newPostView setFrame: newFrame];
@@ -107,12 +101,15 @@
         [_postView removeFromSuperview];
         _postView = newPostView;
     }];
+    
+    
+    // Set the previous post
 }
 
 
 - (void)swipedLeft:(id)sender {
     // Load new post
-    UIView *newPostView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil] objectAtIndex: 0];
+    UIView *newPostView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil] objectAtIndex:0];
     CGRect newFrame = [newPostView frame];
     newFrame.origin.x += newFrame.size.width;
     [newPostView setFrame: newFrame];
@@ -126,6 +123,8 @@
         [_postView removeFromSuperview];
         _postView = newPostView;
     }];
+    
+    // Set the new post
 }
 // Create a share pop-up
 - (IBAction)shareButtonPressed:(id)sender {
@@ -142,9 +141,9 @@
         }
     }];
 }
-- (void) setPost: (id<Post>) post {
+
+- (void)setPost:(id<Post>)post {
     _post = post;
-    
     // Is this an audio or a video post?
     // Show the post in an appropiate manner
     if([_post type]  == AUDIO){
@@ -152,7 +151,7 @@
         
         if([audioObject.playerEmbed rangeOfString:@"shockwave"].length || NO )
         {
-            //            [_playerContainer setHidden:YES];
+            //    			[_playerContainer setHidden:YES];
             
             [_imageView setHidden:YES];
             NSString*html = [NSString stringWithFormat:@"%@%@%@%@%@",
@@ -185,7 +184,7 @@
         self.titleLabel.attributedText = [audioObject trackName];
     } else if(self.post.type == VIDEO){
         Video * video = (Video*)_post;
-        //        [_playerContainer setHidden: YES];
+        //    		[_playerContainer setHidden: YES];
         [_imageView setHidden: YES];
         [_titleLabel setText: [video sourceTitle]];
         
@@ -203,10 +202,34 @@
     //	[self.captionView loadHTMLString:[_post caption] baseURL:[NSURL URLWithString:@"//tumblr.com" ]];
 }
 
+// Embeds a video
+- (void) embedVideo: (NSString*) url {
+	NSString *html = [[NSString alloc] initWithFormat:@"%@%@%@%@", @"<video controls autoplay webkit-playsinline width=\"320\" height=\"225\">", @"<source src=\"", url, @"\" ></video>"];
+    [_videoView loadHTMLString: html baseURL:nil];
+}
+
+
 
 -(void)viewDidUnload {
+    [self setCaptionView:nil];
+    [self setVideoView:nil];
+    [self setTitleLabel:nil];
+    [self setImageView:nil];
+    [self setPostView:nil];
     [self setPostView:nil];
     [self setPostView:nil];
 }
 
+- (IBAction)followButtonPressed:(id)sender {
+    
+}
+
+- (IBAction)favoriteButtonPressed:(id)sender {
+    if([[User sharedInstance] loggedIn]) {
+        [[Favourites sharedManager] addFavourite: _post];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Inloggen" message:@"Je bent nog  niet ingelogd!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+        [alert show];
+    }
+}
 @end

@@ -24,7 +24,6 @@
 		A1FAD72B171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
 		A1FAD733171EA7BC0095EC7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD731171EA7BC0095EC7E /* InfoPlist.strings */; };
 		A1FAD736171EA7BC0095EC7E /* ShufflerTumblrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAD735171EA7BC0095EC7E /* ShufflerTumblrTests.m */; };
-		AF172BDE1770454A009E185A /* PostView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF172BDD1770454A009E185A /* PostView.m */; };
 		AF3DB84317708CAA00527DDA /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF3DB84217708CAA00527DDA /* PostView.xib */; };
 		AF428F44176E7E1200322525 /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF428F35176E7E1200322525 /* Audio.m */; };
 		AF428F45176E7E1200322525 /* Blog.m in Sources */ = {isa = PBXBuildFile; fileRef = AF428F37176E7E1200322525 /* Blog.m */; };
@@ -171,8 +170,6 @@
 		A1FAD732171EA7BC0095EC7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1FAD734171EA7BC0095EC7E /* ShufflerTumblrTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShufflerTumblrTests.h; sourceTree = "<group>"; };
 		A1FAD735171EA7BC0095EC7E /* ShufflerTumblrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShufflerTumblrTests.m; sourceTree = "<group>"; };
-		AF172BDC1770454A009E185A /* PostView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PostView.h; path = Classes/PostView.h; sourceTree = "<group>"; };
-		AF172BDD1770454A009E185A /* PostView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PostView.m; path = Classes/PostView.m; sourceTree = "<group>"; };
 		AF3DB84217708CAA00527DDA /* PostView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
 		AF428F34176E7E1200322525 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Audio.h; path = Classes/Audio.h; sourceTree = "<group>"; };
 		AF428F35176E7E1200322525 /* Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Audio.m; path = Classes/Audio.m; sourceTree = "<group>"; };
@@ -489,8 +486,6 @@
 				AF4540EB176F66C400484AE8 /* PlayerViewController.m */,
 				AFEC6BB6176F664100B9050C /* SinglePostViewController.h */,
 				AFEC6BB7176F664100B9050C /* SinglePostViewController.m */,
-				AF172BDC1770454A009E185A /* PostView.h */,
-				AF172BDD1770454A009E185A /* PostView.m */,
 				AF3DB84217708CAA00527DDA /* PostView.xib */,
 			);
 			name = PostControllers;
@@ -1019,7 +1014,6 @@
 				AFEC6B79176F4FC400B9050C /* Player.m in Sources */,
 				AFEC6BB8176F664100B9050C /* SinglePostViewController.m in Sources */,
 				AF4540EC176F66C400484AE8 /* PlayerViewController.m in Sources */,
-				AF172BDE1770454A009E185A /* PostView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

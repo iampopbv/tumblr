@@ -123,8 +123,7 @@
     
 
     SinglePostViewController *vc = [[SinglePostViewController alloc] init];
-    PostView *postView = [[PostView alloc] init];
-    postView = [postView createPostView];
+    UIView *postView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner: vc options:nil] objectAtIndex: 0];
     [vc.view addSubview: postView];
 
     
