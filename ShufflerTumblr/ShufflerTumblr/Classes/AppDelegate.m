@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "RootViewController.h"
 #import "DashBoardViewController.h"
 #import "TMAPIClient.h"
 

@@ -94,7 +94,8 @@ BOOL hasSetOffset = NO;
                             post = [Video alloc];
                             post = [post initWithDictionary: item];
                             break;
-                            
+                        case NONE:
+                            break;
                     }
                     if(post != nil)
                         [posts addObject: post];

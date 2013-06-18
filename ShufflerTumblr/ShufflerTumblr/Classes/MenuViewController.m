@@ -186,7 +186,7 @@
     NSString *segueName = [segue identifier];
     if([segueName isEqualToString: @"segueToBlog"]){
         [[_blogs objectAtIndex:_chosenBlog] reset];
-        [(id<bloggetter>)segue.destinationViewController getBlog: [_blogs objectAtIndex:_chosenBlog]];
+//        [(id<bloggetter>)segue.destinationViewController getBlog: [_blogs objectAtIndex:_chosenBlog]];
     }
 }
 

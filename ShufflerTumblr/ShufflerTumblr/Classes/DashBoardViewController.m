@@ -117,20 +117,21 @@
 }
 
 #pragma UITableView delegates
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString *segueName = [segue identifier];
-    if([segueName isEqualToString: @"dashboard_segue"]){
-        // Place the post in a new view.
-        SinglePostViewController *tmp = [segue destinationViewController];
-        tmp.post = [tableObjects objectAtIndex: chosenRow];
-    }
-}
-
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     chosenRow = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"dashboard_segue" sender:self];
     
+
+    SinglePostViewController *vc = [[SinglePostViewController alloc] init];
+    PostView *postView = [[PostView alloc] init];
+    postView = [postView createPostView];
+    [vc.view addSubview: postView];
+
+    
+    
+    vc.post = [tableObjects objectAtIndex: chosenRow];
+    [vc setPostView: postView];
+    [self.navigationController pushViewController: vc animated: YES];
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

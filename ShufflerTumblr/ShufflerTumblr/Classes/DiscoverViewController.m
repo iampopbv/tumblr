@@ -8,7 +8,6 @@
 
 #import "DiscoverViewController.h"
 #import "Blog.h"
-#import "bloggetter.h"
 
 @interface DiscoverViewController ()
 
@@ -93,7 +92,7 @@
     NSString *segueName = [segue identifier];
     if([segueName isEqualToString: @"discover_segue"]){
         [[tableObjects objectAtIndex: chosenRow] reset];
-        [(id<bloggetter>)segue.destinationViewController getBlog: [tableObjects objectAtIndex: chosenRow]];
+//        [(id<bloggetter>)segue.destinationViewController getBlog: [tableObjects objectAtIndex: chosenRow]];
     }
 }
 

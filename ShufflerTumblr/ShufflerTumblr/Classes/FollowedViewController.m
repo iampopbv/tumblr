@@ -7,7 +7,6 @@
 //
 
 #import "FollowedViewController.h"
-#import "bloggetter.h"
 #import "User.h"
 #import "TMAPIClient.h"
 
@@ -79,7 +78,7 @@
         BlogInfo *selectedBlogInfo = [tableObjects objectAtIndex:chosenRow];
         Blog *blog = [[Blog alloc] initWithURL: [[selectedBlogInfo blogURL] absoluteString]];
         [blog setBlogInfo: selectedBlogInfo];
-        [(id<bloggetter>)segue.destinationViewController getBlog: blog];
+//        [(id<bloggetter>)segue.destinationViewController getBlog: blog];
     }
 }
 
