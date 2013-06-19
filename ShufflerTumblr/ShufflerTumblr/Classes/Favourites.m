@@ -93,6 +93,10 @@
     }];
 }
 
+-(void) gotFavouriteSet: (BOOL) set {
+    _gotFavourite = set;
+}
+
 /**
  * Removes a favorite post.
  */
@@ -147,13 +151,21 @@
 }
 
 // Checks whether a fav exist or not
--(BOOL) checkFavourite: (id) ID {
-    for(int i = 0; i <[_favouriteObjects count];i++) {
-        if ([[[_favouriteObjects objectAtIndex:i] getPostId] isEqual:ID]) {
-            return true;
+-(BOOL) checkFavourite: (id<Post>) post {
+    [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
+        if(!error) {
+            NSArray *tempArray = [response objectForKey:@"liked_posts"];
+            for(int i = 0;i<[tempArray count];i++) {
+                if ([[post getPostId] isEqual: [[tempArray objectAtIndex:i] objectForKey:@"id"]]) {
+                    [self gotFavouriteSet: true];
+                    break;
+                }
+            }
+        } else {
+            [self gotFavouriteSet: false];
         }
-    }
-    return false;
+    }];
+    return _gotFavourite;
 }
 
 -(NSMutableArray*) getFavourites {

@@ -1021,6 +1021,8 @@
         <class className="SinglePostViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/SinglePostViewController.h"/>
             <relationships>
+                <relationship kind="action" name="favouriteButtonTouchedUpInside:"/>
+                <relationship kind="action" name="shareButtonPressed:"/>
                 <relationship kind="action" name="sharebuttonpressed:"/>
                 <relationship kind="outlet" name="favouriteButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
@@ -1046,9 +1048,9 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="qd4-uL-ugH"/>
         <segue reference="eSA-jM-BfF"/>
         <segue reference="Hov-ys-b1q"/>
-        <segue reference="Xgs-us-vdj"/>
+        <segue reference="rQY-Ji-g1j"/>
+        <segue reference="Yk4-f9-YJj"/>
     </inferredMetricsTieBreakers>
 </document>

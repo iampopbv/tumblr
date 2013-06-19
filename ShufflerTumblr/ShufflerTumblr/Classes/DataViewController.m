@@ -35,6 +35,8 @@ id<postgetter> delegate;
 
 - (IBAction)favouriteButtonTouchUpInside:(id)sender {
 	[[Favourites sharedManager] addFavourite: _post];
+    _favouriteButton.selected = [[Favourites sharedManager] checkFavourite: _post];
+    NSLog(_favouriteButton.selected ? @"FavouriteButton is selected" : @"FavouriteButton is not selected");
 }
 
 - (void)viewDidLoad
@@ -47,6 +49,7 @@ id<postgetter> delegate;
 	
 	UIBarButtonItem *barButtonAppearance = [UIBarButtonItem appearance];
 	[barButtonAppearance setTintColor:[UIColor blackColor]]; // Change to your colour
+    _favouriteButton.selected = [[Favourites sharedManager] checkFavourite: _post];
 }
 
 - (void)didReceiveMemoryWarning

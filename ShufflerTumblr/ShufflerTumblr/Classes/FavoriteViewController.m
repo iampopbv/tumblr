@@ -48,6 +48,7 @@
     self.navigationController.navigationBar.topItem.title = @"Favorite";
     [tableText removeAllObjects];
     tableText = [NSMutableArray arrayWithArray: [[Favourites sharedManager] getFavourites]];
+    [_tableView reloadData];
     [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
         NSArray *tempArray = [response objectForKey:@"liked_posts"];
         for(int i = 0;i<[tempArray count];i++) {
