@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "DashBoardViewController.h"
 #import "TMAPIClient.h"
+#import "Player.h"
 
 
 
@@ -20,10 +21,11 @@
 {
     // Override point for customization after application launch.
     [[UINavigationBar appearance] setBackgroundImage: [UIImage imageNamed:@"navigationbar3.png"] forBarMetrics:UIBarMetricsDefault];
-    return YES;
     
-   
-   
+    [[Player sharedInstance] registerBackgroundMode];
+    
+    
+    return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

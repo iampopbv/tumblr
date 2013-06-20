@@ -7,7 +7,7 @@
 //
 
 #import "PlayerViewController.h"
-#import "YoutubeURLGetter.h"
+#import "DirectURLGetter.h"
 
 @interface PlayerViewController ()
 

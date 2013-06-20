@@ -8,7 +8,7 @@
 
 #import "MenuViewController.h"
 #import "Blog.h"
-#import "YoutubeURLGetter.h"
+#import "DirectURLGetter.h"
 #import "TMAPIClient.h"
 #import "TMTumblrAuthenticator.h"
 #import "keys.h"
@@ -52,6 +52,7 @@
         
         [[TMAPIClient sharedInstance] setOAuthToken:tokens[0]];
         [[TMAPIClient sharedInstance] setOAuthTokenSecret:tokens[1]];
+        [[User sharedInstance] setLoggedIn: YES];
         
         [self presentModalViewController: vc animated:YES];
     }
@@ -66,7 +67,7 @@
     [self testInternetConnection];
     
     // init the url getter so youtube urls can be converted anytime later on in a split second!
-    [YoutubeURLGetter sharedInstance];
+    [DirectURLGetter sharedInstance];
     _tabledata = [[NSMutableArray alloc] init];
     _tableimages = [[NSMutableArray alloc] init];
     _blogdata = [[NSMutableArray alloc] init];

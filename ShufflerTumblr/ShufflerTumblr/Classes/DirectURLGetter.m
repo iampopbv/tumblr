@@ -6,17 +6,17 @@
 //  Copyright (c) 2013 stud. All rights reserved.
 //
 
-#import "YoutubeURLGetter.h"
+#import "DirectURLGetter.h"
 
-@implementation YoutubeURLGetter
+@implementation DirectURLGetter
 
 NSString * ytDirectURLConverterURL = @"http://shuffler.fm/youtube/magic?key=Q29yaXRpYmEgbWVsaG9yIHRpbWUgZG8gYnJhc2ls";
 UIWebView *webHelper;
 
 + (id)sharedInstance {
-    static YoutubeURLGetter *instance;
+    static DirectURLGetter *instance;
     static dispatch_once_t predicate;
-    dispatch_once(&predicate, ^{ instance = [[YoutubeURLGetter alloc] init]; });
+    dispatch_once(&predicate, ^{ instance = [[DirectURLGetter alloc] init]; });
     return instance;
 }
 
@@ -67,6 +67,35 @@ UIWebView *webHelper;
             youtubeURL = [webHelper stringByEvaluatingJavaScriptFromString: function];
         });
         block(youtubeURL);
+    });
+}
+
+
+
+- (void) getDirectURLS: (NSArray<Post>*) posts withBlock: (callback) block{
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
+        
+        for (id<Post> post in posts) {
+            NSString *playURL = [post playURL];
+            
+            if ([playURL hasPrefix:@"http://www.youtube."]) {
+                [self getYoutubeLinkWithURL: playURL withBlock:^(NSString *youtubeDirectURL) {
+                    [post setPlayURL: youtubeDirectURL];
+                }];
+            } else
+            
+            // Soundcloud
+            if ([playURL hasPrefix:@""]) {
+                
+            } else
+            
+            // Vimeo
+            if ([playURL hasPrefix:@""]) {
+                
+            }
+        }
+        block(posts);
     });
 }
 

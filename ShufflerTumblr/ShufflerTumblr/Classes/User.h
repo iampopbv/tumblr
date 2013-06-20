@@ -35,7 +35,7 @@
 
 // Completion blocks
 typedef void (^BlogInfoRetrievalBlock)(NSArray<Info>* blogs);
-typedef void (^callback) (NSArray<Post>*);
+typedef void (^callback) (id);
 typedef void (^callbackWithBlogNames) (NSArray<Post>*, NSArray* blognames);
 
 

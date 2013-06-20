@@ -24,13 +24,14 @@
 		A1FAD72B171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
 		A1FAD733171EA7BC0095EC7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD731171EA7BC0095EC7E /* InfoPlist.strings */; };
 		A1FAD736171EA7BC0095EC7E /* ShufflerTumblrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAD735171EA7BC0095EC7E /* ShufflerTumblrTests.m */; };
+		AF1D6E8B1771E3560013CA69 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1D6E8A1771E3560013CA69 /* PlayerView.m */; };
 		AF3DB84317708CAA00527DDA /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF3DB84217708CAA00527DDA /* PostView.xib */; };
+		AF3DB8491771044F00527DDA /* DirectURLGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3DB8481771044F00527DDA /* DirectURLGetter.m */; };
 		AF428F44176E7E1200322525 /* Audio.m in Sources */ = {isa = PBXBuildFile; fileRef = AF428F35176E7E1200322525 /* Audio.m */; };
 		AF428F45176E7E1200322525 /* Blog.m in Sources */ = {isa = PBXBuildFile; fileRef = AF428F37176E7E1200322525 /* Blog.m */; };
 		AF428F46176E7E1200322525 /* Favourites.m in Sources */ = {isa = PBXBuildFile; fileRef = AF428F39176E7E1200322525 /* Favourites.m */; };
 		AF428F49176E7E1200322525 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = AF428F3F176E7E1200322525 /* User.m */; };
 		AF428F4A176E7E1200322525 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = AF428F41176E7E1200322525 /* Video.m */; };
-		AF428F4B176E7E1200322525 /* YoutubeURLGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF428F43176E7E1200322525 /* YoutubeURLGetter.m */; };
 		AF428F4F176E7E5C00322525 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AF428F4D176E7E5C00322525 /* AppDelegate.m */; };
 		AF428F5D176E7E6B00322525 /* Brandon_bld_it.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF428F50176E7E6B00322525 /* Brandon_bld_it.ttf */; };
 		AF428F5E176E7E6B00322525 /* brandon_bld.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AF428F51176E7E6B00322525 /* brandon_bld.ttf */; };
@@ -95,6 +96,8 @@
 		AF428FF5176E843300322525 /* shuffler logo.png in Resources */ = {isa = PBXBuildFile; fileRef = AF428FE1176E843300322525 /* shuffler logo.png */; };
 		AF428FF6176E843300322525 /* Shufflerbackground.png in Resources */ = {isa = PBXBuildFile; fileRef = AF428FE2176E843300322525 /* Shufflerbackground.png */; };
 		AF428FF7176E843300322525 /* Starred.png in Resources */ = {isa = PBXBuildFile; fileRef = AF428FE3176E843300322525 /* Starred.png */; };
+		AF449BAB1773071D004937BC /* pausebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = AF449BA91773071D004937BC /* pausebutton.png */; };
+		AF449BAC1773071D004937BC /* playbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = AF449BAA1773071D004937BC /* playbutton.png */; };
 		AF44E108173E642E0088908D /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44E107173E642E0088908D /* MediaPlayer.framework */; };
 		AF44E110173EB4080088908D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF44E10F173EB4080088908D /* SystemConfiguration.framework */; };
 		AF4540EC176F66C400484AE8 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF4540EB176F66C400484AE8 /* PlayerViewController.m */; };
@@ -170,7 +173,12 @@
 		A1FAD732171EA7BC0095EC7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1FAD734171EA7BC0095EC7E /* ShufflerTumblrTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShufflerTumblrTests.h; sourceTree = "<group>"; };
 		A1FAD735171EA7BC0095EC7E /* ShufflerTumblrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShufflerTumblrTests.m; sourceTree = "<group>"; };
+		AF1D6E8117719E370013CA69 /* LazyLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LazyLoader.h; path = Classes/LazyLoader.h; sourceTree = "<group>"; };
+		AF1D6E891771E3560013CA69 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerView.h; path = Classes/PlayerView.h; sourceTree = "<group>"; };
+		AF1D6E8A1771E3560013CA69 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerView.m; path = Classes/PlayerView.m; sourceTree = "<group>"; };
 		AF3DB84217708CAA00527DDA /* PostView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostView.xib; sourceTree = "<group>"; };
+		AF3DB8471771044F00527DDA /* DirectURLGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DirectURLGetter.h; path = Classes/DirectURLGetter.h; sourceTree = "<group>"; };
+		AF3DB8481771044F00527DDA /* DirectURLGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DirectURLGetter.m; path = Classes/DirectURLGetter.m; sourceTree = "<group>"; };
 		AF428F34176E7E1200322525 /* Audio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Audio.h; path = Classes/Audio.h; sourceTree = "<group>"; };
 		AF428F35176E7E1200322525 /* Audio.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Audio.m; path = Classes/Audio.m; sourceTree = "<group>"; };
 		AF428F36176E7E1200322525 /* Blog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Blog.h; path = Classes/Blog.h; sourceTree = "<group>"; };
@@ -183,8 +191,6 @@
 		AF428F3F176E7E1200322525 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = Classes/User.m; sourceTree = "<group>"; };
 		AF428F40176E7E1200322525 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Video.h; path = Classes/Video.h; sourceTree = "<group>"; };
 		AF428F41176E7E1200322525 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Video.m; path = Classes/Video.m; sourceTree = "<group>"; };
-		AF428F42176E7E1200322525 /* YoutubeURLGetter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YoutubeURLGetter.h; path = Classes/YoutubeURLGetter.h; sourceTree = "<group>"; };
-		AF428F43176E7E1200322525 /* YoutubeURLGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YoutubeURLGetter.m; path = Classes/YoutubeURLGetter.m; sourceTree = "<group>"; };
 		AF428F4C176E7E5C00322525 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = Classes/AppDelegate.h; sourceTree = "<group>"; };
 		AF428F4D176E7E5C00322525 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = Classes/AppDelegate.m; sourceTree = "<group>"; };
 		AF428F4E176E7E5C00322525 /* keys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = keys.h; path = Classes/keys.h; sourceTree = "<group>"; };
@@ -263,6 +269,8 @@
 		AF428FE1176E843300322525 /* shuffler logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shuffler logo.png"; path = "Resources/Images/Buttons/shuffler logo.png"; sourceTree = "<group>"; };
 		AF428FE2176E843300322525 /* Shufflerbackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Shufflerbackground.png; path = Resources/Images/Buttons/Shufflerbackground.png; sourceTree = "<group>"; };
 		AF428FE3176E843300322525 /* Starred.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Starred.png; path = Resources/Images/Buttons/Starred.png; sourceTree = "<group>"; };
+		AF449BA91773071D004937BC /* pausebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pausebutton.png; sourceTree = "<group>"; };
+		AF449BAA1773071D004937BC /* playbutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playbutton.png; sourceTree = "<group>"; };
 		AF44E107173E642E0088908D /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		AF44E10F173EB4080088908D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		AF4540EA176F66C400484AE8 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerViewController.h; path = Classes/PlayerViewController.h; sourceTree = "<group>"; };
@@ -435,6 +443,7 @@
 		A1FAD707171EA7BC0095EC7E /* ShufflerTumblr */ = {
 			isa = PBXGroup;
 			children = (
+				AF1D6E8217719E440013CA69 /* Delegates */,
 				AF1F827617354E8A0001C15E /* ViewControllers */,
 				AF1F827917354F250001C15E /* Interface */,
 				AF1F827717354EC40001C15E /* Model */,
@@ -486,9 +495,20 @@
 				AF4540EB176F66C400484AE8 /* PlayerViewController.m */,
 				AFEC6BB6176F664100B9050C /* SinglePostViewController.h */,
 				AFEC6BB7176F664100B9050C /* SinglePostViewController.m */,
+				AF1D6E891771E3560013CA69 /* PlayerView.h */,
+				AF1D6E8A1771E3560013CA69 /* PlayerView.m */,
 				AF3DB84217708CAA00527DDA /* PostView.xib */,
 			);
 			name = PostControllers;
+			sourceTree = "<group>";
+		};
+		AF1D6E8217719E440013CA69 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				AF428FC1176E7F5E00322525 /* PostTableDelegate.h */,
+				AF1D6E8117719E370013CA69 /* LazyLoader.h */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 		AF1F827617354E8A0001C15E /* ViewControllers */ = {
@@ -523,8 +543,8 @@
 				AF428F3A176E7E1200322525 /* Info.h */,
 				AF428FC2176E7F7000322525 /* BlogInfo.h */,
 				AF428FC3176E7F7000322525 /* BlogInfo.m */,
-				AF428F42176E7E1200322525 /* YoutubeURLGetter.h */,
-				AF428F43176E7E1200322525 /* YoutubeURLGetter.m */,
+				AF3DB8471771044F00527DDA /* DirectURLGetter.h */,
+				AF3DB8481771044F00527DDA /* DirectURLGetter.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -532,6 +552,8 @@
 		AF1F827817354ED60001C15E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AF449BA91773071D004937BC /* pausebutton.png */,
+				AF449BAA1773071D004937BC /* playbutton.png */,
 				AF428FD0176E842F00322525 /* !selectedbuttonbar.png */,
 				AF428FD1176E842F00322525 /* !selectedbuttonbarend.png */,
 				AF428FD2176E842F00322525 /* backgroundbar.png */,
@@ -598,7 +620,6 @@
 		AF7546381751FFF300DEDA96 /* TabBarViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AF428FC1176E7F5E00322525 /* PostTableDelegate.h */,
 				AF428FA0176E7F3200322525 /* DashBoardViewController.h */,
 				AF428FA1176E7F3200322525 /* DashBoardViewController.m */,
 				AF428FA2176E7F3200322525 /* DiscoverViewController.h */,
@@ -942,6 +963,8 @@
 				AF428FF6176E843300322525 /* Shufflerbackground.png in Resources */,
 				AF428FF7176E843300322525 /* Starred.png in Resources */,
 				AF3DB84317708CAA00527DDA /* PostView.xib in Resources */,
+				AF449BAB1773071D004937BC /* pausebutton.png in Resources */,
+				AF449BAC1773071D004937BC /* playbutton.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1000,7 +1023,6 @@
 				AF428F46176E7E1200322525 /* Favourites.m in Sources */,
 				AF428F49176E7E1200322525 /* User.m in Sources */,
 				AF428F4A176E7E1200322525 /* Video.m in Sources */,
-				AF428F4B176E7E1200322525 /* YoutubeURLGetter.m in Sources */,
 				AF428F4F176E7E5C00322525 /* AppDelegate.m in Sources */,
 				AF428F99176E7ED200322525 /* Reachability.m in Sources */,
 				AF428F9C176E7EE800322525 /* MenuViewController.m in Sources */,
@@ -1014,6 +1036,8 @@
 				AFEC6B79176F4FC400B9050C /* Player.m in Sources */,
 				AFEC6BB8176F664100B9050C /* SinglePostViewController.m in Sources */,
 				AF4540EC176F66C400484AE8 /* PlayerViewController.m in Sources */,
+				AF3DB8491771044F00527DDA /* DirectURLGetter.m in Sources */,
+				AF1D6E8B1771E3560013CA69 /* PlayerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

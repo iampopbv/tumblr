@@ -44,7 +44,6 @@
 		self.reblogKey = [dictionary objectForKey:@"reblog_key"];
 		self.embed=[dictionary objectForKey: @"embed"];
 		self.ID = [dictionary objectForKey:@"id"];
-		NSLog(@"ID: %@" , self.ID);
 		self.date = [dictionary objectForKey:@"date"];
 		self.caption = [dictionary objectForKey:@"caption"];
 			NSString*namehtml = [dictionary objectForKey:@"track_name"];
