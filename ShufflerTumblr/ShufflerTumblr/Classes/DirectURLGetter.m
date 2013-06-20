@@ -79,21 +79,27 @@ UIWebView *webHelper;
         for (id<Post> post in posts) {
             NSString *playURL = [post playURL];
             
+            // Hack YouTube :)
             if ([playURL hasPrefix:@"http://www.youtube."]) {
                 [self getYoutubeLinkWithURL: playURL withBlock:^(NSString *youtubeDirectURL) {
                     [post setPlayURL: youtubeDirectURL];
                 }];
             } else
-            
-            // Soundcloud
-            if ([playURL hasPrefix:@""]) {
                 
-            } else
-            
-            // Vimeo
-            if ([playURL hasPrefix:@""]) {
-                
-            }
+                // Hack Tumblr :)
+                if([playURL hasPrefix:@"http://www.tumblr.com/"]) {
+                    [post setPlayURL: [[NSString alloc] initWithFormat: @"%@%@", playURL, @"?plead=please-dont-download-this-or-our-lawyers-wont-let-us-host-audio"]];
+                }else
+                    
+                    // Soundcloud
+                    if ([playURL hasPrefix:@""]) {
+                        
+                    } else
+                        
+                        // Vimeo
+                        if ([playURL hasPrefix:@""]) {
+                            
+                        }
         }
         block(posts);
     });
