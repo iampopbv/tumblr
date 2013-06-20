@@ -8,12 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "Post.h"
+#import "LazyLoader.h"
 #import "PostTableDelegate.h"
 
 /**
  * Displays the audio and video posts of the dashboard of the logged in user.
  */
-@interface DashBoardViewController : UIViewController <PostTableDelegate>
+@interface DashBoardViewController : UIViewController <PostTableDelegate, LazyLoader>
 
 /** UI Components **/
 // The tableview where the posts should be placed in.

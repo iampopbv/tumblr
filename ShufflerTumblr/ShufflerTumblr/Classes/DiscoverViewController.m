@@ -8,6 +8,7 @@
 
 #import "DiscoverViewController.h"
 #import "Blog.h"
+#import "BlogPlaylistViewController.h"
 
 @interface DiscoverViewController ()
 
@@ -40,7 +41,7 @@
     tableObjects = [[NSMutableArray alloc] init];
     
     // Show the logo of shuffler up in the top
-    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
+    UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo"]];
     logo.frame= CGRectMake(0,0,20,25);
      self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
 
@@ -88,19 +89,14 @@
 }
 
 #pragma UITableView delegates
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString *segueName = [segue identifier];
-    if([segueName isEqualToString: @"discover_segue"]){
-        [[tableObjects objectAtIndex: chosenRow] reset];
-//        [(id<bloggetter>)segue.destinationViewController getBlog: [tableObjects objectAtIndex: chosenRow]];
-    }
-}
-
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     chosenRow = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"discover_segue" sender:self];
     
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    BlogPlaylistViewController *blogVC = [storyboard instantiateViewControllerWithIdentifier:@"BlogPlaylist"];
+    [blogVC setBlog: [tableObjects objectAtIndex: chosenRow]];
+    [self.navigationController pushViewController: blogVC animated:YES];
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

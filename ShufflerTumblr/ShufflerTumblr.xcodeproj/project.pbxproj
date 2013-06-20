@@ -24,6 +24,7 @@
 		A1FAD72B171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
 		A1FAD733171EA7BC0095EC7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD731171EA7BC0095EC7E /* InfoPlist.strings */; };
 		A1FAD736171EA7BC0095EC7E /* ShufflerTumblrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAD735171EA7BC0095EC7E /* ShufflerTumblrTests.m */; };
+		AF0F25551773887800BB39CF /* BlogPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0F25541773887800BB39CF /* BlogPlaylistViewController.m */; };
 		AF1D6E8B1771E3560013CA69 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1D6E8A1771E3560013CA69 /* PlayerView.m */; };
 		AF3DB84317708CAA00527DDA /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF3DB84217708CAA00527DDA /* PostView.xib */; };
 		AF3DB8491771044F00527DDA /* DirectURLGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3DB8481771044F00527DDA /* DirectURLGetter.m */; };
@@ -173,6 +174,8 @@
 		A1FAD732171EA7BC0095EC7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1FAD734171EA7BC0095EC7E /* ShufflerTumblrTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShufflerTumblrTests.h; sourceTree = "<group>"; };
 		A1FAD735171EA7BC0095EC7E /* ShufflerTumblrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShufflerTumblrTests.m; sourceTree = "<group>"; };
+		AF0F25531773887800BB39CF /* BlogPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlogPlaylistViewController.h; path = Classes/BlogPlaylistViewController.h; sourceTree = "<group>"; };
+		AF0F25541773887800BB39CF /* BlogPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlogPlaylistViewController.m; path = Classes/BlogPlaylistViewController.m; sourceTree = "<group>"; };
 		AF1D6E8117719E370013CA69 /* LazyLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LazyLoader.h; path = Classes/LazyLoader.h; sourceTree = "<group>"; };
 		AF1D6E891771E3560013CA69 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerView.h; path = Classes/PlayerView.h; sourceTree = "<group>"; };
 		AF1D6E8A1771E3560013CA69 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerView.m; path = Classes/PlayerView.m; sourceTree = "<group>"; };
@@ -491,6 +494,8 @@
 		AF1B80BD17427C5F001588BE /* PostControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AF0F25531773887800BB39CF /* BlogPlaylistViewController.h */,
+				AF0F25541773887800BB39CF /* BlogPlaylistViewController.m */,
 				AF4540EA176F66C400484AE8 /* PlayerViewController.h */,
 				AF4540EB176F66C400484AE8 /* PlayerViewController.m */,
 				AFEC6BB6176F664100B9050C /* SinglePostViewController.h */,
@@ -1038,6 +1043,7 @@
 				AF4540EC176F66C400484AE8 /* PlayerViewController.m in Sources */,
 				AF3DB8491771044F00527DDA /* DirectURLGetter.m in Sources */,
 				AF1D6E8B1771E3560013CA69 /* PlayerView.m in Sources */,
+				AF0F25551773887800BB39CF /* BlogPlaylistViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

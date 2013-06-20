@@ -103,6 +103,46 @@
             </objects>
             <point key="canvasLocation" x="162" y="282"/>
         </scene>
+        <!--Blog Playlist View Controller-->
+        <scene sceneID="a4P-ao-YeY">
+            <objects>
+                <viewController storyboardIdentifier="BlogPlaylist" id="jEQ-LP-3dc" customClass="BlogPlaylistViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WlX-yr-2Fa">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="bNh-zC-bdJ">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="jEQ-LP-3dc" id="eDo-d1-66m"/>
+                                    <outlet property="delegate" destination="jEQ-LP-3dc" id="1ub-cT-Uyt"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Playlist of [BLOGNAME]" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PcX-E3-fpF">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bNh-zC-bdJ" firstAttribute="bottom" secondItem="WlX-yr-2Fa" secondAttribute="bottom" type="default" id="Fq4-Qb-z7S"/>
+                            <constraint firstItem="bNh-zC-bdJ" firstAttribute="trailing" secondItem="WlX-yr-2Fa" secondAttribute="trailing" type="default" id="L0q-hl-8Dh"/>
+                            <constraint firstItem="bNh-zC-bdJ" firstAttribute="leading" secondItem="WlX-yr-2Fa" secondAttribute="leading" type="default" id="OWO-n6-kLc"/>
+                            <constraint firstItem="PcX-E3-fpF" firstAttribute="centerX" secondItem="bNh-zC-bdJ" secondAttribute="centerX" type="default" id="Wyq-5l-nrF"/>
+                            <constraint firstItem="PcX-E3-fpF" firstAttribute="top" secondItem="WlX-yr-2Fa" secondAttribute="top" constant="20" symbolic="YES" type="default" id="i7O-N3-DEG"/>
+                            <constraint firstItem="bNh-zC-bdJ" firstAttribute="top" secondItem="PcX-E3-fpF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="ohh-di-oxK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="bNh-zC-bdJ" id="TXa-gN-xJI"/>
+                        <outlet property="titleLabel" destination="PcX-E3-fpF" id="fLd-if-Ewd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uRS-70-RD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="603" y="286"/>
+        </scene>
         <!--Followed View Controller - Followed-->
         <scene sceneID="Mdq-6u-oIh">
             <objects>
@@ -375,6 +415,13 @@
         <image name="my_blogs_ico.png" width="35" height="35"/>
     </resources>
     <classes>
+        <class className="BlogPlaylistViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/BlogPlaylistViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="tableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="titleLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
         <class className="DashBoardViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DashBoardViewController.h"/>
             <relationships>

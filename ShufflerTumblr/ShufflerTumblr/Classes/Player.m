@@ -59,7 +59,7 @@
     id<Post> prevPost;
     _playListCounter--;
     prevPost = [_playlist objectAtIndex: _playListCounter];
-
+    
     [_avQPlayer pause];
     
     // Insert the previous item after the current, and move to the next track (previous) and add the current after the previous item (we switched)
@@ -119,17 +119,21 @@
     // Will be called when AVQueuePlayer finishes playing playerItem
     NSLog(@"did end playing song");
     
+    
+    __block UIBackgroundTaskIdentifier background_task;
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
     {
-//        UIApplication *app = [UIApplication sharedApplication];
-//        bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
-//            [app endBackgroundTask: bgTask]; // read more about background tasks.
-//            bgTask = UIBackgroundTaskInvalid;
-//            // NSLog(@"bg finished with exp handler");
-//        }];
+        UIApplication *app = [UIApplication sharedApplication];
+        background_task = [app beginBackgroundTaskWithExpirationHandler:^{
+            [app endBackgroundTask: background_task]; // read more about background tasks.
+            background_task = UIBackgroundTaskInvalid;
+            
+        }];
+
     }
     _trackEnded = YES;
     [_viewController loadNewPost: self];
+    
 }
 
 - (id<Post>) currentPost {

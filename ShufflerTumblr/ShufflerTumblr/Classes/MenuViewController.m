@@ -13,6 +13,7 @@
 #import "TMTumblrAuthenticator.h"
 #import "keys.h"
 #import "User.h"
+#import "BlogPlaylistViewController.h"
 
 @interface MenuViewController ()
 
@@ -195,7 +196,11 @@
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _chosenBlog = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"segueToBlog" sender:self];
+
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    BlogPlaylistViewController *blogVC = [storyboard instantiateViewControllerWithIdentifier:@"BlogPlaylist"];
+    [blogVC setBlog: [_blogs objectAtIndex: _chosenBlog]];
+    [self.navigationController pushViewController: blogVC animated:YES];
     
 }
 

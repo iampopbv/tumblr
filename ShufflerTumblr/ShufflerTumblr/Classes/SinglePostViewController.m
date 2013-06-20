@@ -142,50 +142,21 @@
 - (void) setPost: (id<Post>) post {
     _post = post;
     
+
     // Is this an audio or a video post?
     // Show the post in an appropiate manner
     [self hideControls];
     if([_post type]  == AUDIO){
         Audio *audioObject = (Audio*)self.post;
         
-        if([audioObject.playerEmbed rangeOfString:@"shockwave"].length || NO )
-        {
-            //            [_playerContainer setHidden:YES];
-            
-            [_imageView setHidden:YES];
-            NSString*html = [NSString stringWithFormat:@"%@%@%@%@%@",
-                             @"<!DOCTYPE html><html><head><title>",audioObject.trackName,@"</title><meta content-encoding='utf-8' /></head><body>",audioObject.embed,@"</body></html>" ];
-            
-            
-            
-            
-            
-            //            [self.videoView loadHTMLString:html
-            //                                   baseURL:[NSURL URLWithString:@"tumblr.com"]];
-        }
-        else if(!audioObject.albumArt)
-        {
-            NSLog(@"noalbumart");
-            [_imageView setHidden:YES];
-            [_videoView setHidden:YES];
-            [self.videoView setHidden:YES];
-            
-        }
+        [_imageView setHidden: NO];
+        [_videoView setHidden: YES];
+        
+        if(!audioObject.albumArt)
+            [_imageView setImage:[UIImage imageNamed:@"audio_ico"]];
         else
-        {
-            NSLog(@"album");
-            [self.videoView setHidden:YES];
+
             [_imageView setImage: [audioObject albumArt]];
-            NSLog(@"Post url: %@", [post postURL]);
-            
-        }
-        [[Player sharedInstance] playAV];
-        /*NSString*title: [title uppercaseString];
-         NSMutableAttributedString*titleatt = [[NSMutableAttributedString alloc] initWithString:title];
-         //
-         //style your  attributedstring
-         //
-         self.attributedtext = [audioObject trackName];*/
         
         self.titleLabel.attributedText = [audioObject trackName];
     } else if(self.post.type == VIDEO){
@@ -197,7 +168,7 @@
         [_titleLabel setText: [video sourceTitle]];
         [self embedVideo];
     }
-    //        [[_videoView scrollView] setScrollEnabled: NO];
+    [_captionView setText: [post caption]];
     [[Player sharedInstance] playAV] ;
 }
 

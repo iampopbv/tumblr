@@ -8,6 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
+/**
+ * An object that implements LazyLoader loads pages lazy.
+ * A page is a number of Posts.
+ */
 @protocol LazyLoader <NSObject>
+
+@required
+-(void) loadNextPage;
 
 @end
