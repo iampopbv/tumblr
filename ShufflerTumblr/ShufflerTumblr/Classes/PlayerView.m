@@ -10,8 +10,6 @@
 
 @implementation PlayerView
 
-@synthesize player;
-
 + (Class)layerClass {
     return [AVPlayerLayer class];
 }
@@ -26,16 +24,42 @@
 
 - (CMTime)playerItemDuration
 {
-    AVPlayerItem *thePlayerItem = [player currentItem];
+    AVPlayerItem *thePlayerItem = [[self player] currentItem];
     if (thePlayerItem.status == AVPlayerItemStatusReadyToPlay)
     {
         
-        return([[player currentItem] duration]);
+        return([[[self player] currentItem] duration]);
     }
     
     return(kCMTimeInvalid);
 }
 
+
+-(void)initScrubberTimer
+{
+    double interval = .1f;
+    
+    CMTime playerDuration = [self playerItemDuration];
+    if (CMTIME_IS_INVALID(playerDuration))
+    {
+        return;
+    }
+    double duration = CMTimeGetSeconds(playerDuration);
+    if (isfinite(duration))
+    {
+        CGFloat width = CGRectGetWidth([self.slider bounds]);
+        interval = 0.5f * duration / width;
+    }
+    
+    /* Update the scrubber during normal playback. */
+    _mTimeObserver = [[self player] addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(interval, NSEC_PER_SEC)
+                                                                queue:NULL /* If you pass NULL, the main queue is used. */
+                                                           usingBlock:^(CMTime time)
+                      {
+                          [self syncScrubber];
+                      }];
+    
+}
 
 - (void)syncScrubber
 {
@@ -51,7 +75,8 @@
     {
         float minValue = [ _slider minimumValue];
         float maxValue = [ _slider maximumValue];
-        double time = CMTimeGetSeconds([player currentTime]);
+        double time = CMTimeGetSeconds([[self player] currentTime]);
+        NSLog(@"setting value");
         [_slider setValue:(maxValue - minValue) * time / duration + minValue];
     }
 }

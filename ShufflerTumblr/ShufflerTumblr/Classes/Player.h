@@ -30,7 +30,8 @@
 @property (nonatomic) NSMutableArray<Post> *playlist;
 // The playlist counter
 @property int playListCounter;
-@property int isLoadingDirectLink;
+// Pointer to the last item for insertion
+@property AVPlayerItem *lastItem;
 
 // Link to the singleton
 + (id) sharedInstance;

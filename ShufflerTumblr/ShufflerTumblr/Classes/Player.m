@@ -31,7 +31,6 @@
         _avQPlayer = [[AVQueuePlayer alloc] init];
         _playlist = (NSMutableArray<Post>*) [[NSMutableArray alloc] init];
         _playListCounter = 0;
-        _isLoadingDirectLink = 0;
         _trackEnded = NO;
     }
     return self;
@@ -57,43 +56,34 @@
 
 // Plays the previous post in the playlist
 - (id<Post>) playPreviousPost {
-    [NSException raise:@"Unimplemented Exception" format:@"unimplemented method: playPreviousPost"];
+    id<Post> prevPost;
+    _playListCounter--;
+    prevPost = [_playlist objectAtIndex: _playListCounter];
+
+    [_avQPlayer pause];
+    
+    // Insert the previous item after the current, and move to the next track (previous) and add the current after the previous item (we switched)
+    AVPlayerItem *prevItem = [AVPlayerItem playerItemWithURL: [[NSURL alloc] initWithString: [prevPost playURL]]];
+    AVPlayerItem * currentItem = [_avQPlayer currentItem];
+    
+    [_avQPlayer insertItem: prevItem afterItem: [_avQPlayer currentItem]];
+    [_avQPlayer advanceToNextItem];
+    [_avQPlayer insertItem:currentItem afterItem:prevItem];
+    
+    NSLog(@"playing %@", [prevPost playURL]);
+    
+    return prevPost;
 }
 
 
 - (void) addToPlaylist: (NSArray<Post>*) posts {
-    //    [_playlist addObjectsFromArray: posts];
-    //
-    //    // initalize the player with the new playlist
-    //    NSMutableArray *playerItems = [[NSMutableArray alloc] init];
-    //    __block int isLoadingDirectLink = 0;
-    //
-    //    // Fill the player items with the playURLs of the posts
-    //    for (id<Post> post in posts) {
-    //
-    //        __block NSURL *postURL = [NSURL alloc];
-    //        NSString *playURLS = [post playURL];
-    //        if ([post type] == AUDIO) {
-    //
-    //            // If direct link
-    //            postURL = [[NSURL alloc] initWithString: playURLS];
-    //        } else if([post type] == VIDEO){
-    //            if([playURLS hasPrefix:@"http://www.youtube"] || [playURLS hasPrefix:@"https://www.youtube"]){
-    //                isLoadingDirectLink++;
-    //                [[DirectURLGetter sharedInstance] getYoutubeLinkWithURL: playURLS withBlock:^(NSString *youtubeDirectURL) {
-    //
-    //                    postURL = [[NSURL alloc] initWithString: playURLS];
-    //                    [playerItems addObject: [[AVPlayerItem alloc] initWithURL: postURL]];
-    //
-    //                    isLoadingDirectLink--;
-    //                    if(!isLoadingDirectLink)
-    //                        _avQPlayer = [_avQPlayer initWithItems: playerItems];
-    //                }];
-    //            } else
-    //                postURL = [[NSURL alloc] initWithString: playURLS];
-    //        }
-    //        [_avQPlayer insertItem:[[AVPlayerItem alloc] initWithURL: postURL] afterItem: [[_avQPlayer items] objectAtIndex: 0]];
-    //    }
+    [_playlist addObjectsFromArray: posts];
+    
+    for (id<Post> post in posts) {
+        AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL: [[NSURL alloc] initWithString: [post playURL]]];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
+        [_avQPlayer insertItem: playerItem afterItem: _lastItem];
+    }
 }
 
 -(void) setPlaylist:(NSMutableArray<Post> *)posts {
@@ -112,7 +102,7 @@
         AVPlayerItem *playerItem = [AVPlayerItem playerItemWithURL: [[NSURL alloc] initWithString: [post playURL]]];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying) name:AVPlayerItemDidPlayToEndTimeNotification object:playerItem];
         [playerItems addObject: playerItem];
-        
+        _lastItem = playerItem;
     }
     _avQPlayer = [_avQPlayer initWithItems: playerItems];
     

@@ -13,6 +13,6 @@
 
 @property (nonatomic) AVPlayer *player;
 @property IBOutlet UISlider *slider;
-
+@property id mTimeObserver;
 
 @end

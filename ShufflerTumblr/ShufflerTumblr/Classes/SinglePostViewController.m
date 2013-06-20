@@ -98,20 +98,23 @@
 
 - (void)loadPreviousPost:(id)sender {
     NSLog(@"Swiped right");
-    UIView *newPostView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil] objectAtIndex: 0];
-    CGRect newFrame = [newPostView frame];
+    UIView *previousPostView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil] objectAtIndex: 0];
+    CGRect newFrame = [previousPostView frame];
     newFrame.origin.x -= newFrame.size.width;
-    [newPostView setFrame: newFrame];
+    [previousPostView setFrame: newFrame];
     
-    [self.view addSubview: newPostView];
+    [self.view addSubview: previousPostView];
     
     [UIView animateWithDuration:0.4f animations:^{
         _postView.center = CGPointMake(_postView.center.x + _postView.frame.size.width, _postView.center.y);
-        newPostView.center = CGPointMake(newPostView.center.x + newPostView.frame.size.width, newPostView.center.y);
+        previousPostView.center = CGPointMake(previousPostView.center.x + previousPostView.frame.size.width, previousPostView.center.y);
     } completion:^(BOOL finished) {
         [_postView removeFromSuperview];
-        _postView = newPostView;
+        _postView = previousPostView;
     }];
+    
+    id<Post> previousPost = [[Player sharedInstance] playPreviousPost];
+    [self setPost: previousPost];
 }
 
 
