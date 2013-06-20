@@ -8,6 +8,7 @@
 
 #import "FavoriteViewController.h"
 #import "SinglePostViewController.h"
+#import "DirectURLGetter.h"
 #import "Player.h"
 
 @interface FavoriteViewController ()
@@ -47,6 +48,7 @@
     // Download the favorites
     [tableText removeAllObjects];
     tableText = [NSMutableArray arrayWithArray: [[Favourites sharedManager] getFavourites]];
+    [_tableView reloadData];
     [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
         NSArray *tempArray = [response objectForKey:@"liked_posts"];
         for(int i = 0;i<[tempArray count];i++) {
@@ -61,9 +63,18 @@
                 continue;
             }
             [tableObjects addObject: object];
-            [tableText addObject: object];
-            [_tableView reloadData];
         }
+        
+        [[DirectURLGetter sharedInstance] getDirectURLS: (NSArray<Post>*)tableObjects withBlock:^(id posts) {
+            [tableObjects removeAllObjects];
+            [tableObjects addObjectsFromArray: posts];
+            for (id<Post> post in posts) {
+                [tableText addObject: post];
+            }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_tableView reloadData];
+            });
+        }];
     }];
 
 }

@@ -19,6 +19,7 @@
 @property NSMutableArray *favouriteObjects;
 // The root directory
 @property NSString *root;
+@property BOOL gotFavourite;
 
 // the Singleton manager
 +(Favourites *)sharedManager;
