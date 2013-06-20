@@ -142,7 +142,6 @@
 - (void) setPost: (id<Post>) post {
     _post = post;
     
-    NSLog(@"Setting post: %@", [post playURL]);
     // Is this an audio or a video post?
     // Show the post in an appropiate manner
     [self hideControls];
@@ -194,6 +193,7 @@
         //        [_playerContainer setHidden: YES];
         [_imageView setHidden: YES];
         [_videoView setHidden: NO];
+        [_titleLabel setHidden: NO];
         [_titleLabel setText: [video sourceTitle]];
         [self embedVideo];
     }
