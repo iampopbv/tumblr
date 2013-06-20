@@ -13,6 +13,7 @@
 #import "TMTumblrAuthenticator.h"
 #import "keys.h"
 #import "User.h"
+#import "Player.h"
 #import "BlogPlaylistViewController.h"
 
 @interface MenuViewController ()
@@ -57,8 +58,20 @@
         
         [self presentModalViewController: vc animated:YES];
     }
+    
+    // If playing; show the post
+    if([[Player sharedInstance] playing]) {
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"topbar_nowplaying"] forState:UIControlStateHighlighted];
+        button.frame = CGRectMake(0, 0, 65, 37);
+        [button addTarget:self action:@selector(openCurrentTrack) forControlEvents:UIControlEventTouchUpInside];
+        button.accessibilityLabel = @"Now playing";
+        button.tag = 123131;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    }
 }
-
 
 - (void)viewDidLoad
 {
@@ -75,18 +88,7 @@
     _blogs = [[NSMutableArray alloc] init];
     
     
-    // If playing; show the post
-    // if([...isPlaying]) {
-    UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
-    UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
-    [button setBackgroundImage:image forState:UIControlStateNormal];
-    [button setBackgroundImage:[UIImage imageNamed:@"topbar_nowplaying"] forState:UIControlStateHighlighted];
-    button.frame = CGRectMake(0, 0, 65, 37);
-    [button addTarget:self action:@selector(openCurrentTrack) forControlEvents:UIControlEventTouchUpInside];
-    button.accessibilityLabel = @"Now playing";
-    button.tag = 123131;
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    // }
+    
     
     // Display the logo of ShufflerFM in the top
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
@@ -143,7 +145,15 @@
 
 
 - (void) openCurrentTrack {
-    [self performSegueWithIdentifier:@"segueToBlog" sender:self];
+    // code for opening the current track
+    
+    SinglePostViewController *vc = [[SinglePostViewController alloc] init];
+    UIView *postView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner: vc options:nil] objectAtIndex: 0];
+    [vc.view addSubview: postView];
+    
+    vc.post = [[[Player sharedInstance] playlist] objectAtIndex: [[Player sharedInstance] playListCounter]];
+    [vc setPostView: postView];
+    [self.navigationController pushViewController: vc animated: YES];
 }
 
 // Checks if we have an internet connection or not
@@ -184,24 +194,15 @@
     return YES;
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString *segueName = [segue identifier];
-    if([segueName isEqualToString: @"segueToBlog"]){
-        [[_blogs objectAtIndex:_chosenBlog] reset];
-//        [(id<bloggetter>)segue.destinationViewController getBlog: [_blogs objectAtIndex:_chosenBlog]];
-    }
-}
-
 #pragma UITableView delegate methods
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _chosenBlog = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     BlogPlaylistViewController *blogVC = [storyboard instantiateViewControllerWithIdentifier:@"BlogPlaylist"];
     [blogVC setBlog: [_blogs objectAtIndex: _chosenBlog]];
     [self.navigationController pushViewController: blogVC animated:YES];
-    
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -253,7 +254,7 @@
                 
                 NSString * token = [[TMAPIClient sharedInstance] OAuthToken];
                 NSString * tokenSecret = [[TMAPIClient sharedInstance] OAuthTokenSecret];
-
+                
                 // Save the credentials
                 NSArray *keysArray = [[NSArray alloc] initWithObjects: token, tokenSecret, nil];
                 [keysArray writeToFile:listPath atomically:YES];

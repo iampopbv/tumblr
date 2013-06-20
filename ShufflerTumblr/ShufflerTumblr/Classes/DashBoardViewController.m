@@ -120,6 +120,20 @@
 
 -(void)viewDidAppear:(BOOL)animated {
     self.navigationController.navigationBar.topItem.title = @"Dashboard";
+    
+    // If playing; show the post
+    if([[Player sharedInstance] playing]) {
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"topbar_nowplaying"] forState:UIControlStateHighlighted];
+        button.frame = CGRectMake(0, 0, 65, 37);
+        [button addTarget:self action:@selector(openCurrentTrack) forControlEvents:UIControlEventTouchUpInside];
+        button.accessibilityLabel = @"Now playing";
+        button.tag = 123131;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -127,6 +141,18 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
     
+}
+
+- (void) openCurrentTrack {
+    // code for opening the current track
+    
+    SinglePostViewController *vc = [[SinglePostViewController alloc] init];
+    UIView *postView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner: vc options:nil] objectAtIndex: 0];
+    [vc.view addSubview: postView];
+    
+    vc.post = [[[Player sharedInstance] playlist] objectAtIndex: [[Player sharedInstance] playListCounter]];
+    [vc setPostView: postView];
+    [self.navigationController pushViewController: vc animated: YES];
 }
 
 #pragma UITableView delegates
@@ -138,7 +164,7 @@
     
     [[Player sharedInstance] clear];
     // Set the playlist starting from the selected row
-    [[Player sharedInstance] setPlaylist: (NSMutableArray<Post>*) [[NSMutableArray alloc] initWithArray: [tableObjects subarrayWithRange: NSMakeRange( chosenRow, [tableObjects count] - chosenRow -1)]]];
+    [[Player sharedInstance] setPlaylist: (NSMutableArray<Post>*) [[NSMutableArray alloc] initWithArray: [tableObjects subarrayWithRange: NSMakeRange( chosenRow, [tableObjects count] - chosenRow)]]];
     
     SinglePostViewController *vc = [[SinglePostViewController alloc] init];
     UIView *postView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner: vc options:nil] objectAtIndex: 0];
@@ -186,7 +212,5 @@
     [self setHeadLabel:nil];
     [super viewDidUnload];
 }
-
-
 
 @end

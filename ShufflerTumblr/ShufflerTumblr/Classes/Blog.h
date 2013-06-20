@@ -54,9 +54,6 @@ extern const NSString * apiKey;
 - (id)initWithURL: (NSString*) blogURL;
 // Init the blog based on a dictionary
 - (void) initWithDictionary: (NSDictionary*) dict;
-// Gets the posts of a specific type
-#pragma DEPRECATED
-- (void) getPosts: (PostType) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block;
 // Gets the info of this blog
 - (void) getInfo: (ShufflerTumblrInfoQueryCompletionBlock) block;
 // Gets the (next) latest page

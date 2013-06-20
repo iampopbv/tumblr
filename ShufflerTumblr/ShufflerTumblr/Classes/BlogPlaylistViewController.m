@@ -9,6 +9,7 @@
 #import "BlogPlaylistViewController.h"
 #import "Player.h"
 #import "SinglePostViewController.h"
+#import "DirectURLGetter.h"
 
 @interface BlogPlaylistViewController ()
 
@@ -66,40 +67,41 @@
 
 -(void)loadNextPage {
     [_blog getNextPageLatest:^(NSArray<Post> *posts, NSError *error) {
-        
-        [tableObjects addObjectsFromArray: posts];
-        
-        for (id<Post> post in posts) {
-            Audio * tmp = (Audio*)post;
-            if([post type] == AUDIO){
-                NSString *title;
-                
-                //remove the '{}' from the attributed string
-                NSString *trackName = [[tmp trackName] string];
-                if([tmp artist] != nil)
-                    title = [[NSString alloc] initWithFormat: @"%@ - %@", [tmp artist], trackName];
-                else if([tmp trackName] != nil)
-                    title = [[NSString alloc] initWithFormat: @"%@ - %@", [tmp blogName], trackName];
-                else {
-                    title = [tmp blogName];
-                }
-                [tableText addObject: title];
-                
-                
-                if([tmp albumArt] != nil) {
-                    [tableimages addObject: [tmp albumArt]];
+        [[DirectURLGetter sharedInstance] getDirectURLS: posts withBlock:^(id posts) {
+            
+            [tableObjects addObjectsFromArray: posts];
+            
+            for (id<Post> post in posts) {
+                Audio * tmp = (Audio*)post;
+                if([post type] == AUDIO){
+                    NSString *title;
+                    
+                    //remove the '{}' from the attributed string
+                    NSString *trackName = [[tmp trackName] string];
+                    if([tmp artist] != nil)
+                        title = [[NSString alloc] initWithFormat: @"%@ - %@", [tmp artist], trackName];
+                    else if([tmp trackName] != nil)
+                        title = [[NSString alloc] initWithFormat: @"%@ - %@", [tmp blogName], trackName];
+                    else {
+                        title = [tmp blogName];
+                    }
+                    [tableText addObject: title];
+                    
+                    
+                    if([tmp albumArt] != nil) {
+                        [tableimages addObject: [tmp albumArt]];
+                    } else {
+                        [tableimages addObject: [UIImage imageNamed:@"audio_ico"]];
+                    }
                 } else {
-                    [tableimages addObject: [UIImage imageNamed:@"audio_ico"]];
+                    [tableText addObject: [post blogName]];
+                    [tableimages addObject: [UIImage imageNamed:@"play_ico"]];
                 }
-            } else {
-                [tableText addObject: [post blogName]];
-                [tableimages addObject: [UIImage imageNamed:@"play_ico"]];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [_tableView reloadData];
+                });
             }
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [_tableView reloadData];
-            });
-        }
+        }];
     }];
 }
 
@@ -116,7 +118,7 @@
     
     [[Player sharedInstance] clear];
     // Set the playlist starting from the selected row
-    [[Player sharedInstance] setPlaylist: (NSMutableArray<Post>*) [[NSMutableArray alloc] initWithArray: [tableObjects subarrayWithRange: NSMakeRange( chosenRow, [tableObjects count] - chosenRow -1)]]];
+    [[Player sharedInstance] setPlaylist: (NSMutableArray<Post>*) [[NSMutableArray alloc] initWithArray: [tableObjects subarrayWithRange: NSMakeRange( chosenRow, [tableObjects count] - chosenRow)]]];
     
     SinglePostViewController *vc = [[SinglePostViewController alloc] init];
     UIView *postView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner: vc options:nil] objectAtIndex: 0];

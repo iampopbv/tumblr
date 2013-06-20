@@ -49,8 +49,6 @@
     }
     _trackEnded = NO;
     
-    NSLog(@"playing %@", [nextPost playURL]);
-    
     return nextPost;
 }
 
@@ -69,8 +67,6 @@
     [_avQPlayer insertItem: prevItem afterItem: [_avQPlayer currentItem]];
     [_avQPlayer advanceToNextItem];
     [_avQPlayer insertItem:currentItem afterItem:prevItem];
-    
-    NSLog(@"playing %@", [prevPost playURL]);
     
     return prevPost;
 }
@@ -117,9 +113,6 @@
 
 -(void)itemDidFinishPlaying {
     // Will be called when AVQueuePlayer finishes playing playerItem
-    NSLog(@"did end playing song");
-    
-    
     __block UIBackgroundTaskIdentifier background_task;
     if ([[UIApplication sharedApplication] applicationState] == UIApplicationStateBackground)
     {

@@ -25,6 +25,10 @@
 		A1FAD733171EA7BC0095EC7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD731171EA7BC0095EC7E /* InfoPlist.strings */; };
 		A1FAD736171EA7BC0095EC7E /* ShufflerTumblrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAD735171EA7BC0095EC7E /* ShufflerTumblrTests.m */; };
 		AF0F25551773887800BB39CF /* BlogPlaylistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF0F25541773887800BB39CF /* BlogPlaylistViewController.m */; };
+		AF0F255817739E4400BB39CF /* thumb_highlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0F255617739E4300BB39CF /* thumb_highlighted.png */; };
+		AF0F255917739E4400BB39CF /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0F255717739E4300BB39CF /* thumb.png */; };
+		AF0F255C17739E6300BB39CF /* selectedfavorite.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0F255A17739E6300BB39CF /* selectedfavorite.png */; };
+		AF0F255D17739E6300BB39CF /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = AF0F255B17739E6300BB39CF /* favorite.png */; };
 		AF1D6E8B1771E3560013CA69 /* PlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AF1D6E8A1771E3560013CA69 /* PlayerView.m */; };
 		AF3DB84317708CAA00527DDA /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF3DB84217708CAA00527DDA /* PostView.xib */; };
 		AF3DB8491771044F00527DDA /* DirectURLGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF3DB8481771044F00527DDA /* DirectURLGetter.m */; };
@@ -176,6 +180,10 @@
 		A1FAD735171EA7BC0095EC7E /* ShufflerTumblrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShufflerTumblrTests.m; sourceTree = "<group>"; };
 		AF0F25531773887800BB39CF /* BlogPlaylistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BlogPlaylistViewController.h; path = Classes/BlogPlaylistViewController.h; sourceTree = "<group>"; };
 		AF0F25541773887800BB39CF /* BlogPlaylistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BlogPlaylistViewController.m; path = Classes/BlogPlaylistViewController.m; sourceTree = "<group>"; };
+		AF0F255617739E4300BB39CF /* thumb_highlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb_highlighted.png; sourceTree = "<group>"; };
+		AF0F255717739E4300BB39CF /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
+		AF0F255A17739E6300BB39CF /* selectedfavorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selectedfavorite.png; sourceTree = "<group>"; };
+		AF0F255B17739E6300BB39CF /* favorite.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = favorite.png; sourceTree = "<group>"; };
 		AF1D6E8117719E370013CA69 /* LazyLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = LazyLoader.h; path = Classes/LazyLoader.h; sourceTree = "<group>"; };
 		AF1D6E891771E3560013CA69 /* PlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayerView.h; path = Classes/PlayerView.h; sourceTree = "<group>"; };
 		AF1D6E8A1771E3560013CA69 /* PlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayerView.m; path = Classes/PlayerView.m; sourceTree = "<group>"; };
@@ -557,6 +565,10 @@
 		AF1F827817354ED60001C15E /* images */ = {
 			isa = PBXGroup;
 			children = (
+				AF0F255A17739E6300BB39CF /* selectedfavorite.png */,
+				AF0F255B17739E6300BB39CF /* favorite.png */,
+				AF0F255617739E4300BB39CF /* thumb_highlighted.png */,
+				AF0F255717739E4300BB39CF /* thumb.png */,
 				AF449BA91773071D004937BC /* pausebutton.png */,
 				AF449BAA1773071D004937BC /* playbutton.png */,
 				AF428FD0176E842F00322525 /* !selectedbuttonbar.png */,
@@ -970,6 +982,10 @@
 				AF3DB84317708CAA00527DDA /* PostView.xib in Resources */,
 				AF449BAB1773071D004937BC /* pausebutton.png in Resources */,
 				AF449BAC1773071D004937BC /* playbutton.png in Resources */,
+				AF0F255817739E4400BB39CF /* thumb_highlighted.png in Resources */,
+				AF0F255917739E4400BB39CF /* thumb.png in Resources */,
+				AF0F255C17739E6300BB39CF /* selectedfavorite.png in Resources */,
+				AF0F255D17739E6300BB39CF /* favorite.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

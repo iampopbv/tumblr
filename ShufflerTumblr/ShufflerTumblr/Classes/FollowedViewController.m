@@ -9,6 +9,8 @@
 #import "FollowedViewController.h"
 #import "User.h"
 #import "TMAPIClient.h"
+#import "Player.h"
+#import "BlogPlaylistViewController.h"
 
 @interface FollowedViewController ()
 
@@ -56,7 +58,19 @@
         });
         
     }];
-    
+    // If playing; show the post
+    if([[Player sharedInstance] playing]) {
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"topbar_nowplaying"] forState:UIControlStateHighlighted];
+        button.frame = CGRectMake(0, 0, 65, 37);
+        [button addTarget:self action:@selector(openCurrentTrack) forControlEvents:UIControlEventTouchUpInside];
+        button.accessibilityLabel = @"Now playing";
+        button.tag = 123131;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    }
+
 }
 
 -(void)viewDidAppear:(BOOL)animated {
@@ -69,26 +83,31 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString *segueName = [segue identifier];
+- (void) openCurrentTrack {
+    // code for opening the current track
     
-    // Pass on the info of the blog that was selected in the table
-    if([segueName isEqualToString: @"followed_segue"]){
-        
-        BlogInfo *selectedBlogInfo = [tableObjects objectAtIndex:chosenRow];
-        Blog *blog = [[Blog alloc] initWithURL: [[selectedBlogInfo blogURL] absoluteString]];
-        [blog setBlogInfo: selectedBlogInfo];
-//        [(id<bloggetter>)segue.destinationViewController getBlog: blog];
-    }
+    SinglePostViewController *vc = [[SinglePostViewController alloc] init];
+    UIView *postView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner: vc options:nil] objectAtIndex: 0];
+    [vc.view addSubview: postView];
+    
+    vc.post = [[[Player sharedInstance] playlist] objectAtIndex: [[Player sharedInstance] playListCounter]];
+    [vc setPostView: postView];
+    [self.navigationController pushViewController: vc animated: YES];
 }
 
 #pragma UITableView delegates
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     chosenRow = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"followed_segue" sender:self];
     
-}
+    BlogInfo *selectedBlogInfo = [tableObjects objectAtIndex:chosenRow];
+    Blog *blog = [[Blog alloc] initWithURL: [[selectedBlogInfo blogURL] absoluteString]];
+    [blog setBlogInfo: selectedBlogInfo];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    BlogPlaylistViewController *blogVC = [storyboard instantiateViewControllerWithIdentifier:@"BlogPlaylist"];
+    [blogVC setBlog: blog];
+    [self.navigationController pushViewController: blogVC animated:YES];}
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

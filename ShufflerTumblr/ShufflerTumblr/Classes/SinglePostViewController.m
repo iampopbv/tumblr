@@ -76,14 +76,6 @@
     [_videoView setPlayer: [[Player sharedInstance] avQPlayer]];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString *segueName = [segue identifier];
-    
-    // Pass the post
-	if([segueName isEqualToString: @"embedplayer"]){
-	}
-}
-
 // Create a share pop-up
 - (IBAction)sharebuttonpressed:(id)sender {
 	NSString * extraText = @"I've listened to this song!";
@@ -142,7 +134,6 @@
 - (void) setPost: (id<Post>) post {
     _post = post;
     
-
     // Is this an audio or a video post?
     // Show the post in an appropiate manner
     [self hideControls];

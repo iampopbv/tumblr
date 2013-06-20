@@ -13,7 +13,7 @@
 // The API key
 const NSString * apiKey = @"?api_key=9DTflrfaaL6XIwUkh1KidnXFUX0EQUZFVEtjwcTyOLNsUPoWLV";
 // The maximum number of new posts
-const int maxNewPosts = 2;
+const int maxNewPosts = 4;
 BOOL hasSetOffset = NO;
 
 /**
@@ -54,63 +54,6 @@ BOOL hasSetOffset = NO;
     return self;
 }
 
-
-/**
- * Gets posts of a type
- */
-#pragma DEPRECATED
--(void) getPosts: (PostType) type completionBlock: (ShufflerTumblrMultiplePostQueryCompletionBlock) block {
-    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
-    NSString *apiType = (type == VIDEO ? @"video" : @"audio");
-    dispatch_async(queue, ^{
-        NSString *url = [[NSString alloc] initWithFormat: @"%@%@%@%@", _blogURL, @"posts/", apiType, apiKey];
-        NSLog(@"URL: %@", url);
-        NSURL *urlRequest = [NSURL URLWithString:url];
-		NSError *err = nil;
-        
-		NSData *response = [NSData dataWithContentsOfURL:urlRequest];
-        NSDictionary *objectDict = [NSJSONSerialization JSONObjectWithData:response options: NSJSONReadingMutableContainers error:nil];
-        
-        NSMutableArray<Post> * posts = (NSMutableArray<Post> *)[[NSMutableArray alloc] init];
-        NSDictionary *responseDict = nil;
-        NSArray *postsDict = nil;
-        
-        responseDict = [objectDict objectForKey:@"response"];
-        
-        if(responseDict != nil) {
-            
-            postsDict = [responseDict objectForKey:@"posts"];
-            NSLog(@"Amount of post objects: %d" , [postsDict count]);
-            
-            if(postsDict != nil) {
-                for(NSDictionary *item in postsDict) {
-                    id<Post> post;
-                    switch(type) {
-                        case AUDIO:
-                            post = [Audio alloc];
-                            post = [post initWithDictionary: item];
-                            break;
-                        case VIDEO:
-                            post = [Video alloc];
-                            post = [post initWithDictionary: item];
-                            break;
-                        case NONE:
-                            break;
-                    }
-                    if(post != nil)
-                        [posts addObject: post];
-                }
-            }
-        }
-        
-        
-        
-        NSArray<Post> * returnPosts = (NSArray<Post> *)[[NSArray alloc] initWithArray: posts];
-        
-        
-        block(returnPosts, err);
-    });
-}
 
 // resets the offsets of the audiopost. Usefull to call when the user is done viewing this blog.
 - (void) reset {

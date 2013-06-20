@@ -8,6 +8,7 @@
 
 #import "FavoriteViewController.h"
 #import "SinglePostViewController.h"
+#import "Player.h"
 
 @interface FavoriteViewController ()
 
@@ -33,6 +34,8 @@
 {
     [super viewDidLoad];
     
+    tableObjects = [[NSMutableArray alloc] init];
+    
     // Logo display
     _textfavorite.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
@@ -40,12 +43,8 @@
      self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
     
     
-}
-
-- (void)viewDidAppear:(BOOL)animated {
     
     // Download the favorites
-    self.navigationController.navigationBar.topItem.title = @"Favorite";
     [tableText removeAllObjects];
     tableText = [NSMutableArray arrayWithArray: [[Favourites sharedManager] getFavourites]];
     [[TMAPIClient sharedInstance] likes: nil callback:^(id response, NSError *error) {
@@ -61,10 +60,41 @@
             } else {
                 continue;
             }
+            [tableObjects addObject: object];
             [tableText addObject: object];
             [_tableView reloadData];
         }
     }];
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    self.navigationController.navigationBar.topItem.title = @"Favorite";
+    // If playing; show the post
+    if([[Player sharedInstance] playing]) {
+        UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
+        UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageNamed:@"topbar_nowplaying"] forState:UIControlStateHighlighted];
+        button.frame = CGRectMake(0, 0, 65, 37);
+        [button addTarget:self action:@selector(openCurrentTrack) forControlEvents:UIControlEventTouchUpInside];
+        button.accessibilityLabel = @"Now playing";
+        button.tag = 123131;
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    }
+}
+
+- (void) openCurrentTrack {
+    // code for opening the current track
+    
+    SinglePostViewController *vc = [[SinglePostViewController alloc] init];
+    UIView *postView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner: vc options:nil] objectAtIndex: 0];
+    [vc.view addSubview: postView];
+    
+    vc.post = [[[Player sharedInstance] playlist] objectAtIndex: [[Player sharedInstance] playListCounter]];
+    [vc setPostView: postView];
+    [self.navigationController pushViewController: vc animated: YES];
 }
 
 
@@ -74,20 +104,22 @@
     return [tableText count];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    NSString *segueName = [segue identifier];
-    if([segueName isEqualToString: @"favourite_segue"]){
-        // Place the post in a new view.
-        SinglePostViewController *tmp = [segue destinationViewController];
-        tmp.post = [tableText objectAtIndex: chosenRow];
-    }
-}
-
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     chosenRow = indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    [self performSegueWithIdentifier:@"favourite_segue" sender:self];
     
+    
+    [[Player sharedInstance] clear];
+    // Set the playlist starting from the selected row
+    [[Player sharedInstance] setPlaylist: (NSMutableArray<Post>*) [[NSMutableArray alloc] initWithArray: [tableObjects subarrayWithRange: NSMakeRange( chosenRow, [tableObjects count] - chosenRow)]]];
+    
+    SinglePostViewController *vc = [[SinglePostViewController alloc] init];
+    UIView *postView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner: vc options:nil] objectAtIndex: 0];
+    [vc.view addSubview: postView];
+    
+    vc.post = [tableObjects objectAtIndex: chosenRow];
+    [vc setPostView: postView];
+    [self.navigationController pushViewController: vc animated: YES];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

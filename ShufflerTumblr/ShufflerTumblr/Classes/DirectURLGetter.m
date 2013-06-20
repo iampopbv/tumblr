@@ -76,6 +76,7 @@ UIWebView *webHelper;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     dispatch_async(queue, ^{
         
+        NSMutableArray *postsWithDirectURLs = [[NSMutableArray alloc] init];
         for (id<Post> post in posts) {
             NSString *playURL = [post playURL];
             
@@ -89,19 +90,23 @@ UIWebView *webHelper;
                 // Hack Tumblr :)
                 if([playURL hasPrefix:@"http://www.tumblr.com/"]) {
                     [post setPlayURL: [[NSString alloc] initWithFormat: @"%@%@", playURL, @"?plead=please-dont-download-this-or-our-lawyers-wont-let-us-host-audio"]];
-                }else
-                    
-                    // Soundcloud
-                    if ([playURL hasPrefix:@""]) {
-                        
-                    } else
-                        
-                        // Vimeo
-                        if ([playURL hasPrefix:@""]) {
-                            
-                        }
+                } else
+                    // NOT SUPPORTED
+                    continue;
+            [postsWithDirectURLs addObject: post];
+            //                    // Soundcloud
+            //                    if ([playURL hasPrefix:@""]) {
+            //
+            //                    } else
+            //
+            //                        // Vimeo
+            //                        if ([playURL hasPrefix:@""]) {
+            //
+            //                        }
+            
         }
-        block(posts);
+        
+        block(postsWithDirectURLs);
     });
 }
 
