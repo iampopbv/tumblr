@@ -236,7 +236,13 @@
         [[TMAPIClient sharedInstance] authenticate:@"Shumbler" callback:^(NSError *error) {
             if(!error){
                 NSLog(@"Succes on authentication");
-                [self performSegueWithIdentifier: @"login_segue" sender: self];
+                
+                
+                UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+                UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LoggedInNavigationController"];
+                [vc setModalPresentationStyle: UIModalPresentationFullScreen];
+                [vc setModalTransitionStyle: UIModalTransitionStyleCrossDissolve];
+                [self presentModalViewController: vc animated:YES];
                 [[User sharedInstance] setLoggedIn: YES];
                 
                 
@@ -261,8 +267,12 @@
         
         [[TMAPIClient sharedInstance] setOAuthToken:tokens[0]];
         [[TMAPIClient sharedInstance] setOAuthTokenSecret:tokens[1]];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+        UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LoggedInNavigationController"];
+        [vc setModalPresentationStyle: UIModalPresentationFullScreen];
+        [vc setModalTransitionStyle: UIModalTransitionStyleCrossDissolve];
+        [self presentModalViewController: vc animated:YES];
         
-        [self performSegueWithIdentifier: @"login_segue" sender: self];
     }
 }
 

@@ -827,9 +827,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A1FAD6FD171EA7BC0095EC7E /* ShufflerTumblr */ = {
+		A1FAD6FD171EA7BC0095EC7E /* Shumblr */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A1FAD739171EA7BC0095EC7E /* Build configuration list for PBXNativeTarget "ShufflerTumblr" */;
+			buildConfigurationList = A1FAD739171EA7BC0095EC7E /* Build configuration list for PBXNativeTarget "Shumblr" */;
 			buildPhases = (
 				A1FAD6FA171EA7BC0095EC7E /* Sources */,
 				A1FAD6FB171EA7BC0095EC7E /* Frameworks */,
@@ -840,7 +840,7 @@
 			);
 			dependencies = (
 			);
-			name = ShufflerTumblr;
+			name = Shumblr;
 			productName = ShufflerTumblr;
 			productReference = A1FAD6FE171EA7BC0095EC7E /* ShufflerTumblr.app */;
 			productType = "com.apple.product-type.application";
@@ -886,7 +886,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A1FAD6FD171EA7BC0095EC7E /* ShufflerTumblr */,
+				A1FAD6FD171EA7BC0095EC7E /* Shumblr */,
 				A1FAD726171EA7BC0095EC7E /* ShufflerTumblrTests */,
 			);
 		};
@@ -1054,7 +1054,7 @@
 /* Begin PBXTargetDependency section */
 		A1FAD72D171EA7BC0095EC7E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A1FAD6FD171EA7BC0095EC7E /* ShufflerTumblr */;
+			target = A1FAD6FD171EA7BC0095EC7E /* Shumblr */;
 			targetProxy = A1FAD72C171EA7BC0095EC7E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1219,7 +1219,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A1FAD739171EA7BC0095EC7E /* Build configuration list for PBXNativeTarget "ShufflerTumblr" */ = {
+		A1FAD739171EA7BC0095EC7E /* Build configuration list for PBXNativeTarget "Shumblr" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A1FAD73A171EA7BC0095EC7E /* Debug */,
