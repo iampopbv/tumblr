@@ -104,13 +104,6 @@
     
 }
 
-// Not setting the application to background :( (yet)
--(void)registerBackgroundMode {
-    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
-    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
-    [audioSession setActive:YES error:nil];
-}
-
 -(void)itemDidFinishPlaying {
     // Will be called when AVQueuePlayer finishes playing playerItem
     __block UIBackgroundTaskIdentifier background_task;

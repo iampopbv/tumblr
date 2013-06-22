@@ -8,11 +8,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVAudioSession.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>{
-	NSString				*oauthVerifier_;
-}
+@interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-@property (nonatomic, readwrite, copy) NSString *oauthVerifier;
+
 @end

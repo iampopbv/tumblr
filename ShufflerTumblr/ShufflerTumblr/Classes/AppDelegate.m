@@ -15,14 +15,15 @@
 
 @implementation AppDelegate
 
-@synthesize oauthVerifier = oauthVerifier_;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [[UINavigationBar appearance] setBackgroundImage: [UIImage imageNamed:@"navigationbar3.png"] forBarMetrics:UIBarMetricsDefault];
     
-    [[Player sharedInstance] registerBackgroundMode];
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [audioSession setActive:YES error:nil];
     
     
     return YES;
@@ -67,10 +68,6 @@
 	// The x-com-mpoauth-mobile URI is a claimed URI Type
 	// check Info.plist for details
 	return [NSURL URLWithString:@"x-com-shumblr-mobile://success"];
-}
-
-- (NSString *)oauthVerifierForCompletedUserAuthorization {
-	return oauthVerifier_;
 }
 
 - (BOOL)automaticallyRequestAuthenticationFromURL:(NSURL *)inAuthURL withCallbackURL:(NSURL *)inCallbackURL {
