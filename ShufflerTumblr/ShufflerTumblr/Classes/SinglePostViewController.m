@@ -89,7 +89,11 @@
 
 
 - (void)loadPreviousPost:(id)sender {
-    NSLog(@"Swiped right");
+
+    id<Post> previousPost = [[Player sharedInstance] playPreviousPost];
+    if(previousPost == nil)
+        return;
+    
     UIView *previousPostView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil] objectAtIndex: 0];
     CGRect newFrame = [previousPostView frame];
     newFrame.origin.x -= newFrame.size.width;
@@ -105,13 +109,19 @@
         _postView = previousPostView;
     }];
     
-    id<Post> previousPost = [[Player sharedInstance] playPreviousPost];
     [self setPost: previousPost];
 }
 
 
 - (void)loadNewPost:(id)sender {
     // Load new post
+    
+    
+    id<Post> nextPost = [[Player sharedInstance] playNextPost];
+    if (nextPost == nil) {
+        // Make the [Root]ViewController lazyload the next page and set it in the player's playlist
+    }
+    
     UIView *newPostView = [[[NSBundle mainBundle] loadNibNamed:@"PostView" owner:self options:nil] objectAtIndex: 0];
     CGRect newFrame = [newPostView frame];
     newFrame.origin.x += newFrame.size.width;
@@ -127,7 +137,6 @@
         _postView = newPostView;
     }];
     
-    id<Post> nextPost = [[Player sharedInstance] playNextPost];
     [self setPost: nextPost];
 }
 
@@ -146,7 +155,7 @@
         if(!audioObject.albumArt)
             [_imageView setImage:[UIImage imageNamed:@"audio_ico"]];
         else
-
+            
             [_imageView setImage: [audioObject albumArt]];
         
         self.titleLabel.attributedText = [audioObject trackName];

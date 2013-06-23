@@ -64,8 +64,6 @@
 	// Configure and show the window
 }
 
-#pragma mark - MPOAuthAPIDelegate Methods -
-
 - (NSURL *)callbackURLForCompletedUserAuthorization {
 	// The x-com-mpoauth-mobile URI is a claimed URI Type
 	// check Info.plist for details

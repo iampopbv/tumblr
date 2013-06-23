@@ -41,7 +41,12 @@
     //    [NSException raise:@"Unimplemented Exception" format:@"unimplemented method: playNextPost"];
     id<Post> nextPost;
     _playListCounter++;
+
+    if (_playListCounter >= [_playlist count])
+        return nextPost; // Don't let the app crash when there is no next song.
+    
     nextPost = [_playlist objectAtIndex: _playListCounter];
+    
     
     if(!_trackEnded) {
         [_avQPlayer advanceToNextItem];
@@ -56,7 +61,12 @@
 - (id<Post>) playPreviousPost {
     id<Post> prevPost;
     _playListCounter--;
+    
+    
+    if(_playListCounter < 0) // Don't let the app crash when there is no previous song.
+        return prevPost;
     prevPost = [_playlist objectAtIndex: _playListCounter];
+    
     
     [_avQPlayer pause];
     
