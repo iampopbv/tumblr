@@ -43,12 +43,15 @@
 - (void) addToPlaylist: (NSArray<Post>*) posts;
 // Register the app for background playing (NOT WORKING)
 - (void) registerBackgroundMode;
+// Stops the player and removes all the items from player and playlist
 - (void) clear;
 
 // Returns the current post
 - (id<Post>) currentPost;
 
+// Lets the audio/video play
 - (void) playAV;
+// Lets the audio/video pause
 - (void) pauseAV;
 
 @end

@@ -151,6 +151,7 @@
     [_avQPlayer pause];
     [_avQPlayer removeAllItems];
     [_playlist removeAllObjects];
+    _playing = NO;
 }
 
 @end

@@ -62,11 +62,13 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {
 	
 	// Configure and show the window
+    AVAudioSession *audioSession = [AVAudioSession sharedInstance];
+    [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
+    [audioSession setActive:YES error:nil];
 }
 
 - (NSURL *)callbackURLForCompletedUserAuthorization {
-	// The x-com-mpoauth-mobile URI is a claimed URI Type
-	// check Info.plist for details
+    // Call back to our app :)
 	return [NSURL URLWithString:@"x-com-shumblr-mobile://success"];
 }
 

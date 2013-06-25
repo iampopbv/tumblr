@@ -196,8 +196,8 @@ BOOL hasSetOffset = NO;
             }
         }
         
+        // Issue the video request
         if(videoLimit != 0) {
-            // Issue the video request
             url = [[NSString alloc] initWithFormat: @"%@%@%@%@%i%@%i", _blogURL, @"posts/video", apiKey, @"&offset=", videoOffset, @"&limit=", videoLimit];
             urlRequest = [NSURL URLWithString: url];
             response = [NSData dataWithContentsOfURL: urlRequest];
