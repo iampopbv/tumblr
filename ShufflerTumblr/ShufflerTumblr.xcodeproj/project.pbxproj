@@ -31,6 +31,7 @@
 		7F4F60CB17714F52008E1F55 /* shuffler logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B517714F52008E1F55 /* shuffler logo.png */; };
 		7F4F60CD17714F52008E1F55 /* shumblrlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B717714F52008E1F55 /* shumblrlogo.png */; };
 		7F4F60CE17714F52008E1F55 /* topbar_nowplaying.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B817714F52008E1F55 /* topbar_nowplaying.png */; };
+		7FEDF5F91779BB87003976F6 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF3DB84217708CAA00527DDA /* PostView.xib */; };
 		8BE37D77176696C30025B178 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE37D76176696C30025B178 /* CoreMedia.framework */; };
 		A16C4FC61769A95F0049745B /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16C4FC51769A95F0049745B /* Social.framework */; };
 		A1906E6C176A782C00EA2809 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -901,6 +902,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FEDF5F91779BB87003976F6 /* PostView.xib in Resources */,
 				A1FAD70C171EA7BC0095EC7E /* InfoPlist.strings in Resources */,
 				A1FAD71B171EA7BC0095EC7E /* MainStoryboard.storyboard in Resources */,
 				AFD8A0361769C239005E3693 /* LICENSE.txt in Resources */,
@@ -1104,7 +1106,7 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1119,6 +1121,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Debug;
 		};
