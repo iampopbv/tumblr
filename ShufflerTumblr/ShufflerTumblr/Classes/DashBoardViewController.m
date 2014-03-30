@@ -66,10 +66,10 @@
     
     
     NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                             [UIColor whiteColor], UITextAttributeTextColor,
-                                             [UIColor whiteColor], UITextAttributeTextShadowColor,
-                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
-                                             [UIFont fontWithName:@"BrandonGrotesque-Bold" size:23.0], UITextAttributeFont,
+                                             [UIColor whiteColor], NSForegroundColorAttributeName,
+                                             [UIColor whiteColor], NSShadowAttributeName,
+                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], NSShadowAttributeName,
+                                             [UIFont fontWithName:@"BrandonGrotesque-Bold" size:23.0], NSFontAttributeName,
                                              nil];
     [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
 }

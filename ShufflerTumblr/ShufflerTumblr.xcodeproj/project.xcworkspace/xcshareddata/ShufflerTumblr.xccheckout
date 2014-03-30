@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>36D8DFF6-B84A-4327-A96C-FC0B27E6BFDD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ShufflerTumblr</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E71D0166-F21D-4D8B-A67B-6168201C2649</key>
+		<string>https://github.com/shuffler/tumblr.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ShufflerTumblr/ShufflerTumblr.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E71D0166-F21D-4D8B-A67B-6168201C2649</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/shuffler/tumblr.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E71D0166-F21D-4D8B-A67B-6168201C2649</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E71D0166-F21D-4D8B-A67B-6168201C2649</string>
+			<key>IDESourceControlWCCName</key>
+			<string>tumblr</string>
+		</dict>
+	</array>
+</dict>
+</plist>
