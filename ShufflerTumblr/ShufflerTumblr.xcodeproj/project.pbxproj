@@ -10,25 +10,7 @@
 		3F7D7BDE175C9341002E552B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC2E3921737B12700521124 /* AVFoundation.framework */; };
 		3FBE3CBB17620C89000386D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBA17620C89000386D4 /* Security.framework */; };
 		3FBE3CBF17620D56000386D4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBE17620D56000386D4 /* libxml2.dylib */; };
-		7F4F60B917714F52008E1F55 /* audio_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60A317714F52008E1F55 /* audio_ico.png */; };
-		7F4F60BA17714F52008E1F55 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60A417714F52008E1F55 /* Default-568h@2x.png */; };
 		7F4F60BB17714F52008E1F55 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60A517714F52008E1F55 /* Default.png */; };
-		7F4F60BC17714F52008E1F55 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60A617714F52008E1F55 /* Default@2x.png */; };
-		7F4F60BD17714F52008E1F55 /* discover_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60A717714F52008E1F55 /* discover_ico.png */; };
-		7F4F60BE17714F52008E1F55 /* favoritebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60A817714F52008E1F55 /* favoritebutton.png */; };
-		7F4F60BF17714F52008E1F55 /* favouritebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60A917714F52008E1F55 /* favouritebutton.png */; };
-		7F4F60C017714F52008E1F55 /* followed_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60AA17714F52008E1F55 /* followed_ico.png */; };
-		7F4F60C117714F52008E1F55 /* home_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60AB17714F52008E1F55 /* home_ico.png */; };
-		7F4F60C217714F52008E1F55 /* my_blogs_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60AC17714F52008E1F55 /* my_blogs_ico.png */; };
-		7F4F60C317714F52008E1F55 /* navigationbar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60AD17714F52008E1F55 /* navigationbar.png */; };
-		7F4F60C617714F52008E1F55 /* Navigationbar3.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B017714F52008E1F55 /* Navigationbar3.png */; };
-		7F4F60C717714F52008E1F55 /* optionsbalk.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B117714F52008E1F55 /* optionsbalk.png */; };
-		7F4F60C817714F52008E1F55 /* play_ico.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B217714F52008E1F55 /* play_ico.png */; };
-		7F4F60C917714F52008E1F55 /* plusbutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B317714F52008E1F55 /* plusbutton.png */; };
-		7F4F60CA17714F52008E1F55 /* shuffler logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B417714F52008E1F55 /* shuffler logo.jpg */; };
-		7F4F60CB17714F52008E1F55 /* shuffler logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B517714F52008E1F55 /* shuffler logo.png */; };
-		7F4F60CD17714F52008E1F55 /* shumblrlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B717714F52008E1F55 /* shumblrlogo.png */; };
-		7F4F60CE17714F52008E1F55 /* topbar_nowplaying.png in Resources */ = {isa = PBXBuildFile; fileRef = 7F4F60B817714F52008E1F55 /* topbar_nowplaying.png */; };
 		7FEDF5F91779BB87003976F6 /* PostView.xib in Resources */ = {isa = PBXBuildFile; fileRef = AF3DB84217708CAA00527DDA /* PostView.xib */; };
 		7FEDF6001779BC21003976F6 /* favorite.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEDF5FA1779BC21003976F6 /* favorite.png */; };
 		7FEDF6011779BC21003976F6 /* pausebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7FEDF5FB1779BC21003976F6 /* pausebutton.png */; };
@@ -45,7 +27,6 @@
 		A1FAD70C171EA7BC0095EC7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD70A171EA7BC0095EC7E /* InfoPlist.strings */; };
 		A1FAD70E171EA7BC0095EC7E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A1FAD70D171EA7BC0095EC7E /* main.m */; };
 		A1FAD71B171EA7BC0095EC7E /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD719171EA7BC0095EC7E /* MainStoryboard.storyboard */; };
-		A1FAD729171EA7BC0095EC7E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD728171EA7BC0095EC7E /* SenTestingKit.framework */; };
 		A1FAD72A171EA7BC0095EC7E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD701171EA7BC0095EC7E /* UIKit.framework */; };
 		A1FAD72B171EA7BC0095EC7E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1FAD703171EA7BC0095EC7E /* Foundation.framework */; };
 		A1FAD733171EA7BC0095EC7E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1FAD731171EA7BC0095EC7E /* InfoPlist.strings */; };
@@ -195,8 +176,7 @@
 		A1FAD70B171EA7BC0095EC7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1FAD70D171EA7BC0095EC7E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A1FAD71A171EA7BC0095EC7E /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		A1FAD727171EA7BC0095EC7E /* ShufflerTumblrTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShufflerTumblrTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A1FAD728171EA7BC0095EC7E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		A1FAD727171EA7BC0095EC7E /* ShufflerTumblrTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShufflerTumblrTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1FAD730171EA7BC0095EC7E /* ShufflerTumblrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShufflerTumblrTests-Info.plist"; sourceTree = "<group>"; };
 		A1FAD732171EA7BC0095EC7E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1FAD734171EA7BC0095EC7E /* ShufflerTumblrTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShufflerTumblrTests.h; sourceTree = "<group>"; };
@@ -380,7 +360,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1FAD729171EA7BC0095EC7E /* SenTestingKit.framework in Frameworks */,
 				A1FAD72A171EA7BC0095EC7E /* UIKit.framework in Frameworks */,
 				A1FAD72B171EA7BC0095EC7E /* Foundation.framework in Frameworks */,
 			);
@@ -423,7 +402,7 @@
 			isa = PBXGroup;
 			children = (
 				A1FAD6FE171EA7BC0095EC7E /* Shumblr.app */,
-				A1FAD727171EA7BC0095EC7E /* ShufflerTumblrTests.octest */,
+				A1FAD727171EA7BC0095EC7E /* ShufflerTumblrTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -442,7 +421,6 @@
 				A1FAD701171EA7BC0095EC7E /* UIKit.framework */,
 				A1FAD703171EA7BC0095EC7E /* Foundation.framework */,
 				A1FAD705171EA7BC0095EC7E /* CoreGraphics.framework */,
-				A1FAD728171EA7BC0095EC7E /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -872,8 +850,8 @@
 			);
 			name = ShufflerTumblrTests;
 			productName = ShufflerTumblrTests;
-			productReference = A1FAD727171EA7BC0095EC7E /* ShufflerTumblrTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productReference = A1FAD727171EA7BC0095EC7E /* ShufflerTumblrTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -881,7 +859,8 @@
 		A1FAD6F6171EA7BC0095EC7E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastTestingUpgradeCheck = 0510;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = stud;
 			};
 			buildConfigurationList = A1FAD6F9171EA7BC0095EC7E /* Build configuration list for PBXProject "ShufflerTumblr" */;
@@ -952,25 +931,7 @@
 				AF428F95176E7EB900322525 /* shumblrlogo.png in Resources */,
 				AF428F96176E7EB900322525 /* topbar_nowplaying.png in Resources */,
 				AF428FCD176E835D00322525 /* Default-568h@2x.png in Resources */,
-				7F4F60B917714F52008E1F55 /* audio_ico.png in Resources */,
-				7F4F60BA17714F52008E1F55 /* Default-568h@2x.png in Resources */,
 				7F4F60BB17714F52008E1F55 /* Default.png in Resources */,
-				7F4F60BC17714F52008E1F55 /* Default@2x.png in Resources */,
-				7F4F60BD17714F52008E1F55 /* discover_ico.png in Resources */,
-				7F4F60BE17714F52008E1F55 /* favoritebutton.png in Resources */,
-				7F4F60BF17714F52008E1F55 /* favouritebutton.png in Resources */,
-				7F4F60C017714F52008E1F55 /* followed_ico.png in Resources */,
-				7F4F60C117714F52008E1F55 /* home_ico.png in Resources */,
-				7F4F60C217714F52008E1F55 /* my_blogs_ico.png in Resources */,
-				7F4F60C317714F52008E1F55 /* navigationbar.png in Resources */,
-				7F4F60C617714F52008E1F55 /* Navigationbar3.png in Resources */,
-				7F4F60C717714F52008E1F55 /* optionsbalk.png in Resources */,
-				7F4F60C817714F52008E1F55 /* play_ico.png in Resources */,
-				7F4F60C917714F52008E1F55 /* plusbutton.png in Resources */,
-				7F4F60CA17714F52008E1F55 /* shuffler logo.jpg in Resources */,
-				7F4F60CB17714F52008E1F55 /* shuffler logo.png in Resources */,
-				7F4F60CD17714F52008E1F55 /* shumblrlogo.png in Resources */,
-				7F4F60CE17714F52008E1F55 /* topbar_nowplaying.png in Resources */,
 				AF19DA94177996410025BF27 /* favouritebuttonselected.png in Resources */,
 				7FEDF6001779BC21003976F6 /* favorite.png in Resources */,
 				7FEDF6011779BC21003976F6 /* pausebutton.png in Resources */,
@@ -1193,15 +1154,15 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShufflerTumblr.app/ShufflerTumblr";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShufflerTumblr/ShufflerTumblr-Prefix.pch";
 				INFOPLIST_FILE = "ShufflerTumblrTests/ShufflerTumblrTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -1210,15 +1171,15 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ShufflerTumblr.app/ShufflerTumblr";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
-					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"\\\"$(SDKROOT)/Developer/Library/Frameworks\\\"",
+					"\\\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\\\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ShufflerTumblr/ShufflerTumblr-Prefix.pch";
 				INFOPLIST_FILE = "ShufflerTumblrTests/ShufflerTumblrTests-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

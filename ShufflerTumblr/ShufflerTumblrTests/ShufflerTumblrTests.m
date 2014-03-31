@@ -26,7 +26,7 @@
 
 - (void)testExample
 {
-    STFail(@"Unit tests are not implemented yet in ShufflerTumblrTests");
+    XCTFail(@"Unit tests are not implemented yet in ShufflerTumblrTests");
 }
 
 @end

@@ -6,8 +6,8 @@
 //  Copyright (c) 2013 stud. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface ShufflerTumblrTests : SenTestCase
+@interface ShufflerTumblrTests : XCTestCase
 
 @end
