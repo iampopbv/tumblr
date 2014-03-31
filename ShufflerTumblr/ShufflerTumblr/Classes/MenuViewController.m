@@ -56,7 +56,7 @@
         [[TMAPIClient sharedInstance] setOAuthTokenSecret:tokens[1]];
         [[User sharedInstance] setLoggedIn: YES];
         
-        [self presentModalViewController: vc animated:YES];
+        [self presentViewController: vc animated:YES completion:nil];
     }
     
     // If playing; show the post
@@ -97,10 +97,10 @@
     
     
     NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
-                                             [UIColor whiteColor], UITextAttributeTextColor,
-                                             [UIColor whiteColor], UITextAttributeTextShadowColor,
-                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], UITextAttributeTextShadowOffset,
-                                             [UIFont fontWithName:@"BrandonGrotesque-Bold" size:20.0], UITextAttributeFont,
+                                             [UIColor whiteColor], NSForegroundColorAttributeName,
+                                             [UIColor whiteColor], NSShadowAttributeName,
+                                             [NSValue valueWithUIOffset:UIOffsetMake(0, 1)], NSShadowAttributeName,
+                                             [UIFont fontWithName:@"BrandonGrotesque-Bold" size:20.0], NSFontAttributeName,
                                              nil];
     [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
     
@@ -131,7 +131,7 @@
         }];
         index++;
     }
-    _signupbutton.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:10];
+    _signupbutton.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:10];
     _listento.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
     
     
@@ -248,7 +248,7 @@
                 UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LoggedInNavigationController"];
                 [vc setModalPresentationStyle: UIModalPresentationFullScreen];
                 [vc setModalTransitionStyle: UIModalTransitionStyleCrossDissolve];
-                [self presentModalViewController: vc animated:YES];
+                [self presentViewController: vc animated:YES completion:nil];
                 [[User sharedInstance] setLoggedIn: YES];
                 
                 
@@ -277,7 +277,7 @@
         UIViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"LoggedInNavigationController"];
         [vc setModalPresentationStyle: UIModalPresentationFullScreen];
         [vc setModalTransitionStyle: UIModalTransitionStyleCrossDissolve];
-        [self presentModalViewController: vc animated:YES];
+        [self presentViewController: vc animated:YES completion:nil];
         
     }
 }
