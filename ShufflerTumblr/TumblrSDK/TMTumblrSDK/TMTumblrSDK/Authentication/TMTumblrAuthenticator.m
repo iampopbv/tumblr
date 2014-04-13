@@ -60,7 +60,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
             return;
         }
         
-        int statusCode = ((NSHTTPURLResponse *)response).statusCode;
+        int statusCode = (int)((NSHTTPURLResponse *)response).statusCode;
         
         if (statusCode == 200) {
             self.authCallback = callback;
@@ -123,7 +123,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
                 self.authCallback(nil, nil, error);
             
         } else {
-            int statusCode = ((NSHTTPURLResponse *)response).statusCode;
+            int statusCode = (int)((NSHTTPURLResponse *)response).statusCode;
             
             if (self.authCallback) {
                 if (statusCode == 200) {
@@ -166,7 +166,7 @@ NSDictionary *formEncodedDataToDictionary(NSData *data);
             return;
         }
         
-        int statusCode = ((NSHTTPURLResponse *)response).statusCode;
+        int statusCode = (int)((NSHTTPURLResponse *)response).statusCode;
         
         if (statusCode == 200) {
             NSDictionary *responseParameters = formEncodedDataToDictionary(data);
