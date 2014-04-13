@@ -22,8 +22,12 @@
 
 @implementation MenuViewController
 
-- (id)initWithCoder:(NSCoder *)coder
-{
+/**
+ No method description
+ @return self
+ */
+-(id)initWithCoder:(NSCoder *)coder{
+    
     self = [super initWithCoder:coder];
     if (self) {
         _hasInternet = NO;
@@ -31,9 +35,11 @@
     return self;
 }
 
-
-- (void)viewDidAppear:(BOOL)animated
-{
+/**
+ No method description
+ */
+-(void)viewDidAppear:(BOOL)animated{
+    
     [super viewDidAppear:animated];
     
     // Go to the dashboard if we have the credentials
@@ -60,7 +66,7 @@
     }
     
     // If playing; show the post
-    if([[Player sharedInstance] playing]) {
+    if([[Player sharedInstance] playing]){
         UIButton* button = [UIButton buttonWithType:UIButtonTypeCustom];
         UIImage * image = [UIImage imageNamed:@"topbar_nowplaying"];
         [button setBackgroundImage:image forState:UIControlStateNormal];
@@ -73,8 +79,10 @@
     }
 }
 
-- (void)viewDidLoad
-{
+/**
+ No method description
+ */
+- (void)viewDidLoad{
     
     [super viewDidLoad];
     // Test whether we got interwebss
@@ -87,14 +95,10 @@
     _blogdata = [[NSMutableArray alloc] init];
     _blogs = [[NSMutableArray alloc] init];
     
-    
-    
-    
     // Display the logo of ShufflerFM in the top
     UIImageView* logo = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shumblrlogo.png"]];
     logo.frame= CGRectMake(0,0,20,25);
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:logo];
-    
     
     NSDictionary *titleTextAttributesDict = [NSDictionary dictionaryWithObjectsAndKeys:
                                              [UIColor whiteColor], NSForegroundColorAttributeName,
@@ -103,7 +107,6 @@
                                              [UIFont fontWithName:@"BrandonGrotesque-Bold" size:20.0], NSFontAttributeName,
                                              nil];
     [self.navigationController.navigationBar setTitleTextAttributes: titleTextAttributesDict];
-    
     
     // The featured blogs
     NSArray *blogURLS = [[NSArray alloc] initWithObjects:@"http://maxabelson.com/",  @"http://breakupyourband.tumblr.com/", @"http://traviesblog.com/", @"http://earsofthebeholder.com/", @"http://petewentz.com/", nil];
@@ -133,18 +136,20 @@
     }
     _signupbutton.titleLabel.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:10];
     _listento.font = [UIFont fontWithName:@"BrandonGrotesque-Bold" size:22];
-    
-    
 }
 
-- (void)didReceiveMemoryWarning
-{
+/**
+ No method description
+ */
+-(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
-
-- (void) openCurrentTrack {
+/**
+ No method description
+ */
+-(void)openCurrentTrack{
     // code for opening the current track
     
     SinglePostViewController *vc = [[SinglePostViewController alloc] init];
@@ -156,15 +161,15 @@
     [self.navigationController pushViewController: vc animated: YES];
 }
 
-// Checks if we have an internet connection or not
-- (void)testInternetConnection
-{
+/**
+ Check if the internet connection is acquired
+ */
+-(void)testInternetConnection{
     __weak typeof(self) weakSelf = self;
     _internetReachableChecker = [Reachability reachabilityWithHostname:@"www.google.com"];
     
     // Internet is reachable
-    _internetReachableChecker.reachableBlock = ^(Reachability*reach)
-    {
+    _internetReachableChecker.reachableBlock = ^(Reachability*reach){
         // Update the UI on the main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.hasInternet = YES;
@@ -172,8 +177,7 @@
     };
     
     // Internet is not reachable
-    _internetReachableChecker.unreachableBlock = ^(Reachability*reach)
-    {
+    _internetReachableChecker.unreachableBlock = ^(Reachability*reach){
         // Update the UI on the main thread
         dispatch_async(dispatch_get_main_queue(), ^{
             weakSelf.hasInternet = YES;
@@ -183,7 +187,10 @@
     [_internetReachableChecker startNotifier];
 }
 
-- (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender {
+/**
+ No method description
+ */
+-(BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender{
     
     // a segue from here should only result in a popup if there is no internet
     if(!_hasInternet){
@@ -195,8 +202,11 @@
 }
 
 #pragma UITableView delegate methods
--(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    _chosenBlog = indexPath.row;
+/**
+ No method description
+ */
+-(void)tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    _chosenBlog = (int)indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
@@ -205,18 +215,23 @@
     [self.navigationController pushViewController: blogVC animated:YES];
 }
 
--(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
+/**
+ No method description
+ */
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [_tabledata count];
 }
 
--(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
+/**
+ No method description
+ */
+-(UITableViewCell*) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *simpleTableIdentifier = @"SimpleTableItem";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil){
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
+    
     UIView *bgColorView = [[UIView alloc] init];
     [bgColorView setBackgroundColor:[UIColor blackColor]];
     [cell setSelectedBackgroundView:bgColorView];
@@ -229,10 +244,10 @@
     return cell;
 }
 
-
-
-// Login with OAuth and save the credentials
-- (IBAction)signInButtonPressed:(id)sender {
+/**
+ Login with OAuth and save the credentials
+ */
+-(IBAction)signInButtonPressed:(id)sender{
     
     NSString * docsDir = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES)objectAtIndex: 0];
     // Write away the keys for next time
@@ -282,7 +297,10 @@
     }
 }
 
-- (void)viewDidUnload {
+/**
+ No method description
+ */
+-(void)viewDidUnload {
     [self setListento:nil];
     [self setSignupbutton:nil];
     [self setTableView:nil];
