@@ -194,7 +194,7 @@
     
     // a segue from here should only result in a popup if there is no internet
     if(!_hasInternet){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"No connection" message:@"You need a working internet connection to be able to use Shumbler."  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"No connection" message:@"You need a working internet connection to be able to use Shumblr."  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
         [alert show];
         return NO;
     }
@@ -254,7 +254,7 @@
     NSString *listPath = [docsDir stringByAppendingPathComponent:@"keys.plist"];
     
     if(![[NSFileManager defaultManager] fileExistsAtPath: listPath]){
-        [[TMAPIClient sharedInstance] authenticate:@"Shumbler" callback:^(NSError *error) {
+        [[TMAPIClient sharedInstance] authenticate:@"Shumblr" callback:^(NSError *error) {
             if(!error){
                 NSLog(@"Succes on authentication");
                 
@@ -277,7 +277,7 @@
             } else {
                 // Pop-up for failure
                 dispatch_async(dispatch_get_main_queue(), ^{
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Permission error" message:@"You did not give permission to Shumbler. You can not use the app."  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Permission error" message:@"You did not give permission to Shumblr. You can not use the app."  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
                     [alert show];
                 });
                 
