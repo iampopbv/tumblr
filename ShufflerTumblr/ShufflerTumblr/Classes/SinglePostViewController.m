@@ -180,13 +180,13 @@
 		[[TMAPIClient sharedInstance] follow: blogURL callback:^(id response, NSError *error) {
 			if(!error){
 				dispatch_async(dispatch_get_main_queue(), ^{
-					NSString *message = [[NSString alloc] initWithFormat: @"Je volgt nu %@", [_post blogName]];
+					NSString *message = [[NSString alloc] initWithFormat: @"You are now following %@", [_post blogName]];
 					UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message: message  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
 					[alert show];
 				});
 			} else {
 				dispatch_async(dispatch_get_main_queue(), ^{
-					UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"Je bent nog niet ingelogd dus je kan nog geen blogs volgen!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+					UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"You have not logged in yet and therefor can't follow any blogs!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
 					[alert show];
 				});
 			}
@@ -194,7 +194,7 @@
 	} else {
 		dispatch_async(dispatch_get_main_queue(), ^{
             
-			UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"Je bent nog niet ingelogd dus je kan nog geen blogs volgen!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+			UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"JYou have not logged in yet and therefor can't follow any blogs!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
 			[alert show];
             
 		});
@@ -205,7 +205,7 @@
     if([[User sharedInstance] loggedIn]) {
         [[Favourites sharedManager] addFavourite: _post];
     } else {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Inloggen" message:@"Je bent nog niet ingelogd!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Login" message:@"You are not logged in yet!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
         [alert show];
     }
 }
@@ -220,7 +220,7 @@
             NSLog(@"%@", response);
         } else {
             dispatch_async(dispatch_get_main_queue(), ^{
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"Je bent nog niet ingelogd dus je kan nog geen blogs volgen!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle: @"Follow" message:@"JYou have not logged in yet and therefor can't follow any blogs!"  delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil, nil];
                 [alert show];
             });
         }

@@ -5,34 +5,34 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>36D8DFF6-B84A-4327-A96C-FC0B27E6BFDD</string>
+	<string>72AAD9DD-435A-4521-B65A-0E907044300E</string>
 	<key>IDESourceControlProjectName</key>
 	<string>ShufflerTumblr</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>E71D0166-F21D-4D8B-A67B-6168201C2649</key>
-		<string>https://github.com/shuffler/tumblr.git</string>
+		<key>34D69C85-5FD9-4AFB-AC2B-7D91FC811C7B</key>
+		<string>https://github.com/shuffler/tumblr</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>ShufflerTumblr/ShufflerTumblr.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>E71D0166-F21D-4D8B-A67B-6168201C2649</key>
+		<key>34D69C85-5FD9-4AFB-AC2B-7D91FC811C7B</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/shuffler/tumblr.git</string>
+	<string>https://github.com/shuffler/tumblr</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>110</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>E71D0166-F21D-4D8B-A67B-6168201C2649</string>
+	<string>34D69C85-5FD9-4AFB-AC2B-7D91FC811C7B</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>E71D0166-F21D-4D8B-A67B-6168201C2649</string>
+			<string>34D69C85-5FD9-4AFB-AC2B-7D91FC811C7B</string>
 			<key>IDESourceControlWCCName</key>
 			<string>tumblr</string>
 		</dict>
