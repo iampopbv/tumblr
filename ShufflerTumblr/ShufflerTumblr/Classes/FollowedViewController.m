@@ -97,7 +97,7 @@
 
 #pragma UITableView delegates
 -(void) tableView:(UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    chosenRow = indexPath.row;
+    chosenRow = (int)indexPath.row;
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     BlogInfo *selectedBlogInfo = [tableObjects objectAtIndex:chosenRow];
