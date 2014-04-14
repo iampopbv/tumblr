@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="idz-EE-YMN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tGF-Ei-r8I">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -16,14 +16,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYr-7e-VnS">
-                                <rect key="frame" x="53" y="419" width="214" height="41"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYr-7e-VnS">
+                                <rect key="frame" x="-10" y="430" width="339" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="214" id="l1u-KF-mqY"/>
                                     <constraint firstAttribute="height" constant="41" id="vck-Qp-ZmN"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="DevanagariSangamMN-Bold" family="Devanagari Sangam MN" pointSize="11"/>
-                                <state key="normal" title="SIGNUP/LOGIN WITH YOUR TUMBLR" backgroundImage="Loginbuttno.png">
+                                <state key="normal" title="SIGNUP/LOGIN WITH YOUR TUMBLR" image="dashboard1.png" backgroundImage="dashboard1.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -44,8 +43,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AzW-9M-CXS">
-                                <rect key="frame" x="11" y="55" width="298" height="356"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AzW-9M-CXS">
+                                <rect key="frame" x="11" y="55" width="298" height="367"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="298" id="pBo-I6-5kj"/>
                                 </constraints>
@@ -104,7 +103,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jK-nc-e29" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="b4h-5d-tPS"/>
             </objects>
-            <point key="canvasLocation" x="162" y="282"/>
+            <point key="canvasLocation" x="-318" y="1482"/>
         </scene>
         <!--Blog Playlist View Controller-->
         <scene sceneID="a4P-ao-YeY">
@@ -150,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRS-70-RD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="603" y="286"/>
+            <point key="canvasLocation" x="123" y="1486"/>
         </scene>
         <!--Followed View Controller - Followed-->
         <scene sceneID="Mdq-6u-oIh">
@@ -189,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdQ-Jm-Wim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="1443"/>
+            <point key="canvasLocation" x="282" y="2643"/>
         </scene>
         <!--Dash Board View Controller - Dashboard-->
         <scene sceneID="tXW-eG-MbA">
@@ -239,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOJ-WZ-fan" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="874"/>
+            <point key="canvasLocation" x="282" y="2074"/>
         </scene>
         <!--My Blogs View Controller - My Blogs-->
         <scene sceneID="1pk-bb-ipp">
@@ -278,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1c-1Q-smz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1124" y="874"/>
+            <point key="canvasLocation" x="644" y="2074"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="iCo-qQ-BqP">
@@ -328,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zcl-dj-hK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1136" y="1443"/>
+            <point key="canvasLocation" x="656" y="2643"/>
         </scene>
         <!--Discover View Controller - Discover-->
         <scene sceneID="hrG-D9-H4p">
@@ -379,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVe-F9-iv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1517" y="1443"/>
+            <point key="canvasLocation" x="1037" y="2643"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qFR-7g-04R">
@@ -403,7 +402,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UV-LD-z6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="154" y="1055"/>
+            <point key="canvasLocation" x="-326" y="2255"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cNO-Xh-61A">
@@ -418,7 +417,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZQ-IU-sOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-330" y="1055"/>
+            <point key="canvasLocation" x="-810" y="2255"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dRe-4i-yIs">
@@ -441,15 +440,188 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvt-cH-SJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-422" y="282"/>
+            <point key="canvasLocation" x="-902" y="1482"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="hc3-rE-xOs">
+            <objects>
+                <viewController id="dcC-nb-g1R" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J7J-Mv-8gk"/>
+                        <viewControllerLayoutGuide type="bottom" id="9e8-qN-VGY"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rff-nu-ZRO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DASHBOARD" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W7Y-Ic-4T7">
+                                <rect key="frame" x="0.0" y="20" width="320" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="-5" title="" image="dashboard1.png" id="XB3-tn-TlT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B3i-tL-FjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="467" y="-244"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Lr4-fs-PHR">
+            <objects>
+                <tabBarController definesPresentationContext="YES" id="tGF-Ei-r8I" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="p9h-UI-t42">
+                        <rect key="frame" x="129" y="330" width="163" height="49"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="dcC-nb-g1R" kind="relationship" relationship="viewControllers" id="Op4-Dc-kdD"/>
+                        <segue destination="X7a-QL-RfC" kind="relationship" relationship="viewControllers" id="pqy-af-opq"/>
+                        <segue destination="Jos-KG-7xi" kind="relationship" relationship="viewControllers" id="sUd-OO-wxr"/>
+                        <segue destination="aga-vw-WC4" kind="relationship" relationship="viewControllers" id="kNJ-fi-GqP"/>
+                        <segue destination="Yla-XQ-LMU" kind="relationship" relationship="viewControllers" id="En1-bv-96I"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3dE-BI-w5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-492" y="-244"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Hg8-JJ-HWc">
+            <objects>
+                <viewController id="X7a-QL-RfC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zJ2-0s-VDd"/>
+                        <viewControllerLayoutGuide type="bottom" id="wUb-Cm-rNQ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Rz0-kH-AMi">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SITES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IFv-QJ-9WT">
+                                <rect key="frame" x="0.0" y="20" width="320" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="blogs1.png" id="ieN-2W-7a6"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0eS-4v-9yJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1593" y="-244"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="zKu-CE-f4s">
+            <objects>
+                <viewController id="Jos-KG-7xi" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZFq-Js-jp6"/>
+                        <viewControllerLayoutGuide type="bottom" id="FoU-BR-p9h"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dcz-aE-fxI">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="PLAYER" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIL-0K-heS">
+                                <rect key="frame" x="0.0" y="20" width="320" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="player.png" id="6mR-WF-k1D"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Daa-PG-f8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="54" y="630"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HtO-Ei-0Od">
+            <objects>
+                <viewController id="aga-vw-WC4" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G7g-CM-F7Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="sAg-zL-r2V"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="RZf-kL-5ka">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DISCOVERY" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6g-nh-Yaz">
+                                <rect key="frame" x="0.0" y="20" width="320" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="explore1.png" id="XjL-6z-Qny"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NFL-RI-Bed" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733" y="630"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="7NV-DJ-CUr">
+            <objects>
+                <viewController id="Yla-XQ-LMU" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p1M-O1-c1h"/>
+                        <viewControllerLayoutGuide type="bottom" id="6aW-JJ-vES"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ncu-wz-2A5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="LIKES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Xe-d4-XQm">
+                                <rect key="frame" x="0.0" y="20" width="320" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="likes1.png" id="Vtr-8m-3Ij"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4mw-K5-7uL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1333" y="630"/>
         </scene>
     </scenes>
     <resources>
-        <image name="Loginbuttno.png" width="586" height="86"/>
+        <image name="blogs1.png" width="26" height="30"/>
+        <image name="dashboard1.png" width="26" height="30"/>
         <image name="discover_ico.png" width="35" height="35"/>
+        <image name="explore1.png" width="26" height="30"/>
         <image name="followed_ico.png" width="35" height="35"/>
         <image name="home_ico.png" width="35" height="35"/>
+        <image name="likes1.png" width="26" height="30"/>
         <image name="my_blogs_ico.png" width="35" height="35"/>
+        <image name="player.png" width="26" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
