@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1055EEDD18FBFA45004C71EF /* blogs1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1055EED818FBFA45004C71EF /* blogs1.png */; };
+		1055EEDE18FBFA45004C71EF /* dashboard1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1055EED918FBFA45004C71EF /* dashboard1.png */; };
+		1055EEDF18FBFA45004C71EF /* explore1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1055EEDA18FBFA45004C71EF /* explore1.png */; };
+		1055EEE018FBFA45004C71EF /* likes1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1055EEDB18FBFA45004C71EF /* likes1.png */; };
+		1055EEE118FBFA45004C71EF /* player.png in Resources */ = {isa = PBXBuildFile; fileRef = 1055EEDC18FBFA45004C71EF /* player.png */; };
 		3F7D7BDE175C9341002E552B /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC2E3921737B12700521124 /* AVFoundation.framework */; };
 		3FBE3CBB17620C89000386D4 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBA17620C89000386D4 /* Security.framework */; };
 		3FBE3CBF17620D56000386D4 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FBE3CBE17620D56000386D4 /* libxml2.dylib */; };
@@ -139,6 +144,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1055EED818FBFA45004C71EF /* blogs1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blogs1.png; sourceTree = "<group>"; };
+		1055EED918FBFA45004C71EF /* dashboard1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dashboard1.png; sourceTree = "<group>"; };
+		1055EEDA18FBFA45004C71EF /* explore1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = explore1.png; sourceTree = "<group>"; };
+		1055EEDB18FBFA45004C71EF /* likes1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = likes1.png; sourceTree = "<group>"; };
+		1055EEDC18FBFA45004C71EF /* player.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player.png; sourceTree = "<group>"; };
 		3FBE3CBA17620C89000386D4 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		3FBE3CBE17620D56000386D4 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		7F4F60A317714F52008E1F55 /* audio_ico.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = audio_ico.png; path = Resources/Images/audio_ico.png; sourceTree = "<group>"; };
@@ -369,6 +379,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1055EECD18FBF9FD004C71EF /* Navigation images */ = {
+			isa = PBXGroup;
+			children = (
+				1055EED818FBFA45004C71EF /* blogs1.png */,
+				1055EED918FBFA45004C71EF /* dashboard1.png */,
+				1055EEDA18FBFA45004C71EF /* explore1.png */,
+				1055EEDB18FBFA45004C71EF /* likes1.png */,
+				1055EEDC18FBFA45004C71EF /* player.png */,
+			);
+			name = "Navigation images";
+			path = ..;
+			sourceTree = "<group>";
+		};
 		A1407F5A1766054300B9FFED /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +464,7 @@
 		A1FAD708171EA7BC0095EC7E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1055EECD18FBF9FD004C71EF /* Navigation images */,
 				AF428F4C176E7E5C00322525 /* AppDelegate.h */,
 				AF428F4D176E7E5C00322525 /* AppDelegate.m */,
 				A1407F5A1766054300B9FFED /* Fonts */,
@@ -914,6 +938,7 @@
 				AF428F68176E7E6B00322525 /* brandon_thin_it.ttf in Resources */,
 				AF428F69176E7E6B00322525 /* brandon_thin.ttf in Resources */,
 				AF428F81176E7EB900322525 /* audio_ico.png in Resources */,
+				1055EEDE18FBFA45004C71EF /* dashboard1.png in Resources */,
 				AF428F84176E7EB900322525 /* Default@2x.png in Resources */,
 				AF428F85176E7EB900322525 /* discover_ico.png in Resources */,
 				AF428F86176E7EB900322525 /* favoritebutton.png in Resources */,
@@ -925,17 +950,21 @@
 				AF428F8E176E7EB900322525 /* Navigationbar3.png in Resources */,
 				AF428F8F176E7EB900322525 /* optionsbalk.png in Resources */,
 				AF428F90176E7EB900322525 /* play_ico.png in Resources */,
+				1055EEE118FBFA45004C71EF /* player.png in Resources */,
 				AF428F91176E7EB900322525 /* plusbutton.png in Resources */,
 				AF428F92176E7EB900322525 /* shuffler logo.jpg in Resources */,
 				AF428F93176E7EB900322525 /* shuffler logo.png in Resources */,
 				AF428F94176E7EB900322525 /* shufflersplash.png in Resources */,
 				AF428F95176E7EB900322525 /* shumblrlogo.png in Resources */,
+				1055EEDF18FBFA45004C71EF /* explore1.png in Resources */,
 				AF428F96176E7EB900322525 /* topbar_nowplaying.png in Resources */,
 				AF428FCD176E835D00322525 /* Default-568h@2x.png in Resources */,
+				1055EEE018FBFA45004C71EF /* likes1.png in Resources */,
 				7F4F60BB17714F52008E1F55 /* Default.png in Resources */,
 				AF19DA94177996410025BF27 /* favouritebuttonselected.png in Resources */,
 				7FEDF6001779BC21003976F6 /* favorite.png in Resources */,
 				7FEDF6011779BC21003976F6 /* pausebutton.png in Resources */,
+				1055EEDD18FBFA45004C71EF /* blogs1.png in Resources */,
 				7FEDF6021779BC22003976F6 /* playbutton.png in Resources */,
 				7FEDF6031779BC22003976F6 /* selectedfavorite.png in Resources */,
 				7FEDF6041779BC22003976F6 /* thumb_highlighted.png in Resources */,
