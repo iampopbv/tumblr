@@ -17,12 +17,12 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYr-7e-VnS">
-                                <rect key="frame" x="-10" y="430" width="339" height="30"/>
+                                <rect key="frame" x="52" y="430" width="216" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="214" id="l1u-KF-mqY"/>
                                     <constraint firstAttribute="height" constant="41" id="vck-Qp-ZmN"/>
                                 </constraints>
-                                <state key="normal" title="SIGNUP/LOGIN WITH YOUR TUMBLR" image="dashboard1.png" backgroundImage="dashboard1.png">
+                                <state key="normal" title="SIGNUP/LOGIN WITH YOUR TUMBLR" backgroundImage="dashboard1.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
