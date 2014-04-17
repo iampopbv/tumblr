@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tGF-Ei-r8I">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="tGF-Ei-r8I">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--Menu View Controller - SHUMBLR-->
+        <!--Menu View Controller - Listen-->
         <scene sceneID="rHk-x0-f4V">
             <objects>
-                <viewController id="Lci-Yl-TRi" customClass="MenuViewController" sceneMemberID="viewController">
+                <viewController title="Listen" id="Lci-Yl-TRi" customClass="MenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="u9s-pG-S4w"/>
                         <viewControllerLayoutGuide type="bottom" id="N0O-um-stb"/>
@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYr-7e-VnS">
-                                <rect key="frame" x="52" y="430" width="216" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYr-7e-VnS">
+                                <rect key="frame" x="53" y="419" width="214" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="214" id="l1u-KF-mqY"/>
                                     <constraint firstAttribute="height" constant="41" id="vck-Qp-ZmN"/>
@@ -43,8 +43,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AzW-9M-CXS">
-                                <rect key="frame" x="11" y="55" width="298" height="367"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" indicatorStyle="black" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="AzW-9M-CXS">
+                                <rect key="frame" x="11" y="55" width="298" height="356"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="298" id="pBo-I6-5kj"/>
                                 </constraints>
@@ -103,7 +103,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3jK-nc-e29" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="b4h-5d-tPS"/>
             </objects>
-            <point key="canvasLocation" x="-318" y="1482"/>
+            <point key="canvasLocation" x="-334" y="706"/>
         </scene>
         <!--Blog Playlist View Controller-->
         <scene sceneID="a4P-ao-YeY">
@@ -149,7 +149,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uRS-70-RD8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="123" y="1486"/>
+            <point key="canvasLocation" x="107" y="710"/>
         </scene>
         <!--Followed View Controller - Followed-->
         <scene sceneID="Mdq-6u-oIh">
@@ -188,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DdQ-Jm-Wim" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="2643"/>
+            <point key="canvasLocation" x="266" y="1867"/>
         </scene>
         <!--Dash Board View Controller - Dashboard-->
         <scene sceneID="tXW-eG-MbA">
@@ -238,7 +238,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XOJ-WZ-fan" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="282" y="2074"/>
+            <point key="canvasLocation" x="266" y="1298"/>
         </scene>
         <!--My Blogs View Controller - My Blogs-->
         <scene sceneID="1pk-bb-ipp">
@@ -277,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1c-1Q-smz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="644" y="2074"/>
+            <point key="canvasLocation" x="628" y="1298"/>
         </scene>
         <!--Favorite View Controller-->
         <scene sceneID="iCo-qQ-BqP">
@@ -327,7 +327,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zcl-dj-hK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="656" y="2643"/>
+            <point key="canvasLocation" x="640" y="1867"/>
         </scene>
         <!--Discover View Controller - Discover-->
         <scene sceneID="hrG-D9-H4p">
@@ -378,7 +378,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVe-F9-iv4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1037" y="2643"/>
+            <point key="canvasLocation" x="1021" y="1867"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="qFR-7g-04R">
@@ -402,7 +402,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3UV-LD-z6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326" y="2255"/>
+            <point key="canvasLocation" x="-342" y="1479"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cNO-Xh-61A">
@@ -417,12 +417,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uZQ-IU-sOM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-810" y="2255"/>
+            <point key="canvasLocation" x="-826" y="1479"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation Controller - Start-->
         <scene sceneID="dRe-4i-yIs">
             <objects>
-                <navigationController id="idz-EE-YMN" sceneMemberID="viewController">
+                <navigationController title="Start" id="idz-EE-YMN" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="blackOpaque"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="b2r-ik-m5V">
@@ -440,12 +440,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qvt-cH-SJh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-854" y="1482"/>
+            <point key="canvasLocation" x="-870" y="706"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Dashboard-->
         <scene sceneID="hc3-rE-xOs">
             <objects>
-                <viewController id="dcC-nb-g1R" sceneMemberID="viewController">
+                <viewController title="Dashboard" id="dcC-nb-g1R" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="J7J-Mv-8gk"/>
                         <viewControllerLayoutGuide type="bottom" id="9e8-qN-VGY"/>
@@ -464,28 +464,32 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" tag="-5" title="" image="dashboard1.png" id="XB3-tn-TlT"/>
+                    <tabBarItem key="tabBarItem" tag="-5" title="" image="Dashboard" id="XB3-tn-TlT">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3i-tL-FjP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="467" y="-244"/>
+            <point key="canvasLocation" x="-995" y="-516"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Lr4-fs-PHR">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="tGF-Ei-r8I" sceneMemberID="viewController">
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <nil key="simulatedBottomBarMetrics"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" id="p9h-UI-t42">
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" barStyle="black" id="p9h-UI-t42">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="dcC-nb-g1R" kind="relationship" relationship="viewControllers" id="Op4-Dc-kdD"/>
                         <segue destination="X7a-QL-RfC" kind="relationship" relationship="viewControllers" id="pqy-af-opq"/>
+                        <segue destination="dcC-nb-g1R" kind="relationship" relationship="viewControllers" id="Op4-Dc-kdD"/>
                         <segue destination="Jos-KG-7xi" kind="relationship" relationship="viewControllers" id="sUd-OO-wxr"/>
                         <segue destination="aga-vw-WC4" kind="relationship" relationship="viewControllers" id="kNJ-fi-GqP"/>
                         <segue destination="Yla-XQ-LMU" kind="relationship" relationship="viewControllers" id="En1-bv-96I"/>
@@ -493,12 +497,12 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3dE-BI-w5K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-492" y="-244"/>
+            <point key="canvasLocation" x="-1536" y="-32"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Sites-->
         <scene sceneID="Hg8-JJ-HWc">
             <objects>
-                <viewController id="X7a-QL-RfC" sceneMemberID="viewController">
+                <viewController title="Sites" id="X7a-QL-RfC" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zJ2-0s-VDd"/>
                         <viewControllerLayoutGuide type="bottom" id="wUb-Cm-rNQ"/>
@@ -518,16 +522,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="blogs1.png" id="ieN-2W-7a6"/>
+                    <tabBarItem key="tabBarItem" title="" image="Sites" id="ieN-2W-7a6">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0eS-4v-9yJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1593" y="-244"/>
+            <point key="canvasLocation" x="-416" y="-516"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Plyaer-->
         <scene sceneID="zKu-CE-f4s">
             <objects>
-                <viewController id="Jos-KG-7xi" sceneMemberID="viewController">
+                <viewController title="Plyaer" id="Jos-KG-7xi" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZFq-Js-jp6"/>
                         <viewControllerLayoutGuide type="bottom" id="FoU-BR-p9h"/>
@@ -547,16 +553,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="player.png" id="6mR-WF-k1D"/>
+                    <tabBarItem key="tabBarItem" title="" image="Player" id="6mR-WF-k1D">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Daa-PG-f8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="54" y="630"/>
+            <point key="canvasLocation" x="154" y="-516"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Discovery-->
         <scene sceneID="HtO-Ei-0Od">
             <objects>
-                <viewController id="aga-vw-WC4" sceneMemberID="viewController">
+                <viewController title="Discovery" id="aga-vw-WC4" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="G7g-CM-F7Y"/>
                         <viewControllerLayoutGuide type="bottom" id="sAg-zL-r2V"/>
@@ -576,16 +584,18 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="explore1.png" id="XjL-6z-Qny"/>
+                    <tabBarItem key="tabBarItem" title="" image="Discovery" id="XjL-6z-Qny">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NFL-RI-Bed" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="733" y="630"/>
+            <point key="canvasLocation" x="741" y="-516"/>
         </scene>
-        <!--View Controller-->
+        <!--View Controller - Likes-->
         <scene sceneID="7NV-DJ-CUr">
             <objects>
-                <viewController id="Yla-XQ-LMU" sceneMemberID="viewController">
+                <viewController title="Likes" id="Yla-XQ-LMU" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="p1M-O1-c1h"/>
                         <viewControllerLayoutGuide type="bottom" id="6aW-JJ-vES"/>
@@ -605,24 +615,28 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="likes1.png" id="Vtr-8m-3Ij"/>
+                    <tabBarItem key="tabBarItem" title="" image="Likes" id="Vtr-8m-3Ij">
+                        <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mw-K5-7uL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1333" y="630"/>
+            <point key="canvasLocation" x="1325" y="-516"/>
         </scene>
     </scenes>
     <resources>
-        <image name="blogs1.png" width="128" height="99"/>
+        <image name="Dashboard" width="30" height="30"/>
+        <image name="Discovery" width="30" height="30"/>
+        <image name="Likes" width="30" height="30"/>
+        <image name="Player" width="35" height="35"/>
+        <image name="Sites" width="30" height="30"/>
         <image name="dashboard1.png" width="128" height="99"/>
         <image name="discover_ico.png" width="35" height="35"/>
-        <image name="explore1.png" width="128" height="99"/>
         <image name="followed_ico.png" width="35" height="35"/>
         <image name="home_ico.png" width="35" height="35"/>
-        <image name="likes1.png" width="128" height="99"/>
         <image name="my_blogs_ico.png" width="35" height="35"/>
-        <image name="player.png" width="128" height="99"/>
     </resources>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

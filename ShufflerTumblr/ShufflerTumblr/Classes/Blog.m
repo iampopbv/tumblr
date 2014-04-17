@@ -54,6 +54,12 @@ BOOL hasSetOffset = NO;
     return self;
 }
 
+/**
+ No method description.
+ */
+-(void)initWithDictionary:(NSDictionary *)dict{
+    
+}
 
 // resets the offsets of the audiopost. Usefull to call when the user is done viewing this blog.
 - (void) reset {

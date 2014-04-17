@@ -147,6 +147,10 @@
     _playing = NO;
 }
 
+-(void)registerBackgroundMode{
+    
+}
+
 - (void) clear {
     [_avQPlayer pause];
     [_avQPlayer removeAllItems];
