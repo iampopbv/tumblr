@@ -79,10 +79,11 @@ explains how explicit dependency versions can instead be specified.
 This SDK is really comprised of numerous "sub-pods." If you'd rather not import
 everything, feel free to mix and match as you see fit:
 
-* `TMTumblrSDK/AppClient`
-    * `TMTumblrSDK/Authentication`
-* `TMTumblrSDK/Activity`
 * `TMTumblrSDK/APIClient`
+    * `TMTumblrSDK/APIClient/Authentication`
+* `TMTumblrSDK/AppClient`
+* `TMTumblrSDK/Activity`
+
 
 Each component is described in more detail throughout this README.
 
@@ -215,18 +216,17 @@ user has it installed. Only a few basic endpoints are supported for now but more
 will be added in the near future:
 
 ``` objectivec
-TMTumblrAppClient *client = [TMTumblrAppClient client];
+if (![TMTumblrAppClient isTumblrInstalled]) {
+    [TMTumblrAppClient viewInAppStore];
+}
 
-if (![client isAppInstalled])
-    [client viewInAppStore];
+[TMTumblrAppClient viewDashboard];
 
-[client viewDashboard];
+[TMTumblrAppClient viewTag:@"gif"];
 
-[client viewTag:@"gif"];
+[TMTumblrAppClient viewBlog:@"bryan"];
 
-[client viewBlog:@"bryan"];
-
-[client viewPost:@"43724939726" blogName:@"bryan"];
+[TMTumblrAppClient viewPost:@"43724939726" blogName:@"bryan"];
 ```
 
 If you're only interested in the app client,
@@ -243,6 +243,13 @@ tumblr://x-callback-url/dashboard
 tumblr://x-callback-url/tag?tag=gif
 tumblr://x-callback-url/blog?blogName=bryan
 tumblr://x-callback-url/blog?blogName=bryan&postID=43724939726
+
+// The post URLs below also support `x-success` and `x-cancel` callback parameters
+
+tumblr://x-callback-url/text?title=Title&body=Body&tags=gif&tags=lol
+tumblr://x-callback-url/quote?quote=Quote&source=Source
+tumblr://x-callback-url/link?title=Bryan&url=bryan.io&description=Website
+tumblr://x-callback-url/chat?title=Title&body=Body&tags=gif&tags=lol
 ```
 
 If you don't want to use this SDK and would rather hit these URLs directly, please go
@@ -252,6 +259,14 @@ right ahead.
 
 Photos and videos can be passed to Tumblr for iOS using Apple's
 standard [UIDocumentInteractionController](http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIDocumentInteractionController_class/Reference/Reference.html).
+
+To include a caption, set the `annotation` property on the document 
+interaction controller to an `NSDictionary` containing a `TumblrCaption` 
+key, mapped to your caption (an `NSString`). To include tags, add a 
+`TumblrTags` key to the dictionary, mapped an an `NSArray` of `NSStrings`.
+
+If you want *only* the Tumblr app to show up in a document interaction controller,
+you can specify the file extension `tumblrphoto` and custom UTI `com.tumblr.photo`.
 
 ### UIActivityViewController
 
@@ -268,11 +283,15 @@ the `TMTumblrSDK/Activity` sub-pod can be installed by itself.
 The repository includes a [sample application](https://github.com/tumblr/TMTumblrSDK/tree/master/Examples/AppClientExample)
 which shows all of the inter-app hooks in action.
 
-![Screenshot of Tumblr activity icon](https://raw.github.com/tumblr/TMTumblrSDK/master/Examples/AppClientExample/screenshot.png?login=irace&token=09357ae38144aa48767c7b2219f23265)
+![Screenshot of Tumblr activity icon](https://raw.github.com/tumblr/TMTumblrSDK/master/Examples/AppClientExample/screenshot.png)
+
+## Dependencies
+
+* [JXHTTP](https://github.com/jstn/JXHTTP)
 
 ## Contact
 
-* [Bryan Irace](http://github.com/irace)
+* [Bryan Irace](bryan@tumblr.com)
 * [Tumblr API discussion group](https://groups.google.com/group/tumblr-api/)
 
 ## License

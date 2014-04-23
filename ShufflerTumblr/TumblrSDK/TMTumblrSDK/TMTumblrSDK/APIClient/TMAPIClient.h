@@ -45,6 +45,11 @@ typedef void (^TMAPICallback)(id, NSError *error);
 @property (nonatomic, copy) NSDictionary *customHeaders;
 
 /**
+ Default: 60 seconds
+ */
+@property (nonatomic) NSTimeInterval timeoutInterval;
+
+/**
  Queue that requests sent through `sendRequest:callback:` or `sendRequest:queue:callback:` (and as such, any of the 
  `void` API methods) will be added to.
  */
@@ -60,7 +65,7 @@ typedef void (^TMAPICallback)(id, NSError *error);
 
 /** @name Singleton instance */
 
-+ (TMAPIClient *)sharedInstance;
++ (instancetype)sharedInstance;
 
 /** @name Sending raw requests */
 
@@ -232,21 +237,24 @@ typedef void (^TMAPICallback)(id, NSError *error);
 
 /// Create a photo post
 - (JXHTTPOperation *)photoRequest:(NSString *)blogName filePathArray:(NSArray *)filePathArrayOrNil
-                 contentTypeArray:(NSArray *)contentTypeArrayOrNil parameters:(NSDictionary *)parameters;
+                 contentTypeArray:(NSArray *)contentTypeArrayOrNil fileNameArray:(NSArray *)fileNameArrayOrNil
+                       parameters:(NSDictionary *)parameters;
 - (void)photo:(NSString *)blogName filePathArray:(NSArray *)filePathArrayOrNil contentTypeArray:(NSArray *)contentTypeArrayOrNil
-   parameters:(NSDictionary *)parameters callback:(TMAPICallback)callback;
+fileNameArray:(NSArray *)fileNameArrayOrNil parameters:(NSDictionary *)parameters callback:(TMAPICallback)callback;
 
 /// Create a video post
 - (JXHTTPOperation *)videoRequest:(NSString *)blogName filePath:(NSString *)filePathOrNil
-                      contentType:(NSString *)contentTypeOrNil parameters:(NSDictionary *)parameters;
+                      contentType:(NSString *)contentTypeOrNil fileName:(NSString *)fileNameOrNil
+                       parameters:(NSDictionary *)parameters;
 - (void)video:(NSString *)blogName filePath:(NSString *)filePathOrNil contentType:(NSString *)contentTypeOrNil
-   parameters:(NSDictionary *)parameters callback:(TMAPICallback)callback;
+     fileName:(NSString *)fileNameOrNil parameters:(NSDictionary *)parameters callback:(TMAPICallback)callback;
 
 /// Create an audio post
 - (JXHTTPOperation *)audioRequest:(NSString *)blogName filePath:(NSString *)filePathOrNil
-                      contentType:(NSString *)contentTypeOrNil parameters:(NSDictionary *)parameters;
+                      contentType:(NSString *)contentTypeOrNil fileName:(NSString *)fileNameOrNil
+                       parameters:(NSDictionary *)parameters;
 - (void)audio:(NSString *)blogName filePath:(NSString *)filePathOrNil contentType:(NSString *)contentTypeOrNil
-   parameters:(NSDictionary *)parameters callback:(TMAPICallback)callback;
+     fileName:(NSString *)fileNameOrNil parameters:(NSDictionary *)parameters callback:(TMAPICallback)callback;
 
 /** @name Tagging */
 
