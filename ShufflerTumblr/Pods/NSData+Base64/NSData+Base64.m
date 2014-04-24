@@ -301,10 +301,11 @@ char *NewBase64Encode(
 		NewBase64Encode([self bytes], [self length], true, &outputLength);
 	
 	NSString *result =
-		[[NSString alloc]
+		[[[NSString alloc]
 			initWithBytes:outputBuffer
 			length:outputLength
-			encoding:NSASCIIStringEncoding];
+			encoding:NSASCIIStringEncoding]
+		autorelease];
 	free(outputBuffer);
 	return result;
 }
@@ -317,10 +318,11 @@ char *NewBase64Encode(
     NewBase64Encode([self bytes], [self length], separateLines, &outputLength);
 	
 	NSString *result =
-    [[NSString alloc]
+    [[[NSString alloc]
       initWithBytes:outputBuffer
       length:outputLength
-      encoding:NSASCIIStringEncoding];
+      encoding:NSASCIIStringEncoding]
+     autorelease];
 	free(outputBuffer);
 	return result;
 }
