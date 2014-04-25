@@ -10,20 +10,45 @@
 #import "DashBoardViewController.h"
 #import "TMAPIClient.h"
 #import "Player.h"
+#import "AKZAuthViewController.h"
 
 
 
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
+-(BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+    
+    printf(">>> didFinishLaunchingwithOptions\n");
+    
+    [TMAPIClient sharedInstance].OAuthConsumerKey = @"NPIxO1R794eabwFPmWLuqhsyMxYcYIXwGBCALvOlzNFoaCt378";
+    [TMAPIClient sharedInstance].OAuthConsumerSecret = @"pVOq6DkuOjNjUy52oXXX2iKzMJl9gcfIPVkutFjkmzrxjPfqMc";
+    
     // Override point for customization after application launch.
-    [[UINavigationBar appearance] setBackgroundImage: [UIImage imageNamed:@"navigationbar3"] forBarMetrics:UIBarMetricsDefault];
+    //[[UINavigationBar appearance] setBackgroundImage: [UIImage imageNamed:@"navigationbar3"] forBarMetrics:UIBarMetricsDefault];
     
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     [audioSession setCategory:AVAudioSessionCategoryPlayback error:nil];
     [audioSession setActive:YES error:nil];
+    
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    self.window.backgroundColor = [UIColor colorWithRed:0.173 green:0.278 blue:0.384 alpha:1];
+//    [self.window makeKeyAndVisible];
+//    self.window.rootViewController = [[AKZAuthViewController alloc] init];
+    
+//    if(1){
+//        UIViewController* rootController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"AKZAuthViewController"];
+//        
+//        UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:rootController];
+//        
+//        self.window.rootViewController = navigation;
+//    }else{
+//        UIViewController* rootController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"AKZLoginViewController"];
+//        
+//        UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:rootController];
+//        
+//        self.window.rootViewController = navigation;
+//    }
     
     return YES;
 }
@@ -76,6 +101,9 @@
 	return YES;
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    return [[TMAPIClient sharedInstance] handleOpenURL:url];
+}
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {

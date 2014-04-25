@@ -15,7 +15,7 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
-	<string>${PRODUCT_NAME}</string>
+	<string>Shuffler for Tumblr</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
@@ -31,7 +31,7 @@
 			<string>shuffler logo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>Shumblr</string>
+				<string>ShufflerTumblr</string>
 			</array>
 		</dict>
 	</array>
