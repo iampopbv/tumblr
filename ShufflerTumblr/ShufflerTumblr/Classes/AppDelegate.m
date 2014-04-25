@@ -37,16 +37,21 @@
 //    self.window.rootViewController = [[AKZAuthViewController alloc] init];
     
 //    if(1){
+//        UIViewController* rootController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"AKZLoggedInTabBarController"];
+//        
+//        UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:rootController];
+//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//        self.window.backgroundColor = [UIColor colorWithRed:0.173 green:0.278 blue:0.384 alpha:1];
+//        [self.window makeKeyAndVisible];
+//        self.window.rootViewController = navigation;
+//    }else{
 //        UIViewController* rootController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"AKZAuthViewController"];
 //        
 //        UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:rootController];
 //        
-//        self.window.rootViewController = navigation;
-//    }else{
-//        UIViewController* rootController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"AKZLoginViewController"];
-//        
-//        UINavigationController* navigation = [[UINavigationController alloc] initWithRootViewController:rootController];
-//        
+//        self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//        self.window.backgroundColor = [UIColor colorWithRed:0.173 green:0.278 blue:0.384 alpha:1];
+//        [self.window makeKeyAndVisible];
 //        self.window.rootViewController = navigation;
 //    }
     
