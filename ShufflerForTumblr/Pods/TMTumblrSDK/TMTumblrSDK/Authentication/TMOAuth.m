@@ -12,6 +12,7 @@
 #import <CommonCrypto/CommonHMAC.h>
 #import <sys/sysctl.h>
 #import "TMSDKFunctions.h"
+#import "NSData+Base64.h"
 
 #ifndef __IPHONE_7_0
 @interface NSData (NSDeprecated)
