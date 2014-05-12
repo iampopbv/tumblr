@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  DashboardTableView.h
 //  ShufflerForTumblr
 //
 //  Created by Adrian Zborowski on 09/05/14.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface DashboardTableView : UITableView
+
+@property(nonatomic, strong) NSMutableArray *posts;
 
 @end
