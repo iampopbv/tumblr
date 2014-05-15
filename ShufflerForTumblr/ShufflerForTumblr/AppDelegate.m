@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Hogeschoool van Amsterdam. All rights reserved.
 //
 
+#import "TMAPIClient.h"
+#import "LoginViewController.h"
 #import "AppDelegate.h"
 #import "Post.h"
 #import "DashboardViewController.h"
@@ -15,11 +17,17 @@
     NSMutableArray *_posts;
 }
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions{
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [TMAPIClient sharedInstance].OAuthConsumerKey = @"NPIxO1R794eabwFPmWLuqhsyMxYcYIXwGBCALvOlzNFoaCt378";
+    [TMAPIClient sharedInstance].OAuthConsumerSecret = @"pVOq6DkuOjNjUy52oXXX2iKzMJl9gcfIPVkutFjkmzrxjPfqMc";
     
     return YES;
 }
-							
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    return [[TMAPIClient sharedInstance] handleOpenURL:url];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application{
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.

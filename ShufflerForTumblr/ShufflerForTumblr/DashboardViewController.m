@@ -7,6 +7,8 @@
 //
 
 #import "DashboardViewController.h"
+#import "TMAPIClient.h"
+#import "TMTumblrAppClient.h"
 
 @interface DashboardViewController ()
 
@@ -28,6 +30,14 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    [[TMAPIClient sharedInstance] userInfo:^(id result, NSError *error) {
+        if (!error){
+            NSLog(@"Got some user info");
+            NSLog(@"My name is: %@", [[TMAPIClient sharedInstance]userInfoRequest].username);
+            NSLog(@"Blog info is: %@", [[TMAPIClient sharedInstance]blogInfoRequest:@"zborowa"]);
+        }
+    }];
+    
     tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
 }
 
@@ -41,15 +51,22 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    static NSString *cellIdentifier = @"dashCell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
+    // Cell background color
+    [cell setBackgroundColor:[UIColor clearColor]];
+    //[cell setBackgroundColor:[UIColor colorWithRed:43/255.0 green:69/255.0 blue:98/255.0 alpha:1.0]];
+    
     cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    cell.imageView.image = [UIImage imageNamed:@"kingler-krabby.png"];
+    
     return cell;
 }
 
