@@ -15,29 +15,6 @@
 
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
-    if (self) {
-        _posts = [NSMutableArray arrayWithCapacity:20];
-        
-        Post *post = [[Post alloc] init];
-        post.username   = @"a";
-        post.timestamp  = @"a";
-        post.profile    = @"a";
-        post.image      = @"a";
-        post.title      = @"a";
-        post.notes      = @"a";
-        [_posts addObject:post];
-        
-        post = [[Post alloc] init];
-        post.username   = @"b";
-        post.timestamp  = @"b";
-        post.profile    = @"b";
-        post.image      = @"b";
-        post.title      = @"b";
-        post.notes      = @"b";
-        [_posts addObject:post];
-        
-        self.posts = _posts;
-    }
     return self;
 }
 
@@ -52,10 +29,6 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell"];
-    
-    Post *post = (self.posts)[indexPath.row];
-    cell.textLabel.text = post.username;
-    cell.detailTextLabel.text = post.timestamp;
     
     return cell;
 }

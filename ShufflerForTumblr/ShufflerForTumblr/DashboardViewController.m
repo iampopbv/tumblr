@@ -8,7 +8,6 @@
 
 #import "DashboardViewController.h"
 #import "TMAPIClient.h"
-#import "TMTumblrAppClient.h"
 
 @interface DashboardViewController ()
 
@@ -30,13 +29,14 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    [[TMAPIClient sharedInstance] userInfo:^(id result, NSError *error) {
-        if (!error){
-            NSLog(@"Got some user info");
-            NSLog(@"My name is: %@", [[TMAPIClient sharedInstance]userInfoRequest].username);
-            NSLog(@"Blog info is: %@", [[TMAPIClient sharedInstance]blogInfoRequest:@"zborowa"]);
-        }
-    }];
+//    [[TMAPIClient sharedInstance] userInfo:^(id result, NSError *error) {
+//        if (!error){
+//            NSLog(@"Got some user info");
+//            NSLog(@"%@", [result valueForKeyPath:@"user.blogs.description"]);
+//        }else{
+//            NSLog(@"No user info!!!");
+//        }
+//    }];
     
     tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
 }

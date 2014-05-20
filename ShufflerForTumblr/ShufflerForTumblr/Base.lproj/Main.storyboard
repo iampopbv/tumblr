@@ -28,10 +28,10 @@
             </objects>
             <point key="canvasLocation" x="-543" y="-72"/>
         </scene>
-        <!--View Controller - Sites-->
+        <!--Sites View Controller - Sites-->
         <scene sceneID="JRO-Tg-U3R">
             <objects>
-                <viewController id="pjv-an-JMi" sceneMemberID="viewController">
+                <viewController id="pjv-an-JMi" customClass="SitesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QGz-Qt-dBp"/>
                         <viewControllerLayoutGuide type="bottom" id="wjD-NA-5a1"/>
@@ -88,14 +88,19 @@
                                 <rect key="frame" x="141" y="269" width="38" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Login">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonTapped:" destination="uFX-Q2-mC2" eventType="touchUpInside" id="aLB-IL-Z8W"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logo-radio" translatesAutoresizingMaskIntoConstraints="NO" id="DBk-1b-pIr">
+                                <rect key="frame" x="-5" y="116" width="451" height="452"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <connections>
                         <segue destination="4vf-lV-gEL" kind="modal" identifier="Authenticated" modalTransitionStyle="coverVertical" id="x1S-ZR-cC1"/>
@@ -103,7 +108,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RWt-RI-o1y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-986" y="-72"/>
+            <point key="canvasLocation" x="-1002" y="-72"/>
         </scene>
         <!--Dashboard View Controller - Dashboard-->
         <scene sceneID="4EM-IL-Jeu">
@@ -315,6 +320,7 @@
         <image name="Likes" width="30" height="30"/>
         <image name="Player" width="35" height="35"/>
         <image name="Sites" width="30" height="30"/>
+        <image name="logo-radio" width="451" height="452"/>
     </resources>
     <color key="tintColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
