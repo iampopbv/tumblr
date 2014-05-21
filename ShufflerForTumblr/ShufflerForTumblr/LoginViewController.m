@@ -15,21 +15,24 @@
 
 @implementation LoginViewController
 
-//- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
-//    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-//    if (self) {}
-//    return self;
-//}
-
 -(void)viewDidLoad{
     [super viewDidLoad];
     [self auth];
 }
 
+/**
+ * Used for the "Login" button on the login-screen screen.
+ */
 -(IBAction)buttonTapped:(UIButton *)sender{
     [self auth];
 }
 
+/**
+ * Method uses the TMAPIClient for the user authentication.
+ * "authenticate" uses the application name for the authentication of the connection with the right 
+ * Tumblr app.
+ * After the authentication methods sends user to the "Authenticated" segue.
+ */
 -(void)auth{
     [[TMAPIClient sharedInstance] authenticate:@"ShufflerForTumblr" callback:^(NSError *error) {
         if(error){
@@ -41,7 +44,7 @@
     }];
 }
 
-- (void)didReceiveMemoryWarning{
+-(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 

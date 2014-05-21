@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SitesViewController : UIViewController
+@interface SitesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
 @end

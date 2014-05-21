@@ -14,63 +14,51 @@
 
 @end
 
-@implementation SitesViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+@implementation SitesViewController{
+    NSArray *tableData;
 }
 
-- (void)viewDidLoad
-{
+- (void)viewDidLoad{
     [super viewDidLoad];
     
-    [[TMAPIClient sharedInstance] userInfo:^(id result, NSError *error) {
-        if (!error){
-            NSLog(@"Got some user info");
-            NSLog(@"%@", [result valueForKeyPath:@"user.blogs.description"]);
-        }else{
-            NSLog(@"No user info!!!");
-        }
-    }];
-    
-    NSArray * paramsKeys = [[NSArray alloc] initWithObjects:
-                            @"limit",
-                            @"offset",
-                            @"type",
-                            nil];
-    NSArray * paramsVals = [[NSArray alloc] initWithObjects:
-                            [[NSString alloc] initWithFormat:@"%i", 5],
-                            [[NSString alloc] initWithFormat:@"%i", 0],
-                            @"audio",
-                            nil];
-    NSDictionary *paramsDict = [[NSDictionary alloc] initWithObjects: paramsVals forKeys: paramsKeys];
-    NSMutableArray<Post> *posts = (NSMutableArray<Post> *)[[NSMutableArray alloc] init];
-    
-    [[TMAPIClient sharedInstance]dashboard:paramsDict callback:^(id response, NSError *error) {
-        
-    }];
+    tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
 }
 
-- (void)didReceiveMemoryWarning
-{
+/**
+ */
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+/**
+ */
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return [tableData count];
+}
+
+/**
+ */
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    // [UIColor colorWithRed:44/255.0 green:71/255.0 blue:98/255.0 alpha:1.0]
+    
+    static NSString *cellIdentifier = @"siteCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    cell.textColor = [UIColor whiteColor];
+    
+    return cell;
+}
+
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
-/*
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{}
 
 @end
