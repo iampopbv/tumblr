@@ -25,6 +25,8 @@
 
 - (void)viewDidLoad
 {
+    _width = 300;
+    _height = 200;
     [super viewDidLoad];
     if (_playerNumber == 1) {
         [self PlayYoutube];
@@ -34,7 +36,7 @@
         [self PlayBandCamp];
     }else{
     }
-        
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -58,7 +60,7 @@
                            <body style='margin:0px;padding:0px;'>\
                            <iframe width='%d' height='%d' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https://w.soundcloud.com/tracks/%@?amp;auto_play=false&amp;hide_related=false&amp;visual=true'></iframe>\
                            </body>\
-                           </html>", 300, 200, @"12104576"];
+                           </html>", _width, _height, _ID];
     
     
     [webView loadHTMLString:embedHTML baseURL:[[NSBundle mainBundle] resourceURL]];
@@ -66,20 +68,31 @@
 }
 
 -(IBAction)PlayBandCamp{
+    _player = @"<iframe class=\"bandcamp_audio_player\" width=\"500\" height=\"120\" src=\"http://bandcamp.com/EmbeddedPlayer/size=medium/bgcol=ffffff/linkcol=0687f5/notracklist=true/transparent=true/track=1969767334/\" allowtransparency=\"true\" frameborder=\"0\"></iframe>";
+    
+    NSString* str = _player;
+    str = [str stringByReplacingOccurrencesOfString:@"width=\"500\" height=\"120\""
+                                         withString: @"width=\"300\" height=\"200\""];
+    
     [self setWebView];
     NSString* embedHTML = [NSString stringWithFormat:@"\
                            <html>\
                            <body style='margin:0px;padding:0px;'>\
-                           <iframe style='border: 0; width: %dpx; height: %dpx;' src='http://bandcamp.com/EmbeddedPlayer/album=2248675723/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/track=2598169180/transparent=true/' seamless><a href='http://blackjamesfranco.bandcamp.com/album/sun-house'>Sun House by Black James Franco</a></iframe>\
+                           %@\
                            </body>\
-                           </html>", 300, 200];
-                           
-                           
+                           </html>", str];
+    
+    
     [webView loadHTMLString:embedHTML baseURL:[[NSBundle mainBundle] resourceURL]];
-                           
+    
 }
 
 -(IBAction)PlayYoutube{
+    _permalink_url = @"http://www.youtube.com/watch?v=z4OjBGzFR1Q";
+    
+    NSString* str = _permalink_url;
+    str = [str stringByReplacingOccurrencesOfString:@"http://www.youtube.com/watch?v=" withString:@""];
+    
     [self setWebView];
     NSString* embedHTML = [NSString stringWithFormat:@"\
                            <html>\
@@ -97,20 +110,20 @@
                            </script>\
                            <iframe id='playerId' type='text/html' width='%d' height='%d' src='http://www.youtube.com/embed/%@?enablejsapi=1&rel=0&playsinline=1&autoplay=1' frameborder='0'>\
                            </body>\
-                           </html>", 300, 200, @"2pKk_meu524"];
+                           </html>", _width, _height, str];
     [webView loadHTMLString:embedHTML baseURL:[[NSBundle mainBundle] resourceURL]];
 }
 
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+ {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -20,6 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    _ID = @"12104576";
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -33,6 +34,7 @@
     if([segue.identifier isEqualToString:@"goToPlayer"]){
         YTPlayerView *controller = segue.destinationViewController;
         controller.playerNumber = _PlayerNr;
+        controller.ID = _ID;
     }
 }
 
