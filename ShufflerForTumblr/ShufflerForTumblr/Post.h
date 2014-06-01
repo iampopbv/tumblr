@@ -13,7 +13,7 @@ typedef enum {
     AUDIO = 0,
     VIDEO,
     NONE
-} PostType;
+}PostType;
 
 
 /**
@@ -52,11 +52,14 @@ typedef enum {
 @property NSString *reblogKey;
 
 // Fills the object with data of a dictionary
--(id)initWithDictionary: (NSDictionary*) dictionary;
+-(id)initWithDictionary:(NSDictionary*)dictionary;
+
 // Title of the post object
 -(NSString*)getName;
+
 // the list name
 -(NSString*) getListName;
+
 -(id)getPostId;
 -(PostType) getType;
 

@@ -10,4 +10,6 @@
 
 @interface DashboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
+@property int dashboardOffsetAudio;
+
 @end

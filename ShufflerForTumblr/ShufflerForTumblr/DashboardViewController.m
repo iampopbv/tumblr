@@ -8,6 +8,7 @@
 
 #import "DashboardViewController.h"
 #import "TMAPIClient.h"
+#import "Post.h"
 
 @interface DashboardViewController ()
 
@@ -16,6 +17,8 @@
 @implementation DashboardViewController{
     NSArray *tableData;
 }
+
+const int limitNextPage = 5;
 
 /**
  */
@@ -31,16 +34,42 @@
         }
     }];
     
+    // --------------------------
+    NSArray* paramsKeys = [[NSArray alloc] initWithObjects:
+                           @"limit",
+                           @"offset",
+                           @"type",
+                           nil];
+    NSArray* paramsVals = [[NSArray alloc] initWithObjects:
+                           [[NSString alloc] initWithFormat:@"%i", limitNextPage],
+                           [[NSString alloc] initWithFormat:@"%i", _dashboardOffsetAudio],
+                           @"video",
+                           nil];
+    NSDictionary *paramsDict = [[NSDictionary alloc]initWithObjects:paramsVals forKeys:paramsKeys];
+    NSMutableArray<Post> *posts = (NSMutableArray<Post> *)[[NSMutableArray alloc] init];
+    
+    [[TMAPIClient sharedInstance]dashboard:paramsDict callback:^(id response, NSError *error){
+        if(!error) {
+            NSDictionary *dashboard = response;
+            NSLog(@"%@", dashboard);
+        }
+    }];
+    // --------------------------
+    
+    
     tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
 }
 
 /**
+ * Number of sections in the tableview.
  */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return [tableData count];
 }
 
 /**
+ * Number of cells within the sections in th tableview.
+ * In each section there is 1 cell because of the header en footer functionality in each section
  */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -53,6 +82,7 @@
 //}
 
 /**
+ * Style and content of the cells.
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -105,7 +135,6 @@
     UIImageView *titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.png"]];
     CGRect imageViewRect = CGRectMake(0.0,  0.0, 42.0 , 42.0);
     titleImage.frame = imageViewRect;
-    //titleImage.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin;
     [customView addSubview:titleImage];
     
     return customView;
@@ -124,7 +153,6 @@
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     headerLabel.backgroundColor = [UIColor colorWithRed:44/255.0 green:71/255.0 blue:98/255.0 alpha:1.0];
     headerLabel.opaque = NO;
-    //headerLabel.frame = CGRectMake(0.0, 0.0, 320.0, 5.0);
     [customView addSubview:headerLabel];
     
     return customView;
