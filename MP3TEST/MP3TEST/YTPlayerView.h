@@ -16,6 +16,12 @@
 
 @property (nonatomic) int width;
 @property (nonatomic) int height;
+@property (nonatomic) NSString* audioString;
+@property (nonatomic) NSString* bandcampString;
+@property (nonatomic) NSString* soundCloudString;
+@property (nonatomic) NSString* tumblrString;
+@property (nonatomic) NSString* videoString;
+@property (nonatomic) NSString* youtubeString;
 
 @property (nonatomic) NSString* album;
 @property (nonatomic) NSString* album_art;
@@ -31,11 +37,10 @@
 @property (nonatomic) NSString* source_title;
 @property (nonatomic) NSString* track_name;
 @property (nonatomic) NSString* type;
+@property (nonatomic) NSString* video_url;
+@property (nonatomic) NSString* video_type;
 
 @property (nonatomic) NSString* permalink_url;
 @property (nonatomic) NSString* embed_code;
 @property (nonatomic) NSString* thumbnail_url;
-
-
--(IBAction)closer:(id)sender;
 @end

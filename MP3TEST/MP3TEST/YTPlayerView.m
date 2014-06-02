@@ -27,16 +27,34 @@
 {
     _width = 300;
     _height = 200;
-    [super viewDidLoad];
-    if (_playerNumber == 1) {
-        [self PlayYoutube];
-    }else if (_playerNumber == 2){
-        [self PlaySoundcloud];
-    }else if (_playerNumber == 3){
-        [self PlayBandCamp];
-    }else{
-    }
+    _audioString = @"audio";
+    _videoString = @"video";
+    _bandcampString = @"bandcamp";
+    _soundCloudString = @"soundcloud";
+    _tumblrString = @"tumblr";
+    _youtubeString = @"youtube";
     
+    [super viewDidLoad];
+    
+    if (_type == _audioString) {
+        if (_audio_type == _bandcampString) {
+            [self PlayBandCamp];
+        }else if(_audio_type == _soundCloudString){
+            [self PlaySoundcloud];
+        }else if (_audio_type == _tumblrString){
+            [self PlayTumblrAudio];
+        }else{
+            //Nothing or Error message?
+        }
+    }else if(_type == _videoString){
+        if (_video_type == _youtubeString) {
+            [self PlayYoutube];
+        }else if (_video_type == _tumblrString){
+            [self PlayTumblrVideo];
+        }else{
+            //Nothing or Error message?
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,34 +64,42 @@
 }
 
 -(void) setWebView{
-    webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 70, 300, 300)];
+    webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 70, 300, 200)];
     [webView setAllowsInlineMediaPlayback:YES];
     [webView setMediaPlaybackRequiresUserAction:NO];
     
     [self.view addSubview:webView];
 }
 
--(IBAction)PlaySoundcloud{
-    [self setWebView];
-    NSString* embedHTML = [NSString stringWithFormat:@"\
+-(IBAction)PlayTumblrAudio{
+    
+        NSString* str = _embed;
+        str = [str stringByReplacingOccurrencesOfString:@"width=\"500\" height=\"169\"" withString:@"width=\"300\" height=\"150\""];
+    
+        [self setWebView];
+        NSString* embedHTML = [NSString stringWithFormat:@"\
                            <html>\
                            <body style='margin:0px;padding:0px;'>\
-                           <iframe width='%d' height='%d' scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=https://w.soundcloud.com/tracks/%@?amp;auto_play=false&amp;hide_related=false&amp;visual=true'></iframe>\
+                           %@\
                            </body>\
-                           </html>", _width, _height, _ID];
+                           </html>", str];
     
     
     [webView loadHTMLString:embedHTML baseURL:[[NSBundle mainBundle] resourceURL]];
-    
 }
 
--(IBAction)PlayBandCamp{
-    _player = @"<iframe class=\"bandcamp_audio_player\" width=\"500\" height=\"120\" src=\"http://bandcamp.com/EmbeddedPlayer/size=medium/bgcol=ffffff/linkcol=0687f5/notracklist=true/transparent=true/track=1969767334/\" allowtransparency=\"true\" frameborder=\"0\"></iframe>";
-    
+-(IBAction)PlayTumblrVideo{
+    [self setWebView];
+     NSURL *url = [NSURL URLWithString:_video_url];
+    NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+    [webView loadRequest:requestObj];
+}
+
+-(IBAction)PlaySoundcloud{
     NSString* str = _player;
-    str = [str stringByReplacingOccurrencesOfString:@"width=\"500\" height=\"120\""
-                                         withString: @"width=\"300\" height=\"200\""];
-    
+    str = [str stringByReplacingOccurrencesOfString:@"%3A" withString: @":"];
+    str = [str stringByReplacingOccurrencesOfString:@"%2F" withString: @"/"];
+    str = [str stringByReplacingOccurrencesOfString:@"width=\"500\" height=\"500\"" withString:@"width=\"300\" height=\"200\""];
     [self setWebView];
     NSString* embedHTML = [NSString stringWithFormat:@"\
                            <html>\
@@ -87,8 +113,26 @@
     
 }
 
+-(IBAction)PlayBandCamp{
+    
+    NSString* str = _player;
+    str = [str stringByReplacingOccurrencesOfString:@"width=\"500\" height=\"120\""
+                                         withString: @"width=\"300\" height=\"200\""];
+    
+    [self setWebView];
+    NSString* embedHTML = [NSString stringWithFormat:@"\
+                           <html>\
+                           <body style='margin:0px;padding:0px;'>\
+                           %@\
+                           </body>\
+                           </html>", str];
+                           
+                           
+    [webView loadHTMLString:embedHTML baseURL:[[NSBundle mainBundle] resourceURL]];
+                           
+}
+
 -(IBAction)PlayYoutube{
-    _permalink_url = @"http://www.youtube.com/watch?v=z4OjBGzFR1Q";
     
     NSString* str = _permalink_url;
     str = [str stringByReplacingOccurrencesOfString:@"http://www.youtube.com/watch?v=" withString:@""];
@@ -116,14 +160,14 @@
 
 
 /*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
- {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

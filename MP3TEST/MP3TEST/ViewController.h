@@ -10,7 +10,7 @@
 
 @interface ViewController : UIViewController {
     IBOutlet UIWebView *webView;
-    
+
 }
 
 @property (nonatomic) int PlayerNr;
@@ -29,6 +29,8 @@
 @property (nonatomic) NSString* source_title;
 @property (nonatomic) NSString* track_name;
 @property (nonatomic) NSString* type;
+@property (nonatomic) NSString* video_url;
+@property (nonatomic) NSString* video_type;
 
 @property (nonatomic) NSString* permalink_url;
 @property (nonatomic) NSString* embed_code;
