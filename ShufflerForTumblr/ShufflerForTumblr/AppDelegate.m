@@ -9,7 +9,7 @@
 #import "TMAPIClient.h"
 #import "LoginViewController.h"
 #import "AppDelegate.h"
-#import "Post.h"
+#import "AudioPost.h"
 #import "DashboardViewController.h"
 #import "DashboardTableView.h"
 

@@ -7,7 +7,7 @@
 //
 
 #import "DashboardTableView.h"
-#import "Post.h"
+#import "AudioPost.h"
 
 @implementation DashboardTableView{
     NSMutableArray *_posts;

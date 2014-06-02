@@ -2,7 +2,7 @@
 //  Post.h
 //  ShufflerForTumblr
 //
-//  Created by Adrian Zborowski on 09/05/14.
+//  Created by Adrian Zborowski on 01/06/14.
 //  Copyright (c) 2014 Hogeschoool van Amsterdam. All rights reserved.
 //
 
@@ -13,7 +13,7 @@ typedef enum {
     AUDIO = 0,
     VIDEO,
     NONE
-}PostType;
+} PostType;
 
 
 /**
@@ -52,14 +52,11 @@ typedef enum {
 @property NSString *reblogKey;
 
 // Fills the object with data of a dictionary
--(id)initWithDictionary:(NSDictionary*)dictionary;
-
+-(id)initWithDictionary: (NSDictionary*) dictionary;
 // Title of the post object
 -(NSString*)getName;
-
 // the list name
 -(NSString*) getListName;
-
 -(id)getPostId;
 -(PostType) getType;
 

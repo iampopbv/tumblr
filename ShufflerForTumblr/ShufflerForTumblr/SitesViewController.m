@@ -8,7 +8,7 @@
 
 #import "TMApiClient.h"
 #import "SitesViewController.h"
-#import "Post.h"
+#import "AudioPost.h"
 
 @interface SitesViewController ()
 
