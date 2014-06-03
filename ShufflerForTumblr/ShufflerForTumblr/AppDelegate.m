@@ -11,13 +11,12 @@
 #import "AppDelegate.h"
 #import "AudioPost.h"
 #import "DashboardViewController.h"
-#import "DashboardTableView.h"
+
+NSMutableArray *_posts;
 
 /**
  */
-@implementation AppDelegate{
-    NSMutableArray *_posts;
-}
+@implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [TMAPIClient sharedInstance].OAuthConsumerKey = @"NPIxO1R794eabwFPmWLuqhsyMxYcYIXwGBCALvOlzNFoaCt378";

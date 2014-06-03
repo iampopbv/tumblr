@@ -24,6 +24,12 @@ NSMutableArray* postData;
 /**
  */
 NSArray* tableData;
+/**
+ */
+static NSString* cellIdentifier = @"dashCell";
+/**
+ */
+static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 
 /**
  */
@@ -90,8 +96,12 @@ NSArray* tableData;
     while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)){
         [[NSRunLoop currentRunLoop]runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
     }
-    
-    tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+}
+
+/**
+ */
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.tabBarController setSelectedIndex:2];
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -115,116 +125,63 @@ NSArray* tableData;
 /**
  */
 -(CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 220.0;
+    return 224.0;
 }
 
-// Setup tableView
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/**
+ */
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 48;
+}
+
+/**
+ */
+-(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    return 8;
+}
 
 /**
  Style and content of the cells.
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
+    /**
+     Transparent tableView background
+     */
+    tableView.backgroundColor = [UIColor clearColor];
+    /**
+     Hide the scrollbar in the tableView
+     */
+    [tableView setShowsVerticalScrollIndicator:NO];
+    
+    /**
+     Set needed objects
+     */
     AudioPost* post = [postData objectAtIndex:indexPath.section];
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
-    // [UIColor colorWithRed:44/255.0 green:71/255.0 blue:98/255.0 alpha:1.0]
-    
-    static NSString *cellIdentifier = @"dashCell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
-    
-    /// Cell background color
-    [cell setBackgroundColor:[UIColor clearColor]];
-    
-    /// Selection color
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    UIImageView *cellBackView=[[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 320, 220)];
+    /**
+     Configure cell background
+     */
+    UIImageView *cellBackView = [[UIImageView alloc]initWithFrame:CGRectMake(100, 0, 320, 220)];
     cellBackView.backgroundColor = [UIColor clearColor];
-    
-//    cellBackView.image = [UIImage imageNamed:@"cellBackground.png"];
-    
     cellBackView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:post.album_art]]];
-    if(!cellBackView.image){
-        cellBackView.image = [UIImage imageNamed:@"cellBackground.png"];
-    }
+    if(!cellBackView.image) cellBackView.image = [UIImage imageNamed:@"cellBackground.png"];
     
+    /**
+     Configure cell
+     */
+    cell.backgroundView = cellBackView;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.textLabel.text = [NSString stringWithFormat:@"%@", post.track_name];
     
-    //cell.textColor = [UIColor whiteColor];
-    
-    cell.backgroundView = cellBackView;
     return cell;
 }
 
--(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.tabBarController setSelectedIndex:2];
-}
-
 /**
+ Style the post
  */
-//-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-//    return 42;
-//}
-
-/**
- */
--(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    AudioPost* post = [postData objectAtIndex:section];
-    
-    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 42.0)];
-    
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    headerLabel.backgroundColor = [UIColor whiteColor];
-    headerLabel.opaque = NO;
-    headerLabel.textColor = [UIColor blackColor];
-    headerLabel.font = [UIFont boldSystemFontOfSize:12];
-    headerLabel.frame = CGRectMake(0.0, 0.0, 320.0, 42.0);
-    headerLabel.text = [NSString stringWithFormat:@"\t\t%@", post.blogName];
-    [customView addSubview:headerLabel];
-    
-    //UIImageView *titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.png"]];
-    NSString* avatarUrl = [NSString stringWithFormat:@"api.tumblr.com/v2/blog/%@.tumblr.com/avatar", post.blogName];
-    UIImage* avatarImg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:avatarUrl]]];
-    
-    UIImageView *titleImage = [[UIImageView alloc] initWithImage:avatarImg];
-    
-    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[post.postTimestamp doubleValue]];
-    NSDate* currentDate = [NSDate date];
-    NSString* timestampString = [TimeConverter stringForTimeIntervalSinceCreated:date serverTime:currentDate];
-    NSLog(@"%@", timestampString);
-    
-    CGRect imageViewRect = CGRectMake(0.0,  0.0, 42.0 , 42.0);
-    titleImage.frame = imageViewRect;
-    [customView addSubview:titleImage];
-    
-    return customView;
-}
-
-/**
- */
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
-    return 5;
-}
-
-/**
- */
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
-    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 5.0)];
-    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    headerLabel.backgroundColor = [UIColor colorWithRed:44/255.0 green:71/255.0 blue:98/255.0 alpha:1.0];
-    headerLabel.opaque = NO;
-    [customView addSubview:headerLabel];
-    
-    return customView;
-}
-
-/**
- */
--(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+-(void)tableView:(UITableView*)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     cell.backgroundColor = [UIColor clearColor];
     cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
     cell.textLabel.backgroundColor = [UIColor clearColor];
@@ -232,7 +189,61 @@ NSArray* tableData;
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.shadowColor = [UIColor blackColor];
     cell.textLabel.shadowOffset = CGSizeMake(1.0, 1.0);
+    
+    cell.layer.cornerRadius = 8;
+    cell.layer.masksToBounds = YES;
 }
+
+/**
+ */
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    AudioPost* post = [postData objectAtIndex:section];
+    
+    UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(sectionHeaderSize[0], sectionHeaderSize[1], sectionHeaderSize[2], sectionHeaderSize[3])];
+    
+    /**
+     Calculate the time
+     */
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[post.postTimestamp doubleValue]];
+    NSDate* currentDate = [NSDate date];
+    NSString* timestampString = [TimeConverter stringForTimeIntervalSinceCreated:date serverTime:currentDate];
+    
+    /**
+     Style the header
+     */
+    UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    headerLabel.backgroundColor = [UIColor whiteColor];
+    headerLabel.opaque = NO;
+    headerLabel.textColor = [UIColor blackColor];
+    headerLabel.font = [UIFont boldSystemFontOfSize:12];
+    headerLabel.frame = CGRectMake(sectionHeaderSize[0], sectionHeaderSize[1], sectionHeaderSize[2], sectionHeaderSize[3]);
+    headerLabel.text = [NSString stringWithFormat:@"\t\t%@ %@", post.blogName, timestampString];
+    
+    //UIImageView *titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.png"]];
+    NSString* avatarUrl = [NSString stringWithFormat:@"api.tumblr.com/v2/blog/%@.tumblr.com/avatar", post.blogName];
+    UIImage* avatarImg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:avatarUrl]]];
+    UIImageView *titleImage = [[UIImageView alloc] initWithImage:avatarImg];
+    CGRect imageViewRect = CGRectMake(0.0,  0.0, 42.0 , 42.0);
+    titleImage.frame = imageViewRect;
+    
+    [customView addSubview:titleImage];
+    [customView addSubview:headerLabel];
+    
+    return customView;
+}
+
+/**
+ */
+-(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    UIView* customView = [[UIView alloc] initWithFrame:CGRectMake(0.0, 0.0, 320.0, 5.0)];
+    customView.backgroundColor = [UIColor colorWithRed:44/255.0 green:71/255.0 blue:98/255.0 alpha:1.0];
+    customView.opaque = NO;
+    
+    return customView;
+}
+
+// Setup tableView
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
