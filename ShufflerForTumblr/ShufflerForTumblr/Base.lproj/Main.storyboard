@@ -7,7 +7,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="I0j-gI-kXn">
             <objects>
-                <tabBarController definesPresentationContext="YES" id="4vf-lV-gEL" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabBarController" definesPresentationContext="YES" id="4vf-lV-gEL" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="38m-fU-uwh"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -117,19 +117,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JK1-9a-TJz">
-                                <rect key="frame" x="141" y="269" width="38" height="30"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="aeY-Pa-fxE">
+                                <rect key="frame" x="142" y="265" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Login">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonTapped:" destination="uFX-Q2-mC2" eventType="touchUpInside" id="aLB-IL-Z8W"/>
-                                </connections>
-                            </button>
-                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logo-radio-white" translatesAutoresizingMaskIntoConstraints="NO" id="hkX-6G-W23">
-                                <rect key="frame" x="-5" y="122" width="451" height="452"/>
+                            </activityIndicatorView>
+                            <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" fixedFrame="YES" image="logo-radio-white-x64" translatesAutoresizingMaskIntoConstraints="NO" id="qTV-VH-RoZ">
+                                <rect key="frame" x="159" y="222" width="64" height="64"/>
                                 <autoresizingMask key="autoresizingMask"/>
                             </imageView>
                         </subviews>
@@ -160,11 +153,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.17254901959999999" green="0.2784313725" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dashCell" textLabel="Ova-b4-bnA" detailTextLabel="hZQ-hD-G80" style="IBUITableViewCellStyleSubtitle" id="qIb-O6-cg3">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="dashCell" textLabel="Ova-b4-bnA" detailTextLabel="hZQ-hD-G80" style="IBUITableViewCellStyleSubtitle" id="qIb-O6-cg3">
                                         <rect key="frame" x="0.0" y="42" width="280" height="220"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qIb-O6-cg3" id="0vw-rh-P7D">
-                                            <rect key="frame" x="0.0" y="0.0" width="280" height="220"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="247" height="220"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Ova-b4-bnA">
@@ -353,7 +346,7 @@
         <image name="Likes" width="30" height="30"/>
         <image name="Player" width="35" height="35"/>
         <image name="Sites" width="30" height="30"/>
-        <image name="logo-radio-white" width="451" height="452"/>
+        <image name="logo-radio-white-x64" width="64" height="64"/>
     </resources>
     <color key="tintColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

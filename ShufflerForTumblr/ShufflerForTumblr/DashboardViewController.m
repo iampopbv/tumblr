@@ -6,24 +6,32 @@
 //  Copyright (c) 2014 Hogeschoool van Amsterdam. All rights reserved.
 //
 
+#import <QuartzCore/QuartzCore.h>
 #import "DashboardViewController.h"
 #import "TMAPIClient.h"
 #import "AudioPost.h"
+#import "TimeConverter.h"
 
 @interface DashboardViewController ()
-
 @end
-
-@implementation DashboardViewController{
-    NSMutableArray *postData;
-    NSArray *tableData;
-}
-
-const int limitNextPage = 5;
 
 /**
  */
-- (void)viewDidLoad{
+static const int limitNextPage = 5;
+/**
+ */
+NSMutableArray* postData;
+/**
+ */
+NSArray* tableData;
+
+/**
+ */
+@implementation DashboardViewController
+
+/**
+ */
+-(void)viewDidLoad{
     [super viewDidLoad];
     
     postData = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
@@ -86,17 +94,19 @@ const int limitNextPage = 5;
     tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Setup tableView
+
 /**
- * Number of sections in the tableview.
+ Number of sections in the tableview.
  */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-//    return [tableData count];
     return [postData count];
 }
 
 /**
- * Number of cells within the sections in th tableview.
- * In each section there is 1 cell because of the header en footer functionality in each section
+ Number of cells within the sections in th tableview.
+ In each section there is 1 cell because of the header en footer functionality in each section
  */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return 1;
@@ -104,12 +114,15 @@ const int limitNextPage = 5;
 
 /**
  */
-//-(CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 262.0;
-//}
+-(CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 220.0;
+}
+
+// Setup tableView
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /**
- * Style and content of the cells.
+ Style and content of the cells.
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -135,17 +148,20 @@ const int limitNextPage = 5;
 //    cellBackView.image = [UIImage imageNamed:@"cellBackground.png"];
     
     cellBackView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:post.album_art]]];
-    
     if(!cellBackView.image){
         cellBackView.image = [UIImage imageNamed:@"cellBackground.png"];
     }
     
-    cell.textLabel.text = post.track_name;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", post.track_name];
     
-    cell.textColor = [UIColor whiteColor];
+    //cell.textColor = [UIColor whiteColor];
     
     cell.backgroundView = cellBackView;
     return cell;
+}
+
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.tabBarController setSelectedIndex:2];
 }
 
 /**
@@ -166,8 +182,8 @@ const int limitNextPage = 5;
     headerLabel.opaque = NO;
     headerLabel.textColor = [UIColor blackColor];
     headerLabel.font = [UIFont boldSystemFontOfSize:12];
-    headerLabel.frame = CGRectMake(20.0, 0.0, 320.0, 42.0);
-    headerLabel.text = [NSString stringWithFormat:@"\t%@", post.blogName];
+    headerLabel.frame = CGRectMake(0.0, 0.0, 320.0, 42.0);
+    headerLabel.text = [NSString stringWithFormat:@"\t\t%@", post.blogName];
     [customView addSubview:headerLabel];
     
     //UIImageView *titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.png"]];
@@ -176,7 +192,10 @@ const int limitNextPage = 5;
     
     UIImageView *titleImage = [[UIImageView alloc] initWithImage:avatarImg];
     
-    NSLog(@"%@", avatarUrl);
+    NSDate* date = [NSDate dateWithTimeIntervalSince1970:[post.postTimestamp doubleValue]];
+    NSDate* currentDate = [NSDate date];
+    NSString* timestampString = [TimeConverter stringForTimeIntervalSinceCreated:date serverTime:currentDate];
+    NSLog(@"%@", timestampString);
     
     CGRect imageViewRect = CGRectMake(0.0,  0.0, 42.0 , 42.0);
     titleImage.frame = imageViewRect;
@@ -202,6 +221,20 @@ const int limitNextPage = 5;
     
     return customView;
 }
+
+/**
+ */
+-(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
+    cell.backgroundColor = [UIColor clearColor];
+    cell.layer.backgroundColor = [[UIColor clearColor] CGColor];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.shadowColor = [UIColor blackColor];
+    cell.textLabel.shadowOffset = CGSizeMake(1.0, 1.0);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma mark - Navigation
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

@@ -31,14 +31,12 @@
 @synthesize reblogKey;
 
 /**
- *
  */
 -(NSString *) getListName {
 	return [NSString stringWithFormat:@"Audio - %@", self.blogName];
 }
 
 /**
- *
  */
 -(NSString *)getName {
 	NSString *name = [NSString stringWithFormat:@"Audio from: %@", self.ID];
@@ -46,14 +44,12 @@
 }
 
 /**
- *
  */
 -(id)getPostId {
 	return self.ID;
 }
 
 /**
- *
  */
 -(id) initWithDictionary:(NSDictionary *)dictionary {
 	self = [super init];
@@ -94,7 +90,6 @@
 }
 
 /**
- *
  */
 -(PostType) getType {
 	return self.type;
