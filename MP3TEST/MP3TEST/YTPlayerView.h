@@ -16,6 +16,7 @@
 
 @property (nonatomic) int width;
 @property (nonatomic) int height;
+@property (nonatomic) NSString* template;
 @property (nonatomic) NSString* audioString;
 @property (nonatomic) NSString* bandcampString;
 @property (nonatomic) NSString* soundCloudString;

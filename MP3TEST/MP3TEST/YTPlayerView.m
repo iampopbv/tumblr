@@ -63,6 +63,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(NSString*) doRegex:(NSString*) iframe: (NSString*) template{
+    NSString *stringtoReplace = @"(width=\")[0-9]{3}(\" height=\")[0-9]{3}(\")";
+    
+    NSString *pattern = [NSString stringWithFormat:@"%@", stringtoReplace];
+    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+    NSString *result = [regex stringByReplacingMatchesInString:iframe options:0 range:NSMakeRange(0, iframe.length) withTemplate:template];
+    
+    NSLog(@"%@", result);
+    return result;
+}
+
 -(void) setWebView{
     webView = [[UIWebView alloc] initWithFrame:CGRectMake(10, 70, 300, 200)];
     [webView setAllowsInlineMediaPlayback:YES];
@@ -72,9 +83,8 @@
 }
 
 -(IBAction)PlayTumblrAudio{
-    
-        NSString* str = _embed;
-        str = [str stringByReplacingOccurrencesOfString:@"width=\"500\" height=\"169\"" withString:@"width=\"300\" height=\"150\""];
+        _template = @" width=\"300\" height=\"150\" ";
+        NSString* str = [self doRegex:_embed :_template];
     
         [self setWebView];
         NSString* embedHTML = [NSString stringWithFormat:@"\
@@ -99,7 +109,9 @@
     NSString* str = _player;
     str = [str stringByReplacingOccurrencesOfString:@"%3A" withString: @":"];
     str = [str stringByReplacingOccurrencesOfString:@"%2F" withString: @"/"];
-    str = [str stringByReplacingOccurrencesOfString:@"width=\"500\" height=\"500\"" withString:@"width=\"300\" height=\"200\""];
+    _template = @" width=\"300\" height=\"200\" ";
+    str = [self doRegex:str :_template];
+    
     [self setWebView];
     NSString* embedHTML = [NSString stringWithFormat:@"\
                            <html>\
@@ -116,8 +128,8 @@
 -(IBAction)PlayBandCamp{
     
     NSString* str = _player;
-    str = [str stringByReplacingOccurrencesOfString:@"width=\"500\" height=\"120\""
-                                         withString: @"width=\"300\" height=\"200\""];
+    _template = @" width=\"300\" height=\"200\" ";
+    str = [self doRegex:str :_template];
     
     [self setWebView];
     NSString* embedHTML = [NSString stringWithFormat:@"\
