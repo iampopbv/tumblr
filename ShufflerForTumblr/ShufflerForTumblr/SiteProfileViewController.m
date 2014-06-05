@@ -19,12 +19,14 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    NSLog(@"%@", _blogName);
+    self.view.backgroundColor = [UIColor colorWithRed:44/255.0 green:71/255.0 blue:98/255.0 alpha:1.0];
+    self.title = [[NSString stringWithFormat:@"%@", _blogName] uppercaseString];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Navigation

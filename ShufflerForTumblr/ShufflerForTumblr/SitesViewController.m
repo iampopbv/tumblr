@@ -115,7 +115,7 @@ NSMutableString* user;
     Following* follow = [followData objectAtIndex:indexPath.row];
     
     cell.textLabel.text = [[NSString stringWithFormat:@"%@", follow.name] uppercaseString];
-    cell.textColor = [UIColor whiteColor];
+    cell.textLabel.textColor = [UIColor whiteColor];
     
     return cell;
 }

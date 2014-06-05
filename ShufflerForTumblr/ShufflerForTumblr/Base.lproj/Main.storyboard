@@ -86,10 +86,10 @@
             </objects>
             <point key="canvasLocation" x="384" y="-1732"/>
         </scene>
-        <!--View Controller - Likes-->
+        <!--Likes View Controller - Likes-->
         <scene sceneID="MCN-ym-n6W">
             <objects>
-                <viewController id="QDN-ho-aXQ" sceneMemberID="viewController">
+                <viewController id="QDN-ho-aXQ" customClass="LikesViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CK0-T1-p1F"/>
                         <viewControllerLayoutGuide type="bottom" id="DEf-g1-Zld"/>

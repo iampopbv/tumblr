@@ -16,6 +16,8 @@
 
 @interface DashboardViewController ()
 @property (nonatomic,retain) UIRefreshControl *refreshControl;
+@property(nonatomic) BOOL adjustsFontSizeToFitWidth;
+@property(nonatomic) NSInteger numberOfLines;
 @end
 
 /**
@@ -40,6 +42,8 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 -(void)viewDidLoad{
     [super viewDidLoad];
     postData = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
+    _adjustsFontSizeToFitWidth = NO;
+    _numberOfLines = 0;
     
     [self loadNewPosts];
 }
@@ -236,6 +240,12 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     headerLabel.frame = CGRectMake(sectionHeaderSize[0], sectionHeaderSize[1], sectionHeaderSize[2], sectionHeaderSize[3]);
     headerLabel.text = [NSString stringWithFormat:@"\t\t%@ %@", post.blogName, timestampString];
     
+    UIImageView* avatarImage = [[UIImageView alloc] initWithFrame:CGRectZero];
+    [[TMAPIClient sharedInstance]avatar:@"zborowa" size:64 callback:^(id response, NSError *error) {
+        avatarImage.image = [UIImage imageWithData:response];
+    }];
+    [avatarImage addSubview:headerLabel];
+    
     //UIImageView *titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.png"]];
     NSString* avatarUrl = [NSString stringWithFormat:@"api.tumblr.com/v2/blog/%@.tumblr.com/avatar", post.blogName];
     UIImage* avatarImg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:avatarUrl]]];
@@ -243,7 +253,6 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     CGRect imageViewRect = CGRectMake(0.0,  0.0, 42.0 , 42.0);
     titleImage.frame = imageViewRect;
     
-    [customView addSubview:titleImage];
     [customView addSubview:headerLabel];
     
     return customView;

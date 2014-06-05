@@ -20,6 +20,7 @@
 		7C1C481E191C41620030A85A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1C4800191C41620030A85A /* UIKit.framework */; };
 		7C1C4826191C41620030A85A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C1C4824191C41620030A85A /* InfoPlist.strings */; };
 		7C1C4828191C41620030A85A /* ShufflerForTumblrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C4827191C41620030A85A /* ShufflerForTumblrTests.m */; };
+		7C4156B019412F250046A5D7 /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4156AF19412F250046A5D7 /* LikesViewController.m */; };
 		7C5325F6193DD419007A52C9 /* TimeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5325F5193DD419007A52C9 /* TimeConverter.m */; };
 		7C7007DB191CEECA00C0E748 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7007DA191CEECA00C0E748 /* DashboardViewController.m */; };
 		7C792824192A188C004F36A9 /* SitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C792823192A188C004F36A9 /* SitesViewController.m */; };
@@ -64,6 +65,8 @@
 		7C1C4823191C41620030A85A /* ShufflerForTumblrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShufflerForTumblrTests-Info.plist"; sourceTree = "<group>"; };
 		7C1C4825191C41620030A85A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C1C4827191C41620030A85A /* ShufflerForTumblrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShufflerForTumblrTests.m; sourceTree = "<group>"; };
+		7C4156AE19412F250046A5D7 /* LikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesViewController.h; sourceTree = "<group>"; };
+		7C4156AF19412F250046A5D7 /* LikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesViewController.m; sourceTree = "<group>"; };
 		7C5325F4193DD419007A52C9 /* TimeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeConverter.h; sourceTree = "<group>"; };
 		7C5325F5193DD419007A52C9 /* TimeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeConverter.m; sourceTree = "<group>"; };
 		7C7007D9191CEECA00C0E748 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 				7C792823192A188C004F36A9 /* SitesViewController.m */,
 				7CD87E951940EFA1007E4374 /* SiteProfileViewController.h */,
 				7CD87E961940EFA1007E4374 /* SiteProfileViewController.m */,
+				7C4156AE19412F250046A5D7 /* LikesViewController.h */,
+				7C4156AF19412F250046A5D7 /* LikesViewController.m */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -434,6 +439,7 @@
 				7CB5D216192B60BF00974931 /* AKZAPIClient.m in Sources */,
 				7CD87E861940B187007E4374 /* User.m in Sources */,
 				7C792824192A188C004F36A9 /* SitesViewController.m in Sources */,
+				7C4156B019412F250046A5D7 /* LikesViewController.m in Sources */,
 				7CD87E941940C8E8007E4374 /* Following.m in Sources */,
 				7C1C4809191C41620030A85A /* main.m in Sources */,
 				7CD87E901940B26B007E4374 /* BlogInfo.m in Sources */,
