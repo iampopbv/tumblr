@@ -11,19 +11,19 @@
 #import "TMAPIClient.h"
 #import "AudioPost.h"
 #import "TimeConverter.h"
+#import "User.h"
+#import "Audio.h"
 
 @interface DashboardViewController ()
+@property (nonatomic,retain) UIRefreshControl *refreshControl;
 @end
 
 /**
  */
-static const int limitNextPage = 5;
+static const int limitNextPage = 8;
 /**
  */
 NSMutableArray* postData;
-/**
- */
-NSArray* tableData;
 /**
  */
 static NSString* cellIdentifier = @"dashCell";
@@ -39,10 +39,12 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
  */
 -(void)viewDidLoad{
     [super viewDidLoad];
-    
     postData = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
-    tableData = [[NSArray alloc] init];
     
+    [self loadNewPosts];
+}
+
+-(void)loadNewPosts{
     NSArray* paramsKeys = [[NSArray alloc] initWithObjects:@"limit", @"offset", @"type", nil];
     NSArray* paramsVals = [[NSArray alloc] initWithObjects:
                            [[NSString alloc] initWithFormat:@"%i", limitNextPage],
@@ -86,9 +88,6 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
                 postItem.type           = 0;
                 [postData addObject:postItem];
             }
-            //>> NSLog(@"%@", [post valueForKeyPath:@"artist"]);
-            //NSArray* testArray = [response valueForKeyPath:@"posts"];
-            //NSLog(@"%@", testArray[0]);
         }
         dispatch_semaphore_signal(semaphore);
     }];
@@ -102,6 +101,24 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
  */
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self.tabBarController setSelectedIndex:2];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+    CGPoint offset = aScrollView.contentOffset;
+    CGRect bounds = aScrollView.bounds;
+    CGSize size = aScrollView.contentSize;
+    UIEdgeInsets inset = aScrollView.contentInset;
+    float y = offset.y + bounds.size.height - inset.bottom;
+    float h = size.height;
+    float reload_distance = -100;
+    
+    if(offset.y <= -100) {
+        NSLog(@"load more rows: %g", offset.y);
+    }
+    
+    if(y > (h + reload_distance)) {
+        NSLog(@"load more rows");
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -80,7 +80,6 @@
         
         [[DirectURLGetter sharedInstance] getDirectURLS: posts withBlock:^(id posts) {
             
-            
             [tableObjects addObjectsFromArray: posts];
             
             for (id<Post> post in posts) {

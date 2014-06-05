@@ -64,6 +64,9 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.17254901959999999" green="0.2784313725" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <segue destination="6yd-G7-NBP" kind="push" identifier="followProfile" trigger="accessoryAction" id="NNI-RD-OG8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -194,6 +197,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pvk-Wz-rR4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-114" y="-1718"/>
+        </scene>
+        <!--Site Profile View Controller-->
+        <scene sceneID="zis-5O-qpf">
+            <objects>
+                <viewController id="6yd-G7-NBP" customClass="SiteProfileViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="k9U-Ug-lg5"/>
+                        <viewControllerLayoutGuide type="bottom" id="EBy-Q1-rmo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3JK-Dk-Zj9">
+                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LSd-6v-jqt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="384" y="-2494"/>
         </scene>
         <!--View Controller - Player-->
         <scene sceneID="cYy-Pw-eGi">

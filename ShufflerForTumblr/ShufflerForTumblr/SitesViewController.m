@@ -8,20 +8,80 @@
 
 #import "TMApiClient.h"
 #import "SitesViewController.h"
-#import "AudioPost.h"
+#import "Following.h"
+#import "SiteProfileViewController.h"
 
 @interface SitesViewController ()
-
 @end
 
-@implementation SitesViewController{
-    NSArray *tableData;
-}
+/**
+ */
+NSMutableArray* followData;
+NSArray *tableData;
+/**
+ */
+static NSString* cellIdentifier = @"siteCell";
+/**
+ */
+NSMutableString* user;
+
+/**
+ */
+@implementation SitesViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    followData = [[NSMutableArray alloc] init];
+    
+    [self loadFollowingUsers];
     
     tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+}
+
+-(void)loadFollowingUsers{
+    dispatch_semaphore_t semaphore1 = dispatch_semaphore_create(0);
+    [[TMAPIClient sharedInstance] userInfo:^(id result, NSError *error) {
+        if (!error){
+            user = [result valueForKeyPath:@"user.name"];
+        }
+        dispatch_semaphore_signal(semaphore1);
+    }];
+    while (dispatch_semaphore_wait(semaphore1, DISPATCH_TIME_NOW)){
+        [[NSRunLoop currentRunLoop]runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    }
+    
+    NSArray* paramsKeys = [[NSArray alloc] initWithObjects:@"base-hostname", nil];
+    NSArray* paramsVals = [[NSArray alloc] initWithObjects:
+                           [[NSString alloc] initWithFormat:@"%@", user], nil];
+    NSDictionary *paramsDict = [[NSDictionary alloc]initWithObjects:paramsVals forKeys:paramsKeys];
+    
+    dispatch_semaphore_t semaphore2 = dispatch_semaphore_create(0);
+    
+    [[TMAPIClient sharedInstance]following:paramsDict callback:^(id result, NSError *error) {
+        if(!error){
+            for(NSArray* follow in [result valueForKeyPath:@"blogs"]){
+                Following* siteFollow = [[Following alloc]init];
+                siteFollow.description = [follow valueForKeyPath:@"description"];
+                siteFollow.name = [follow valueForKeyPath:@"name"];
+                siteFollow.title = [follow valueForKeyPath:@"title"];
+                siteFollow.updated = [[follow valueForKeyPath:@"updated"] integerValue];
+                siteFollow.url = [follow valueForKeyPath:@"url"];
+                [followData addObject:siteFollow];
+            }
+        }
+        dispatch_semaphore_signal(semaphore2);
+    }];
+    
+    while (dispatch_semaphore_wait(semaphore2, DISPATCH_TIME_NOW)){
+        [[NSRunLoop currentRunLoop]runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
+    }
+}
+
+/**
+ */
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath{
+    Following* follow = [followData objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"followProfile" sender:follow.name];
 }
 
 /**
@@ -33,22 +93,28 @@
 /**
  */
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [tableData count];
+    return [followData count];
 }
 
 /**
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    /**
+     Transparent tableView background
+     */
+    tableView.backgroundColor = [UIColor clearColor];
+    /**
+     Hide the scrollbar in the tableView
+     */
+    [tableView setShowsVerticalScrollIndicator:NO];
     
-    // [UIColor colorWithRed:44/255.0 green:71/255.0 blue:98/255.0 alpha:1.0]
-    
-    static NSString *cellIdentifier = @"siteCell";
+    /**
+     Set needed objects
+     */
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
-    }
+    Following* follow = [followData objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [tableData objectAtIndex:indexPath.row];
+    cell.textLabel.text = [[NSString stringWithFormat:@"%@", follow.name] uppercaseString];
     cell.textColor = [UIColor whiteColor];
     
     return cell;
@@ -59,6 +125,12 @@
 }
 
 #pragma mark - Navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{}
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"followProfile"]){
+        NSString* name = (NSString*)sender;
+        SiteProfileViewController* spvw = (SiteProfileViewController*)[segue destinationViewController];
+        spvw.blogName = name;
+    }
+}
 
 @end

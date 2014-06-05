@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DashboardViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+@interface DashboardViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
 @property int dashboardOffsetAudio;
 

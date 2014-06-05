@@ -1,0 +1,19 @@
+//
+//  Following.h
+//  ShufflerForTumblr
+//
+//  Created by Adrian Zborowski on 05/06/14.
+//  Copyright (c) 2014 Hogeschoool van Amsterdam. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface Following : NSObject
+
+@property NSString* description;
+@property NSString* name;
+@property NSString* title;
+@property NSInteger updated;
+@property NSString* url;
+
+@end
