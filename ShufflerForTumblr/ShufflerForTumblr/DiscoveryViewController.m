@@ -1,20 +1,19 @@
 //
-//  LikesViewController.m
+//  DiscoveryViewController.m
 //  ShufflerForTumblr
 //
 //  Created by Adrian Zborowski on 06/06/14.
 //  Copyright (c) 2014 Hogeschoool van Amsterdam. All rights reserved.
 //
 
-#import <QuartzCore/QuartzCore.h>
-#import "LikesViewController.h"
+#import "DiscoveryViewController.h"
 #import "TMAPIClient.h"
 
-@interface LikesViewController ()
+@interface DiscoveryViewController ()
 
 @end
 
-@implementation LikesViewController
+@implementation DiscoveryViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];
@@ -23,7 +22,7 @@
     NSArray* paramsVals = [[NSArray alloc] initWithObjects:nil];
     NSDictionary *paramsDict = [[NSDictionary alloc]initWithObjects:paramsVals forKeys:paramsKeys];
     
-    [[TMAPIClient sharedInstance]likes:paramsDict callback:^(id response, NSError *error) {
+    [[TMAPIClient sharedInstance]tagged:@"music" parameters:paramsDict callback:^(id response, NSError *error) {
         NSLog(@"%@", response);
     }];
 }

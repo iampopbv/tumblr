@@ -1,5 +1,5 @@
 //
-//  LikesViewController.h
+//  DiscoveryViewController.h
 //  ShufflerForTumblr
 //
 //  Created by Adrian Zborowski on 06/06/14.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LikesViewController : UIViewController //<UITableViewDelegate, UITableViewDataSource>
+@interface DiscoveryViewController : UIViewController //<UITableViewDelegate, UITableViewDataSource>
 
 @end

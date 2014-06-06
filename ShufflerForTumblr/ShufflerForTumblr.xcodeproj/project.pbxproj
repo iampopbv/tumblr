@@ -23,6 +23,7 @@
 		7C4156B019412F250046A5D7 /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4156AF19412F250046A5D7 /* LikesViewController.m */; };
 		7C5325F6193DD419007A52C9 /* TimeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5325F5193DD419007A52C9 /* TimeConverter.m */; };
 		7C7007DB191CEECA00C0E748 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7007DA191CEECA00C0E748 /* DashboardViewController.m */; };
+		7C759BDD1941973800F4B320 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C759BDC1941973800F4B320 /* DiscoveryViewController.m */; };
 		7C792824192A188C004F36A9 /* SitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C792823192A188C004F36A9 /* SitesViewController.m */; };
 		7CB5D216192B60BF00974931 /* AKZAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB5D215192B60BF00974931 /* AKZAPIClient.m */; };
 		7CC29491193BBD2B00B58412 /* AudioPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC29490193BBD2B00B58412 /* AudioPost.m */; };
@@ -71,6 +72,8 @@
 		7C5325F5193DD419007A52C9 /* TimeConverter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeConverter.m; sourceTree = "<group>"; };
 		7C7007D9191CEECA00C0E748 /* DashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		7C7007DA191CEECA00C0E748 /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
+		7C759BDB1941973800F4B320 /* DiscoveryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DiscoveryViewController.h; sourceTree = "<group>"; };
+		7C759BDC1941973800F4B320 /* DiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryViewController.m; sourceTree = "<group>"; };
 		7C792822192A188C004F36A9 /* SitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitesViewController.h; sourceTree = "<group>"; };
 		7C792823192A188C004F36A9 /* SitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitesViewController.m; sourceTree = "<group>"; };
 		7CB5D214192B60BF00974931 /* AKZAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKZAPIClient.h; sourceTree = "<group>"; };
@@ -228,6 +231,8 @@
 				7CD87E961940EFA1007E4374 /* SiteProfileViewController.m */,
 				7C4156AE19412F250046A5D7 /* LikesViewController.h */,
 				7C4156AF19412F250046A5D7 /* LikesViewController.m */,
+				7C759BDB1941973800F4B320 /* DiscoveryViewController.h */,
+				7C759BDC1941973800F4B320 /* DiscoveryViewController.m */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -445,6 +450,7 @@
 				7CD87E901940B26B007E4374 /* BlogInfo.m in Sources */,
 				7CD3158E19255381007E27C4 /* LoginViewController.m in Sources */,
 				7CD87E8A1940B20F007E4374 /* Audio.m in Sources */,
+				7C759BDD1941973800F4B320 /* DiscoveryViewController.m in Sources */,
 				7CC29491193BBD2B00B58412 /* AudioPost.m in Sources */,
 				7CD87E8D1940B23C007E4374 /* Video.m in Sources */,
 				7C7007DB191CEECA00C0E748 /* DashboardViewController.m in Sources */,
