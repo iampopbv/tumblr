@@ -23,7 +23,7 @@
     NSDictionary *paramsDict = [[NSDictionary alloc]initWithObjects:paramsVals forKeys:paramsKeys];
     
     [[TMAPIClient sharedInstance]tagged:@"music" parameters:paramsDict callback:^(id response, NSError *error) {
-        NSLog(@"%@", response);
+        NSLog(@">>>%@", response);
     }];
 }
 
