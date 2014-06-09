@@ -31,6 +31,7 @@ NSMutableString* user;
 
 - (void)viewDidLoad{
     [super viewDidLoad];
+    
     followData = [[NSMutableArray alloc] init];
     
     [self loadFollowingUsers];

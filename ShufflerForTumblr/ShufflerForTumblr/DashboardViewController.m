@@ -13,6 +13,8 @@
 #import "TimeConverter.h"
 #import "User.h"
 #import "Audio.h"
+#import "AppSession.h"
+#import "Post.h"
 
 @interface DashboardViewController ()
 @property (nonatomic,retain) UIRefreshControl *refreshControl;
@@ -41,11 +43,22 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
  */
 -(void)viewDidLoad{
     [super viewDidLoad];
+    
+    _tableView.delegate = self;
+    
     postData = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
     _adjustsFontSizeToFitWidth = NO;
     _numberOfLines = 0;
     
     [self loadNewPosts];
+    
+//    [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
+//        postData =[[NSMutableArray alloc] initWithArray:posts];
+//        NSLog(@"%lu", [postData count]);
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            [_tableview reloadData];
+//        });
+//    }];
 }
 
 -(void)loadNewPosts{
@@ -56,8 +69,6 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
                            @"audio",
                            nil];
     NSDictionary *paramsDict = [[NSDictionary alloc]initWithObjects:paramsVals forKeys:paramsKeys];
-    
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
     
     [[TMAPIClient sharedInstance]dashboard:paramsDict callback:^(id response, NSError *error){
         if(!error) {
@@ -93,12 +104,8 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
                 [postData addObject:postItem];
             }
         }
-        dispatch_semaphore_signal(semaphore);
+        [[self tableView] reloadData];
     }];
-    
-    while (dispatch_semaphore_wait(semaphore, DISPATCH_TIME_NOW)){
-        [[NSRunLoop currentRunLoop]runMode:NSDefaultRunLoopMode beforeDate:[NSDate dateWithTimeIntervalSinceNow:10]];
-    }
 }
 
 /**
@@ -121,7 +128,8 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     }
     
     if(y > (h + reload_distance)) {
-        NSLog(@"load more rows");
+        //NSLog(@"load more rows");
+        NSLog(@"%lu", [postData count]);
     }
 }
 

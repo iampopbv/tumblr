@@ -8,6 +8,7 @@
 
 #import "TMAPIClient.h"
 #import "LoginViewController.h"
+#import "AppSession.h"
 
 @interface LoginViewController ()
 @end
@@ -22,13 +23,6 @@
 }
 
 /**
- Used for the "Login" button on the login-screen screen.
- */
--(IBAction)buttonTapped:(UIButton *)sender{
-    [self auth];
-}
-
-/**
  Method uses the TMAPIClient for the user authentication.
  "authenticate" uses the application name for the authentication of the connection with the right
  Tumblr app.
@@ -39,11 +33,13 @@
         if(error){
             NSLog(@"\nAuthentication failed: %@ %@", error, [error description]);
         }else{
-            NSLog(@"\nAuthentication successful!");
+            [AppSession sharedInstance];
             [self performSegueWithIdentifier:@"Authenticated" sender:self];
         }
     }];
 }
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 -(void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];

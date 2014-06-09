@@ -19,8 +19,9 @@ NSMutableArray *_posts;
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [TMAPIClient sharedInstance].OAuthConsumerKey = @"NPIxO1R794eabwFPmWLuqhsyMxYcYIXwGBCALvOlzNFoaCt378";
-    [TMAPIClient sharedInstance].OAuthConsumerSecret = @"pVOq6DkuOjNjUy52oXXX2iKzMJl9gcfIPVkutFjkmzrxjPfqMc";
+    [TMAPIClient sharedInstance];
+    [[TMAPIClient sharedInstance]setOAuthConsumerKey:@"NPIxO1R794eabwFPmWLuqhsyMxYcYIXwGBCALvOlzNFoaCt378"];
+    [[TMAPIClient sharedInstance]setOAuthConsumerSecret:@"pVOq6DkuOjNjUy52oXXX2iKzMJl9gcfIPVkutFjkmzrxjPfqMc"];
     
     return YES;
 }

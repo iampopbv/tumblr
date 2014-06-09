@@ -193,6 +193,9 @@
                         <inset key="imageInsets" minX="0.0" minY="5" maxX="0.0" maxY="-5"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Dashboard" id="Oh4-XY-qAZ"/>
+                    <connections>
+                        <outlet property="tableView" destination="kMc-2n-tSm" id="SDi-BL-sJk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Pvk-Wz-rR4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

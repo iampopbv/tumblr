@@ -25,6 +25,7 @@
 		7C7007DB191CEECA00C0E748 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7007DA191CEECA00C0E748 /* DashboardViewController.m */; };
 		7C759BDD1941973800F4B320 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C759BDC1941973800F4B320 /* DiscoveryViewController.m */; };
 		7C792824192A188C004F36A9 /* SitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C792823192A188C004F36A9 /* SitesViewController.m */; };
+		7C9AB04E1945C78400B2BC9B /* AppSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9AB04D1945C78400B2BC9B /* AppSession.m */; };
 		7CB5D216192B60BF00974931 /* AKZAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB5D215192B60BF00974931 /* AKZAPIClient.m */; };
 		7CC29491193BBD2B00B58412 /* AudioPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC29490193BBD2B00B58412 /* AudioPost.m */; };
 		7CD3158E19255381007E27C4 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CD3158D19255381007E27C4 /* LoginViewController.m */; };
@@ -76,6 +77,8 @@
 		7C759BDC1941973800F4B320 /* DiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryViewController.m; sourceTree = "<group>"; };
 		7C792822192A188C004F36A9 /* SitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitesViewController.h; sourceTree = "<group>"; };
 		7C792823192A188C004F36A9 /* SitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitesViewController.m; sourceTree = "<group>"; };
+		7C9AB04C1945C78400B2BC9B /* AppSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSession.h; sourceTree = "<group>"; };
+		7C9AB04D1945C78400B2BC9B /* AppSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSession.m; sourceTree = "<group>"; };
 		7CB5D214192B60BF00974931 /* AKZAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKZAPIClient.h; sourceTree = "<group>"; };
 		7CB5D215192B60BF00974931 /* AKZAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKZAPIClient.m; sourceTree = "<group>"; };
 		7CC2948F193BBD2B00B58412 /* AudioPost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPost.h; sourceTree = "<group>"; };
@@ -247,6 +250,8 @@
 				7CD87E8F1940B26B007E4374 /* BlogInfo.m */,
 				7CD87E921940C8E8007E4374 /* Following.h */,
 				7CD87E931940C8E8007E4374 /* Following.m */,
+				7C9AB04C1945C78400B2BC9B /* AppSession.h */,
+				7C9AB04D1945C78400B2BC9B /* AppSession.m */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 				7C4156B019412F250046A5D7 /* LikesViewController.m in Sources */,
 				7CD87E941940C8E8007E4374 /* Following.m in Sources */,
 				7C1C4809191C41620030A85A /* main.m in Sources */,
+				7C9AB04E1945C78400B2BC9B /* AppSession.m in Sources */,
 				7CD87E901940B26B007E4374 /* BlogInfo.m in Sources */,
 				7CD3158E19255381007E27C4 /* LoginViewController.m in Sources */,
 				7CD87E8A1940B20F007E4374 /* Audio.m in Sources */,

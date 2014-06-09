@@ -10,6 +10,8 @@
 
 @interface DashboardViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property int dashboardOffsetAudio;
 
 @end
