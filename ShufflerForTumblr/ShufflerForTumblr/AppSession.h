@@ -12,6 +12,8 @@
 
 typedef void (^callback) (id);
 
+@property NSString* user_name;
+
 @property int dashboardAudioPostOffset;
 @property int dashboardVideoPostOffset;
 @property int sitesFollowingOffset;
@@ -30,6 +32,8 @@ typedef void (^callback) (id);
 -(void)resetOffsets;
 -(void)resetPosts;
 
+-(void)reloadDashboardPosts;
 -(void)loadDashboardPosts:(callback)callback;
+-(void)loadSites:(callback)callback;
 
 @end

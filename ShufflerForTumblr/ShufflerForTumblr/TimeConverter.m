@@ -24,26 +24,26 @@
         DayModules = interval%86400;
         if(DayModules!=0){
             if(DayModules>=3600){
-                return [NSString stringWithFormat:@"%lu days ago", DayInterval];
+                return [NSString stringWithFormat:@"%lu DAYS\n\t\tAGO", DayInterval];
             }else{
                 if(DayModules>=60){
-                    return [NSString stringWithFormat:@"%lu days ago", DayInterval];
+                    return [NSString stringWithFormat:@"%lu DAYS\n\t\tAGO", DayInterval];
                 }else{
-                    return [NSString stringWithFormat:@"%lu days ago", DayInterval];
+                    return [NSString stringWithFormat:@"%lu DAYS\n\t\tAGO", DayInterval];
                 }
             }
         }else{
-            return [NSString stringWithFormat:@"%lu days ago", DayInterval];
+            return [NSString stringWithFormat:@"%lu DAYS\n\t\tAGO", DayInterval];
         }
     }else{
         if(interval>=3600){
             HourInterval= interval/3600;
-            return [NSString stringWithFormat:@"%lu hours ago", HourInterval];
+            return [NSString stringWithFormat:@"%lu HOURS\n\t\tAGO", HourInterval];
         }else if(interval>=60){
             MinInterval = interval/60;
-            return [NSString stringWithFormat:@"%lu minutes ago", MinInterval];
+            return [NSString stringWithFormat:@"%lu MINS\n\t\tAGO", MinInterval];
         }else{
-            return [NSString stringWithFormat:@"%lu sec ago", interval];
+            return [NSString stringWithFormat:@"%lu SEC.\n\t\tAGO", interval];
         }
     }
 }

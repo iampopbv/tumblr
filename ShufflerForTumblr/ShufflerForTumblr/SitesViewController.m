@@ -8,6 +8,7 @@
 
 #import "TMApiClient.h"
 #import "SitesViewController.h"
+#import "AppSession.h"
 #import "Following.h"
 #import "SiteProfileViewController.h"
 
@@ -34,9 +35,12 @@ NSMutableString* user;
     
     followData = [[NSMutableArray alloc] init];
     
-    [self loadFollowingUsers];
+//    [self loadFollowingUsers];
     
-    tableData = [NSArray arrayWithObjects:@"Egg Benedict", @"Mushroom Risotto", @"Full Breakfast", @"Hamburger", @"Ham and Egg Sandwich", @"Creme Brelee", @"White Chocolate Donut", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+    [[AppSession sharedInstance]loadSites:^(NSArray* follows) {
+        followData =[[NSMutableArray alloc] initWithArray:follows];
+        [[self tableView] reloadData];
+    }];
 }
 
 -(void)loadFollowingUsers{
