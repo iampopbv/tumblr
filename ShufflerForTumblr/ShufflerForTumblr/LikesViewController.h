@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LikesViewController : UIViewController //<UITableViewDelegate, UITableViewDataSource>
+@interface LikesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, retain) IBOutlet UIScrollView* scrollView;
 
 @end

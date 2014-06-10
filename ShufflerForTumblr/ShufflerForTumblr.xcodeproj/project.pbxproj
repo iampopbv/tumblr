@@ -25,6 +25,10 @@
 		7C7007DB191CEECA00C0E748 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7007DA191CEECA00C0E748 /* DashboardViewController.m */; };
 		7C759BDD1941973800F4B320 /* DiscoveryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C759BDC1941973800F4B320 /* DiscoveryViewController.m */; };
 		7C792824192A188C004F36A9 /* SitesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C792823192A188C004F36A9 /* SitesViewController.m */; };
+		7C993E591947390200EFB5B3 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C993E581947390200EFB5B3 /* PlayerViewController.m */; };
+		7C993E5B19473B6A00EFB5B3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C993E5A19473B6A00EFB5B3 /* AVFoundation.framework */; };
+		7C993E5D194777C600EFB5B3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C993E5C194777C600EFB5B3 /* CoreMedia.framework */; };
+		7C993E5F194777DC00EFB5B3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C993E5E194777DC00EFB5B3 /* MediaPlayer.framework */; };
 		7C9AB04E1945C78400B2BC9B /* AppSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C9AB04D1945C78400B2BC9B /* AppSession.m */; };
 		7CB5D216192B60BF00974931 /* AKZAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CB5D215192B60BF00974931 /* AKZAPIClient.m */; };
 		7CC29491193BBD2B00B58412 /* AudioPost.m in Sources */ = {isa = PBXBuildFile; fileRef = 7CC29490193BBD2B00B58412 /* AudioPost.m */; };
@@ -77,6 +81,11 @@
 		7C759BDC1941973800F4B320 /* DiscoveryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DiscoveryViewController.m; sourceTree = "<group>"; };
 		7C792822192A188C004F36A9 /* SitesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SitesViewController.h; sourceTree = "<group>"; };
 		7C792823192A188C004F36A9 /* SitesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SitesViewController.m; sourceTree = "<group>"; };
+		7C993E571947390200EFB5B3 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		7C993E581947390200EFB5B3 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		7C993E5A19473B6A00EFB5B3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		7C993E5C194777C600EFB5B3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		7C993E5E194777DC00EFB5B3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		7C9AB04C1945C78400B2BC9B /* AppSession.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppSession.h; sourceTree = "<group>"; };
 		7C9AB04D1945C78400B2BC9B /* AppSession.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppSession.m; sourceTree = "<group>"; };
 		7CB5D214192B60BF00974931 /* AKZAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKZAPIClient.h; sourceTree = "<group>"; };
@@ -107,6 +116,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C993E5F194777DC00EFB5B3 /* MediaPlayer.framework in Frameworks */,
+				7C993E5D194777C600EFB5B3 /* CoreMedia.framework in Frameworks */,
+				7C993E5B19473B6A00EFB5B3 /* AVFoundation.framework in Frameworks */,
 				7C1C47FF191C41620030A85A /* CoreGraphics.framework in Frameworks */,
 				7C1C4801191C41620030A85A /* UIKit.framework in Frameworks */,
 				7C1C47FD191C41620030A85A /* Foundation.framework in Frameworks */,
@@ -150,6 +162,9 @@
 		7C1C47FB191C41620030A85A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C993E5E194777DC00EFB5B3 /* MediaPlayer.framework */,
+				7C993E5C194777C600EFB5B3 /* CoreMedia.framework */,
+				7C993E5A19473B6A00EFB5B3 /* AVFoundation.framework */,
 				7C1C47FC191C41620030A85A /* Foundation.framework */,
 				7C1C47FE191C41620030A85A /* CoreGraphics.framework */,
 				7C1C4800191C41620030A85A /* UIKit.framework */,
@@ -236,6 +251,8 @@
 				7C4156AF19412F250046A5D7 /* LikesViewController.m */,
 				7C759BDB1941973800F4B320 /* DiscoveryViewController.h */,
 				7C759BDC1941973800F4B320 /* DiscoveryViewController.m */,
+				7C993E571947390200EFB5B3 /* PlayerViewController.h */,
+				7C993E581947390200EFB5B3 /* PlayerViewController.m */,
 			);
 			name = Screens;
 			sourceTree = "<group>";
@@ -461,6 +478,7 @@
 				7CD87E8D1940B23C007E4374 /* Video.m in Sources */,
 				7C7007DB191CEECA00C0E748 /* DashboardViewController.m in Sources */,
 				7C5325F6193DD419007A52C9 /* TimeConverter.m in Sources */,
+				7C993E591947390200EFB5B3 /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

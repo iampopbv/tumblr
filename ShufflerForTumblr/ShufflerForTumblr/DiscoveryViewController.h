@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DiscoveryViewController : UIViewController //<UITableViewDelegate, UITableViewDataSource>
+@interface DiscoveryViewController : UIViewController <UITableViewDelegate, UITableViewDataSource>
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end

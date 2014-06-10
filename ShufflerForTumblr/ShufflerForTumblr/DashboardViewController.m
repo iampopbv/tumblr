@@ -72,8 +72,6 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
             [[self tableView] reloadData];
         }];
     }
-    
-    NSLog(@"%lu", [postData count]);
 }
 
 /**
