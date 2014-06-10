@@ -17,41 +17,67 @@
 @property (nonatomic, strong) IBOutlet UILabel* songName;
 @property (nonatomic, strong) IBOutlet UILabel* durationOutlet;
 @property (nonatomic, strong) IBOutlet UISlider* sliderOutlet;
+@property (nonatomic, strong) IBOutlet UIView* coverArt;
 @end
 
 AVPlayerItem* currentItem;
+int currentlyPlaingIndex = -1;
+int currentlyPlaingPostLocation = -1;
 
 @implementation PlayerViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    NSLog(@"%d", [[AppSession sharedInstance]currentlyPlayingIndex]);
-    
     self.player = [[AVPlayer alloc] init];
-//    MPMediaQuery* everything = [[MPMediaQuery alloc] init];
-//    NSArray* itemsFromGenericQuery = [everything items];
+    [self.view addSubview:self.coverArt];
     
-//    currentItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:@"http://api.soundcloud.com/tracks/36249591/stream?client_id=3cQaPshpEeLqMsNFAUw1Q"]];
-//    [self.player replaceCurrentItemWithPlayerItem:currentItem];
-//    [self.player play];
-    
-    self.songName.text = @"Title";
-    
-//    [self.sliderOutlet setMaximumValue:self.player.currentItem.duration.value/self.player.currentItem.duration.timescale];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(playerItemDidReachEnd)
+                                                 name:AVPlayerItemDidPlayToEndTimeNotification
+                                               object:nil];
     
     [self configurePlayer];
+    
+//    [self.sliderOutlet setMaximumValue:self.player.currentItem.duration.value/self.player.currentItem.duration.timescale];
 }
 
+/**
+ */
+-(void)playerItemDidReachEnd {
+    [[AppSession sharedInstance]setCurrentlyPlayingIndex:(currentlyPlaingIndex+1)];
+    currentlyPlaingIndex = [[AppSession sharedInstance]currentlyPlayingIndex];
+    
+    AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlaingIndex];
+    
+    self.songName.text = [NSString stringWithFormat:@"%@", ap.track_name];
+    self.coverArt.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]]];
+    [self.view setNeedsDisplay];
+    
+    currentItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:ap.audio_url]];
+    [self.player replaceCurrentItemWithPlayerItem:currentItem];
+    [self.player play];
+}
+
+/**
+ */
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:NO];
     int location = [[AppSession sharedInstance]currentluPlayingPostLocation];
     int current = [[AppSession sharedInstance]currentlyPlayingIndex];
     
-    AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][current];
-    currentItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:ap.audio_url]];
-    [self.player replaceCurrentItemWithPlayerItem:currentItem];
-    [self.player play];
+    if(currentlyPlaingPostLocation != location || currentlyPlaingIndex != current){
+        currentlyPlaingPostLocation = location;
+        currentlyPlaingIndex = current;
+        
+        AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][current];
+        
+        self.songName.text = [NSString stringWithFormat:@"%@", ap.track_name];
+        
+        currentItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:ap.audio_url]];
+        [self.player replaceCurrentItemWithPlayerItem:currentItem];
+        [self.player play];
+    }
 }
 
 -(IBAction)togglePlayPauseTapped:(id)sender{
@@ -65,7 +91,7 @@ AVPlayerItem* currentItem;
 }
 
 -(void)configurePlayer{
-    __block PlayerViewController * weakSelf = self;
+    __block PlayerViewController* weakSelf = self;
     
     [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1)
                                               queue:NULL

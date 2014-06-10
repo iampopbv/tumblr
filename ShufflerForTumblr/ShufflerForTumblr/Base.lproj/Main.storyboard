@@ -307,9 +307,10 @@
                                                 <rect key="frame" x="20" y="6" width="30" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                <state key="normal" title="Play">
+                                                <state key="normal" image="play_button">
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <state key="selected" image="pause_button"/>
                                             </button>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="16:30" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X7X-bJ-Pf4">
                                                 <rect key="frame" x="260" y="11" width="40" height="20"/>
@@ -343,9 +344,11 @@
                     </tabBarItem>
                     <navigationItem key="navigationItem" title="Player" id="gOF-kJ-MUo"/>
                     <connections>
+                        <outlet property="coverArt" destination="mrY-Ho-IBp" id="J4m-Ex-svJ"/>
+                        <outlet property="durationOutlet" destination="7Z1-It-vnJ" id="cr0-up-KF8"/>
                         <outlet property="sliderOutlet" destination="5B1-0U-pTu" id="syI-ke-wDV"/>
                         <outlet property="songName" destination="B5e-Zf-RqR" id="zcy-yC-sOG"/>
-                        <outlet property="togglePlayPause" destination="MXc-gr-Fsk" id="9uE-ns-Nh3"/>
+                        <outlet property="togglePlayPause" destination="MXc-gr-Fsk" id="GsT-4C-rxo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sic-dq-QPe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -522,6 +525,8 @@
         <image name="Player" width="35" height="35"/>
         <image name="Sites" width="30" height="30"/>
         <image name="logo-radio-white-x64" width="64" height="64"/>
+        <image name="pause_button" width="59" height="60"/>
+        <image name="play_button" width="59" height="60"/>
     </resources>
     <color key="tintColor" red="0.1083668586" green="0.2835475207" blue="0.46047911349999998" alpha="1" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
