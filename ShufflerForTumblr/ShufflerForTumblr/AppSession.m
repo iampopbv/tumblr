@@ -60,20 +60,33 @@ const int numToLoad = 8;
     _siteProfilePostOffset = 0;
     _discoveryPostOffset = 0;
     _likesPostOffset = 0;
+    _currentlyPlayingIndex = 0;
+    _currentluPlayingPostLocation = 0;
 }
 
 /**
  */
 -(void)resetPosts{
-    _dashboardPosts = [[NSMutableArray alloc] init];
+    _dashboardPosts = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
     _siteProfilePosts = [[NSMutableArray alloc] init];
     _discoveryPosts = [[NSMutableArray alloc] init];
     _likesPosts = [[NSMutableArray alloc] init];
 }
 
--(void)reloadDashboardPosts{
+-(void)reloadDashboardPosts:(NSArray<Post>*) posts{
     _dashboardAudioPostOffset = 0;
     _dashboardVideoPostOffset = 0;
+    
+    [self loadDashboardPosts:^(NSArray<Post>* posts){
+        [_dashboardPosts removeAllObjects];
+        [_dashboardPosts addObjectsFromArray:posts];
+    }];
+}
+
+-(void)addDashboardPosts{
+    [self loadDashboardPosts:^(NSArray<Post>* posts){
+        [self.dashboardPosts addObjectsFromArray:posts];
+    }];
 }
 
 -(void)loadDashboardPosts:(callback)callback{

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Post.h"
 
 @interface AppSession : NSObject
 
@@ -21,6 +22,9 @@ typedef void (^callback) (id);
 @property int discoveryPostOffset;
 @property int likesPostOffset;
 
+@property int currentlyPlayingIndex;
+@property int currentluPlayingPostLocation;
+
 @property NSMutableArray* dashboardPosts;
 @property NSMutableArray* siteProfilePosts;
 @property NSMutableArray* discoveryPosts;
@@ -32,8 +36,9 @@ typedef void (^callback) (id);
 -(void)resetOffsets;
 -(void)resetPosts;
 
--(void)reloadDashboardPosts;
+-(void)reloadDashboardPosts:(NSArray<Post>*) posts;
 -(void)loadDashboardPosts:(callback)callback;
+-(void)addDashboardPosts;
 -(void)loadSites:(callback)callback;
 
 @end

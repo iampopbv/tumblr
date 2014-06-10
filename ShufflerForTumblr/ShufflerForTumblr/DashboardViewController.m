@@ -24,9 +24,6 @@
 
 /**
  */
-NSMutableArray* postData;
-/**
- */
 static NSString* cellIdentifier = @"dashCell";
 /**
  */
@@ -43,14 +40,15 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     
     _tableView.delegate = self;
     
-    postData = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
     _adjustsFontSizeToFitWidth = NO;
     _numberOfLines = 0;
     
 //    [self loadNewPosts];
     
     [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
-        postData =[[NSMutableArray alloc] initWithArray:posts];
+        
+        [[AppSession sharedInstance]setDashboardPosts:[[NSMutableArray alloc] initWithArray:posts]];
+        
         [[self tableView] reloadData];
     }];
 }
@@ -58,6 +56,8 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 /**
  */
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [[AppSession sharedInstance]setCurrentlyPlayingIndex:(int)indexPath.section];
+    [[AppSession sharedInstance]setCurrentluPlayingPostLocation:0];
     [self.tabBarController setSelectedIndex:2];
 }
 
@@ -65,10 +65,17 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     CGPoint offset = aScrollView.contentOffset;
     
     if(offset.y <= -100) {
-        [[AppSession sharedInstance]reloadDashboardPosts];
+//        [[AppSession sharedInstance]reloadDashboardPosts];
+        
         [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
-            [postData removeAllObjects];
-            [postData addObjectsFromArray:posts];
+//            [postData removeAllObjects];
+//            [postData addObjectsFromArray:posts];
+            
+//            [[AppSession sharedInstance]setDashboardPosts:(NSMutableArray<Post>*)[[NSMutableArray alloc] init]];
+//            [[AppSession sharedInstance]setDashboardPosts:posts];
+            
+            [[AppSession sharedInstance]reloadDashboardPosts:posts];
+            
             [[self tableView] reloadData];
         }];
     }
@@ -79,9 +86,15 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     
     double cal = (_tableView.contentOffset.y / _tableView.rowHeight) ;
-    if (cal >= [postData count] - 7){
+    if (cal >= [[[AppSession sharedInstance]dashboardPosts] count] - 7){
+        [[AppSession sharedInstance]addDashboardPosts];
+        
         [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
-            [postData addObjectsFromArray:posts];
+            
+//            [[AppSession sharedInstance]addDashboardPosts:posts];
+            
+            [[AppSession sharedInstance]addDashboardPosts];
+            
             [[self tableView] reloadData];
         }];
     }
@@ -94,7 +107,7 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
  Number of sections in the tableview.
  */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [postData count];
+    return [[[AppSession sharedInstance]dashboardPosts] count];
 }
 
 /**
@@ -140,7 +153,8 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     /**
      Set needed objects
      */
-    AudioPost* post = [postData objectAtIndex:indexPath.section];
+//    AudioPost* post = [postData objectAtIndex:indexPath.section];
+    AudioPost* post = [[[AppSession sharedInstance]dashboardPosts] objectAtIndex:indexPath.section];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     /**
@@ -185,7 +199,8 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 /**
  */
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    AudioPost* post = [postData objectAtIndex:section];
+//    AudioPost* post = [postData objectAtIndex:section];
+    AudioPost* post = [[[AppSession sharedInstance]dashboardPosts] objectAtIndex:section];
     
     UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(sectionHeaderSize[0], sectionHeaderSize[1], sectionHeaderSize[2], sectionHeaderSize[3])];
     

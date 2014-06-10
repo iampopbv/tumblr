@@ -57,7 +57,7 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     CGPoint offset = aScrollView.contentOffset;
     
     if(offset.y <= -100) {
-        [[AppSession sharedInstance]reloadDashboardPosts];
+//        [[AppSession sharedInstance]reloadDashboardPosts];
         [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
             [postData removeAllObjects];
             [postData addObjectsFromArray:posts];
