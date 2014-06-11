@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uFX-Q2-mC2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="uFX-Q2-mC2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -341,10 +341,14 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Rk-KV-VFj">
+                            <webView contentMode="scaleToFill" fixedFrame="YES" keyboardDisplayRequiresUserAction="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Rk-KV-VFj">
                                 <rect key="frame" x="20" y="249" width="280" height="206"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <dataDetectorType key="dataDetectorTypes"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BeL-n2-Zpm" id="70c-Mc-EJ3"/>
+                                </connections>
                             </webView>
                         </subviews>
                         <color key="backgroundColor" red="0.17254901959999999" green="0.2784313725" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
@@ -360,6 +364,7 @@
                         <outlet property="songCaption" destination="0Rk-KV-VFj" id="o7o-Qi-y38"/>
                         <outlet property="songName" destination="B5e-Zf-RqR" id="zcy-yC-sOG"/>
                         <outlet property="togglePlayPause" destination="MXc-gr-Fsk" id="4Vl-1v-MOb"/>
+                        <outlet property="webView" destination="0Rk-KV-VFj" id="Shf-bZ-rGu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sic-dq-QPe" userLabel="First Responder" sceneMemberID="firstResponder"/>

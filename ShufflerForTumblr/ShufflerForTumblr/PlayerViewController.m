@@ -53,7 +53,12 @@ int currentlyPlaingPostLocation = -1;
     
     self.songName.text = [NSString stringWithFormat:@"%@", ap.track_name];
     [self.songCaption loadHTMLString:ap.caption baseURL:nil];
-    self.coverArt.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]]];
+    
+    UIGraphicsBeginImageContext(self.coverArt.frame.size);
+    [[UIImage imageNamed:ap.album_art] drawInRect:self.coverArt.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.coverArt.backgroundColor = [UIColor colorWithPatternImage:image];
     
     [self.view setNeedsDisplay];
     
@@ -75,9 +80,13 @@ int currentlyPlaingPostLocation = -1;
         
         AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][current];
         
-        self.coverArt.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]]];
-        
+        UIGraphicsBeginImageContext(self.coverArt.frame.size);
+        [[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]] drawInRect:self.coverArt.bounds];
+        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        self.coverArt.backgroundColor = [UIColor colorWithPatternImage:image];
         [self.songCaption loadHTMLString:ap.caption baseURL:nil];
+        NSLog(@"%@", ap.caption);
         
         self.songName.text = [NSString stringWithFormat:@"%@", ap.track_name];
         
@@ -129,6 +138,11 @@ int currentlyPlaingPostLocation = -1;
  */
 -(IBAction)sliderDragged:(id)sender {
     [self.player seekToTime:CMTimeMakeWithSeconds((int)(self.sliderOutlet.value) , 1)];
+}
+
+-(void)webViewDidFinishLoad:(UIWebView *)webView{
+    webView.opaque = NO;
+    webView.backgroundColor = [UIColor colorWithRed:26/255.0 green:42/255.0 blue:58/255.0 alpha:1.0];
 }
 
 /**
