@@ -101,6 +101,10 @@ NSMutableString* user;
     return [followData count];
 }
 
+-(CGFloat)tableView:(UITableView *)aTableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 48;
+}
+
 /**
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -119,7 +123,18 @@ NSMutableString* user;
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     Following* follow = [followData objectAtIndex:indexPath.row];
     
-    cell.textLabel.text = [[NSString stringWithFormat:@"%@", follow.name] uppercaseString];
+    
+    
+    [[TMAPIClient sharedInstance]avatar:follow.name size:64 callback:^(id response, NSError *error) {
+        UIImage* avatarImage = [UIImage imageWithData:response];
+        UIImageView* cellImage = [[UIImageView alloc] initWithImage:avatarImage];
+        cellImage.frame = CGRectMake(6.0, 6.0, 36.0, 36.0);
+        cellImage.layer.cornerRadius = 18;
+        cellImage.layer.masksToBounds = YES;
+        [cell addSubview:cellImage];
+    }];
+    
+    cell.textLabel.text = [[NSString stringWithFormat:@"\t  %@", follow.name] uppercaseString];
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
