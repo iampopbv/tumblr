@@ -15,6 +15,7 @@
 @property (nonatomic, strong) AVPlayer* player;
 @property (nonatomic, strong) IBOutlet UIButton* togglePlayPause;
 @property (nonatomic, strong) IBOutlet UILabel* songName;
+@property (nonatomic, strong) IBOutlet UIWebView* songCaption;
 @property (nonatomic, strong) IBOutlet UILabel* durationOutlet;
 @property (nonatomic, strong) IBOutlet UISlider* sliderOutlet;
 @property (nonatomic, strong) IBOutlet UIView* coverArt;
@@ -26,6 +27,8 @@ int currentlyPlaingPostLocation = -1;
 
 @implementation PlayerViewController
 
+/**
+ */
 - (void)viewDidLoad{
     [super viewDidLoad];
     
@@ -38,8 +41,6 @@ int currentlyPlaingPostLocation = -1;
                                                object:nil];
     
     [self configurePlayer];
-    
-//    [self.sliderOutlet setMaximumValue:self.player.currentItem.duration.value/self.player.currentItem.duration.timescale];
 }
 
 /**
@@ -51,7 +52,9 @@ int currentlyPlaingPostLocation = -1;
     AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlaingIndex];
     
     self.songName.text = [NSString stringWithFormat:@"%@", ap.track_name];
+    [self.songCaption loadHTMLString:ap.caption baseURL:nil];
     self.coverArt.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]]];
+    
     [self.view setNeedsDisplay];
     
     currentItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:ap.audio_url]];
@@ -72,14 +75,21 @@ int currentlyPlaingPostLocation = -1;
         
         AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][current];
         
+        self.coverArt.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]]];
+        
+        [self.songCaption loadHTMLString:ap.caption baseURL:nil];
+        
         self.songName.text = [NSString stringWithFormat:@"%@", ap.track_name];
         
         currentItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:ap.audio_url]];
         [self.player replaceCurrentItemWithPlayerItem:currentItem];
         [self.player play];
+        [self.togglePlayPause setSelected:YES];
     }
 }
 
+/**
+ */
 -(IBAction)togglePlayPauseTapped:(id)sender{
     if(self.togglePlayPause.selected) {
         [self.player pause];
@@ -90,6 +100,8 @@ int currentlyPlaingPostLocation = -1;
     }
 }
 
+/**
+ */
 -(void)configurePlayer{
     __block PlayerViewController* weakSelf = self;
     
@@ -107,16 +119,26 @@ int currentlyPlaingPostLocation = -1;
                                              [NSString stringWithFormat:@"%02d:%02d",currentMins,currentSec];
                                              weakSelf.durationOutlet.text = durationLabel;
                                              weakSelf.sliderOutlet.value = currentTime;
+                                             
+                                             float maxVal = (weakSelf.player.currentItem.duration.value/weakSelf.player.currentItem.duration.timescale);
+                                             [weakSelf.sliderOutlet setMaximumValue:maxVal];
                                          }];
 }
 
+/**
+ */
 -(IBAction)sliderDragged:(id)sender {
     [self.player seekToTime:CMTimeMakeWithSeconds((int)(self.sliderOutlet.value) , 1)];
 }
 
+/**
+ */
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
+
+/**
+ */
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{}
 

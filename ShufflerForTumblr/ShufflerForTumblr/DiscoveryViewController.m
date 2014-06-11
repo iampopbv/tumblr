@@ -233,10 +233,14 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 // Setup tableView
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+/**
+ */
 - (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
 }
 
+/**
+ */
 #pragma mark - Navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{}
 
