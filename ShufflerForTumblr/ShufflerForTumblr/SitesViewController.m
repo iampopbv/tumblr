@@ -121,6 +121,7 @@ NSMutableString* user;
     
     cell.textLabel.text = [[NSString stringWithFormat:@"%@", follow.name] uppercaseString];
     cell.textLabel.textColor = [UIColor whiteColor];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }

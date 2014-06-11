@@ -17,7 +17,7 @@
 #import "Post.h"
 
 @interface DashboardViewController ()
-@property (nonatomic,retain) UIRefreshControl *refreshControl;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
 
 /**
