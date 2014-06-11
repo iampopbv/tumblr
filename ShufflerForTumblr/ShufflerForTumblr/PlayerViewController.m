@@ -66,7 +66,7 @@ int currentlyPlaingPostLocation = -1;
  */
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:NO];
-    int location = [[AppSession sharedInstance]currentluPlayingPostLocation];
+    int location = [[AppSession sharedInstance]currentlyPlayingPostLocation];
     int current = [[AppSession sharedInstance]currentlyPlayingIndex];
     
     if(currentlyPlaingPostLocation != location || currentlyPlaingIndex != current){

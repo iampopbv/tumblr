@@ -23,7 +23,7 @@ typedef void (^callback) (id);
 @property int likesPostOffset;
 
 @property int currentlyPlayingIndex;
-@property int currentluPlayingPostLocation;
+@property int currentlyPlayingPostLocation;
 
 @property NSMutableArray* dashboardPosts;
 @property NSMutableArray* siteProfilePosts;
@@ -36,7 +36,7 @@ typedef void (^callback) (id);
 -(void)resetOffsets;
 -(void)resetPosts;
 
--(void)reloadDashboardPosts:(NSArray<Post>*) posts;
+-(void)reloadDashboardPosts;
 -(void)loadDashboardPosts:(callback)callback;
 -(void)addDashboardPosts;
 -(void)loadSites:(callback)callback;

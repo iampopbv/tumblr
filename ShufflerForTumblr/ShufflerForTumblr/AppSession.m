@@ -18,7 +18,7 @@
 
 /**
  */
-const int numToLoad = 8;
+static const int numToLoad = 8;
 
 /**
  */
@@ -43,6 +43,8 @@ const int numToLoad = 8;
     return self;
 }
 
+/**
+ */
 -(void)setUserInfo{
     [[TMAPIClient sharedInstance] userInfo:^(id result, NSError *error) {
         if (!error){
@@ -61,7 +63,7 @@ const int numToLoad = 8;
     _discoveryPostOffset = 0;
     _likesPostOffset = 0;
     _currentlyPlayingIndex = 0;
-    _currentluPlayingPostLocation = 0;
+    _currentlyPlayingPostLocation = 0;
 }
 
 /**
@@ -73,7 +75,7 @@ const int numToLoad = 8;
     _likesPosts = [[NSMutableArray alloc] init];
 }
 
--(void)reloadDashboardPosts:(NSArray<Post>*) posts{
+-(void)reloadDashboardPosts{
     _dashboardAudioPostOffset = 0;
     _dashboardVideoPostOffset = 0;
     

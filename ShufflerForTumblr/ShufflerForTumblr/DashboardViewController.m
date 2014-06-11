@@ -18,13 +18,12 @@
 
 @interface DashboardViewController ()
 @property (nonatomic,retain) UIRefreshControl *refreshControl;
-@property(nonatomic) BOOL adjustsFontSizeToFitWidth;
-@property(nonatomic) NSInteger numberOfLines;
 @end
 
 /**
  */
 static NSString* cellIdentifier = @"dashCell";
+
 /**
  */
 static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
@@ -38,13 +37,6 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 -(void)viewDidLoad{
     [super viewDidLoad];
     
-    _tableView.delegate = self;
-    
-    _adjustsFontSizeToFitWidth = NO;
-    _numberOfLines = 0;
-    
-//    [self loadNewPosts];
-    
     [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
         
         [[AppSession sharedInstance]setDashboardPosts:[[NSMutableArray alloc] initWithArray:posts]];
@@ -56,28 +48,24 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 /**
  */
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
     [[AppSession sharedInstance]setCurrentlyPlayingIndex:(int)indexPath.section];
-    [[AppSession sharedInstance]setCurrentluPlayingPostLocation:0];
+    
+    [[AppSession sharedInstance]setCurrentlyPlayingPostLocation:0];
+    
     [self.tabBarController setSelectedIndex:2];
 }
 
+/**
+ */
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+    
     CGPoint offset = aScrollView.contentOffset;
     
     if(offset.y <= -100) {
-//        [[AppSession sharedInstance]reloadDashboardPosts];
+        [[AppSession sharedInstance]reloadDashboardPosts];
         
-        [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
-//            [postData removeAllObjects];
-//            [postData addObjectsFromArray:posts];
-            
-//            [[AppSession sharedInstance]setDashboardPosts:(NSMutableArray<Post>*)[[NSMutableArray alloc] init]];
-//            [[AppSession sharedInstance]setDashboardPosts:posts];
-            
-            [[AppSession sharedInstance]reloadDashboardPosts:posts];
-            
-            [[self tableView] reloadData];
-        }];
+        [[self tableView] reloadData];
     }
 }
 
@@ -85,18 +73,14 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
  */
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     
-    double cal = (_tableView.contentOffset.y / _tableView.rowHeight) ;
-    if (cal >= [[[AppSession sharedInstance]dashboardPosts] count] - 7){
+    float tableCount = [[[AppSession sharedInstance]dashboardPosts] count];
+    float tableLocation = (_tableView.contentOffset.y / _tableView.rowHeight);
+    float loadPostsAfter = (tableCount - 3);
+    
+    if (tableLocation >= loadPostsAfter){
         [[AppSession sharedInstance]addDashboardPosts];
         
-        [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
-            
-//            [[AppSession sharedInstance]addDashboardPosts:posts];
-            
-            [[AppSession sharedInstance]addDashboardPosts];
-            
-            [[self tableView] reloadData];
-        }];
+        [[self tableView] reloadData];
     }
 }
 
@@ -153,7 +137,6 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     /**
      Set needed objects
      */
-//    AudioPost* post = [postData objectAtIndex:indexPath.section];
     AudioPost* post = [[[AppSession sharedInstance]dashboardPosts] objectAtIndex:indexPath.section];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -199,7 +182,6 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 /**
  */
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-//    AudioPost* post = [postData objectAtIndex:section];
     AudioPost* post = [[[AppSession sharedInstance]dashboardPosts] objectAtIndex:section];
     
     UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(sectionHeaderSize[0], sectionHeaderSize[1], sectionHeaderSize[2], sectionHeaderSize[3])];
@@ -212,7 +194,7 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     NSString* timestampString = [TimeConverter stringForTimeIntervalSinceCreated:date serverTime:currentDate];
     
     /**
-     Style the header
+     Style the header label
      */
     UILabel *headerLabel = [[UILabel alloc] initWithFrame:CGRectZero];
     headerLabel.numberOfLines = 0;
@@ -223,18 +205,17 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     headerLabel.frame = CGRectMake(sectionHeaderSize[0], sectionHeaderSize[1], sectionHeaderSize[2], sectionHeaderSize[3]);
     headerLabel.text = [NSString stringWithFormat:@"\t\t%@\n\t\t%@", post.blogName, timestampString];
     
-    UIImageView* avatarImage = [[UIImageView alloc] initWithFrame:CGRectZero];
-    [[TMAPIClient sharedInstance]avatar:@"zborowa" size:64 callback:^(id response, NSError *error) {
-        avatarImage.image = [UIImage imageWithData:response];
+    /**
+     Set the header image
+     */
+    [[TMAPIClient sharedInstance]avatar:post.blogName size:64 callback:^(id response, NSError *error) {
+        UIImage* avatarImage = [UIImage imageWithData:response];
+        UIImageView* headerImage = [[UIImageView alloc] initWithImage:avatarImage];
+        headerImage.frame = CGRectMake(6.0, 6.0, 44.0, 44.0);
+        headerImage.layer.cornerRadius = 22;
+        headerImage.layer.masksToBounds = YES;
+        [customView addSubview:headerImage];
     }];
-    [avatarImage addSubview:headerLabel];
-    
-    //UIImageView *titleImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholder.png"]];
-    NSString* avatarUrl = [NSString stringWithFormat:@"api.tumblr.com/v2/blog/%@.tumblr.com/avatar", post.blogName];
-    UIImage* avatarImg = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:avatarUrl]]];
-    UIImageView *titleImage = [[UIImageView alloc] initWithImage:avatarImg];
-    CGRect imageViewRect = CGRectMake(0.0,  0.0, 42.0 , 42.0);
-    titleImage.frame = imageViewRect;
     
     [customView addSubview:headerLabel];
     
