@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "AppSession.h"
 #import "AudioPost.h"
+#import "Regex.h"
 
 @interface PlayerViewController ()
 @property (nonatomic, strong) AVPlayer* player;
@@ -32,14 +33,20 @@ int currentlyPlaingPostLocation = -1;
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    /**
+     Set the player object
+     */
     self.player = [[AVPlayer alloc] init];
+    
+    /**
+     Add a subview to the view controller.
+     Subview contains the cover art of the song as background.
+     */
     [self.view addSubview:self.coverArt];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(playerItemDidReachEnd)
-                                                 name:AVPlayerItemDidPlayToEndTimeNotification
-                                               object:nil];
-    
+    /**
+     Configure the player
+     */
     [self configurePlayer];
 }
 
@@ -47,33 +54,19 @@ int currentlyPlaingPostLocation = -1;
  */
 -(void)playerItemDidReachEnd {
     [[AppSession sharedInstance]setCurrentlyPlayingIndex:(currentlyPlaingIndex+1)];
+    
     currentlyPlaingIndex = [[AppSession sharedInstance]currentlyPlayingIndex];
     
-    AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlaingIndex];
-    ap.caption = [self hyperlinkRegex:ap.caption];
-    ap.caption = [self imageSizeRegex:ap.caption];
-    
-    self.songName.text = [NSString stringWithFormat:@"%@", ap.track_name];
-    [self.songCaption loadHTMLString:[NSString stringWithFormat:@"<html><body text=\"#FFFFFF\" face=\"BrandonGrotesqueRegularRg\" size=\"5\">%@</body></html>", ap.caption] baseURL:nil];
-    NSLog(@"%@", ap.caption);
-    
-    UIGraphicsBeginImageContext(self.coverArt.frame.size);
-    [[UIImage imageNamed:ap.album_art] drawInRect:self.coverArt.bounds];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
-    self.coverArt.backgroundColor = [UIColor colorWithPatternImage:image];
+    [self playItem];
     
     [self.view setNeedsDisplay];
-    
-    currentItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:ap.audio_url]];
-    [self.player replaceCurrentItemWithPlayerItem:currentItem];
-    [self.player play];
 }
 
 /**
  */
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:NO];
+    
     int location = [[AppSession sharedInstance]currentlyPlayingPostLocation];
     int current = [[AppSession sharedInstance]currentlyPlayingIndex];
     
@@ -81,55 +74,57 @@ int currentlyPlaingPostLocation = -1;
         currentlyPlaingPostLocation = location;
         currentlyPlaingIndex = current;
         
-        AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][current];
-        ap.caption = [self hyperlinkRegex:ap.caption];
-        ap.caption = [self imageSizeRegex:ap.caption];
+        [self playItem];
         
-        UIGraphicsBeginImageContext(self.coverArt.frame.size);
-        [[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]] drawInRect:self.coverArt.bounds];
-        UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
-        self.coverArt.backgroundColor = [UIColor colorWithPatternImage:image];
-        
-        [self.songCaption loadHTMLString:[NSString stringWithFormat:@"<html><body text=\"#FFFFFF\" face=\"BrandonGrotesqueRegularRg\" size=\"5\">%@</body></html>", ap.caption] baseURL:nil];
-        NSLog(@"%@", ap.caption);
-        
-        self.songName.text = [NSString stringWithFormat:@"%@", ap.track_name];
-        
-        currentItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:ap.audio_url]];
-        [self.player replaceCurrentItemWithPlayerItem:currentItem];
-        [self.player play];
         [self.togglePlayPause setSelected:YES];
     }
 }
 
--(NSString*) hyperlinkRegex:(NSString*) input{
-    NSString *stringtoReplace = @"(?i)<a([^>]+)>";
+/**
+ All the settings to be able for playing a item.
+ */
+-(void)playItem{
+    /**
+     Set song object
+     */
+    AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlaingIndex];
+    ap.caption = [Regex hyperlinkRegex:ap.caption];
+    ap.caption = [Regex imageSizeRegex:ap.caption];
     
-    NSString *pattern = [NSString stringWithFormat:@"%@", stringtoReplace];
-    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
-    NSString *result = [regex stringByReplacingMatchesInString:input options:0 range:NSMakeRange(0, input.length) withTemplate:@""];
+    /**
+     Set cover art
+     */
+    UIGraphicsBeginImageContext(self.coverArt.frame.size);
+    [[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]] drawInRect:self.coverArt.bounds];
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    self.coverArt.backgroundColor = [UIColor colorWithPatternImage:image];
     
-    NSLog(@"%@", result);
-    return result;
+    /**
+     Set song name
+     */
+    self.songName.text = [[NSString stringWithFormat:@"%@", ap.track_name] uppercaseString];
+    
+    /**
+     Set song caption
+     */
+    [self.songCaption loadHTMLString:[NSString stringWithFormat:@"\
+                                      <html>\
+                                      <body text=\"#FFFFFF\" face=\"BrandonGrotesqueRegularRg\" size=\"5\">\
+                                      %@\
+                                      </body>\
+                                      </html>", ap.caption] baseURL:nil];
+    
+    /**
+     Play the item
+     */
+    currentItem = [AVPlayerItem playerItemWithURL:[NSURL URLWithString:ap.audio_url]];
+    [self.player replaceCurrentItemWithPlayerItem:currentItem];
+    [self.player play];
 }
-
--(NSString*) imageSizeRegex:(NSString*) input{
-    NSString *stringtoReplace = @"(?i)src=\"([^>]+)\"";
-    
-    NSString *pattern = [NSString stringWithFormat:@"%@", stringtoReplace];
-    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
-    //This string needs to contain the result of the regex, without it transforming.
-    NSString *template = [stringtoReplace stringByAppendingString:@" width=\"264\""];
-    
-    NSString *result = [regex stringByReplacingMatchesInString:input options:0 range:NSMakeRange(0, input.length) withTemplate:template];
-    
-    NSLog(@"%@", result);
-    return result;
-}
-
 
 /**
+ Control the state of the play pause button.
  */
 -(IBAction)togglePlayPauseTapped:(id)sender{
     if(self.togglePlayPause.selected) {
@@ -142,22 +137,39 @@ int currentlyPlaingPostLocation = -1;
 }
 
 /**
+ Configure the player specific options.
  */
 -(void)configurePlayer{
+    /**
+     weakSelf makes it possible to make use of the view controller
+     */
     __block PlayerViewController* weakSelf = self;
     
-    [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1)
-                                              queue:NULL
+    /**
+     Set the behavior of the player after song has finished.
+     */
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self
+     selector:@selector(playerItemDidReachEnd)
+     name:AVPlayerItemDidPlayToEndTimeNotification
+     object:nil];
+    
+    /**
+     Each second that the player works all the calculations are made for time control.
+     Get current song time, calculate it to minutes and seconds, set time labels.
+     */
+    [self.player addPeriodicTimeObserverForInterval:CMTimeMakeWithSeconds(1, 1)queue:NULL
                                          usingBlock:^(CMTime time) {
                                              if(!time.value) {
                                                  return;
                                              }
+                                             
                                              int currentTime = (int)((weakSelf.player.currentTime.value)/weakSelf.player.currentTime.timescale);
                                              int currentMins = (int)(currentTime/60);
                                              int currentSec  = (int)(currentTime%60);
                                              
-                                             NSString * durationLabel =
-                                             [NSString stringWithFormat:@"%02d:%02d",currentMins,currentSec];
+                                             NSString* durationLabel = [NSString stringWithFormat:@"%02d:%02d",currentMins,currentSec];
+                                             
                                              weakSelf.durationOutlet.text = durationLabel;
                                              weakSelf.sliderOutlet.value = currentTime;
                                              
@@ -167,11 +179,15 @@ int currentlyPlaingPostLocation = -1;
 }
 
 /**
+ Drag the slider component each second that the player plays.
  */
 -(IBAction)sliderDragged:(id)sender {
-    [self.player seekToTime:CMTimeMakeWithSeconds((int)(self.sliderOutlet.value) , 1)];
+    [self.player seekToTime:CMTimeMakeWithSeconds((int)(self.sliderOutlet.value), 1)];
 }
 
+/**
+ Set the background of the webview that is used for the song caption.
+ */
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     webView.opaque = NO;
     webView.backgroundColor = [UIColor colorWithRed:26/255.0 green:42/255.0 blue:58/255.0 alpha:1.0];

@@ -20,6 +20,7 @@
 		7C1C481E191C41620030A85A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C1C4800191C41620030A85A /* UIKit.framework */; };
 		7C1C4826191C41620030A85A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7C1C4824191C41620030A85A /* InfoPlist.strings */; };
 		7C1C4828191C41620030A85A /* ShufflerForTumblrTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C1C4827191C41620030A85A /* ShufflerForTumblrTests.m */; };
+		7C38ECFC194A6D4600FEB7B1 /* Regex.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C38ECFB194A6D4600FEB7B1 /* Regex.m */; };
 		7C4156B019412F250046A5D7 /* LikesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C4156AF19412F250046A5D7 /* LikesViewController.m */; };
 		7C5325F6193DD419007A52C9 /* TimeConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C5325F5193DD419007A52C9 /* TimeConverter.m */; };
 		7C7007DB191CEECA00C0E748 /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7C7007DA191CEECA00C0E748 /* DashboardViewController.m */; };
@@ -71,6 +72,8 @@
 		7C1C4823191C41620030A85A /* ShufflerForTumblrTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ShufflerForTumblrTests-Info.plist"; sourceTree = "<group>"; };
 		7C1C4825191C41620030A85A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		7C1C4827191C41620030A85A /* ShufflerForTumblrTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShufflerForTumblrTests.m; sourceTree = "<group>"; };
+		7C38ECFA194A6D4600FEB7B1 /* Regex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Regex.h; sourceTree = "<group>"; };
+		7C38ECFB194A6D4600FEB7B1 /* Regex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Regex.m; sourceTree = "<group>"; };
 		7C4156AE19412F250046A5D7 /* LikesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesViewController.h; sourceTree = "<group>"; };
 		7C4156AF19412F250046A5D7 /* LikesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesViewController.m; sourceTree = "<group>"; };
 		7C5325F4193DD419007A52C9 /* TimeConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeConverter.h; sourceTree = "<group>"; };
@@ -278,6 +281,8 @@
 			children = (
 				7C5325F4193DD419007A52C9 /* TimeConverter.h */,
 				7C5325F5193DD419007A52C9 /* TimeConverter.m */,
+				7C38ECFA194A6D4600FEB7B1 /* Regex.h */,
+				7C38ECFB194A6D4600FEB7B1 /* Regex.m */,
 			);
 			name = Elements;
 			sourceTree = "<group>";
@@ -479,6 +484,7 @@
 				7C7007DB191CEECA00C0E748 /* DashboardViewController.m in Sources */,
 				7C5325F6193DD419007A52C9 /* TimeConverter.m in Sources */,
 				7C993E591947390200EFB5B3 /* PlayerViewController.m in Sources */,
+				7C38ECFC194A6D4600FEB7B1 /* Regex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
