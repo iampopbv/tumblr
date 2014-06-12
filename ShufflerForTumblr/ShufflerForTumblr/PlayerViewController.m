@@ -50,9 +50,12 @@ int currentlyPlaingPostLocation = -1;
     currentlyPlaingIndex = [[AppSession sharedInstance]currentlyPlayingIndex];
     
     AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlaingIndex];
+    ap.caption = [self hyperlinkRegex:ap.caption];
+    ap.caption = [self imageSizeRegex:ap.caption];
     
     self.songName.text = [NSString stringWithFormat:@"%@", ap.track_name];
-    [self.songCaption loadHTMLString:ap.caption baseURL:nil];
+    [self.songCaption loadHTMLString:[NSString stringWithFormat:@"<html><body text=\"#FFFFFF\" face=\"BrandonGrotesqueRegularRg\" size=\"5\">%@</body></html>", ap.caption] baseURL:nil];
+    NSLog(@"%@", ap.caption);
     
     UIGraphicsBeginImageContext(self.coverArt.frame.size);
     [[UIImage imageNamed:ap.album_art] drawInRect:self.coverArt.bounds];
@@ -79,13 +82,16 @@ int currentlyPlaingPostLocation = -1;
         currentlyPlaingIndex = current;
         
         AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][current];
+        ap.caption = [self hyperlinkRegex:ap.caption];
+        ap.caption = [self imageSizeRegex:ap.caption];
         
         UIGraphicsBeginImageContext(self.coverArt.frame.size);
         [[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]] drawInRect:self.coverArt.bounds];
         UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
         UIGraphicsEndImageContext();
         self.coverArt.backgroundColor = [UIColor colorWithPatternImage:image];
-        [self.songCaption loadHTMLString:ap.caption baseURL:nil];
+        
+        [self.songCaption loadHTMLString:[NSString stringWithFormat:@"<html><body text=\"#FFFFFF\" face=\"BrandonGrotesqueRegularRg\" size=\"5\">%@</body></html>", ap.caption] baseURL:nil];
         NSLog(@"%@", ap.caption);
         
         self.songName.text = [NSString stringWithFormat:@"%@", ap.track_name];
@@ -96,6 +102,32 @@ int currentlyPlaingPostLocation = -1;
         [self.togglePlayPause setSelected:YES];
     }
 }
+
+-(NSString*) hyperlinkRegex:(NSString*) input{
+    NSString *stringtoReplace = @"(?i)<a([^>]+)>";
+    
+    NSString *pattern = [NSString stringWithFormat:@"%@", stringtoReplace];
+    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+    NSString *result = [regex stringByReplacingMatchesInString:input options:0 range:NSMakeRange(0, input.length) withTemplate:@""];
+    
+    NSLog(@"%@", result);
+    return result;
+}
+
+-(NSString*) imageSizeRegex:(NSString*) input{
+    NSString *stringtoReplace = @"(?i)src=\"([^>]+)\"";
+    
+    NSString *pattern = [NSString stringWithFormat:@"%@", stringtoReplace];
+    NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:NSRegularExpressionCaseInsensitive error:nil];
+    //This string needs to contain the result of the regex, without it transforming.
+    NSString *template = [stringtoReplace stringByAppendingString:@" width=\"264\""];
+    
+    NSString *result = [regex stringByReplacingMatchesInString:input options:0 range:NSMakeRange(0, input.length) withTemplate:template];
+    
+    NSLog(@"%@", result);
+    return result;
+}
+
 
 /**
  */
