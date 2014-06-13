@@ -111,6 +111,13 @@ int currentlyPlaingPostLocation = -1;
      */
     [self.songCaption loadHTMLString:[NSString stringWithFormat:@"\
                                       <html>\
+                                      <head>\
+                                      <style>\
+                                      img{\
+                                      width: 264px;\
+                                      }\
+                                      </style>\
+                                      </head>\
                                       <body text=\"#FFFFFF\" face=\"BrandonGrotesqueRegularRg\" size=\"5\">\
                                       %@\
                                       </body>\
@@ -192,6 +199,20 @@ int currentlyPlaingPostLocation = -1;
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     webView.opaque = NO;
     webView.backgroundColor = [UIColor colorWithRed:26/255.0 green:42/255.0 blue:58/255.0 alpha:1.0];
+}
+
+/**
+ */
+-(void)applicationDidEnterBackground:(UIApplication *)application{
+    [self.player pause];
+    [self.togglePlayPause setSelected:NO];
+}
+
+/**
+ */
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    [self.player play];
+    [self.togglePlayPause setSelected:YES];
 }
 
 /**
