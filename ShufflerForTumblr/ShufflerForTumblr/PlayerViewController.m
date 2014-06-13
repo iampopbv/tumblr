@@ -24,8 +24,8 @@
 @end
 
 AVPlayerItem* currentItem;
-int currentlyPlaingIndex = -1;
-int currentlyPlaingPostLocation = -1;
+int currentlyPlayingIndex = -1;
+int currentlyPlayingPostLocation = -1;
 
 @implementation PlayerViewController
 
@@ -54,9 +54,9 @@ int currentlyPlaingPostLocation = -1;
 /**
  */
 -(void)playerItemDidReachEnd {
-    [[AppSession sharedInstance]setCurrentlyPlayingIndex:(currentlyPlaingIndex+1)];
+    [[AppSession sharedInstance]setCurrentlyPlayingIndex:(currentlyPlayingIndex+1)];
     
-    currentlyPlaingIndex = [[AppSession sharedInstance]currentlyPlayingIndex];
+    currentlyPlayingIndex = [[AppSession sharedInstance]currentlyPlayingIndex];
     
     [self playItem];
     
@@ -71,9 +71,9 @@ int currentlyPlaingPostLocation = -1;
     int location = [[AppSession sharedInstance]currentlyPlayingPostLocation];
     int current = [[AppSession sharedInstance]currentlyPlayingIndex];
     
-    if(currentlyPlaingPostLocation != location || currentlyPlaingIndex != current){
-        currentlyPlaingPostLocation = location;
-        currentlyPlaingIndex = current;
+    if(currentlyPlayingPostLocation != location || currentlyPlayingIndex != current){
+        currentlyPlayingPostLocation = location;
+        currentlyPlayingIndex = current;
         
         [self playItem];
         
@@ -88,7 +88,7 @@ int currentlyPlaingPostLocation = -1;
     /**
      Set song object
      */
-    AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlaingIndex];
+    AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlayingIndex];
     ap.caption = [Regex hyperlinkRegex:ap.caption];
     ap.caption = [Regex imageSizeRegex:ap.caption];
     
