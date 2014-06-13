@@ -77,7 +77,7 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     float tableLocation = (_tableView.contentOffset.y / _tableView.rowHeight);
     float loadPostsAfter = (tableCount - 3);
     
-    if (tableLocation >= loadPostsAfter){
+    if(tableLocation >= loadPostsAfter){
         [[AppSession sharedInstance]addDashboardPosts];
         
         [[self tableView] reloadData];

@@ -20,6 +20,7 @@
 @property (nonatomic, strong) IBOutlet UILabel* durationOutlet;
 @property (nonatomic, strong) IBOutlet UISlider* sliderOutlet;
 @property (nonatomic, strong) IBOutlet UIView* coverArt;
+@property (nonatomic, weak) IBOutlet UIWebView *webView;
 @end
 
 AVPlayerItem* currentItem;

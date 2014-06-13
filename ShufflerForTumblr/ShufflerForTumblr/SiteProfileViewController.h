@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SiteProfileViewController : UIViewController
+@interface SiteProfileViewController : UIViewController<UIScrollViewDelegate>
 
 @property (strong, nonatomic) NSString* blogName;
 
