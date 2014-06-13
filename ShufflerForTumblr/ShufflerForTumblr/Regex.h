@@ -12,6 +12,4 @@
 
 +(NSString*) hyperlinkRegex:(NSString*)input;
 
-+(NSString*)imageSizeRegex:(NSString*)input;
-
 @end

@@ -89,8 +89,6 @@ int currentlyPlayingPostLocation = -1;
      Set song object
      */
     AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlayingIndex];
-    ap.caption = [Regex hyperlinkRegex:ap.caption];
-    ap.caption = [Regex imageSizeRegex:ap.caption];
     
     /**
      Set cover art
@@ -113,12 +111,24 @@ int currentlyPlayingPostLocation = -1;
                                       <html>\
                                       <head>\
                                       <style>\
+                                      @import url(http://fonts.googleapis.com/css?family=Ubuntu);\
+                                      body{\
+                                        font-size: 15px;\
+                                        font-family: 'Ubuntu', sans-serif;\
+                                        color: #FFFFFF;\
+                                      }\
                                       img{\
-                                      width: 264px;\
+                                        width: 264px;\
+                                      }\
+                                      a{\
+                                        pointer-events: none;\
+                                        cursor: default;\
+                                        color: #FFFFFF;\
+                                        text-decoration: none;\
                                       }\
                                       </style>\
                                       </head>\
-                                      <body text=\"#FFFFFF\" face=\"BrandonGrotesqueRegularRg\" size=\"5\">\
+                                      <body>\
                                       %@\
                                       </body>\
                                       </html>", ap.caption] baseURL:nil];
