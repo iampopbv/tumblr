@@ -17,7 +17,7 @@
 #import "Post.h"
 
 @interface DashboardViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
 @end
 
 /**
