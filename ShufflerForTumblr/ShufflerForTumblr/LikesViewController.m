@@ -28,27 +28,137 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 
 @implementation LikesViewController
 
+/**
+ */
+UIView* profileView;
+
+/**
+ */
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    _tableView.delegate = self;
-    _tableView.scrollEnabled = NO;
-//    _scrollView.contentSize = 
+    /**
+     Header view for the profile information
+     */
+    profileView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 140)];
+    profileView.backgroundColor = [UIColor colorWithRed:26/255.0 green:42/255.0 blue:58/255.0 alpha:1.0];
     
-    postData = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
+    /**
+     Center the avatar values
+     */
+    float avatarViewMid = ((profileView.frame.size.width / 2)-(92 / 2));
+    /**
+     Center the label
+     */
+    float labelViewMid = ((profileView.frame.size.width / 2)-(160 / 2));
     
-    [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
-        postData =[[NSMutableArray alloc] initWithArray:posts];
-        [[self tableView] reloadData];
+    /**
+     Get user info
+     */
+    [[TMAPIClient sharedInstance]userInfo:^(id response, NSError *error) {
+        _blogName = [response valueForKeyPath:@"user.name"];
+        
+        /**
+         Get the avatar
+         */
+        [[TMAPIClient sharedInstance]avatar:_blogName size:128 callback:^(id response, NSError *error) {
+            UIImage* avatarImage = [UIImage imageWithData:response];
+            UIImageView* headerImage = [[UIImageView alloc] initWithImage:avatarImage];
+            headerImage.frame = CGRectMake(avatarViewMid, 16.0, 92.0, 92.0);
+            headerImage.layer.cornerRadius = 46;
+            headerImage.layer.masksToBounds = YES;
+            [profileView addSubview:headerImage];
+        }];
+        
+        UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(labelViewMid, 90, 250, 64)];
+        [label setText:[[NSString stringWithFormat:@"%@ : %@ likes", _blogName, [response valueForKeyPath:@"user.likes"]] uppercaseString]];
+        label.textColor = [UIColor whiteColor];
+        [profileView addSubview:label];
     }];
     
-//    NSArray* paramsKeys = [[NSArray alloc] initWithObjects:nil];
-//    NSArray* paramsVals = [[NSArray alloc] initWithObjects:nil];
-//    NSDictionary *paramsDict = [[NSDictionary alloc]initWithObjects:paramsVals forKeys:paramsKeys];
-//    
-//    [[TMAPIClient sharedInstance]likes:paramsDict callback:^(id response, NSError *error) {
-//        NSLog(@"%@", response);
-//    }];
+    /**
+     TableView
+     */
+    [_tableView delegate];
+    [_tableView dataSource];
+    float tableViewMid = ((profileView.frame.size.width / 2) - (280 / 2));
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(tableViewMid, 150, 280, 600) style:UITableViewStyleGrouped];
+    self.tableView.dataSource = self;
+    self.tableView.delegate = self;
+    self.tableView.scrollEnabled = NO;
+    [[AppSession sharedInstance]loadSiteProfilePosts:^(NSArray<Post>* posts){
+        
+        [[AppSession sharedInstance]setSiteProfilePosts:[[NSMutableArray alloc] initWithArray:posts]];
+        
+        [[self tableView] reloadData];
+        NSLog(@"%f", self.tableView.frame.size.height);
+        
+        CGRect frame = self.tableView.frame;
+        frame.size.height = self.tableView.contentSize.height;
+        self.tableView.frame = frame;
+        NSLog(@"%f", self.tableView.frame.size.height);
+        
+        /**
+         Scroll view content
+         */
+        float scrollViewContentHeight = (profileView.frame.size.height + self.tableView.frame.size.height);
+        self.scrollView.bounces = YES;
+        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, scrollViewContentHeight);
+    } blog:_blogName];
+    
+    [self.scrollView addSubview:profileView];
+    [self.scrollView addSubview:self.tableView];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:NO];
+    
+    [[AppSession sharedInstance]setSiteProfileAudioPostOffset:0];
+}
+
+/**
+ */
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [[AppSession sharedInstance]setCurrentlyPlayingIndex:(int)indexPath.section];
+    
+    [[AppSession sharedInstance]setCurrentlyPlayingPostLocation:1];
+    
+    [self.tabBarController setSelectedIndex:2];
+}
+
+/**
+ */
+-(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    float scrollLocation = ((self.scrollView.contentOffset.y - profileView.frame.size.height));
+    float loadPostsAfter = (self.tableView.contentSize.height - 900);
+    
+    if(scrollLocation >= loadPostsAfter){
+        [[AppSession sharedInstance]addSiteProfilePosts:_blogName];
+        
+        [[self tableView] reloadData];
+        CGRect tableFrame = [self.tableView frame];
+        tableFrame.size.height = self.tableView.contentSize.height;
+        [self.tableView setFrame:tableFrame];
+        
+        float scrollViewContentHeight = (profileView.frame.size.height + self.tableView.contentSize.height);
+        [[self scrollView] setContentSize:CGSizeMake(self.scrollView.frame.size.width, scrollViewContentHeight)];
+        [[self scrollView] setNeedsDisplay];
+    }
+}
+
+/**
+ */
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+    
+    CGPoint offset = aScrollView.contentOffset;
+    
+    if(offset.y <= -100) {
+        [[AppSession sharedInstance]reloadSiteProfilePosts:_blogName];
+        
+        [[self tableView] reloadData];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

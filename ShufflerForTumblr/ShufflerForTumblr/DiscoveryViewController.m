@@ -33,18 +33,10 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     _tableView.delegate = self;
     postData = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
     
-    [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
-        postData =[[NSMutableArray alloc] initWithArray:posts];
+    [[AppSession sharedInstance]loadDiscoveryPosts:^(NSArray<Post>* posts){
+        [postData addObjectsFromArray:posts];
         [[self tableView] reloadData];
     }];
-    
-//    NSArray* paramsKeys = [[NSArray alloc] initWithObjects:nil];
-//    NSArray* paramsVals = [[NSArray alloc] initWithObjects:nil];
-//    NSDictionary *paramsDict = [[NSDictionary alloc]initWithObjects:paramsVals forKeys:paramsKeys];
-//    
-//    [[TMAPIClient sharedInstance]tagged:@"music" parameters:paramsDict callback:^(id response, NSError *error) {
-//        NSLog(@">>>%@", response);
-//    }];
 }
 
 /**
@@ -69,14 +61,14 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 /**
  */
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    
-    double cal = (_tableView.contentOffset.y / _tableView.rowHeight) ;
-    if (cal >= [postData count] - 7){
-        [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
+    NSLog(@"dragged");
+//    double cal = (_tableView.contentOffset.y / _tableView.rowHeight) ;
+//    if (cal >= [postData count] - 7){
+        [[AppSession sharedInstance]loadDiscoveryPosts:^(NSArray<Post>* posts){
             [postData addObjectsFromArray:posts];
             [[self tableView] reloadData];
         }];
-    }
+//    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

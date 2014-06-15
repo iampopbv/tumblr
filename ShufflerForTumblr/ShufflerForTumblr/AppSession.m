@@ -20,6 +20,7 @@
  */
 static const int numToLoad = 8;
 int testOffset = 0;
+NSTimeInterval currentTimeStamp;
 
 /**
  */
@@ -65,6 +66,7 @@ int testOffset = 0;
     _likesPostOffset = 0;
     _currentlyPlayingIndex = 0;
     _currentlyPlayingPostLocation = 0;
+    currentTimeStamp = [[NSDate date] timeIntervalSince1970];
 }
 
 /**
@@ -84,6 +86,16 @@ int testOffset = 0;
         [_dashboardPosts removeAllObjects];
         [_dashboardPosts addObjectsFromArray:posts];
     }];
+}
+
+-(void)reloadSiteProfilePosts:(NSString*)blogName{
+    _siteProfileAudioPostOffset = 0;
+    _siteProfileVideoPostOffset = 0;
+    
+    [[AppSession sharedInstance]loadSiteProfilePosts:^(NSArray<Post>* posts){
+        [_siteProfilePosts removeAllObjects];
+        [_siteProfilePosts addObjectsFromArray:posts];
+    } blog:blogName];
 }
 
 -(void)addDashboardPosts{
@@ -234,6 +246,76 @@ int testOffset = 0;
             callback(sortedPosts);
         }
 
+    }];
+}
+
+-(void)loadDiscoveryPosts:(callback)callback{
+    NSArray * paramsKeys = [[NSArray alloc] initWithObjects:@"before", @"limit", nil];
+    NSArray * paramsVals = [[NSArray alloc] initWithObjects:
+                            [[NSString alloc] initWithFormat:@"%i", (int)currentTimeStamp],
+                            [[NSString alloc] initWithFormat:@"%i", 20],
+                            nil];
+    NSDictionary *paramsDict = [[NSDictionary alloc] initWithObjects: paramsVals forKeys: paramsKeys];
+    NSMutableArray<Post> *posts = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
+    
+    [[TMAPIClient sharedInstance]tagged:@"music" parameters:paramsDict callback:^(id response, NSError *error) {
+        if (!error){
+            
+            for(NSDictionary* post in response){
+                currentTimeStamp = (int)[post valueForKeyPath:@"timestamp"];
+                
+                if([[post valueForKeyPath:@"type"] isEqualToString:@"audio"]){
+                    AudioPost* postItem     = [[AudioPost alloc]init];
+                    postItem.album          = [post valueForKeyPath:@"album"];
+                    postItem.album_art      = [post valueForKeyPath:@"album_art"];
+                    postItem.artist         = [post valueForKeyPath:@"artist"];
+                    postItem.audio_type     = [post valueForKeyPath:@"audio_type"];
+                    postItem.audio_url      = [post valueForKeyPath:@"audio_url"];
+                    postItem.blogName       = [post valueForKeyPath:@"blog_name"];
+                    postItem.can_reply      = [post valueForKeyPath:@"can_reply"];
+                    postItem.caption        = [post valueForKeyPath:@"caption"];
+                    postItem.date           = [post valueForKeyPath:@"date"];
+                    postItem.playerEmbed    = [post valueForKeyPath:@"embed"];
+                    postItem.followed       = [post valueForKeyPath:@"followed"];
+                    postItem.format         = [post valueForKeyPath:@"format"];
+                    postItem.highlighted    = [post valueForKeyPath:@"highlighted"];
+                    postItem.ID             = [post valueForKeyPath:@"id"];
+                    postItem.liked          = [post valueForKeyPath:@"liked"];
+                    postItem.note_count     = [post valueForKeyPath:@"note_count"];
+                    postItem.playerEmbed    = [post valueForKeyPath:@"player"];
+                    postItem.plays          = [post valueForKeyPath:@"plays"];
+                    postItem.postURL        = [post valueForKeyPath:@"post_url"];
+                    postItem.reblogKey      = [post valueForKeyPath:@"reblog_key"];
+                    postItem.short_url      = [post valueForKeyPath:@"short_url"];
+                    postItem.slug           = [post valueForKeyPath:@"slug"];
+                    postItem.state          = [post valueForKeyPath:@"state"];
+                    postItem.tags           = [post valueForKeyPath:@"album"];
+                    postItem.postTimestamp  = [post valueForKeyPath:@"timestamp"];
+                    postItem.track_name     = [post valueForKeyPath:@"track_name"];
+                    postItem.type           = 0;
+                    
+                    if([postItem.audio_type isEqualToString:@"tumblr"]){
+                        postItem.audio_url = [NSString stringWithFormat:@"%@%@", postItem.audio_url, @"?plead=please-dont-download-this-or-our-lawyers-wont-let-us-host-audio"];
+                    }
+                    
+                    NSString* nullString = @"(null)";
+                    NSString* trackNameString = [NSString stringWithFormat:@"%@", postItem.track_name];
+                    
+                    if([trackNameString isEqualToString:nullString]){
+                        postItem.track_name = [[NSAttributedString alloc] initWithString:@""];
+                    }
+                    
+                    [posts addObject:postItem];
+                }
+            }
+            
+            NSArray<Post> *sortedPosts;
+            // Sort the posts on timestamp
+            NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"postTimestamp" ascending: NO];
+            sortedPosts = (NSArray<Post>*)[posts sortedArrayUsingDescriptors: [NSArray arrayWithObject:sortDescriptor]];
+            
+            callback(sortedPosts);
+        }
     }];
 }
 

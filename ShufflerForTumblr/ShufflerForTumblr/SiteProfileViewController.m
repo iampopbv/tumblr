@@ -118,6 +118,8 @@ UIView* profileView;
     /**
      TableView
      */
+    [_tableView delegate];
+    [_tableView dataSource];
     float tableViewMid = ((profileView.frame.size.width / 2) - (280 / 2));
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(tableViewMid, 240, 280, 600) style:UITableViewStyleGrouped];
     self.tableView.dataSource = self;
@@ -139,7 +141,7 @@ UIView* profileView;
          Scroll view content
          */
         float scrollViewContentHeight = (profileView.frame.size.height + self.tableView.frame.size.height);
-        self.scrollView.bounces = NO;
+        self.scrollView.bounces = YES;
         self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, scrollViewContentHeight);
     } blog:_blogName];
     
@@ -168,19 +170,34 @@ UIView* profileView;
  */
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     
-    float tableCount = [[[AppSession sharedInstance]siteProfilePosts] count];
-    float tableLocation = (_tableView.contentOffset.y / _tableView.rowHeight);
-    float loadPostsAfter = (tableCount - 3);
+    float scrollLocation = ((self.scrollView.contentOffset.y - profileView.frame.size.height));
+    float loadPostsAfter = (self.tableView.contentSize.height - 900);
     
-    if(tableLocation >= loadPostsAfter){
+    if(scrollLocation >= loadPostsAfter){
         [[AppSession sharedInstance]addSiteProfilePosts:_blogName];
         
         [[self tableView] reloadData];
-        float scrollViewContentHeight = (profileView.frame.size.height + self.tableView.frame.size.height);
-        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width, scrollViewContentHeight);
+        CGRect tableFrame = [self.tableView frame];
+        tableFrame.size.height = self.tableView.contentSize.height;
+        [self.tableView setFrame:tableFrame];
+        
+        float scrollViewContentHeight = (profileView.frame.size.height + self.tableView.contentSize.height);
+        [[self scrollView] setContentSize:CGSizeMake(self.scrollView.frame.size.width, scrollViewContentHeight)];
+        [[self scrollView] setNeedsDisplay];
     }
+}
+
+/**
+ */
+- (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
     
-    NSLog(@"%f", tableCount);
+    CGPoint offset = aScrollView.contentOffset;
+    
+    if(offset.y <= -100) {
+        [[AppSession sharedInstance]reloadSiteProfilePosts:_blogName];
+        
+        [[self tableView] reloadData];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -10,7 +10,8 @@
 
 @interface LikesViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, retain) IBOutlet UIScrollView* scrollView;
+@property (strong, nonatomic) NSString* blogName;
 
 @end

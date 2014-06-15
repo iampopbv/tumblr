@@ -19,6 +19,7 @@ typedef void (^callback) (id);
 @property int dashboardVideoPostOffset;
 @property int sitesFollowingOffset;
 @property int siteProfileAudioPostOffset;
+@property int siteProfileVideoPostOffset;
 @property int discoveryPostOffset;
 @property int likesPostOffset;
 
@@ -37,11 +38,13 @@ typedef void (^callback) (id);
 -(void)resetPosts;
 
 -(void)reloadDashboardPosts;
+-(void)reloadSiteProfilePosts:(NSString*)blogName;
 -(void)loadDashboardPosts:(callback)callback;
 -(void)loadBlogInfo:(callback)callback;
 -(void)addDashboardPosts;
 -(void)addSiteProfilePosts:(NSString*)blogName;
 -(void)loadSites:(callback)callback;
 -(void)loadSiteProfilePosts:(callback)callback blog:(NSString*)blogName;
+-(void)loadDiscoveryPosts:(callback)callback;
 
 @end
