@@ -146,7 +146,7 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     UIImageView *cellBackView = [[UIImageView alloc]initWithFrame:CGRectMake(100, 0, 320, 220)];
     cellBackView.backgroundColor = [UIColor clearColor];
     cellBackView.image = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:post.album_art]]];
-    if(!cellBackView.image) cellBackView.image = [UIImage imageNamed:@"cellBackground.png"];
+    if(!cellBackView.image) cellBackView.image = [UIImage imageNamed:@"coverPlaceholder.png"];
     
     /**
      Configure cell

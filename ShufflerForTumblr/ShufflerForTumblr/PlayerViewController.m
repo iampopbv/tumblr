@@ -85,18 +85,41 @@ int currentlyPlayingPostLocation = -1;
  All the settings to be able for playing a item.
  */
 -(void)playItem{
+    
     /**
      Set song object
      */
-    AudioPost* ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlayingIndex];
+    AudioPost* ap = [[AudioPost alloc]init];
+    switch ([[AppSession sharedInstance]currentlyPlayingPostLocation]) {
+        case 1:
+            ap = [[AppSession sharedInstance]siteProfilePosts][currentlyPlayingIndex];
+            break;
+            
+        case 3:
+            ap = [[AppSession sharedInstance]discoveryPosts][currentlyPlayingIndex];
+            break;
+            
+        case 4:
+            ap = [[AppSession sharedInstance]likesPosts][currentlyPlayingIndex];
+            break;
+            
+        default:
+            ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlayingIndex];
+            break;
+    }
     
     /**
      Set cover art
      */
-    UIGraphicsBeginImageContext(self.coverArt.frame.size);
-    [[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]] drawInRect:self.coverArt.bounds];
-    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
-    UIGraphicsEndImageContext();
+    UIImage* image = [[UIImage alloc]init];
+    if(ap.album_art == nil){
+        image = [UIImage imageNamed:@"coverPlaceholder.png"];
+    }else{
+        UIGraphicsBeginImageContext(self.coverArt.frame.size);
+        [[UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:ap.album_art]]] drawInRect:self.coverArt.bounds];
+        image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+    }
     self.coverArt.backgroundColor = [UIColor colorWithPatternImage:image];
     
     /**

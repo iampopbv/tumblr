@@ -147,6 +147,23 @@ UIView* profileView;
     [self.scrollView addSubview:self.tableView];
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:NO];
+    
+    [[AppSession sharedInstance]setSiteProfileAudioPostOffset:0];
+}
+
+/**
+ */
+-(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [[AppSession sharedInstance]setCurrentlyPlayingIndex:(int)indexPath.section];
+    
+    [[AppSession sharedInstance]setCurrentlyPlayingPostLocation:1];
+    
+    [self.tabBarController setSelectedIndex:2];
+}
+
 /**
  */
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
