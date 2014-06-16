@@ -90,22 +90,45 @@ int currentlyPlayingPostLocation = -1;
      Set song object
      */
     AudioPost* ap = [[AudioPost alloc]init];
-    switch ([[AppSession sharedInstance]currentlyPlayingPostLocation]) {
-        case 1:
-            ap = [[AppSession sharedInstance]siteProfilePosts][currentlyPlayingIndex];
-            break;
-            
-        case 3:
-            ap = [[AppSession sharedInstance]discoveryPosts][currentlyPlayingIndex];
-            break;
-            
-        case 4:
-            ap = [[AppSession sharedInstance]likesPosts][currentlyPlayingIndex];
-            break;
-            
-        default:
-            ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlayingIndex];
-            break;
+    @try {
+        switch ([[AppSession sharedInstance]currentlyPlayingPostLocation]) {
+            case 1:
+                ap = [[AppSession sharedInstance]siteProfilePosts][currentlyPlayingIndex];
+                break;
+                
+            case 3:
+                ap = [[AppSession sharedInstance]discoveryPosts][currentlyPlayingIndex];
+                break;
+                
+            case 4:
+                ap = [[AppSession sharedInstance]likesPosts][currentlyPlayingIndex];
+                break;
+                
+            default:
+                ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlayingIndex];
+                break;
+        }
+    }
+    @catch (NSException *exception) {
+        [[AppSession sharedInstance]setCurrentlyPlayingIndex:0];
+        currentlyPlayingIndex = 0;
+        switch ([[AppSession sharedInstance]currentlyPlayingPostLocation]) {
+            case 1:
+                ap = [[AppSession sharedInstance]siteProfilePosts][currentlyPlayingIndex];
+                break;
+                
+            case 3:
+                ap = [[AppSession sharedInstance]discoveryPosts][currentlyPlayingIndex];
+                break;
+                
+            case 4:
+                ap = [[AppSession sharedInstance]likesPosts][currentlyPlayingIndex];
+                break;
+                
+            default:
+                ap = [[AppSession sharedInstance]dashboardPosts][currentlyPlayingIndex];
+                break;
+        }
     }
     
     /**

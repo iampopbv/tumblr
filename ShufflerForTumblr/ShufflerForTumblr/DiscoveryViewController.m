@@ -135,7 +135,7 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
      Set needed objects
      */
 //    AudioPost* post = [postData objectAtIndex:indexPath.section];
-    AudioPost* post = [[[AppSession sharedInstance]dashboardPosts] objectAtIndex:indexPath.section];
+    AudioPost* post = [[[AppSession sharedInstance]discoveryPosts] objectAtIndex:indexPath.section];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     /**
