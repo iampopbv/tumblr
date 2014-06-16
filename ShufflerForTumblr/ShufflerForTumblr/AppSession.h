@@ -20,11 +20,14 @@ typedef void (^callback) (id);
 @property int sitesFollowingOffset;
 @property int siteProfileAudioPostOffset;
 @property int siteProfileVideoPostOffset;
-@property int discoveryPostOffset;
+@property int discoveryAudioPostOffset;
+@property int discoveryVideoPostOffset;
 @property int likesPostOffset;
 
 @property int currentlyPlayingIndex;
 @property int currentlyPlayingPostLocation;
+
+@property NSTimeInterval currentTimeStamp;
 
 @property NSMutableArray* dashboardPosts;
 @property NSMutableArray* siteProfilePosts;
@@ -39,12 +42,17 @@ typedef void (^callback) (id);
 
 -(void)reloadDashboardPosts;
 -(void)reloadSiteProfilePosts:(NSString*)blogName;
+-(void)reloadDiscoveryPosts;
+
 -(void)loadDashboardPosts:(callback)callback;
 -(void)loadBlogInfo:(callback)callback;
--(void)addDashboardPosts;
--(void)addSiteProfilePosts:(NSString*)blogName;
+
 -(void)loadSites:(callback)callback;
 -(void)loadSiteProfilePosts:(callback)callback blog:(NSString*)blogName;
 -(void)loadDiscoveryPosts:(callback)callback;
+
+-(void)addDashboardPosts;
+-(void)addSiteProfilePosts:(NSString*)blogName;
+-(void)addDiscoveryPosts;
 
 @end

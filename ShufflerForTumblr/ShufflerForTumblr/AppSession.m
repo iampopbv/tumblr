@@ -20,7 +20,6 @@
  */
 static const int numToLoad = 8;
 int testOffset = 0;
-NSTimeInterval currentTimeStamp;
 
 /**
  */
@@ -62,11 +61,12 @@ NSTimeInterval currentTimeStamp;
     _dashboardVideoPostOffset = 0;
     _sitesFollowingOffset = 0;
     _siteProfileAudioPostOffset = 0;
-    _discoveryPostOffset = 0;
+    _discoveryAudioPostOffset = 0;
+    _discoveryVideoPostOffset = 0;
     _likesPostOffset = 0;
     _currentlyPlayingIndex = 0;
     _currentlyPlayingPostLocation = 0;
-    currentTimeStamp = [[NSDate date] timeIntervalSince1970];
+    _currentTimeStamp = [[NSDate date] timeIntervalSince1970];
 }
 
 /**
@@ -78,6 +78,8 @@ NSTimeInterval currentTimeStamp;
     _likesPosts = [[NSMutableArray alloc] init];
 }
 
+/**
+ */
 -(void)reloadDashboardPosts{
     _dashboardAudioPostOffset = 0;
     _dashboardVideoPostOffset = 0;
@@ -88,6 +90,22 @@ NSTimeInterval currentTimeStamp;
     }];
 }
 
+/**
+ */
+-(void)reloadDiscoveryPosts{
+    _discoveryAudioPostOffset = 0;
+    _discoveryVideoPostOffset = 0;
+    
+    _currentTimeStamp = [[NSDate date] timeIntervalSince1970];
+    
+    [self loadDiscoveryPosts:^(NSArray<Post>* posts){
+        [_discoveryPosts removeAllObjects];
+        [_discoveryPosts addObjectsFromArray:posts];
+    }];
+}
+
+/**
+ */
 -(void)reloadSiteProfilePosts:(NSString*)blogName{
     _siteProfileAudioPostOffset = 0;
     _siteProfileVideoPostOffset = 0;
@@ -98,18 +116,32 @@ NSTimeInterval currentTimeStamp;
     } blog:blogName];
 }
 
+/**
+ */
 -(void)addDashboardPosts{
     [self loadDashboardPosts:^(NSArray<Post>* posts){
         [self.dashboardPosts addObjectsFromArray:posts];
     }];
 }
 
+/**
+ */
+-(void)addDiscoveryPosts{
+    [self loadDiscoveryPosts:^(NSArray<Post>* posts){
+        [self.discoveryPosts addObjectsFromArray:posts];
+    }];
+}
+
+/**
+ */
 -(void)addSiteProfilePosts:(NSString*)blogName{
     [self loadSiteProfilePosts:^(NSArray<Post>* posts){
         [self.siteProfilePosts addObjectsFromArray:posts];
     } blog:blogName];
 }
 
+/**
+ */
 -(void)loadDashboardPosts:(callback)callback{
     NSArray * paramsKeys = [[NSArray alloc] initWithObjects:@"limit", @"offset", @"type", nil];
     NSArray * paramsVals = [[NSArray alloc] initWithObjects:
@@ -249,10 +281,12 @@ NSTimeInterval currentTimeStamp;
     }];
 }
 
+/**
+ */
 -(void)loadDiscoveryPosts:(callback)callback{
     NSArray * paramsKeys = [[NSArray alloc] initWithObjects:@"before", @"limit", nil];
     NSArray * paramsVals = [[NSArray alloc] initWithObjects:
-                            [[NSString alloc] initWithFormat:@"%i", (int)currentTimeStamp],
+                            [[NSString alloc] initWithFormat:@"%i", (int)_currentTimeStamp],
                             [[NSString alloc] initWithFormat:@"%i", 20],
                             nil];
     NSDictionary *paramsDict = [[NSDictionary alloc] initWithObjects: paramsVals forKeys: paramsKeys];
@@ -262,7 +296,6 @@ NSTimeInterval currentTimeStamp;
         if (!error){
             
             for(NSDictionary* post in response){
-                currentTimeStamp = (int)[post valueForKeyPath:@"timestamp"];
                 
                 if([[post valueForKeyPath:@"type"] isEqualToString:@"audio"]){
                     AudioPost* postItem     = [[AudioPost alloc]init];
@@ -307,6 +340,10 @@ NSTimeInterval currentTimeStamp;
                     
                     [posts addObject:postItem];
                 }
+                
+                NSLog(@"%f", _currentTimeStamp);
+                _currentTimeStamp = (int)[post valueForKeyPath:@"timestamp"];
+                NSLog(@"%f", _currentTimeStamp);
             }
             
             NSArray<Post> *sortedPosts;

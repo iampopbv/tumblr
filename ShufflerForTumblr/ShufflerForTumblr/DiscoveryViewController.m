@@ -17,7 +17,7 @@
 
 /**
  */
-NSMutableArray* postData;
+//NSMutableArray* postData;
 /**
  */
 static NSString* cellIdentifier = @"discCell";
@@ -31,10 +31,13 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     [super viewDidLoad];
     
     _tableView.delegate = self;
-    postData = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
+//    postData = (NSMutableArray<Post>*)[[NSMutableArray alloc] init];
     
     [[AppSession sharedInstance]loadDiscoveryPosts:^(NSArray<Post>* posts){
-        [postData addObjectsFromArray:posts];
+//        [postData addObjectsFromArray:posts];
+        
+        [[AppSession sharedInstance]setDiscoveryPosts:[[NSMutableArray alloc] initWithArray:posts]];
+        
         [[self tableView] reloadData];
     }];
 }
@@ -42,33 +45,40 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 /**
  */
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    [[AppSession sharedInstance]setCurrentlyPlayingIndex:(int)indexPath.section];
+    
+    [[AppSession sharedInstance]setCurrentlyPlayingPostLocation:3];
+    
     [self.tabBarController setSelectedIndex:2];
 }
 
+/**
+ */
 - (void)scrollViewDidScroll:(UIScrollView *)aScrollView {
+    
     CGPoint offset = aScrollView.contentOffset;
     
     if(offset.y <= -100) {
-//        [[AppSession sharedInstance]reloadDashboardPosts];
-        [[AppSession sharedInstance]loadDashboardPosts:^(NSArray<Post>* posts){
-            [postData removeAllObjects];
-            [postData addObjectsFromArray:posts];
-            [[self tableView] reloadData];
-        }];
+        [[AppSession sharedInstance]reloadDiscoveryPosts];
+        
+        [[self tableView] reloadData];
     }
 }
 
 /**
  */
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    NSLog(@"dragged");
-//    double cal = (_tableView.contentOffset.y / _tableView.rowHeight) ;
-//    if (cal >= [postData count] - 7){
-        [[AppSession sharedInstance]loadDiscoveryPosts:^(NSArray<Post>* posts){
-            [postData addObjectsFromArray:posts];
-            [[self tableView] reloadData];
-        }];
-//    }
+    
+    float tableCount = [[[AppSession sharedInstance]discoveryPosts] count];
+    float tableLocation = (_tableView.contentOffset.y / _tableView.rowHeight);
+    float loadPostsAfter = (tableCount - 3);
+    
+    if(tableLocation >= loadPostsAfter){
+        [[AppSession sharedInstance]addDiscoveryPosts];
+        
+        [[self tableView] reloadData];
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -78,7 +88,8 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
  Number of sections in the tableview.
  */
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return [postData count];
+//    return [postData count];
+    return [[[AppSession sharedInstance]discoveryPosts] count];
 }
 
 /**
@@ -111,9 +122,6 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
  Style and content of the cells.
  */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    NSLog(@"%lu", [postData count]);
-    
     /**
      Transparent tableView background
      */
@@ -126,7 +134,8 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
     /**
      Set needed objects
      */
-    AudioPost* post = [postData objectAtIndex:indexPath.section];
+//    AudioPost* post = [postData objectAtIndex:indexPath.section];
+    AudioPost* post = [[[AppSession sharedInstance]dashboardPosts] objectAtIndex:indexPath.section];
     UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     /**
@@ -171,7 +180,8 @@ static const float sectionHeaderSize[4] = {0.0, 0.0, 320.0, 56.0};
 /**
  */
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    AudioPost* post = [postData objectAtIndex:section];
+//    AudioPost* post = [postData objectAtIndex:section];
+    AudioPost* post = [[[AppSession sharedInstance]discoveryPosts] objectAtIndex:section];
     
     UIView *customView = [[UIView alloc] initWithFrame:CGRectMake(sectionHeaderSize[0], sectionHeaderSize[1], sectionHeaderSize[2], sectionHeaderSize[3])];
     
